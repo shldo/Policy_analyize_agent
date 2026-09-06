@@ -16,3 +16,15 @@ jobs:
       - run: pip install ruff
       - run: ruff check .
       - run: ruff format --check .
+  benchmark-contracts:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "pytest>=8.3,<9" "pytest-asyncio>=0.24,<1"
+      - run: python -m pytest -q tests/test_benchmark_dataset.py

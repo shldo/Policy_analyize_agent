@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "dataset_version": "policy-benchmark-v1-draft",
+  "corpus_version": "policy-five-v1",
+  "status": "draft",
+  "scope": "all_public_approved_documents_exact_manifest",
+  "page_numbering": "physical_1_based",
+  "normalization": "NFKC and whitespace only; no fuzzy matching",
+  "sampling": "coverage-driven pilot; not a production-frequency sample; legacy topics retained in development",
+  "documents": [
+    {
+      "filename": "Australia_Responsible_AI_Government_v2.pdf",
+      "sha256": "94beda4e6e9f61e0dd5d5f17b45b18cf6015b20fd9aabe41d20318f725273c11",
+      "provenance_status": "legacy_copy_official_bytes_unverified"
+    },
+    {
+      "filename": "Australia_AI_Transparency_Standard_v2.pdf",
+      "sha256": "bcd3a3cac366fce0d5b0f003ebaee7d66e5062020e204ed500d21d7ad1d99af1",
+      "provenance_status": "official_download_hash_recorded"
+    },
+    {
+      "filename": "Australia_AI_Staff_Training_v2.pdf",
+      "sha256": "7d81ab99a6d9239613ddee0370d034772335b75a3199c2316d5f568080d637c7",
+      "provenance_status": "official_download_hash_recorded"
+    },
+    {
+      "filename": "Australia_AI_Technical_Standard_2025.pdf",
+      "sha256": "fe44df0eb40e1d438125f5f46293fb2bd01a84abdec2fdaadf066abc0fcd2c24",
+      "provenance_status": "official_download_hash_recorded"
+    },
+    {
+      "filename": "Singapore_Model_AI_Governance_Framework_Agentic_AI.pdf",
+      "sha256": "2636e19ff1c86e862394d2fc900592e97b83c04cc35e3c8443108114b7f1dfba",
+      "provenance_status": "legacy_copy_official_bytes_unverified"
+    }
+  ],
+  "limitations": [
+    "Assistant-authored, no independent human review yet",
+    "19 new held-out candidates; not yet run against retrieval",
+    "Absence labels are candidates, not established by empty retrieval",
+    "Cross-document comparisons are not claimed as multi-hop reasoning",
+    "Known anchor coverage is not exhaustive relevant-chunk recall"
+  ]
+}
+
