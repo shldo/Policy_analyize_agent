@@ -5,24 +5,61 @@ from datetime import UTC, datetime
 from pathlib import Path
 from time import perf_counter
 
-# Labels are known evidence, not exhaustive relevance judgments.
+# Labels are manually reviewed evidence spans. This small development set is
+# versioned because overlapping chunks can contain the same answer.
+LABEL_VERSION = "v3"
 CASES = [
-    ("AU01", "How often must agencies review their AI transparency statements?",
-     "20b225ff-f607-4607-9f95-593e2d430d12", "reviewed and updated annually"),
-    ("AU02", "Who must agencies notify when publishing or changing an AI transparency statement, and how?",
-     "20b225ff-f607-4607-9f95-593e2d430d12", "emailing ai@dta.gov.au"),
-    ("AU03", "Within what period must agencies develop a strategic position on AI adoption?",
-     "20b225ff-f607-4607-9f95-593e2d430d12", "within 6 months"),
-    ("AU04", "How frequently must agencies share their AI use case register with the DTA?",
-     "2658730a-006d-46ee-946c-fdc0a5ac6fc2", "every 6 months"),
-    ("AU05", "When must mandatory responsible AI training be implemented, and which staff does it cover?",
-     "072b16bc-e451-4627-944e-82eefc48dd28", "within 12 months"),
-    ("TR01", "According to the staff training guidance, how long does the AI fundamentals module take?",
-     "f8542e0f-f7bf-41dd-aaab-7edb19c7094b", "20 to 30 minutes"),
-    ("TS01", "Does the transparency standard require agencies to list individual AI use cases publicly?",
-     "2853d499-4844-4f19-bb7b-c7e52ce8f4d4", "not required to list individual use cases"),
-    ("TS02", "What two classification dimensions must agencies list in their AI transparency statements?",
-     "9ef7ed5c-7e13-4ff2-93a0-38f235505302", "both the usage patterns and domains"),
+    ("AU01", "How often must agencies review their AI transparency statements?", [
+        ("20b225ff-f607-4607-9f95-593e2d430d12", "reviewed and updated annually", "Australia_Responsible_AI_Government_v2.pdf", 10),
+        ("ddb8cae3-4b72-475e-9cce-af7ca45b2efc", "at least once a year", "Australia_AI_Transparency_Standard_v2.pdf", 4),
+        ("2853d499-4844-4f19-bb7b-c7e52ce8f4d4", "at least once a year", "Australia_AI_Transparency_Standard_v2.pdf", 4),
+    ]),
+    ("AU02", "Who must agencies notify when publishing or changing an AI transparency statement, and how?", [
+        ("20b225ff-f607-4607-9f95-593e2d430d12", "notify the DTA", "Australia_Responsible_AI_Government_v2.pdf", 10),
+        ("2853d499-4844-4f19-bb7b-c7e52ce8f4d4", "send the DTA a link", "Australia_AI_Transparency_Standard_v2.pdf", 5),
+    ]),
+    ("AU03", "Within what period must agencies develop a strategic position on AI adoption?", [
+        ("20b225ff-f607-4607-9f95-593e2d430d12", "within 6 months", "Australia_Responsible_AI_Government_v2.pdf", 10),
+        ("443fef01-b409-4109-8df8-6a5509a742cc", "within 6 months", "Australia_Responsible_AI_Government_v2.pdf", 10),
+    ]),
+    ("AU04", "How frequently must agencies share their AI use case register with the DTA?", [
+        ("443fef01-b409-4109-8df8-6a5509a742cc", "every 6 months", "Australia_Responsible_AI_Government_v2.pdf", 11),
+        ("2658730a-006d-46ee-946c-fdc0a5ac6fc2", "every 6 months", "Australia_Responsible_AI_Government_v2.pdf", 11),
+    ]),
+    ("AU05", "When must mandatory responsible AI training be implemented, and which staff does it cover?", [
+        ("072b16bc-e451-4627-944e-82eefc48dd28", "mandatory training for all staff", "Australia_Responsible_AI_Government_v2.pdf", 13),
+    ]),
+    ("TR01", "According to the staff training guidance, how long does the AI fundamentals module take?", [
+        ("f8542e0f-f7bf-41dd-aaab-7edb19c7094b", "20 to 30 minutes", "Australia_AI_Staff_Training_v2.pdf", 5),
+    ]),
+    ("TS01", "Does the transparency standard require agencies to list individual AI use cases publicly?", [
+        ("2853d499-4844-4f19-bb7b-c7e52ce8f4d4", "not required to list individual use cases", "Australia_AI_Transparency_Standard_v2.pdf", 5),
+    ]),
+    ("TS02", "What two classification dimensions must agencies list in their AI transparency statements?", [
+        ("9ef7ed5c-7e13-4ff2-93a0-38f235505302", "both the usage patterns and domains", "Australia_AI_Transparency_Standard_v2.pdf", 7),
+    ]),
+    ("TECH01", "When does Criterion 22 require watermarking, and what must it provide?", [
+        ("eded4eb6-f9d0-4c97-b806-9b5949379ddf", "may directly impact a user", "Australia_AI_Technical_Standard_2025.pdf", 43),
+        ("70b0c220-6dc5-477c-a4bd-fa639d369eff", "may directly impact a user", "Australia_AI_Technical_Standard_2025.pdf", 43),
+    ]),
+    ("TECH02", "Which version management practice is required under Statement 7?", [
+        ("4c7f00d8-6cee-4e41-9fbf-a8e603d353b5", "end-to-end development lifecycle", "Australia_AI_Technical_Standard_2025.pdf", 15),
+        ("959ef8c3-624e-4cbc-be65-9b5d39fdd7d9", "end-to-end development lifecycle", "Australia_AI_Technical_Standard_2025.pdf", 15),
+        ("48029500-fe00-4122-ac94-945b38e98d3f", "end-to-end development lifecycle", "Australia_AI_Technical_Standard_2025.pdf", 41),
+        ("9cf1194d-95a2-46c8-bb3d-5bfcfdc3f0f9", "end-to-end development lifecycle", "Australia_AI_Technical_Standard_2025.pdf", 41),
+    ]),
+    ("SG01", "Which protocols does the framework name for agent-to-tool and agent-to-agent communication?", [
+        ("ffa72801-931f-48f6-882f-b19cfc704dc7", "Model Context Protocol (MCP)", "Singapore_Model_AI_Governance_Framework_Agentic_AI.pdf", 7),
+        ("dd2e70ca-b2c5-419c-a0b6-b7005eb17dc8", "Model Context Protocol (MCP)", "Singapore_Model_AI_Governance_Framework_Agentic_AI.pdf", 7),
+    ]),
+    ("SG02", "Why should organisations prefer deterministic limits over prompt-only limits for agents?", [
+        ("dda82648-b86e-455d-bc5d-19735e045471", "prefer deterministic rather than non-deterministic limits", "Singapore_Model_AI_Governance_Framework_Agentic_AI.pdf", 19),
+        ("f2ceef44-ff2c-411a-b473-4e0c016a04c2", "prefer deterministic rather than non-deterministic limits", "Singapore_Model_AI_Governance_Framework_Agentic_AI.pdf", 19),
+    ]),
+    ("SG03", "What three design patterns does the framework list for multi-agent systems?", [
+        ("dd2e70ca-b2c5-419c-a0b6-b7005eb17dc8", "Three simple design patterns for multi-agent systems", "Singapore_Model_AI_Governance_Framework_Agentic_AI.pdf", 8),
+        ("a310c127-811b-4acc-ae1c-5e61477046e1", "Three simple design patterns for multi-agent systems", "Singapore_Model_AI_Governance_Framework_Agentic_AI.pdf", 8),
+    ]),
 ]
 
 
@@ -65,11 +102,19 @@ def main() -> None:
 
     pool = snapshot()
     lookup = {str(row["id"]): row for row in pool}
-    for case_id, _, chunk_id, quote in CASES:
-        if chunk_id not in lookup or quote not in lookup[chunk_id]["text"]:
-            raise ValueError(f"Stale or invalid evidence label: {case_id}")
+    for case_id, _, evidence in CASES:
+        for chunk_id, quote, filename, physical_page in evidence:
+            row = lookup.get(chunk_id)
+            if (
+                row is None
+                or quote not in row["text"]
+                or filename != row["original_filename"]
+                or not row["page_start"] <= physical_page <= row["page_end"]
+            ):
+                raise ValueError(f"Stale or invalid evidence label: {case_id}/{chunk_id}")
     results = []
-    for case_id, question, chunk_id, _ in CASES:
+    for case_id, question, evidence in CASES:
+        gold = {chunk_id for chunk_id, _, _, _ in evidence}
         start = perf_counter()
         vector = embedding.vector_literal(embedding.embed_query(question))
         dense = embedding_repository.retrieve_all(vector, limit=20)
@@ -82,9 +127,13 @@ def main() -> None:
         if set(dense_ids) != set(ranked_ids):
             raise ValueError("Reranker changed candidate membership")
         item = {
-            "id": case_id, "question": question, "label": chunk_id,
-            "dense": score(dense_ids, {chunk_id}),
-            "rerank": score(ranked_ids, {chunk_id}),
+            "id": case_id, "question": question,
+            "evidence": [
+                {"chunk_id": chunk_id, "quote": quote, "filename": filename, "physical_page": page}
+                for chunk_id, quote, filename, page in evidence
+            ],
+            "dense": score(dense_ids, gold),
+            "rerank": score(ranked_ids, gold),
             "dense_ids": dense_ids, "rerank_ids": ranked_ids,
             "dense_seconds": dense_seconds, "rerank_seconds": rerank_seconds,
         }
@@ -94,7 +143,8 @@ def main() -> None:
         raise RuntimeError("Corpus changed during evaluation; discard this run")
     report = {
         "created_at": datetime.now(UTC).isoformat(), "split": "development_draft",
-        "limitations": "8 authored questions; partial labels; no held-out test; cold start included in timings",
+        "label_version": LABEL_VERSION,
+        "limitations": "13 authored questions; manually reviewed known-equivalent spans; no held-out test; cold start included in timings",
         "corpus_sha256": fingerprint(pool), "cases_sha256": fingerprint(CASES),
         "chunks": len(pool), "documents": len({r['sha256'] for r in pool}),
         "embedding_model": embedding.active_model_id(),

@@ -5,15 +5,23 @@
 来源：Australia_Responsible_AI_Government_v2.pdf，SHA256：94BEDA4E6E9F61E0DD5D5F17B45B18CF6015B20FD9AABE41D20318F725273C11。
 当前文档 ID：2a37798a-ba31-474c-867a-daf75e90e8bd。当前库只有该文档、17 个片段。
 
-以下答案依据数据库已解析原文核对；页码是片段覆盖的 PDF 物理页范围，尚未逐页视觉确认，不等同于精确证据所在页。属于开发草案，待人工复核，不能作为独立测试集或简历指标依据。
+以下答案依据数据库文本和原 PDF 视觉抽查核对；“证据页”是关键句所在的 PDF 物理页，不再用跨页片段的 page_start 代替。属于开发草案，不能作为独立测试集或简历指标依据。
 
-| ID | Question | 参考答案要点 | 当前相关片段 ID / 页范围 |
+| ID | Question | 参考答案要点 | 已复核证据页 / 等价片段数 |
 |---|---|---|---|
-| AU01 | How often must agencies review and update their AI transparency statements, and what triggers an earlier review? | 每年；AI 方法发生重大变化时提前更新。 | 20b225ff-f607-4607-9f95-593e2d430d12 / 9–10 |
-| AU02 | Who must agencies notify when publishing or changing an AI transparency statement, and how? | 通知 DTA；通过 ai@dta.gov.au。 | 20b225ff-f607-4607-9f95-593e2d430d12 / 9–10 |
-| AU03 | Within what period must agencies develop a strategic position on AI adoption? | 政策生效后 6 个月内；向员工传达战略立场。 | 20b225ff-f607-4607-9f95-593e2d430d12 / 9–10 |
-| AU04 | How frequently must agencies share their AI use case register with the DTA? | 每 6 个月；从为满足要求而建立登记册时开始。 | 2658730a-006d-46ee-946c-fdc0a5ac6fc2 / 11–12 |
-| AU05 | When must mandatory responsible AI training be implemented, and which staff does it cover? | 政策生效后 12 个月内；所有员工。 | 072b16bc-e451-4627-944e-82eefc48dd28 / 12–13 |
+| AU01 | How often must agencies review their AI transparency statements? | 每年；配套标准另列重大变化和影响准确性的新因素。 | 主政策 p10、透明度标准 p4 / 3 |
+| AU02 | Who must agencies notify when publishing or changing an AI transparency statement, and how? | 通知 DTA；发送声明链接至 ai@dta.gov.au。 | 主政策 p10、透明度标准 p5 / 2 |
+| AU03 | Within what period must agencies develop a strategic position on AI adoption? | 政策生效后 6 个月内。 | 主政策 p10 / 2 |
+| AU04 | How frequently must agencies share their AI use case register with the DTA? | 每 6 个月；从建立登记册满足要求时开始。 | 主政策 p11 / 2 |
+| AU05 | When must mandatory responsible AI training be implemented, and which staff does it cover? | 政策生效后 12 个月内；所有员工。 | 主政策 p13 / 1 |
+| TR01 | According to the staff training guidance, how long does the AI fundamentals module take? | 约 20–30 分钟。 | 培训指南 p5 / 1 |
+| TS01 | Does the transparency standard require agencies to list individual AI use cases publicly? | 不要求，但可自愿提供更多细节。 | 透明度标准 p5 / 1 |
+| TS02 | What two classification dimensions must agencies list in their AI transparency statements? | 适用的 usage patterns 与 domains。 | 透明度标准 p7 / 1 |
+| TECH01 | When does Criterion 22 require watermarking, and what must it provide? | AI 生成内容可能直接影响用户时，使用视觉水印和元数据提供透明度、来源和作者信息。 | 技术标准 p43 / 2 |
+| TECH02 | Which version management practice is required under Statement 7? | 对端到端开发生命周期实施版本管理。 | 技术标准 p15、p41 / 4 |
+| SG01 | Which protocols does the framework name for agent-to-tool and agent-to-agent communication? | MCP 用于 agent 与工具通信；A2A 用于 agent 间通信。 | 新加坡框架 p7 / 2 |
+| SG02 | Why should organisations prefer deterministic limits over prompt-only limits for agents? | 通过访问控制等设计时边界阻止工具调用；提示词限制不可靠时增加监控或人工审核。 | 新加坡框架 p19 / 2 |
+| SG03 | What three design patterns does the framework list for multi-agent systems? | Sequential、Supervisor、Swarm。 | 新加坡框架 p8 / 2 |
 
 ## 拒答候选题
 
@@ -23,7 +31,7 @@
 
 ## 标注和评测约束
 
-1. 人工复核原 PDF 的原句、页码及所有等价相关片段；当前单个片段标签可能不穷尽相关集合。
+1. 标签 v2 已复核当前题目的明确答案句、物理页码和重叠片段；仍不保证覆盖语义更宽泛的所有相关片段。
 2. 冻结语料清单、文件哈希、分块参数、embedding 模型和 contextual header 状态；重新分块后必须重新映射片段 ID。
 3. 同一问题只取一次 dense 候选，分别比较原始排序与该候选集重排结果；直接调用重排器，失败须单独记录，不能将静默回退算作重排成功。
 4. 记录候选 Recall@20、最终 Recall@5、MRR@10，明确截断和无命中规则；没有完整相关标签时先称作已标注证据 Hit@K，不冒充完整 Recall。

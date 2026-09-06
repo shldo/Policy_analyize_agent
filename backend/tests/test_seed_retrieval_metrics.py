@@ -18,6 +18,12 @@ def test_missing_label_and_empty_results():
     assert score(["other"], {"gold"})["rr_at_10"] == 0
 
 
+def test_first_equivalent_evidence_is_scored():
+    result = score(["other", "equivalent-b", "equivalent-a"], {"equivalent-a", "equivalent-b"})
+    assert result["first_label_rank"] == 2
+    assert result["rr_at_10"] == 0.5
+
+
 def test_invalid_inputs():
     with pytest.raises(ValueError):
         score(["a", "a"], {"a"})
