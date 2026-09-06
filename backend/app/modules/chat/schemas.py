@@ -67,6 +67,7 @@ class Citation(BaseModel):
     chunk_id: UUID | None = None
     source_url: str | None = None
     page: int | None = None
+    page_end: int | None = None
     quote: str | None = None
     # "document" (selected/library/imported document chunk) or "web" (a live
     # web search result that was never imported). Defaults to "document" for

@@ -82,6 +82,7 @@ def retrieve_context_node(state: PDFQAState) -> dict:
                 "title": chunk.get("doc_title") or chunk["file"],
                 "chunk_id": chunk["chunk_id"],
                 "page": chunk["page_start"],
+                "page_end": chunk.get("page_end") or chunk["page_start"],
                 "quote": chunk["text"][:500],
             }
             for chunk in relevant_chunks

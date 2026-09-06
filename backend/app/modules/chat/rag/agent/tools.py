@@ -56,6 +56,7 @@ def _document_citation(chunk: dict) -> dict:
         "title": chunk.get("doc_title") or chunk.get("file"),
         "chunk_id": chunk.get("chunk_id"),
         "page": chunk.get("page_start") or chunk.get("page"),
+        "page_end": chunk.get("page_end") or chunk.get("page_start") or chunk.get("page"),
         "quote": (chunk.get("text") or "")[:500],
         "source_type": "document",
         # Which EvidenceSource tier found this (see agent/state.py) — router.py

@@ -2167,7 +2167,9 @@ export default function ChatPage({
                           fontWeight: 600,
                         }}
                       >
-                        Page {c.page}
+                        Page {c.page_end != null && c.page_end !== c.page
+                          ? `${c.page}-${c.page_end}`
+                          : c.page}
                       </Box>
                     </Box>
                   )}
@@ -2224,7 +2226,9 @@ export default function ChatPage({
                           "&:hover": { borderColor: accentColor, bgcolor: accentLight },
                         }}
                       >
-                        Open PDF{c.page != null ? ` at page ${c.page}` : ""}
+                        Open PDF{c.page != null
+                          ? ` at page ${c.page}${c.page_end != null && c.page_end !== c.page ? `-${c.page_end}` : ""}`
+                          : ""}
                       </Button>
                     </Box>
                   )}

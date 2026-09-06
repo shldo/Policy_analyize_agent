@@ -131,7 +131,9 @@ function CitationCard({ citation, index, onOpenSource, lowEvidence = false }) {
           </Box>
           {citation.page != null && (
             <Typography variant="caption" sx={{ color: "text.secondary", fontSize: 11 }}>
-              Page {citation.page}
+              Page {citation.page_end != null && citation.page_end !== citation.page
+                ? `${citation.page}-${citation.page_end}`
+                : citation.page}
             </Typography>
           )}
         </Box>
