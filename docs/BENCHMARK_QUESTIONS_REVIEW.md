@@ -486,5 +486,3 @@ Which cloud GPU instance type must every Australian agency use under the AI tech
 主题组：technical-compute。审核：待人工复核。
 
 缺失证据审核方法：Review the technical standard and full corpus for a universally mandatory instance SKU; generic compute requirements are insufficient.
-
-

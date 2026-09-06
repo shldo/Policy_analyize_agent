@@ -14,6 +14,14 @@
 
 ## 文件与扩展契约
 
+实跑记录（2026-09-06）：源码提交 5adde10；报告
+backend/data/evaluation/benchmark_20260906T132336373288Z.json。
+13 道历史可回答开发题完成 Dense/本地 rerank 对照，Hit@5 均 13/13，
+MRR@10 分别为 0.8333/1.0000；开发拒答候选 DEV-NEG01 明确未评分。
+语料快照前后相同；全部 19 道 test 候选未执行检索。
+这次仅验收新入口和开发回归，没有产生独立测试集成绩。新旧题集的标签结构不同，
+不能仅凭同分认定两套指标在所有情况下等价。12 项相关契约/指标测试通过，Ruff 通过。
+
 源数据：backend/evaluation/datasets/policy-v1/manifest.json 和 questions.jsonl。
 代码：backend/evaluation/dataset.py、run.py。
 人工阅读版：docs/BENCHMARK_QUESTIONS_REVIEW.md。
@@ -97,4 +105,3 @@ docker compose --env-file .env.local exec -T backend python -m evaluation.run --
 - SQuAD 2.0 相关但不可回答的问题：https://arxiv.org/abs/1806.03822
 
 这些来源提供原则，不规定本项目题量和比例。本数据集是项目定制格式，不声称直接兼容 BEIR/Ragas 导入接口。
-
