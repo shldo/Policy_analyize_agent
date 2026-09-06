@@ -104,9 +104,8 @@ def rerank(question: str, chunks: list[dict], *, limit: int) -> list[dict]:
 def _merge(partial: dict) -> RerankingConfig:
     current = active_config().model_dump()
     merged = {**current, **{k: v for k, v in partial.items() if v is not None}}
-    provider_changed = (
-        "api_provider" in partial
-        and partial.get("api_provider") != current.get("api_provider")
+    provider_changed = "api_provider" in partial and partial.get("api_provider") != current.get(
+        "api_provider"
     )
     if not (partial.get("api_key") or "").strip() and not provider_changed:
         merged["api_key"] = current.get("api_key", "")

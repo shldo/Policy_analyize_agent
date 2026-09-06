@@ -314,8 +314,7 @@ class EmbeddingRepository:
         table, dim = _active_table_dim()
         cast = _vector_type(dim)
         values_sql = ", ".join(
-            f"({query_index}, %s::{cast})"
-            for query_index in range(len(query_vectors))
+            f"({query_index}, %s::{cast})" for query_index in range(len(query_vectors))
         )
         with get_connection() as connection:
             if not _table_exists(connection, table):

@@ -60,9 +60,7 @@ def _tools_for(
         available = ALL_TOOLS if is_admin else NON_ADMIN_TOOLS
     counts = tool_call_counts or {}
     return [
-        tool
-        for tool in available
-        if counts.get(tool.name, 0) < TOOL_CALL_LIMITS.get(tool.name, 1)
+        tool for tool in available if counts.get(tool.name, 0) < TOOL_CALL_LIMITS.get(tool.name, 1)
     ]
 
 
@@ -223,11 +221,7 @@ def _messages_for_current_turn(messages: list) -> list:
         message
         for message in messages[:latest_human_index]
         if isinstance(message, HumanMessage)
-        or (
-            isinstance(message, AIMessage)
-            and not message.tool_calls
-            and bool(message.content)
-        )
+        or (isinstance(message, AIMessage) and not message.tool_calls and bool(message.content))
     ]
     return [*conversational_history, *messages[latest_human_index:]]
 

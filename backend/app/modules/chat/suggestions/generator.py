@@ -102,8 +102,12 @@ def _history_questions(history: list[dict] | None) -> set[str]:
     }
 
 
-def _clean_candidates(raw_candidates: list[str], history: list[dict] | None, cfg: SuggestionConfig,
-                      original_question: str) -> list[str]:
+def _clean_candidates(
+    raw_candidates: list[str],
+    history: list[dict] | None,
+    cfg: SuggestionConfig,
+    original_question: str,
+) -> list[str]:
     seen = _history_questions(history)
     seen.add(_normalize(original_question))
     cleaned: list[str] = []
@@ -234,11 +238,9 @@ def _validated_candidates(
                     if future.result():
                         passed_indices.add(index)
 
-    return [
-        candidate
-        for index, candidate, _ in distance_survivors
-        if index in passed_indices
-    ][: cfg.max_suggestions]
+    return [candidate for index, candidate, _ in distance_survivors if index in passed_indices][
+        : cfg.max_suggestions
+    ]
 
 
 def generate_followup_suggestions(

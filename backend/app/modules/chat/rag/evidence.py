@@ -19,6 +19,7 @@ def max_vector_distance() -> float:
     except Exception:
         return MAX_VECTOR_DISTANCE
 
+
 # Reranker score threshold. Local bge-reranker returns logits ~[-10, 10] (calibrated
 # floor -7.0); an API reranker returns [0, 1] (floor ~0.2). The live value is
 # provider-aware and admin-tunable via Manage > Reranker (min_reranker_score()).
@@ -32,6 +33,7 @@ def min_reranker_score() -> float:
         return reranking.min_reranker_score()
     except Exception:
         return MIN_RERANKER_SCORE
+
 
 REASON_NO_TEXT = "No extractable text was found in the selected documents."
 REASON_LOW_RELEVANCE = (

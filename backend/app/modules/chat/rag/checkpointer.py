@@ -1,15 +1,17 @@
 from __future__ import annotations
 
+from langgraph.checkpoint.base import BaseCheckpointSaver
+from langgraph.checkpoint.memory import MemorySaver
 from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
 
 from app.core.config import get_settings
 from app.core.database import normalise_database_url
 
-_saver: AsyncPostgresSaver | None = None
+_saver: BaseCheckpointSaver | None = None
 _connection_cm = None
 
 
-async def init_checkpointer() -> AsyncPostgresSaver:
+async def init_checkpointer() -> BaseCheckpointSaver:
     """Open the persistent Postgres-backed LangGraph checkpointer.
 
     Uses langgraph-checkpoint-postgres's own `.setup()` (idempotent) to create
@@ -25,7 +27,11 @@ async def init_checkpointer() -> AsyncPostgresSaver:
     global _saver, _connection_cm
     if _saver is not None:
         return _saver
-    dsn = normalise_database_url(get_settings().database_url)
+    settings = get_settings()
+    if not settings.database_enabled or settings.persistence_backend != "database":
+        _saver = MemorySaver()
+        return _saver
+    dsn = normalise_database_url(settings.database_url)
     _connection_cm = AsyncPostgresSaver.from_conn_string(dsn)
     _saver = await _connection_cm.__aenter__()
     await _saver.setup()
@@ -40,7 +46,7 @@ async def close_checkpointer() -> None:
     _connection_cm = None
 
 
-def get_checkpointer() -> AsyncPostgresSaver:
+def get_checkpointer() -> BaseCheckpointSaver:
     if _saver is None:
         raise RuntimeError("Checkpointer not initialized — call init_checkpointer() at startup.")
     return _saver
