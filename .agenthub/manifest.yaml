@@ -1,0 +1,20 @@
+version: 1
+project: policy-research-agent
+
+# This file records preferred context. It does not grant security permissions.
+knowledge:
+  shared: []
+  project:
+    - docs/
+
+skills:
+  preferred: []
+
+tools:
+  preferred: []
+
+agents:
+  codex:
+    entry: AGENTS.md
+  claude:
+    entry: CLAUDE.md

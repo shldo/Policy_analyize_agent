@@ -1,0 +1,34 @@
+# Python
+# Local secrets (keep configuration examples)
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.key
+*.pem
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Backend local configuration and runtime data
+backend/.env
+backend/data/
+.env.production
+
+# Node/Vite
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Logs and local editor state
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Local coursework proposal; not part of the public code distribution
+/proposal.pdf

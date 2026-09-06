@@ -1,0 +1,87 @@
+services:
+
+  db:
+    image: ankane/pgvector:latest
+    ports:
+      - "${DB_BIND_ADDRESS:-127.0.0.1}:${DB_PORT:-5432}:5432"
+    environment:
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-breadsqlpassword}
+      POSTGRES_DB: testdb
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      # Schema is applied automatically on first start (files run in filename order)
+      - ./backend/database/init.sql:/docker-entrypoint-initdb.d/01_init.sql:ro
+      - ./backend/database/migrations/001_add_answer_mode.sql:/docker-entrypoint-initdb.d/02_migration_001.sql:ro
+      - ./backend/database/migrations/002_add_model_to_chat_messages.sql:/docker-entrypoint-initdb.d/03_migration_002.sql:ro
+      - ./backend/database/migrations/003_fix_policymaker_response_mode.sql:/docker-entrypoint-initdb.d/04_migration_003.sql:ro
+      # 004/005 are idempotent and no-op on a fresh DB (init.sql already has them),
+      # but keep the initdb sequence complete. NOTE: initdb.d only runs on a FRESH
+      # volume -- an existing pg_data volume must have new migrations applied manually.
+      - ./backend/database/migrations/004_add_policy_taxonomy.sql:/docker-entrypoint-initdb.d/05_migration_004.sql:ro
+      - ./backend/database/migrations/005_documents_sha256_unique.sql:/docker-entrypoint-initdb.d/06_migration_005.sql:ro
+      - ./backend/database/migrations/006_add_embedding_settings.sql:/docker-entrypoint-initdb.d/07a_migration_006_embedding_settings.sql:ro
+      - ./backend/database/migrations/007_add_reranking_settings.sql:/docker-entrypoint-initdb.d/08_migration_007.sql:ro
+      - ./backend/database/migrations/008_add_model_catalog.sql:/docker-entrypoint-initdb.d/09_migration_008.sql:ro
+      - ./backend/database/migrations/009_add_model_providers.sql:/docker-entrypoint-initdb.d/10_migration_009.sql:ro
+      - ./backend/database/migrations/010_update_deepseek_v4_catalog.sql:/docker-entrypoint-initdb.d/11_migration_010.sql:ro
+      - ./backend/database/migrations/011_add_document_import_tracking.sql:/docker-entrypoint-initdb.d/12_migration_011.sql:ro
+      - ./backend/database/migrations/012_add_reasoning_trace_to_chat_messages.sql:/docker-entrypoint-initdb.d/13_migration_012.sql:ro
+      - ./backend/database/migrations/013_add_agent_mode_to_chat_messages.sql:/docker-entrypoint-initdb.d/14_migration_013.sql:ro
+      - ./backend/database/migrations/014_fix_agent_mode_nullable.sql:/docker-entrypoint-initdb.d/15_migration_014.sql:ro
+      - ./backend/database/migrations/015_add_evidence_source_to_chat_messages.sql:/docker-entrypoint-initdb.d/16_migration_015.sql:ro
+      - ./backend/database/migrations/016_evidence_source_to_list.sql:/docker-entrypoint-initdb.d/17_migration_016.sql:ro
+      - ./backend/database/migrations/017_add_suggestions.sql:/docker-entrypoint-initdb.d/18_migration_017.sql:ro
+      - ./backend/database/migrations/018_add_token_usage_to_chat_messages.sql:/docker-entrypoint-initdb.d/19_migration_018.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U appuser -d testdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - ${APP_ENV_FILE:-.env.production}
+    environment:
+      HOME: /app/data
+      HF_HOME: /app/data/model_cache/huggingface
+      DATABASE_ENABLED: "true"
+      DATABASE_URL: postgresql+asyncpg://appuser:${DB_PASSWORD:-breadsqlpassword}@db:5432/testdb
+    volumes:
+      - ./backend/data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=5)"
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+
+  web:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "${WEB_BIND_ADDRESS:-127.0.0.1}:${WEB_PORT:-80}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  pg_data:
+  caddy_data:
+  caddy_config:
