@@ -20,3 +20,19 @@
 在 backend 环境运行 `python -m evaluation.run --run --split development --compare-hybrid --code-version <commit>`。执行器禁止在 test split 使用本实验开关。源文档位于 data/source_documents，需要已配置数据库和缓存的本地 embedding/reranker。
 
 下一阶段：待本轮结果记录后，在固定检索配置下开展生成答案的完整性、引用支持性与证据不足行为评测；不把检索命中率称为回答准确率。
+
+## 实测结果（2026-09-07）
+
+报告：`backend/data/evaluation/benchmark_20260907T033441395971Z.json`；代码 `1dea15377a9f444355dffae0996ed25d4557beb7`。13 道 development 全部完成，未运行 test。数据与语料快照哈希均与 v4 首测一致，运行前后未变化。
+
+| 方法 | 全部证据@5 | 证据组覆盖率@20 | MRR@10 |
+| --- | ---: | ---: | ---: |
+| Dense | 100% | 100% | 0.8333 |
+| Dense + reranker | 100% | 100% | 0.9231 |
+| BM25 | 92.31% | 100% | 0.7718 |
+| RRF hybrid | 100% | 100% | 0.8269 |
+| RRF hybrid + reranker | 100% | 100% | 0.9231 |
+
+本轮未显示混合方案优于原方案，不接入应用主流程。开发集存在明显天花板，不能据此证明混合检索无价值，也不能宣称额外提升。DEV-SG01 的纯 BM25 前 5 未命中；DEV-AU01/02 重排后的首个已标注证据排名从 1 降为 2，其他若干题改善，提示重排不是逐题单调改善。
+
+24 项检查通过，Ruff 与格式检查通过；同步测试因禁用插件自动加载存在一条 asyncio_mode 警告。后续扩充有业务依据的开发问题；不得直接将已观察 test 题改写后当成新的独立测试。
