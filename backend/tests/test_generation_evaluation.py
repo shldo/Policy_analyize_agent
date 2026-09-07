@@ -3,7 +3,15 @@ from copy import deepcopy
 import pytest
 
 from evaluation.dataset import digest
-from evaluation.generation import build_packets, citation_checks
+from evaluation.generation import build_packets, citation_checks, select_packets
+
+
+def test_offset_selection_does_not_repeat_collected_cases():
+    packets = [{"question_id": str(i)} for i in range(5)]
+    assert [p["question_id"] for p in select_packets(packets, 3, 10)] == ["3", "4"]
+    for offset, limit in [(-1, 1), (5, 1), (0, 0)]:
+        with pytest.raises(ValueError):
+            select_packets(packets, offset, limit)
 
 
 def fixture():

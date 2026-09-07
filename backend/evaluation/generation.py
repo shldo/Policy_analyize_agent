@@ -67,6 +67,12 @@ def citation_checks(answer, source_count):
     }
 
 
+def select_packets(packets, offset, limit):
+    if offset < 0 or limit < 1 or offset >= len(packets):
+        raise ValueError("Invalid or empty generation selection")
+    return sorted(packets, key=lambda p: p["question_id"])[offset : offset + limit]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--retrieval-report", type=Path, required=True)
@@ -81,6 +87,9 @@ def main():
         "--limit", type=int, default=3, help="First N development cases, fixed ID order"
     )
     parser.add_argument("--code-version", required=True)
+    parser.add_argument(
+        "--offset", type=int, default=0, help="Skip N IDs without calling the model"
+    )
     args = parser.parse_args()
     if args.limit < 1:
         parser.error("--limit must be positive")
@@ -94,6 +103,7 @@ def main():
     packets = sorted(
         build_packets(manifest, cases, retrieval, pool), key=lambda p: p["question_id"]
     )
+    selected = select_packets(packets, args.offset, args.limit)
     report = {
         "created_at": datetime.now(UTC).isoformat(),
         "code_version": args.code_version,
@@ -101,7 +111,12 @@ def main():
         "dataset_sha256": retrieval["dataset_sha256"],
         "corpus_snapshot_sha256": snapshot_hash,
         "scope": "development fixed retrieved-context generation; not full agent end-to-end",
-        "selection": "first N question IDs; smoke test, not representative accuracy estimate",
+        "selection": {
+            "order": "question_id",
+            "offset": args.offset,
+            "limit": args.limit,
+            "selected_ids": [p["question_id"] for p in selected],
+        },
         "status": "running" if args.run else "prepared_no_api_calls",
         "semantic_scores": None,
         "results": [],
@@ -133,7 +148,7 @@ def main():
             "max_retries": 0,
             "web_search": False,
         }
-    for packet in packets[: args.limit]:
+    for packet in selected:
         if args.run:
             sources = packet["request"]["sources"]
             context, truncated = format_context(sources)
