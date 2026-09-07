@@ -82,7 +82,12 @@ def main():
         "--allow-draft", action="store_true", help="Exploratory run, not final scores"
     )
     parser.add_argument("--code-version", help="Host git commit SHA for an executed benchmark")
+    parser.add_argument(
+        "--compare-hybrid", action="store_true", help="Development-only BM25/RRF ablation"
+    )
     args = parser.parse_args()
+    if args.compare_hybrid and (not args.run or args.split != "development"):
+        parser.error("--compare-hybrid requires --run --split development")
     manifest, cases = load_dataset(args.dataset)
     anchors = verify_sources(manifest, cases, args.sources)
     report = {
@@ -125,6 +130,25 @@ def main():
             "candidate_k": 20,
             "final_k": 5,
         }
+        if args.compare_hybrid:
+            from evaluation.hybrid import (
+                BM25_B,
+                BM25_K1,
+                RRF_CONSTANT,
+                BM25Index,
+                reciprocal_rank_fusion,
+            )
+
+            lexical_index = BM25Index(pool)
+            config["hybrid"] = {
+                "bm25_k1": BM25_K1,
+                "bm25_b": BM25_B,
+                "rrf_constant": RRF_CONSTANT,
+                "branch_k": 20,
+                "fused_k": 20,
+                "tokenizer": "NFKC lowercase ASCII alphanumeric; no stopwords or stemming",
+                "scope": "same frozen public approved chunk pool; in-memory evaluation only",
+            }
         if {r["embedding_model"] for r in pool} != {config["embedding_model"]}:
             raise ValueError("Stored embedding model does not match query model")
         report.update(
@@ -157,12 +181,32 @@ def main():
             dense_seconds = perf_counter() - start
             start = perf_counter()
             ranked = rerank_chunks(case["question"], dense, limit=20)
+            rerank_seconds = perf_counter() - start
             dense_ids = [str(r["chunk_id"]) for r in dense]
             ranked_ids = [str(r["chunk_id"]) for r in ranked]
             if set(dense_ids) != set(ranked_ids):
                 raise ValueError("Reranker changed candidate membership")
+            mode_ids = {"dense": dense_ids, "rerank": ranked_ids}
+            extra = {}
+            if args.compare_hybrid:
+                start = perf_counter()
+                lexical = lexical_index.search(case["question"], limit=20)
+                fused = reciprocal_rank_fusion([dense, lexical], limit=20)
+                extra["hybrid_seconds"] = perf_counter() - start
+                start = perf_counter()
+                hybrid_ranked = rerank_chunks(case["question"], fused, limit=20)
+                extra["hybrid_rerank_seconds"] = perf_counter() - start
+                for name, rows in (
+                    ("bm25", lexical),
+                    ("hybrid", fused),
+                    ("hybrid_rerank", hybrid_ranked),
+                ):
+                    mode_ids[name] = [str(row["chunk_id"]) for row in rows]
+                    extra[name + "_ids"] = mode_ids[name]
+                if set(mode_ids["hybrid"]) != set(mode_ids["hybrid_rerank"]):
+                    raise ValueError("Hybrid reranker changed candidate membership")
             scores = {}
-            for mode, ids in (("dense", dense_ids), ("rerank", ranked_ids)):
+            for mode, ids in mode_ids.items():
                 scores[mode] = {}
                 for k in (5, 10, 20):
                     scores[mode].update(score_groups(ids, resolved[case["question_id"]], k))
@@ -173,9 +217,14 @@ def main():
                     "dense_ids": dense_ids,
                     "rerank_ids": ranked_ids,
                     "dense_seconds": dense_seconds,
-                    "rerank_seconds": perf_counter() - start,
+                    "rerank_seconds": rerank_seconds,
+                    **extra,
                     "scores": scores,
                 }
+            )
+            print(
+                f"Completed {case['question_id']} ({len(report['results'])}/{len(scored)})",
+                flush=True,
             )
         if not report["results"]:
             raise ValueError("No answerable cases for retrieval scoring")
@@ -189,7 +238,7 @@ def main():
                 / len(report["results"])
                 for metric in report["results"][0]["scores"][mode]
             }
-            for mode in ("dense", "rerank")
+            for mode in report["results"][0]["scores"]
         }
     args.output.mkdir(parents=True, exist_ok=True)
     path = args.output / (datetime.now(UTC).strftime("benchmark_%Y%m%dT%H%M%S%fZ.json"))

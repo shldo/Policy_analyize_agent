@@ -27,4 +27,4 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install "pytest>=8.3,<9" "pytest-asyncio>=0.24,<1"
-      - run: python -m pytest -q tests/test_benchmark_dataset.py
+      - run: python -m pytest -q tests/test_benchmark_dataset.py tests/test_hybrid_evaluation.py
