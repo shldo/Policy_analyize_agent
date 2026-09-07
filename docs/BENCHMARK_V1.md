@@ -1,5 +1,46 @@
 # 可扩展政策评测 v1
 
+## 当前修订：v3 草稿（2026-09-07）
+
+当前默认目录为 backend/evaluation/datasets/policy-v3，schema_version=2。
+共 31 题（13 development / 18 test）：29 answerable、2 unresolved_candidate，
+没有 unanswerable_confirmed。TEST-20、DEV-NEG01 已退休；TEST-17 的迁移历史见 manifest.id_history。
+原 v1/v2 文件保留，加载器仍支持 schema 1；旧 answerable=false 只解释为未决候选。
+
+旧开发参考答案已补全，重点包括更新触发条件、DTA 邮箱与发布/更新事件、登记册起算时间、
+培训 12 个月期限、水印用途及适用条件、MCP/A2A、确定性限制的理由和三种多 Agent 模式。
+必要证据组随答案要点调整，因此 v3 评分口径不能与旧版本直接当作系统性能提升比较。
+每题新增 reference_answer_checks 的四项字段及 required_answer_points。
+字段完整不等于语义正确，全部修订题仍为 draft，需逐题确认。
+
+TEST-18/19 的 reference_answer=null，不提供未经确认的 gold refusal。
+confirmed 必须有 absence_review_record（reviewed_by、reviewed_at、method=human_full_corpus、
+document_sha256s 覆盖全部语料）。只有候选转为已确认且完成人工签署才可做正式拒答评分。
+当前工具只做检索评测，报告分别列出 unresolved_not_scored 与 unanswerable_not_scored。
+
+manifest.response_policy 规定：清楚的问题缺少证据时限定 provided corpus/available material；
+仅在歧义改变检索目标时澄清。该规范尚未修改或验收应用的实际回答行为。
+本地新加坡 PDF 已找到，文件哈希与 manifest 相同；审阅者未收到附件不等于源文件缺失。
+审核清单含本地原文直接链接，官方溯源状态不变。
+
+本轮校验：5 份 PDF 哈希及 43 个原文/物理页锚点通过，报告为
+backend/data/evaluation/benchmark_20260907T022653269359Z.json。
+17 项契约/指标测试通过；本机 pytest 7.4.4 禁用外部插件运行，产生一条 asyncio_mode
+配置提示（这些是纯同步测试）。相关 Ruff 检查通过。
+Docker 当前未运行，v3 新锚点到数据库片段的映射尚未重新验证；旧 v1 的映射通过记录
+不能替代此次验证。没有执行 v3 检索或生成评分，也没有把作者复核标成独立人工复核。
+
+## 历史修订：v2 草稿（2026-09-07）
+
+按用户业务评审：TEST-04 从机构名称查找改为既有合规义务与 AI 政策关系判断；
+TEST-15 从澳新不对等比较改为同一部署任务下的影响评估与测试核验要求；
+TEST-20 因统一强制 GPU SKU 的前提不自然而移除，不补同类陷阱题。
+当前为 32 题（14 development / 18 test），29 道可回答、3 道不可回答候选。
+新版本目录为 backend/evaluation/datasets/policy-v2，运行入口默认 v2。
+v1 文件及历史结果保留；下文数量、哈希与成绩均属于 v1 历史记录。
+新题仍为 draft，用户对旧题的评审不等于批准改写后的题目；不运行测试排序。
+当前人工阅读清单为 BENCHMARK_QUESTIONS_REVIEW.md。
+
 ## 本轮实际交付
 
 - 版本化 JSONL 33 题：14 development / 19 test 候选；其中 29 题可回答、4 题不可回答候选。

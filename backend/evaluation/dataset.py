@@ -15,6 +15,17 @@ def digest(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True, default=str).encode()).hexdigest()
 
 
+def answerability(case):
+    """Legacy false labels were candidates, never confirmed absence findings."""
+    if "answerability" in case:
+        return case["answerability"]
+    return "answerable" if case["answerable"] else "unresolved_candidate"
+
+
+def is_answerable(case):
+    return answerability(case) == "answerable"
+
+
 def load_dataset(path):
     path = Path(path)
     manifest = json.loads((path / "manifest.json").read_text(encoding="utf-8"))
@@ -28,7 +39,7 @@ def load_dataset(path):
 
 
 def validate(manifest, cases):
-    if manifest["schema_version"] != 1 or not cases:
+    if manifest["schema_version"] not in {1, 2} or not cases:
         raise ValueError("Unsupported schema or empty dataset")
     documents = manifest["documents"]
     if not documents or len({d["sha256"] for d in documents}) != len(documents):
@@ -48,13 +59,57 @@ def validate(manifest, cases):
         questions.add(normalize(case["question"]).casefold())
         if case["split"] not in {"development", "test"}:
             raise ValueError("Unknown split")
-        if type(case["answerable"]) is not bool:
-            raise ValueError("answerable must be boolean")
+        if manifest["schema_version"] == 1:
+            if type(case["answerable"]) is not bool:
+                raise ValueError("answerable must be boolean")
+        else:
+            if "answerable" in case or case.get("answerability") not in {
+                "answerable",
+                "unanswerable_confirmed",
+                "unresolved_candidate",
+            }:
+                raise ValueError("Schema 2 requires unambiguous three-state answerability")
+            checks = case.get("reference_answer_checks", {})
+            if set(checks) != {
+                "subject",
+                "action",
+                "condition_or_trigger",
+                "timeframe_or_exception",
+            }:
+                raise ValueError("Four answer-completeness fields required")
+            if any(
+                v is not None and (not isinstance(v, str) or not v.strip()) for v in checks.values()
+            ):
+                raise ValueError("Answer checks must be nonblank text or explicit null")
+            if is_answerable(case) and (not checks["subject"] or not checks["action"]):
+                raise ValueError("Answerable cases require subject and action checks")
+            if is_answerable(case) and not case.get("required_answer_points"):
+                raise ValueError("Answerable cases need required answer points")
+            if answerability(case) == "unresolved_candidate":
+                if case.get("reference_answer") is not None or case["review_status"] == "reviewed":
+                    raise ValueError(
+                        "Unresolved candidates cannot have gold answers or final review"
+                    )
+            if answerability(case) == "unanswerable_confirmed":
+                audit = case.get("absence_review_record", {})
+                if (
+                    not audit.get("reviewed_by")
+                    or not audit.get("reviewed_at")
+                    or audit.get("method") != "human_full_corpus"
+                    or set(audit.get("document_sha256s", [])) != hashes
+                ):
+                    raise ValueError("Confirmed absence requires human review of entire corpus")
         if case["review_status"] not in {"draft", "reviewed"}:
             raise ValueError("Unknown review status")
-        for field in ("question", "category", "rationale", "reference_answer", "leakage_group"):
+        for field in ("question", "category", "rationale", "leakage_group"):
             if not isinstance(case[field], str) or not case[field].strip():
                 raise ValueError(f"Missing {field}: {key}")
+        if manifest["schema_version"] == 1 or answerability(case) != "unresolved_candidate":
+            if (
+                not isinstance(case.get("reference_answer"), str)
+                or not case["reference_answer"].strip()
+            ):
+                raise ValueError(f"Missing reference_answer: {key}")
         if case["language"] != "en" or case["corpus_version"] != manifest["corpus_version"]:
             raise ValueError("Language or corpus version mismatch")
         group = case["leakage_group"]
@@ -64,9 +119,9 @@ def validate(manifest, cases):
         if case["review_status"] == "reviewed" and not case.get("reviewed_by"):
             raise ValueError("Reviewed questions need a reviewer")
         evidence = case["evidence_groups"]
-        if case["answerable"] != bool(evidence):
+        if is_answerable(case) != bool(evidence):
             raise ValueError("Answerability/evidence mismatch")
-        if not case["answerable"] and not case.get("absence_review"):
+        if not is_answerable(case) and not case.get("absence_review"):
             raise ValueError("Unanswerable question needs absence review instructions")
         group_ids = set()
         for item in evidence:

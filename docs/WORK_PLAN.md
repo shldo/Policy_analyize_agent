@@ -6,6 +6,10 @@
 
 ### 执行更新：本地启动阶段
 
+2026-09-07 答案与三态修订：根据用户第二轮评审新增 policy-v3/schema 2，补齐旧开发参考答案和必要证据组，增加主体/action/condition-or-trigger/timeframe-or-exception 检查字段。退休 DEV-NEG01，保留 TEST-18/19 为 unresolved_candidate（reference_answer=null），confirmed 要求人工作出的全文复核记录。当前 31 题（13 dev/18 test），未运行新测试排序。补原文链接、编号历史和语料受限的证据不足回答预期；未修改应用回答提示词。
+
+2026-09-07 业务评审修订：用户指出 TEST-04 偏机构名阅读理解、TEST-15 跨文档配对刻意、TEST-20 缺乏真实业务前提。新增 policy-v2 草稿，改写前两题并移除 TEST-20，保留 v1；当前 32 题（14 development / 18 test），新表述仍待复核，测试排序继续不运行。详细改写与证据见 BENCHMARK_QUESTIONS_REVIEW.md。
+
 2026-09-06 可扩展评测首版：新增 backend/evaluation，版本化清单和 JSONL 共 33 题（14 development / 19 test 候选）。13 道旧开发题不进入 test。文件 SHA256、物理页和文本锚点替代固定 chunk UUID，支持必要证据分组和等价锚点；38 个锚点通过源 PDF 校验，29 道可回答题均解析到当前 202 个片段。新增题为助手编写 draft，人工复核和不可回答的全文缺失审核仍待完成；测试集未运行排序。新入口实跑 13 道旧开发题，Hit@5 两路均 13/13，MRR@10 0.8333/1.0000；不是独立测试结果。12 项契约/指标测试与 Ruff 通过，CI 新增无数据库/模型/密钥的评测契约检查。详见 BENCHMARK_V1.md 和 BENCHMARK_QUESTIONS_REVIEW.md。下一步为标签复核、继续补齐覆盖，再冻结 test 首测。
 
 2026-09-06 CI 与本地测试修复：修复 Ruff 超长行及 21 个未格式化文件，`ruff check .` 与 `ruff format --check .` 均通过；推送提交 `32bb7ff` 至 GitHub main。补齐 `PERSISTENCE_BACKEND=memory` 时使用 LangGraph `MemorySaver` 的启动分支，避免本地无数据库时强制连接 PostgreSQL。容器后端重建并 healthy；无数据库的测试环境中 190 项通过、5 项跳过，12 项仍属于需要真实数据库凭据的集成测试，未纳入本轮 CI 修复。

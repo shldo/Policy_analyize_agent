@@ -7,7 +7,15 @@ from datetime import UTC, datetime
 from pathlib import Path
 from time import perf_counter
 
-from evaluation.dataset import digest, load_dataset, resolve_groups, score_groups, verify_sources
+from evaluation.dataset import (
+    answerability,
+    digest,
+    is_answerable,
+    load_dataset,
+    resolve_groups,
+    score_groups,
+    verify_sources,
+)
 
 
 def snapshot():
@@ -52,7 +60,7 @@ def check_pool(manifest, pool, documents):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--dataset", type=Path, default=Path(__file__).parent / "datasets/policy-v1"
+        "--dataset", type=Path, default=Path(__file__).parent / "datasets/policy-v3"
     )
     parser.add_argument("--sources", type=Path, default=Path("data/source_documents"))
     parser.add_argument("--output", type=Path, default=Path("data/evaluation"))
@@ -73,6 +81,7 @@ def main():
         "dataset_sha256": digest({"manifest": manifest, "cases": cases}),
         "mode": "validation",
         "split_counts": dict(Counter(c["split"] for c in cases)),
+        "answerability_counts": dict(Counter(answerability(c) for c in cases)),
         "source_anchors_verified": anchors,
         "semantic_review": "not implied by text-anchor validation",
         "test_rankings_observed": False,
@@ -80,7 +89,7 @@ def main():
     if args.database or args.run:
         pool, documents = snapshot()
         check_pool(manifest, pool, documents)
-        resolved = {c["question_id"]: resolve_groups(c, pool) for c in cases if c["answerable"]}
+        resolved = {c["question_id"]: resolve_groups(c, pool) for c in cases if is_answerable(c)}
         report.update(
             {
                 "chunks": len(pool),
@@ -121,14 +130,19 @@ def main():
                 "config": config,
                 "timing_note": "Includes cold start; not a latency benchmark",
                 "unanswerable_not_scored": [
-                    c["question_id"] for c in selected if not c["answerable"]
+                    c["question_id"]
+                    for c in selected
+                    if answerability(c) == "unanswerable_confirmed"
+                ],
+                "unresolved_not_scored": [
+                    c["question_id"] for c in selected if answerability(c) == "unresolved_candidate"
                 ],
                 "limitations": manifest["limitations"],
                 "results": [],
             }
         )
         for case in selected:
-            if not case["answerable"]:
+            if not is_answerable(case):
                 continue
             start = perf_counter()
             vector = embedding.vector_literal(embedding.embed_query(case["question"]))
