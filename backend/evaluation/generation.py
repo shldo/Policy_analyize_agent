@@ -8,6 +8,7 @@ from pathlib import Path
 from time import perf_counter
 
 from evaluation.dataset import digest, load_dataset
+from evaluation.prompt_variants import apply_variant
 from evaluation.run import check_pool, snapshot
 
 
@@ -88,6 +89,9 @@ def main():
     )
     parser.add_argument("--code-version", required=True)
     parser.add_argument(
+        "--prompt-variant", choices=["baseline", "completeness-v1"], default="baseline"
+    )
+    parser.add_argument(
         "--offset", type=int, default=0, help="Skip N IDs without calling the model"
     )
     args = parser.parse_args()
@@ -119,6 +123,7 @@ def main():
         },
         "status": "running" if args.run else "prepared_no_api_calls",
         "semantic_scores": None,
+        "prompt_variant": args.prompt_variant,
         "results": [],
     }
     args.output.mkdir(parents=True, exist_ok=True)
@@ -157,6 +162,9 @@ def main():
             citations = [{"title": s["file"], "page": s["page_start"]} for s in sources]
             messages = _generation_messages(
                 packet["request"]["question"], context, "policymaker", "analysis", None, citations
+            )
+            messages[0] = messages[0].model_copy(
+                update={"content": apply_variant(messages[0].content, args.prompt_variant)}
             )
             packet["messages_sent"] = [{"type": m.type, "content": m.content} for m in messages]
             start = perf_counter()

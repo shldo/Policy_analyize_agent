@@ -4,6 +4,17 @@ import pytest
 
 from evaluation.dataset import digest
 from evaluation.generation import build_packets, citation_checks, select_packets
+from evaluation.prompt_variants import COMPLETENESS_V1, apply_variant
+
+
+def test_prompt_experiment_preserves_baseline_and_is_question_independent():
+    original = "Original system prompt and corpus"
+    assert apply_variant(original, "baseline") == original
+    assert apply_variant(original, "completeness-v1") == original + "\n\n" + COMPLETENESS_V1
+    for forbidden in ("DEV-", "TEST-", "ai@dta", "watermark", "30 April"):
+        assert forbidden not in COMPLETENESS_V1
+    with pytest.raises(ValueError):
+        apply_variant(original, "unknown")
 
 
 def test_offset_selection_does_not_repeat_collected_cases():
