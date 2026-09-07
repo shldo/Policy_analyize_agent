@@ -16,6 +16,33 @@ from evaluation.run import check_pool, retrieval_cases
 DATASET = Path(__file__).parents[1] / "evaluation/datasets/policy-v4"
 
 
+def test_v5_targeted_wording_revision_preserves_frozen_baseline():
+    _, old = load_dataset(DATASET)
+    manifest, revised = load_dataset(DATASET.parent / "policy-v5")
+    assert manifest["supersedes"] == "policy-benchmark-v4-reviewed"
+    before = {c["question_id"]: c for c in old}
+    after = {c["question_id"]: c for c in revised}
+    assert before.keys() == after.keys()
+    assert {key for key in before if before[key] != after[key]} == {
+        "TEST-07",
+        "TEST-13",
+        "TEST-18",
+        "TEST-19",
+    }
+    assert "determine whether" in after["TEST-07"]["reference_answer"]
+    assert "apply all relevant policy actions" in after["TEST-07"]["reference_answer"]
+    assert after["TEST-13"]["reference_answer"].startswith(
+        "Criterion 95 requires human verification"
+    )
+    for key in ("TEST-18", "TEST-19"):
+        assert after[key]["question"].startswith("Does ")
+        assert "commercial" not in after[key]["question"]
+        assert after[key]["answerability"] == "unresolved_candidate"
+        assert after[key]["reference_answer"] is None
+    with pytest.raises(ValueError, match="Draft labels"):
+        retrieval_cases(revised, "test")
+
+
 def test_shipped_dataset_and_holdout_status():
     manifest, cases = load_dataset(DATASET)
     assert len(cases) == 31
