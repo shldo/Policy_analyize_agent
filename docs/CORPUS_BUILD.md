@@ -1,5 +1,9 @@
 # 英文政策语料入库与数据库复现
 
+## 更新：首批隔离扩容（2026-09-07）
+
+独立 `policy-expansion-db-batch01` 数据库已完成新增 5 PDF，总计 10 文档、389 片段/向量；业务库仍为 5/202，网页未切换。见 [扩容结果及解析限制](CORPUS_EXPANSION_BATCH01.md) 和 [下一步指导](PROJECT_EXPANSION_AND_EVALUATION_GUIDE.md)。新增 OECD 尾注存在清洗排除范围，结构验收不代表全文语义验收或评测冻结。
+
 ## 更新：来源与扩容准备（2026-09-07）
 
 两份历史 PDF 已从官方重新下载并确认字节哈希完全一致，见 [核验与候选清单](CORPUS_EXPANSION_BATCH01.md)。两份新 PDF 仅暂存，没有改变五文档/202 片段基线。数据库隔离恢复验收已完成，见 [恢复记录](BASELINE_BACKUP_RESTORE.md)；下文的“待溯源/待备份验收”为历史状态。

@@ -1,0 +1,52 @@
+{
+  "corpus_version": "policy-ten-batch01",
+  "status": "ingestion_candidate_not_scoring_dataset",
+  "baseline_manifest": "evaluation/datasets/policy-v4/manifest.json",
+  "source_directory": "data/expansion_batch01",
+  "retrieved_on": "2026-09-07",
+  "documents": [
+    {
+      "filename": "Australia_Accountability_v2.pdf",
+      "sha256": "7012f097344bbb45f6502748698321a47addb33ec3087bcf891b58d9ec014986",
+      "pages": 9,
+      "edition": "Version 2.0",
+      "source_url": "https://www.digital.gov.au/sites/default/files/documents/2025-12/Standard%20for%20accountability%202.0.pdf"
+    },
+    {
+      "filename": "Australia_Agentic_AI_Addendum.pdf",
+      "sha256": "7580f3dd27677a746a991139ba7e4812a77021ab06e7920839b7dca53f968a35",
+      "pages": 32,
+      "edition": "Official June 2026 download",
+      "source_url": "https://www.digital.gov.au/sites/default/files/documents/2026-06/Addendum-Agentic-AI.pdf"
+    },
+    {
+      "filename": "Australia_AI_Impact_Assessment_Guidance.pdf",
+      "sha256": "4f7a322b26e4f42e87d5d3003038d91a5205bdf56c923ac62a9a468d9d0f0908",
+      "pages": 48,
+      "edition": "Landing page updated 1 December 2025",
+      "source_url": "https://www.digital.gov.au/sites/default/files/documents/2025-12/Guidance%20for%20the%20AI%20impact%20assessment%20tool_0.pdf"
+    },
+    {
+      "filename": "Australia_APS_AI_Plan_2025.pdf",
+      "sha256": "fe8b00ad8ec48d9e48a1f4a258579ce8a7e0ae3a5ce689376adb0bc18bbb657d",
+      "pages": 30,
+      "edition": "November 2025",
+      "source_url": "https://www.digital.gov.au/sites/default/files/documents/2025-11/APS%20AI%20Plan%202025.pdf"
+    },
+    {
+      "filename": "OECD_Governing_with_AI_2024.pdf",
+      "sha256": "dd6c6a044937da33368e6d74669c11a9d0c7c0d26bc310abf38cde0d97ed91ea",
+      "pages": 32,
+      "edition": "OECD Artificial Intelligence Papers No. 20, June 2024",
+      "source_url": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2024/06/governing-with-artificial-intelligence_f0e316f5/26324bc2-en.pdf"
+    }
+  ],
+  "limitations": [
+    "Official download and sampled visual QA, not full human semantic review",
+    "APS physical page 30 is a decorative back cover, confirmed visually",
+    "Guidance refers to a separate assessment tool; its DOCX tables are not in this PDF",
+    "OECD research is not a binding Australian policy requirement",
+    "Old answer evidence and unresolved labels require review against the expanded corpus",
+    "PDF files and private runtime configuration are not distributed through Git"
+  ]
+}
