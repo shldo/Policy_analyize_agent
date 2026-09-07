@@ -6,6 +6,8 @@
 
 ### 执行更新：本地启动阶段
 
+2026-09-07 审核冻结：用户批准后新增 policy-v4，保留历史版本。29 道可回答题已记录审核人和日期，TEST-18/19 不计分。19 项测试、5 份 PDF 哈希、43 处原文锚点和 29 道题数据库映射通过；Docker 服务恢复，202 个片段及向量完整。首次独立检索测试按 16 道已审核题执行，详见 [v4 记录](BENCHMARK_V4_RESULTS.md)。
+
 2026-09-07 答案与三态修订：根据用户第二轮评审新增 policy-v3/schema 2，补齐旧开发参考答案和必要证据组，增加主体/action/condition-or-trigger/timeframe-or-exception 检查字段。退休 DEV-NEG01，保留 TEST-18/19 为 unresolved_candidate（reference_answer=null），confirmed 要求人工作出的全文复核记录。当前 31 题（13 dev/18 test），未运行新测试排序。补原文链接、编号历史和语料受限的证据不足回答预期；未修改应用回答提示词。
 
 2026-09-07 业务评审修订：用户指出 TEST-04 偏机构名阅读理解、TEST-15 跨文档配对刻意、TEST-20 缺乏真实业务前提。新增 policy-v2 草稿，改写前两题并移除 TEST-20，保留 v1；当前 32 题（14 development / 18 test），新表述仍待复核，测试排序继续不运行。详细改写与证据见 BENCHMARK_QUESTIONS_REVIEW.md。

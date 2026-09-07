@@ -1,5 +1,9 @@
 # 可扩展政策评测 v1
 
+## 当前版本：v4 已审核子集
+
+2026-09-07 用户确认审核通过。默认目录已切换到 `backend/evaluation/datasets/policy-v4`，29 道可回答题获批准，TEST-18/19 仍未决且不计分。当前执行与结果见 [v4 记录](BENCHMARK_V4_RESULTS.md)。以下内容保留为历史设计记录，“待审核/尚未测试”描述只代表当时状态。
+
 ## 当前修订：v3 草稿（2026-09-07）
 
 当前默认目录为 backend/evaluation/datasets/policy-v3，schema_version=2。
