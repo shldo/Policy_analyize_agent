@@ -11,9 +11,9 @@ from evaluation.dataset import (
     score_groups,
     validate,
 )
-from evaluation.run import check_pool
+from evaluation.run import check_pool, retrieval_cases
 
-DATASET = Path(__file__).parents[1] / "evaluation/datasets/policy-v3"
+DATASET = Path(__file__).parents[1] / "evaluation/datasets/policy-v4"
 
 
 def test_shipped_dataset_and_holdout_status():
@@ -21,8 +21,9 @@ def test_shipped_dataset_and_holdout_status():
     assert len(cases) == 31
     assert sum(c["split"] == "test" for c in cases) == 18
     assert "TEST-20" not in {c["question_id"] for c in cases}
-    assert manifest["dataset_version"] == "policy-benchmark-v3-draft"
-    assert all(c["review_status"] == "draft" for c in cases)
+    assert manifest["dataset_version"] == "policy-benchmark-v4-reviewed"
+    assert all(c["review_status"] == "reviewed" for c in cases if is_answerable(c))
+    assert all(c["review_status"] == "draft" for c in cases if not is_answerable(c))
     assert all(c["split"] == "development" for c in cases if c["question_id"].startswith("DEV-"))
     assert len(manifest["documents"]) == 5
 
@@ -115,7 +116,7 @@ def test_corpus_growth_requires_version_review_and_missing_vectors_fail():
         check_pool(manifest, [{"sha256": "a", "vector": None}], documents)
 
 
-@pytest.mark.parametrize("version,count", [("policy-v1", 33), ("policy-v2", 32)])
+@pytest.mark.parametrize("version,count", [("policy-v1", 33), ("policy-v2", 32), ("policy-v3", 31)])
 def test_historical_versions_remain_loadable(version, count):
     _, cases = load_dataset(DATASET.parent / version)
     assert len(cases) == count
@@ -159,3 +160,17 @@ def test_legacy_answers_no_longer_contain_migration_placeholders():
             assert not case["reference_answer"].startswith("Legacy evidence draft:")
             assert case["required_answer_points"]
     assert {c["question_id"] for c in cases if not is_answerable(c)} == {"TEST-18", "TEST-19"}
+
+
+def test_retrieval_review_gate_excludes_unresolved_without_approving_them():
+    _, cases = load_dataset(DATASET)
+    selected, scored = retrieval_cases(cases, "test")
+    assert len(selected) == 18
+    assert len(scored) == 16
+    assert all(is_answerable(c) and c["review_status"] == "reviewed" for c in scored)
+    scored[0]["review_status"] = "draft"
+    with pytest.raises(ValueError, match="Draft labels"):
+        retrieval_cases(cases, "test")
+    assert len(retrieval_cases(cases, "test", allow_draft=True)[1]) == 16
+    with pytest.raises(ValueError, match="No answerable"):
+        retrieval_cases([c for c in cases if not is_answerable(c)], "test")

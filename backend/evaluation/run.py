@@ -57,10 +57,21 @@ def check_pool(manifest, pool, documents):
         raise ValueError("Corpus contains documents that are not ready")
 
 
+def retrieval_cases(cases, split, allow_draft=False):
+    """Gate only scored cases; unresolved candidates remain explicitly excluded."""
+    selected = [c for c in cases if c["split"] == split]
+    scored = [c for c in selected if is_answerable(c)]
+    if not scored:
+        raise ValueError("No answerable cases for retrieval scoring")
+    if any(c["review_status"] != "reviewed" for c in scored) and not allow_draft:
+        raise ValueError("Draft labels: human review required, or explicitly use --allow-draft")
+    return selected, scored
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--dataset", type=Path, default=Path(__file__).parent / "datasets/policy-v3"
+        "--dataset", type=Path, default=Path(__file__).parent / "datasets/policy-v4"
     )
     parser.add_argument("--sources", type=Path, default=Path("data/source_documents"))
     parser.add_argument("--output", type=Path, default=Path("data/evaluation"))
@@ -100,11 +111,7 @@ def main():
     if args.run:
         if not args.code_version:
             parser.error("--code-version is required to record reproducibility")
-        selected = [c for c in cases if c["split"] == args.split]
-        if not selected:
-            raise ValueError("Selected split is empty")
-        if any(c["review_status"] != "reviewed" for c in selected) and not args.allow_draft:
-            raise ValueError("Draft labels: human review required, or explicitly use --allow-draft")
+        selected, scored = retrieval_cases(cases, args.split, args.allow_draft)
         from app.modules.documents.repositories.embeddings import embedding_repository
         from app.modules.documents.reranker import RERANKER_MODEL_NAME, rerank_chunks
         from app.modules.embedding import service as embedding
@@ -124,7 +131,9 @@ def main():
             {
                 "mode": "retrieval",
                 "split": args.split,
-                "exploratory": any(c["review_status"] != "reviewed" for c in selected),
+                "exploratory": any(c["review_status"] != "reviewed" for c in scored),
+                "scored_count": len(scored),
+                "scoring_scope": "answerable retrieval only; no generation or refusal scoring",
                 "test_rankings_observed": args.split == "test",
                 "code_version": args.code_version,
                 "config": config,
@@ -141,9 +150,7 @@ def main():
                 "results": [],
             }
         )
-        for case in selected:
-            if not is_answerable(case):
-                continue
+        for case in scored:
             start = perf_counter()
             vector = embedding.vector_literal(embedding.embed_query(case["question"]))
             dense = embedding_repository.retrieve_all(vector, limit=20)
