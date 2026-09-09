@@ -12,6 +12,7 @@ from app.modules.chat.rag.graph.state import (
     ResponseMode,
     normalize_answer_mode,
 )
+from app.modules.chat.rag.parent_pipeline import prepare_child_context
 from app.modules.chat.rag.prompts import get_insufficient_evidence_message
 from app.modules.documents.service import (
     documents_have_embeddings,
@@ -109,6 +110,16 @@ def retrieve_context_node(state: PDFQAState) -> dict:
 
 def check_evidence_node(state: PDFQAState) -> dict:
     """Decide whether retrieved material is strong enough for generation."""
+    if state.get("used_vector_retrieval", False):
+        from app.modules.chat.rag.generation import _build_citation_instruction
+        from app.modules.chat.rag.prompts import get_system_prompt
+
+        overhead = get_system_prompt(_response_mode(state), _answer_mode(state)).format(
+            context="", citation_instruction=_build_citation_instruction(state.get("citations", []))
+        ) + "\n".join(m.get("content", "") for m in state.get("history", []))
+        return prepare_child_context(
+            state["question"], state.get("raw_chunks", []), overhead=overhead
+        )
     sufficient, reason = assess_evidence_sufficiency(
         question=state["question"],
         raw_chunks=state.get("raw_chunks", []),

@@ -17,7 +17,6 @@ from app.modules.chat.rag.agent.state import (
     merge_turn_citation_keys,
 )
 from app.modules.chat.rag.evidence import (
-    assess_evidence_sufficiency,
     max_vector_distance,
     min_reranker_score,
 )
@@ -27,6 +26,7 @@ from app.modules.chat.rag.graph.nodes import (
     retrieve_context_node,
 )
 from app.modules.chat.rag.graph.state import PDFQAState
+from app.modules.chat.rag.parent_pipeline import prepare_child_context
 from app.modules.chat.rag.web_search.contracts import WebSearchProviderError, WebSearchResult
 from app.modules.chat.rag.web_search.registry import get_active_web_search_provider
 from app.modules.documents.chunker import TiktokenDocumentChunker
@@ -55,6 +55,8 @@ def _document_citation(chunk: dict) -> dict:
         "document_id": chunk.get("document_id"),
         "title": chunk.get("doc_title") or chunk.get("file"),
         "chunk_id": chunk.get("chunk_id"),
+        "section_id": chunk.get("section_id"),
+        "section_title": chunk.get("section_title"),
         "page": chunk.get("page_start") or chunk.get("page"),
         "page_end": chunk.get("page_end") or chunk.get("page_start") or chunk.get("page"),
         "quote": (chunk.get("text") or "")[:500],
@@ -193,6 +195,8 @@ async def search_internal_documents(
         "reason": result.get("evidence_reason"),
         "results": numbered_results,
     }
+    if result.get("generation_parents"):
+        payload["generation_parents"] = result["generation_parents"]
     if sufficient:
         payload["reminder"] = SUFFICIENT_EVIDENCE_REMINDER
     update: dict = {
@@ -235,26 +239,20 @@ async def search_full_corpus(
     own description for what goes there.
     """
 
-    def _run() -> tuple[bool, str | None, list[dict]]:
+    def _run() -> dict:
         chunks = search_full_corpus_service(
             query, limit=top_k or 8, include_restricted=include_restricted
         )
-        threshold = max_vector_distance()
-        relevant = [c for c in chunks if float(c.get("distance", 1.0)) <= threshold]
-        context = "\n\n".join(c.get("text", "") for c in relevant)
-        sufficient, reason = assess_evidence_sufficiency(
-            question=query,
-            raw_chunks=chunks,
-            pages=[],
-            context=context,
-            has_embeddings=True,
-        )
-        return sufficient, reason, relevant
+        return prepare_child_context(query, chunks)
 
-    sufficient, reason, relevant = await asyncio.to_thread(_run)
-    raw_citations = [_document_citation(c) for c in relevant]
+    result = await asyncio.to_thread(_run)
+    sufficient, reason = result["evidence_sufficient"], result["evidence_reason"]
+    raw_citations = [
+        dict(c, source_type="document", tier="full_corpus") for c in result["citations"]
+    ]
     numbered_results, new_citations = _number_citations(citations, raw_citations)
     payload = {"evidence_sufficient": sufficient, "reason": reason, "results": numbered_results}
+    payload["generation_parents"] = result["generation_parents"]
     if sufficient:
         payload["reminder"] = SUFFICIENT_EVIDENCE_REMINDER
     update: dict = {
@@ -403,7 +401,32 @@ def _score_web_results(
         return False, "The web search returned no usable content.", []
 
     query_vector = embed_query(query)
-    chunk_vectors = embed_documents(texts)
+    try:
+        chunk_vectors = embed_documents(texts)
+    except ValueError as exc:
+        if "Embedding input exceeds" not in str(exc):
+            raise
+        # Live web remains flat. Re-split only when the active model rejects the
+        # approximate snippet budget; never silently truncate or invent parents.
+        from app.core.config import get_settings
+        from app.modules.documents.chunker import DocumentChunker
+        from app.modules.embedding import service as embedding
+
+        settings = get_settings()
+        budget = min(
+            settings.child_target_tokens,
+            settings.embedding_max_input_tokens
+            - settings.embedding_special_tokens
+            - settings.embedding_safety_margin,
+        )
+        splitter = DocumentChunker(embedding.count_input_tokens)
+        safe_texts, safe_owners = [], []
+        for owner, text in zip(owners, texts, strict=True):
+            for piece in splitter.chunk([{"page": 1, "text": text}], max_tokens=budget, overlap=0):
+                safe_texts.append(piece["text"])
+                safe_owners.append(owner)
+        texts, owners = safe_texts, safe_owners
+        chunk_vectors = embed_documents(texts)
 
     # Collapse per-chunk scores back to one candidate per URL: the chunk
     # closest to the query represents that page as a citation.

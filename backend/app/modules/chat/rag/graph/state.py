@@ -31,6 +31,8 @@ class PDFQAState(TypedDict):
     raw_chunks: NotRequired[list[dict]]  # all returned chunks — used for evidence assessment
     citations: NotRequired[list[dict]]
     context: NotRequired[str]
+    generation_parents: NotRequired[list[dict]]
+    packed_token_count: NotRequired[int]
     truncated: NotRequired[bool]
     used_vector_retrieval: NotRequired[bool]
     evidence_sufficient: NotRequired[bool]

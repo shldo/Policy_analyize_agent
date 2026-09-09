@@ -42,7 +42,30 @@ class Settings(BaseSettings):
     embedding_batch_size: int = Field(default=32, ge=1, le=256)
     model_cache_dir: Path = Path("data/model_cache")
     default_embedding_dimensions: int = 384
-    max_context_characters: int = 200_000
+    structure_aware_chunking: bool = True
+    child_target_tokens: int = Field(default=320, ge=64)
+    child_max_tokens: int = Field(default=380, ge=64)
+    child_overlap_tokens: int = Field(default=50, ge=0)
+    parent_target_min_tokens: int = Field(default=600, ge=1)
+    parent_target_max_tokens: int = Field(default=1500, ge=64)
+    use_llm_contextual_header: bool = False
+    embedding_max_input_tokens: int = Field(default=512, ge=128)
+    embedding_special_tokens: int = Field(default=4, ge=0)
+    embedding_safety_margin: int = Field(default=16, ge=0)
+    contextual_header_reserve_tokens: int = Field(default=64, ge=0)
+    structure_prefix_max_tokens: int = Field(default=96, ge=16)
+    child_candidate_k: int = Field(default=30, ge=1)
+    child_lexical_candidate_k: int = Field(default=0, ge=0)
+    compound_retrieval_enabled: bool = False
+    controlled_retrieval_enabled: bool = False
+    child_rerank_k: int = Field(default=8, ge=1)
+    parent_context_k: int = Field(default=8, ge=1)
+    max_parents_per_document: int = Field(default=5, ge=1)
+    rag_context_window_tokens: int = Field(default=32768, ge=1024)
+    rag_max_context_tokens: int = Field(default=6000, ge=128)
+    rag_tokenizer_path: Path = Path("data/tokenizers/deepseek-v4/tokenizer.json")
+    rag_reserved_output_tokens: int = Field(default=2048, ge=128)
+    rag_prompt_safety_tokens: int = Field(default=512, ge=0)
 
     # Pages whose native (non-OCR) extracted text is shorter than this are
     # treated as scanned/image-only and re-read via OCR.

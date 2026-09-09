@@ -22,6 +22,7 @@ from app.modules.documents.admin_schemas import (
     ProcessingStatus,
 )
 from app.modules.documents.exceptions import DuplicateDocumentError
+from app.modules.documents.repositories.embeddings import embedding_repository
 from app.modules.documents.service import (
     delete_document as delete_document_record,
 )
@@ -143,6 +144,12 @@ async def reembed_documents(_: AdminUser) -> dict:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
+@router.get("/{document_id}/structure-status")
+async def document_structure_status(document_id: UUID, _: AdminUser) -> dict:
+    return await asyncio.to_thread(embedding_repository.structure_status, str(document_id))
+
+
+@router.post("/{document_id}/reprocess", status_code=status.HTTP_202_ACCEPTED)
 @router.post("/{document_id}/rescan", status_code=status.HTTP_202_ACCEPTED)
 async def rescan_document(
     document_id: UUID,

@@ -65,6 +65,8 @@ class Citation(BaseModel):
     document_id: UUID | None = None  # None when built from page-level fallback
     title: str
     chunk_id: UUID | None = None
+    section_id: UUID | None = None
+    section_title: str | None = None
     source_url: str | None = None
     page: int | None = None
     page_end: int | None = None

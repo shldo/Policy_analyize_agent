@@ -67,7 +67,20 @@ class PdfExtractor:
             for page_number, page in enumerate(reader.pages, start=1)
         ]
         pages = self._ocr_low_text_pages(path, pages, on_ocr_start)
-        return self.clean(pages)
+        pages = self.clean(pages)
+        # Best-effort typography hints, matched to the existing cleaned text. Never
+        # replace OCR/pypdf text or reintroduce discarded headers/references.
+        if get_settings().structure_aware_chunking:
+            try:
+                with fitz.open(path) as layout_document:
+                    from app.modules.documents.layout import pdf_layout_hints
+
+                    hints = pdf_layout_hints(layout_document)
+                    for page in pages:
+                        page["layout_lines"] = hints[page["page"] - 1]
+            except Exception:
+                logger.warning("PDF layout unavailable; using text structure detection")
+        return pages
 
     def _ocr_low_text_pages(
         self,

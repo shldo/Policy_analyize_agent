@@ -7,6 +7,8 @@ from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, Tool
 from langgraph.graph import END, START, StateGraph
 from langgraph.prebuilt import ToolNode
 
+from app.core.config import get_settings
+from app.modules.chat.rag.agent.context import pack_agent_messages
 from app.modules.chat.rag.agent.prompts import (
     get_agent_system_prompt,
     get_final_answer_system_prompt,
@@ -19,7 +21,11 @@ from app.modules.chat.rag.agent.tools import (
     search_internal_documents,
 )
 from app.modules.chat.rag.checkpointer import get_checkpointer
-from app.modules.chat.rag.generation import create_chat_client, resolve_generation_target
+from app.modules.chat.rag.generation import (
+    create_chat_client,
+    resolve_generation_target,
+    validate_generation_budget,
+)
 from app.modules.chat.rag.prompts import get_insufficient_evidence_message
 
 logger = logging.getLogger(__name__)
@@ -385,12 +391,12 @@ async def final_generation_node(state: AgentState) -> dict:
     response_mode = state.get("response_mode", "researcher")
     answer_mode = state.get("answer_mode", "analysis")
     provider, selected_model, _config = resolve_generation_target(state.get("model"))
-    client = create_chat_client(provider, selected_model)
+    client = create_chat_client(
+        provider, selected_model, max_tokens=get_settings().rag_reserved_output_tokens
+    )
     system_prompt = get_final_answer_system_prompt(response_mode, answer_mode)
-    messages = [
-        SystemMessage(content=system_prompt),
-        *_messages_for_current_turn(state["messages"]),
-    ]
+    messages = pack_agent_messages(_messages_for_current_turn(state["messages"]), system_prompt)
+    validate_generation_budget(messages)
 
     response: AIMessage = await client.ainvoke(messages)
     return {"messages": [response], "resolved_model": f"{provider}/{selected_model}"}

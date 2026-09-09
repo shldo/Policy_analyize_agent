@@ -9,6 +9,7 @@ from sqlalchemy import (
     Date,
     DateTime,
     ForeignKey,
+    ForeignKeyConstraint,
     Index,
     Integer,
     Text,
@@ -111,17 +112,59 @@ class DocumentMetadataModel(Base):
     document: Mapped[DocumentModel] = relationship(back_populates="metadata_record")
 
 
+class DocumentSectionModel(UUIDPrimaryKeyMixin, Base):
+    __tablename__ = "document_sections"
+    __table_args__ = (
+        UniqueConstraint("document_id", "id"),
+        UniqueConstraint("document_id", "sequence_index"),
+        ForeignKeyConstraint(
+            ["document_id", "parent_section_id"],
+            ["document_sections.document_id", "document_sections.id"],
+            deferrable=True,
+            initially="DEFERRED",
+        ),
+        Index("idx_document_sections_parent", "parent_section_id"),
+    )
+    document_id: Mapped[UUID] = mapped_column(ForeignKey("documents.id", ondelete="CASCADE"))
+    parent_section_id: Mapped[UUID | None] = mapped_column()
+    section_level: Mapped[int] = mapped_column(Integer)
+    section_number: Mapped[str | None] = mapped_column(Text)
+    section_title: Mapped[str] = mapped_column(Text)
+    section_path: Mapped[list[str]] = mapped_column(JSONB)
+    text: Mapped[str] = mapped_column(Text)
+    page_start: Mapped[int] = mapped_column(Integer)
+    page_end: Mapped[int] = mapped_column(Integer)
+    token_count: Mapped[int] = mapped_column(Integer)
+    sequence_index: Mapped[int] = mapped_column(Integer)
+    metadata_json: Mapped[dict[str, Any]] = mapped_column(JSONB)
+
+
 class DocumentChunkModel(UUIDPrimaryKeyMixin, Base):
     __tablename__ = "document_chunks"
     __table_args__ = (
         UniqueConstraint("document_id", "chunk_index"),
         Index("idx_document_chunks_document_id", "document_id"),
+        ForeignKeyConstraint(
+            ["document_id", "section_id"],
+            ["document_sections.document_id", "document_sections.id"],
+            name="fk_chunk_section_document",
+        ),
+        Index("idx_document_chunks_section", "section_id"),
+        Index(
+            "idx_document_chunks_child_index",
+            "section_id",
+            "child_index",
+            unique=True,
+            postgresql_where=sql_text("section_id IS NOT NULL"),
+        ),
     )
 
     document_id: Mapped[UUID] = mapped_column(
         ForeignKey("documents.id", ondelete="CASCADE"), nullable=False
     )
     chunk_index: Mapped[int] = mapped_column(Integer, nullable=False)
+    section_id: Mapped[UUID | None] = mapped_column()
+    child_index: Mapped[int | None] = mapped_column(Integer)
     page_start: Mapped[int] = mapped_column(Integer, nullable=False)
     page_end: Mapped[int] = mapped_column(Integer, nullable=False)
     section_title: Mapped[str | None] = mapped_column(Text)

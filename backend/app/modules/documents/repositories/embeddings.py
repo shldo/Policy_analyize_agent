@@ -77,6 +77,28 @@ def ensure_vector_table(connection, table: str, dim: int) -> None:
 class EmbeddingRepository:
     """Persistence and similarity search for document chunks and embeddings."""
 
+    def require_structure_schema(self) -> None:
+        with get_connection() as connection:
+            if not _table_exists(connection, "document_sections"):
+                raise ValueError("Apply migration 019 before structure-aware full reprocessing.")
+
+    def structure_status(self, document_id: str) -> dict:
+        with get_connection() as connection:
+            row = connection.execute(
+                """SELECT count(*) AS total,
+                    count(*) FILTER (WHERE to_jsonb(c)->>'section_id' IS NOT NULL) AS structured
+                    FROM document_chunks c WHERE document_id=%s""",
+                (document_id,),
+            ).fetchone()
+            schema_ready = _table_exists(connection, "document_sections")
+        return {
+            "schema_ready": schema_ready,
+            "children": row["total"],
+            "structured_children": row["structured"],
+            "requires_full_reprocess": row["total"] == 0 or row["structured"] < row["total"],
+            "reembed_creates_sections": False,
+        }
+
     def replace_document_chunks(
         self,
         document_id: str,
@@ -84,6 +106,7 @@ class EmbeddingRepository:
         embeddings: list[str],
         *,
         language: str | None,
+        sections: list[dict] | None = None,
     ) -> None:
         """Full (re)ingest: replace chunk text and write the active model's vectors.
 
@@ -97,6 +120,34 @@ class EmbeddingRepository:
         model_id = embedding.active_model_id()
         with get_connection() as connection:
             connection.execute("DELETE FROM document_chunks WHERE document_id = %s", (document_id,))
+            if _table_exists(connection, "document_sections"):
+                connection.execute(
+                    "DELETE FROM document_sections WHERE document_id = %s", (document_id,)
+                )
+            if sections:
+                for section in sections:
+                    connection.execute(
+                        """INSERT INTO document_sections (
+                            id, document_id, parent_section_id, section_level, section_number,
+                            section_title, section_path, text, page_start, page_end,
+                            token_count, sequence_index, metadata_json
+                        ) VALUES (%s,%s,%s,%s,%s,%s,%s::jsonb,%s,%s,%s,%s,%s,%s::jsonb)""",
+                        (
+                            section["id"],
+                            document_id,
+                            section["parent_section_id"],
+                            section["section_level"],
+                            section["section_number"],
+                            section["section_title"],
+                            json.dumps(section["section_path"]),
+                            section["text"],
+                            section["page_start"],
+                            section["page_end"],
+                            section["token_count"],
+                            section["sequence_index"],
+                            json.dumps(section["metadata_json"]),
+                        ),
+                    )
             ensure_vector_table(connection, table, dim)
             for chunk, embedding_literal in zip(chunks, embeddings, strict=True):
                 chunk_id = str(uuid4())
@@ -126,6 +177,11 @@ class EmbeddingRepository:
                     f"VALUES (%s, %s::{_vector_type(dim)}, %s)",
                     (chunk_id, embedding_literal, model_id),
                 )
+                if chunk.get("section_id"):
+                    connection.execute(
+                        "UPDATE document_chunks SET section_id=%s, child_index=%s WHERE id=%s",
+                        (chunk["section_id"], chunk["child_index"], chunk_id),
+                    )
             connection.commit()
 
     def chunks_for_reembed(self, document_id: str) -> list[dict]:
@@ -143,6 +199,7 @@ class EmbeddingRepository:
                 "chunk_id": str(row["id"]),
                 "text": row["text"],
                 "context_header": (row["metadata_json"] or {}).get("context_header"),
+                "metadata_json": row["metadata_json"] or {},
             }
             for row in rows
         ]
@@ -234,7 +291,9 @@ class EmbeddingRepository:
                     d.original_filename AS file,
                     COALESCE(dm.title, d.original_filename) AS doc_title,
                     c.page_start, c.page_end,
-                    c.text, c.token_count, c.language,
+                    c.text, c.token_count, c.language, c.section_title,
+                    to_jsonb(c)->>'section_id' AS section_id,
+                    c.metadata_json->'section_path' AS section_path,
                     e.embedding <=> %s::{cast} AS distance
                 FROM "{table}" e
                 JOIN document_chunks c ON c.id = e.chunk_id
@@ -270,7 +329,9 @@ class EmbeddingRepository:
                     d.original_filename AS file,
                     COALESCE(dm.title, d.original_filename) AS doc_title,
                     c.page_start, c.page_end,
-                    c.text, c.token_count, c.language,
+                    c.text, c.token_count, c.language, c.section_title,
+                    to_jsonb(c)->>'section_id' AS section_id,
+                    c.metadata_json->'section_path' AS section_path,
                     e.embedding <=> %s::{cast} AS distance
                 FROM "{table}" e
                 JOIN document_chunks c ON c.id = e.chunk_id
@@ -289,6 +350,79 @@ class EmbeddingRepository:
                 "page": row["page_start"],
                 "distance": float(row["distance"]),
             }
+            for row in rows
+        ]
+
+    def original_query_distances(self, query_vector: str, chunk_ids: list[str]) -> dict:
+        table, dim = _active_table_dim()
+        if not chunk_ids:
+            return {}
+        with get_connection() as connection:
+            rows = connection.execute(
+                f"SELECT chunk_id, embedding <=> %s::{_vector_type(dim)} AS distance "
+                f'FROM "{table}" WHERE chunk_id = ANY(%s::uuid[])',
+                (query_vector, chunk_ids),
+            ).fetchall()
+        return {str(r["chunk_id"]): float(r["distance"]) for r in rows}
+
+    def retrieve_lexical(
+        self,
+        question: str,
+        query_vector: str,
+        document_ids: list[str] | None = None,
+        *,
+        limit: int,
+        include_restricted: bool = False,
+    ) -> list[dict]:
+        """English stemmed OR-term recall; retain real vector distance for the gate.
+
+        This is PostgreSQL full-text ranking, not BM25. Match child text only;
+        parent expansion and access policy remain separate from retrieval.
+        """
+        if limit <= 0 or document_ids == []:
+            return []
+        table, dim = _active_table_dim()
+        filters = []
+        values = [question, query_vector]
+        if document_ids is not None:
+            filters.append("c.document_id = ANY(%s::uuid[])")
+            values.append(document_ids)
+        if not include_restricted:
+            filters.append("d.approved = true AND d.access_level = 'public'")
+        where = " AND ".join(["v.lexemes @@ q.query", *filters])
+        with get_connection() as connection:
+            if not _table_exists(connection, table):
+                return []
+            rows = connection.execute(
+                f"""WITH q AS (
+                    SELECT to_tsquery('english', replace(
+                        plainto_tsquery('english', %s)::text, ' & ', ' | ')) AS query
+                )
+                SELECT c.id AS chunk_id, c.document_id, d.original_filename AS file,
+                    COALESCE(dm.title, d.original_filename) AS doc_title,
+                    c.page_start, c.page_end, c.text, c.section_title,
+                    to_jsonb(c)->>'section_id' AS section_id,
+                    c.metadata_json->'section_path' AS section_path,
+                    e.embedding <=> %s::{_vector_type(dim)} AS distance,
+                    ts_rank_cd(v.lexemes, q.query, 32) AS lexical_score
+                FROM "{table}" e
+                JOIN document_chunks c ON c.id=e.chunk_id
+                JOIN documents d ON d.id=c.document_id
+                LEFT JOIN document_metadata dm ON dm.document_id=d.id
+                CROSS JOIN q
+                CROSS JOIN LATERAL (SELECT to_tsvector('english', c.text) AS lexemes) v
+                WHERE {where}
+                ORDER BY lexical_score DESC, c.id LIMIT %s""",
+                (*values, limit),
+            ).fetchall()
+        return [
+            dict(
+                row,
+                chunk_id=str(row["chunk_id"]),
+                document_id=str(row["document_id"]),
+                page=row["page_start"],
+                distance=float(row["distance"]),
+            )
             for row in rows
         ]
 
@@ -331,7 +465,9 @@ class EmbeddingRepository:
                         d.original_filename AS file,
                         COALESCE(dm.title, d.original_filename) AS doc_title,
                         c.page_start, c.page_end,
-                        c.text, c.token_count, c.language,
+                        c.text, c.token_count, c.language, c.section_title,
+                        to_jsonb(c)->>'section_id' AS section_id,
+                        c.metadata_json->'section_path' AS section_path,
                         e.embedding <=> q.embedding AS distance
                     FROM "{table}" e
                     JOIN document_chunks c ON c.id = e.chunk_id

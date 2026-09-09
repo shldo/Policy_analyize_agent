@@ -16,6 +16,9 @@ provider is cheap unless the model actually changed.
 
 from __future__ import annotations
 
+import logging
+
+from app.core.config import get_settings
 from app.modules.embedding import providers, tokens
 from app.modules.embedding.providers import (
     EmbeddingProvider,
@@ -27,6 +30,7 @@ from app.modules.embedding.settings import EmbeddingConfig, vector_table_name
 
 # Lazy singleton cache of the active config + provider.
 _cache: dict = {"config": None, "provider": None}
+logger = logging.getLogger(__name__)
 
 
 def _resolved_config(config: EmbeddingConfig) -> EmbeddingConfig:
@@ -85,6 +89,7 @@ def _provider() -> EmbeddingProvider:
 def embed_documents(texts: list[str]) -> list[list[float]]:
     if not texts:
         return []
+    validate_inputs(texts)
     return _provider().embed_documents(texts)
 
 
@@ -92,6 +97,7 @@ def embed_queries(texts: list[str]) -> list[list[float]]:
     """Batch query-mode embedding, preserving query/passage asymmetry."""
     if not texts:
         return []
+    validate_inputs(texts)
     return _provider().embed_queries(texts)
 
 
@@ -101,6 +107,36 @@ def embed_query(text: str) -> list[float]:
 
 def count_tokens(text: str) -> int:
     return tokens.count_tokens(text, active_config(), _provider())
+
+
+def count_input_tokens(text: str) -> int:
+    """Safety count cannot be weakened by selecting an approximate UI tokenizer."""
+    exact = _provider().count_tokens(text)
+    return exact if exact is not None else len(text.encode("utf-8"))
+
+
+def validate_inputs(texts: list[str]) -> None:
+    settings = get_settings()
+    maximum = settings.embedding_max_input_tokens
+    if (
+        active_config().local_model
+        in {"BAAI/bge-small-en-v1.5", "BAAI/bge-base-en-v1.5", "intfloat/multilingual-e5-large"}
+        and active_config().provider == "local"
+    ):
+        maximum = min(maximum, 512)
+    limit = maximum - settings.embedding_special_tokens - settings.embedding_safety_margin
+    for text in texts:
+        size = count_input_tokens(text)
+        if size > limit:
+            logger.warning(
+                "embedding_input_rejected model=%s tokens=%d limit=%d",
+                active_model_id(),
+                size,
+                limit,
+            )
+            raise ValueError(
+                "Embedding input exceeds safe model limit; reprocess or shorten query."
+            )
 
 
 def vector_literal(vector: list[float]) -> str:

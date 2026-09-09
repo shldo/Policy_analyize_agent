@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from collections.abc import AsyncGenerator
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
@@ -8,6 +9,7 @@ from langchain_openai import ChatOpenAI
 
 from app.core.config import get_settings
 from app.core.llm_providers import get_provider_config, resolve_provider_and_model
+from app.modules.chat.rag.context_packing import available_context_tokens, generation_tokens
 from app.modules.chat.rag.prompts import (
     CITATION_INSTRUCTION,
     AnswerMode,
@@ -23,7 +25,6 @@ from app.modules.settings.service import (
 
 def format_context(pages: list[dict]) -> tuple[str, bool]:
     sections: list[str] = []
-    used_characters = 0
     truncated = False
 
     for index, page in enumerate(pages):
@@ -32,16 +33,10 @@ def format_context(pages: list[dict]) -> tuple[str, bool]:
             continue
         page_num = page.get("page") or page.get("page_start") or "?"
         section = f"[{index + 1}] {page['file']}, page {page_num}\n{text}"
-        remaining = get_settings().max_context_characters - used_characters
-        if remaining <= 0:
+        if generation_tokens("\n\n---\n\n".join([*sections, section])) > available_context_tokens():
             truncated = True
-            break
-        if len(section) > remaining:
-            sections.append(section[:remaining])
-            truncated = True
-            break
+            continue
         sections.append(section)
-        used_characters += len(section)
 
     return "\n\n---\n\n".join(sections), truncated
 
@@ -121,7 +116,24 @@ def _generation_messages(
         context=context or "(No relevant excerpts were retrieved from the selected documents.)",
         citation_instruction=_build_citation_instruction(citations or []),
     )
-    return _build_messages(system_prompt, history, question)
+    messages = _build_messages(system_prompt, history, question)
+    validate_generation_budget(messages)
+    return messages
+
+
+def validate_generation_budget(messages: list) -> None:
+    s = get_settings()
+    used = sum(
+        generation_tokens(str(m.content))
+        + generation_tokens(json.dumps(getattr(m, "tool_calls", []), ensure_ascii=False))
+        + 16
+        for m in messages
+    )
+    if (
+        used + s.rag_reserved_output_tokens + s.rag_prompt_safety_tokens
+        > s.rag_context_window_tokens
+    ):
+        raise ValueError("Generation prompt exceeds configured token window; reduce chat history.")
 
 
 def generate_answer(
@@ -142,7 +154,11 @@ def generate_answer(
         history,
         citations,
     )
-    answer = StrOutputParser().invoke(create_chat_client(provider, selected_model).invoke(messages))
+    answer = StrOutputParser().invoke(
+        create_chat_client(
+            provider, selected_model, max_tokens=get_settings().rag_reserved_output_tokens
+        ).invoke(messages)
+    )
     return answer, f"{provider}/{selected_model}"
 
 
@@ -164,6 +180,8 @@ async def generate_answer_streaming(
         history,
         citations,
     )
-    async for chunk in create_chat_client(provider, selected_model).astream(messages):
+    async for chunk in create_chat_client(
+        provider, selected_model, max_tokens=get_settings().rag_reserved_output_tokens
+    ).astream(messages):
         if chunk.content:
             yield str(chunk.content)

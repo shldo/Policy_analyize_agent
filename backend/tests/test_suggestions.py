@@ -228,6 +228,9 @@ def test_reranker_only_receives_validation_top_k(monkeypatch):
 
 def test_embed_queries_preserves_query_mode_and_order(monkeypatch):
     class FakeProvider:
+        def count_tokens(self, text):
+            return len(text)
+
         def __init__(self):
             self.calls = []
 

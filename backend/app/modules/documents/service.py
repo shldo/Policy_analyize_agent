@@ -9,7 +9,8 @@ from uuid import uuid4
 
 from fastapi import UploadFile
 
-from app.modules.documents.chunker import document_chunker
+from app.core.config import get_settings
+from app.modules.documents.chunker import DocumentChunker, document_chunker
 from app.modules.documents.embeddings import (
     embed_documents,
     embed_query,
@@ -21,6 +22,7 @@ from app.modules.documents.file_store import document_file_store
 from app.modules.documents.ingestion.contextual_header import build_contextual_headers
 from app.modules.documents.ingestion.language_detect import detect_language
 from app.modules.documents.ingestion.metadata_extractor import generate_document_metadata
+from app.modules.documents.parent_child import build_parent_children, embedding_input
 from app.modules.documents.repositories.content import document_content_repository
 from app.modules.documents.repositories.documents import document_repository
 from app.modules.documents.repositories.embeddings import embedding_repository
@@ -39,6 +41,8 @@ def process_document(document_id: str) -> None:
     job_id = processing_job_repository.start(document_id, "ingest_pdf")
     try:
         document = document_repository.get_record(document_id)
+        if get_settings().structure_aware_chunking:
+            embedding_repository.require_structure_schema()
         path = document_file_store.resolve(document["file_path"])
         pages = extract_document(
             path,
@@ -65,20 +69,33 @@ def process_document(document_id: str) -> None:
         document_content_repository.upsert_generated_metadata(document_id, metadata, model_name)
         document_repository.set_status(document_id, "annotated")
 
-        # Admin-tunable chunk size (Manage > Embedding). Clamped to a sane ceiling;
-        # if it exceeds the model's input limit, the model truncates/errs per chunk.
-        chunk_budget = min(max(embedding.active_config().chunk_token_budget, 64), 8000)
-        chunks = document_chunker.chunk(pages, max_tokens=chunk_budget)
+        settings = get_settings()
+        sections, stats = None, {}
+        if settings.structure_aware_chunking:
+            sections, chunks, stats = build_parent_children(
+                pages,
+                document_id=document_id,
+                title=metadata.get("title") or document["original_filename"],
+                settings=settings,
+                count=embedding.count_input_tokens,
+            )
+        else:
+            chunk_budget = min(max(embedding.active_config().chunk_token_budget, 64), 8000)
+            chunks = document_chunker.chunk(pages, max_tokens=chunk_budget)
         # Contextual retrieval: prepend an LLM situating sentence to the EMBEDDING
         # input only; stored/displayed text stays original. Header kept for transparency.
-        headers = build_contextual_headers(
-            chunks,
-            title=metadata.get("title"),
-            summary=metadata.get("summary"),
-            model=model_name,
+        headers = (
+            build_contextual_headers(
+                chunks,
+                title=metadata.get("title"),
+                summary=metadata.get("summary"),
+                model=model_name,
+            )
+            if settings.use_llm_contextual_header
+            else [None] * len(chunks)
         )
         embed_inputs = [
-            f"{header}\n\n{chunk['text']}" if header else chunk["text"]
+            embedding_input(chunk, header, settings=settings, count=embedding.count_input_tokens)
             for header, chunk in zip(headers, chunks, strict=True)
         ]
         doc_language = metadata.get("language")
@@ -93,6 +110,7 @@ def process_document(document_id: str) -> None:
             chunks,
             embeddings,
             language=doc_language,
+            sections=sections,
         )
         document_repository.set_status(document_id, "ready")
         processing_job_repository.finish(
@@ -101,8 +119,15 @@ def process_document(document_id: str) -> None:
                 "page_count": len(pages),
                 "chunk_count": len(chunks),
                 "metadata_model": model_name,
+                **stats,
             },
         )
+        if stats:
+            logger.info(
+                "Structure ingestion metrics document_id=%s summary=%s",
+                document_id,
+                {key: value for key, value in stats.items() if key != "children_per_parent"},
+            )
         logger.info(
             "Processing complete: document_id=%s pages=%d chunks=%d",
             document_id,
@@ -179,7 +204,19 @@ def _find_near_duplicate(document_id: str, sample_text: str) -> dict | None:
     already-indexed document? Returns the existing document record if so."""
     if not sample_text.strip():
         return None
-    query_vector = vector_literal(embed_query(sample_text[:4000]))
+    # Near-duplicate probing is also an embedding input: use a bounded sample,
+    # not a character prefix that can overflow the active encoder.
+    samples = DocumentChunker(embedding.count_input_tokens).chunk(
+        [{"page": 1, "text": sample_text}],
+        max_tokens=min(
+            get_settings().child_target_tokens,
+            get_settings().embedding_max_input_tokens
+            - get_settings().embedding_special_tokens
+            - get_settings().embedding_safety_margin,
+        ),
+        overlap=0,
+    )
+    query_vector = vector_literal(embed_query(samples[0]["text"]))
     candidates = embedding_repository.retrieve_all(query_vector, limit=5, include_restricted=True)
     for candidate in candidates:
         if candidate["document_id"] == document_id:
@@ -293,7 +330,12 @@ def reembed_document(document_id: str) -> int:
     if not rows:
         return 0
     inputs = [
-        f"{row['context_header']}\n\n{row['text']}" if row.get("context_header") else row["text"]
+        embedding_input(
+            row,
+            row.get("context_header"),
+            settings=get_settings(),
+            count=embedding.count_input_tokens,
+        )
         for row in rows
     ]
     literals = [vector_literal(vector) for vector in embed_documents(inputs)]
@@ -412,10 +454,37 @@ def documents_have_embeddings(identifiers: list[str]) -> bool:
 def _rerank_or_dense(question: str, candidates: list[dict], limit: int) -> list[dict]:
     """Apply the admin-toggleable reranker to vector candidates, or fall back
     to dense-vector ranking when reranking is off or fails."""
+    logger.debug(
+        "ANN child candidates count=%d ids_distances=%s",
+        len(candidates),
+        [(c.get("chunk_id"), c.get("distance")) for c in candidates],
+    )
     if not reranker_enabled():
         return candidates[:limit]
     try:
-        return rerank_chunks(question, candidates, limit=limit)
+        # The cross encoder sees structure + child, never generation parent text.
+        prepared = [
+            dict(c, text="\n".join([*(c.get("section_path") or []), c["text"]])) for c in candidates
+        ]
+        originals = {c["chunk_id"]: c["text"] for c in candidates if "chunk_id" in c}
+        aspects = candidates[0].get("query_aspects", []) if candidates else []
+        ranked = rerank_chunks(question, prepared, limit=len(prepared) if aspects else limit)
+        if aspects:
+            from app.modules.chat.rag.evidence import max_vector_distance, min_reranker_score
+            from app.modules.documents.aspect_selection import allocate_aspects
+
+            aspect_rankings = [rerank_chunks(q, prepared, limit=len(prepared)) for q in aspects]
+            selected = allocate_aspects(
+                ranked,
+                aspect_rankings,
+                limit=min(limit, get_settings().child_rerank_k),
+                distance_threshold=max_vector_distance(),
+                score_threshold=min_reranker_score(),
+            )
+            selected_ids = {c["chunk_id"] for c in selected}
+            # Full evaluation callers still receive the remaining candidates for inspection.
+            ranked = [*selected, *(c for c in ranked if c["chunk_id"] not in selected_ids)][:limit]
+        return [dict(c, text=originals.get(c.get("chunk_id"), c["text"])) for c in ranked]
     except Exception:
         logger.exception("Reranking failed; returning dense-vector ranking instead.")
         return candidates[:limit]
@@ -437,6 +506,70 @@ def resolve_document_ids(
     ]
 
 
+def retrieve_child_candidates(
+    question: str,
+    *,
+    document_ids: list[str] | None = None,
+    limit: int = 30,
+    include_restricted: bool = False,
+) -> list[dict]:
+    """Union dense and lexical children before the shared cross-encoder/gate."""
+    query_vector = vector_literal(embed_query(question))
+    if document_ids is None:
+        dense = embedding_repository.retrieve_all(
+            query_vector, limit=limit, include_restricted=include_restricted
+        )
+    else:
+        dense = embedding_repository.retrieve(query_vector, document_ids, limit=limit)
+    lexical = embedding_repository.retrieve_lexical(
+        question,
+        query_vector,
+        document_ids,
+        limit=get_settings().child_lexical_candidate_k,
+        include_restricted=include_restricted,
+    )
+    merged = {c["chunk_id"]: dict(c, retrieval_sources=["dense"]) for c in dense}
+    for child in lexical:
+        key = child["chunk_id"]
+        if key in merged:
+            merged[key]["retrieval_sources"].append("lexical")
+            merged[key]["lexical_score"] = child["lexical_score"]
+        else:
+            merged[key] = dict(child, retrieval_sources=["lexical"])
+    if get_settings().compound_retrieval_enabled:
+        from app.modules.documents.aspect_selection import plan_aspects
+
+        try:
+            aspects = plan_aspects(question)
+            extra = {}
+            for index, aspect in enumerate(aspects):
+                vector = vector_literal(embed_query(aspect))
+                matches = (
+                    embedding_repository.retrieve_all(
+                        vector, limit=limit, include_restricted=include_restricted
+                    )
+                    if document_ids is None
+                    else embedding_repository.retrieve(vector, document_ids, limit=limit)
+                )
+                for child in matches:
+                    if child["chunk_id"] not in merged:
+                        extra[child["chunk_id"]] = dict(
+                            child, retrieval_sources=[f"aspect:{index}"]
+                        )
+            distances = embedding_repository.original_query_distances(query_vector, list(extra))
+            for key, child in extra.items():
+                if key in distances:
+                    merged[key] = dict(child, distance=distances[key])
+            for child in merged.values():
+                child["query_aspects"] = aspects
+        except Exception as exc:
+            logger.warning(
+                "Aspect planning/retrieval failed (%s); using original candidates",
+                type(exc).__name__,
+            )
+    return list(merged.values())
+
+
 def retrieve_relevant_chunks(
     question: str,
     identifiers: list[str],
@@ -444,15 +577,24 @@ def retrieve_relevant_chunks(
     include_restricted: bool = False,
 ) -> list[dict]:
     document_ids = resolve_document_ids(identifiers, include_restricted)
-    query_vector = vector_literal(embed_query(question))
+    if get_settings().controlled_retrieval_enabled:
+        from app.modules.documents.controlled_retrieval import retrieve_controlled
 
-    candidate_limit = max(limit * 3, 20)
-    candidates = embedding_repository.retrieve(
-        query_vector,
-        document_ids,
+        selected, trace = retrieve_controlled(
+            question,
+            document_ids=document_ids,
+            include_restricted=include_restricted,
+            limit=min(limit, get_settings().child_rerank_k),
+        )
+        return [dict(c, controlled_trace=trace) for c in selected]
+    candidate_limit = max(limit * 3, 20, get_settings().child_candidate_k)
+    candidates = retrieve_child_candidates(
+        question,
+        document_ids=document_ids,
         limit=candidate_limit,
+        include_restricted=include_restricted,
     )
-    return _rerank_or_dense(question, candidates, limit)
+    return _rerank_or_dense(question, candidates, min(limit, get_settings().child_rerank_k))
 
 
 def search_full_corpus(
@@ -465,14 +607,22 @@ def search_full_corpus(
     Used by the agent's search_full_corpus tool when the caller's selected
     documents don't have enough evidence to answer from.
     """
-    query_vector = vector_literal(embed_query(question))
-    candidate_limit = max(limit * 3, 20)
-    candidates = embedding_repository.retrieve_all(
-        query_vector,
+    if get_settings().controlled_retrieval_enabled:
+        from app.modules.documents.controlled_retrieval import retrieve_controlled
+
+        selected, trace = retrieve_controlled(
+            question,
+            include_restricted=include_restricted,
+            limit=min(limit, get_settings().child_rerank_k),
+        )
+        return [dict(c, controlled_trace=trace) for c in selected]
+    candidate_limit = max(limit * 3, 20, get_settings().child_candidate_k)
+    candidates = retrieve_child_candidates(
+        question,
         limit=candidate_limit,
         include_restricted=include_restricted,
     )
-    return _rerank_or_dense(question, candidates, limit)
+    return _rerank_or_dense(question, candidates, min(limit, get_settings().child_rerank_k))
 
 
 def copy_file_into_library(source_path: Path) -> str:

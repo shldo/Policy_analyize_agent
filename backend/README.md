@@ -4,6 +4,25 @@ FastAPI backend for the Policy in Action Library. It provides authentication,
 PDF ingestion and retrieval-augmented chat, trusted-source crawling, document
 catalogue APIs, and PostgreSQL/pgvector persistence.
 
+## RAG tokenizer setup
+
+Before running chat or the complete test suite, from `backend` run:
+
+```powershell
+python -m app.core.tokenizer_assets
+```
+
+This explicitly downloads the official DeepSeek V4 tokenizer data and verifies its
+SHA256. For offline setup, pass `--archive /path/to/deepseek_v4_tokenizer.zip`.
+Docker deployments use the same `backend/data` bind mount; provision the asset
+before enabling chat. No remote code is executed and request handlers do not download it.
+Missing tokenizer data fails explicitly; there is no byte-count fallback.
+
+Defaults are 6000 RAG tokens, 8 blocks and 5 blocks per document. System prompt and
+completion reserves are separate. Set `RAG_TOKENIZER_PATH` to an appropriate
+tokenizer when changing generation models. Historical byte-based reports remain
+available, but current runtime no longer recreates that old counting mode.
+
 ## Technology stack
 
 - Python 3.11+

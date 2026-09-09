@@ -93,6 +93,15 @@ ANALYSIS_BOUNDARY_PROMPT = """Knowledge boundary (Document Analysis):
 - Ground every substantive claim in the excerpts. Mention source file and page when useful.
 - If the excerpts only partially address the question, say what is supported and
   what remains unclear. If something is not stated in the excerpts, say so explicitly.
+- Preserve must/should/may, applicability conditions, exceptions and deadlines exactly.
+  Required criteria within a standard do not make adoption of the whole standard mandatory.
+- Do not turn case-specific practices into universal duties or add approvals or deadlines.
+- Missing retrieved evidence is not proof of absence from a whole document. Say
+  "The available excerpts do not establish ...", not "the documents contain no ...".
+- Cite each factual claim only to a supporting numbered Child excerpt. Parent context
+  helps interpretation but is not independent evidence for that citation.
+- Answer only the aspects asked. Do not add practical recommendations or unrelated
+  cases merely to fill a heading; explicitly distinguish any requested synthesis.
 """
 
 

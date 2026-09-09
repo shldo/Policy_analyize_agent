@@ -21,11 +21,8 @@ CHUNK_OVERLAP_TOKENS = 120
 _SENTENCE_BOUNDARY = re.compile(r"(?<=[.!?。！？])\s+")
 
 
-# TODO(structure-aware chunking): future work. Detect headings (numbering like
-# "3.2"/"Article 5", ALL-CAPS lines, or larger font via PyMuPDF get_text("dict"))
-# and use them as hard chunk boundaries + populate `section_title`, so a chunk
-# never straddles two sections. Optionally add semantic chunking (split where
-# adjacent-sentence embedding similarity drops). Deferred for now.
+# Structure boundaries are selected by parent_child.py before invoking this
+# splitter independently for each generation parent. This remains the flat fallback.
 
 
 class DocumentChunker:
@@ -39,6 +36,7 @@ class DocumentChunker:
         pages: list[dict],
         max_tokens: int = MAX_CHUNK_TOKENS,
         overlap: int = CHUNK_OVERLAP_TOKENS,
+        include_source_items: bool = False,
     ) -> list[dict]:
         # Keep the params sane so a small budget can't make item_budget <= 0.
         max_tokens = max(64, int(max_tokens))
@@ -65,6 +63,10 @@ class DocumentChunker:
                     "token_count": self._token_counter(text),
                 }
             )
+            if include_source_items:
+                chunks[-1]["source_items"] = [
+                    {"page": item["page"], "text": item["text"]} for item in current
+                ]
             current, current_tokens = self._overlap_tail(current, overlap)
 
         for paragraph in paragraphs:

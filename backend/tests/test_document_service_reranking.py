@@ -51,6 +51,7 @@ def configure_retrieval_dependencies(monkeypatch) -> dict:
     )
 
     captured["candidates"] = candidates
+    monkeypatch.setattr(service.embedding_repository, "retrieve_lexical", lambda *a, **kw: [])
     return captured
 
 
@@ -82,7 +83,7 @@ def test_retrieve_relevant_chunks_uses_reranker(
         limit=8,
     )
 
-    assert captured["candidate_limit"] == 24
+    assert captured["candidate_limit"] == 30
     assert captured["rerank_chunk_count"] == 24
     assert captured["final_limit"] == 8
     assert captured["rerank_question"] == "Policy question"
@@ -114,6 +115,6 @@ def test_retrieve_relevant_chunks_falls_back_when_reranker_fails(
         limit=8,
     )
 
-    assert captured["candidate_limit"] == 24
+    assert captured["candidate_limit"] == 30
     assert len(results) == 8
     assert results[0]["chunk_id"] == "chunk-0"
