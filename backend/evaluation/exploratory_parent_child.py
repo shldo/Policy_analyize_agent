@@ -11,6 +11,7 @@ from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
 from time import perf_counter
+from unittest.mock import patch
 
 from evaluation.dataset import digest, is_answerable, load_dataset, resolve_groups, score_groups
 from evaluation.generation import citation_checks
@@ -46,6 +47,17 @@ def main():
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--output", type=Path, default=Path("data/evaluation/exploratory"))
     parser.add_argument("--run", action="store_true", help="Call configured generation API")
+    parser.add_argument(
+        "--api-timeout",
+        type=float,
+        default=90,
+        help="Generation request timeout in seconds, no automatic retries",
+    )
+    parser.add_argument(
+        "--compare-strict",
+        action="store_true",
+        help="Pack the same ranked candidates with the previous strict policy too",
+    )
     parser.add_argument("--remaining-from", type=Path, help="Run unfinished cases in a new folder")
     parser.add_argument(
         "--all-development", action="store_true", help="Include reviewed legacy cases unchanged"
@@ -57,6 +69,7 @@ def main():
     from app.modules.chat.rag.prompts import get_insufficient_evidence_message
     from app.modules.documents.service import _rerank_or_dense, retrieve_child_candidates
     from app.modules.embedding import service as embedding
+    from app.modules.reranking import service as reranking
 
     manifest, cases = load_dataset(args.dataset)
     selected = draft_cases(cases)
@@ -115,8 +128,16 @@ def main():
         ),
         "generation_target": f"{provider}/{model}",
         "embedding_model": embedding.active_model_id(),
+        "reranker_model": reranking.active_config().active_model_id(),
+        "api_timeout": args.api_timeout,
+        "context_tokens": settings.rag_max_context_tokens,
+        "parent_context_k": settings.parent_context_k,
+        "max_parents_per_document": settings.max_parents_per_document,
         "candidate_k": settings.child_candidate_k,
         "lexical_candidate_k": settings.child_lexical_candidate_k,
+        "rrf_rank_constant": settings.hybrid_rrf_rank_constant,
+        "allow_partial_answers": settings.rag_allow_partial_answers,
+        "strict_comparison": args.compare_strict,
         "rerank_k": settings.child_rerank_k,
         "selected_ids": [c["question_id"] for c in selected],
         "results": [],
@@ -161,13 +182,44 @@ def main():
                 )
                 ranked = _rerank_or_dense(case["question"], candidates, len(candidates))
             row["candidates"] = candidates
+            for source in ("dense", "bm25"):
+                branch = sorted(
+                    [c for c in candidates if source in c.get("retrieval_ranks", {})],
+                    key=lambda c: c["retrieval_ranks"][source],
+                )
+                row[f"{source}_scores"] = stage_scores([c["chunk_id"] for c in branch], groups)
             row["candidate_scores"] = stage_scores([c["chunk_id"] for c in candidates], groups)
             row["stage"] = "rerank"
             row["ranked"] = ranked
             row["cross_encoder_used"] = bool(ranked) and all("reranker_score" in c for c in ranked)
             row["reranked_scores"] = stage_scores([c["chunk_id"] for c in ranked], groups)
             row["stage"] = "evidence_and_packing"
-            packed = prepare_child_context(case["question"], ranked[: settings.child_rerank_k])
+            if args.compare_strict:
+                with patch.object(settings, "rag_allow_partial_answers", False):
+                    baseline = prepare_child_context(
+                        case["question"],
+                        ranked[: settings.child_rerank_k],
+                        **(
+                            {"controlled_trace": trace}
+                            if settings.controlled_retrieval_enabled
+                            else {}
+                        ),
+                    )
+                row["strict_baseline"] = {
+                    "generation_allowed": baseline["generation_allowed"],
+                    "reason": baseline["evidence_reason"],
+                    "packed_scores": stage_scores(
+                        [c["chunk_id"] for c in baseline["citations"]], groups
+                    ),
+                    "child_ids": [c["chunk_id"] for c in baseline["citations"]],
+                    "context_tokens": baseline["packed_token_count"],
+                    "generation": "not_run; eligibility comparison only",
+                }
+            packed = prepare_child_context(
+                case["question"],
+                ranked[: settings.child_rerank_k],
+                **({"controlled_trace": trace} if settings.controlled_retrieval_enabled else {}),
+            )
             row["packed"] = packed
             row["gated_scores"] = stage_scores([c["chunk_id"] for c in packed["chunks"]], groups)
             row["packed_scores"] = stage_scores(
@@ -176,7 +228,7 @@ def main():
             row["retrieval_seconds"] = perf_counter() - started
             row["stage"] = "generation"
             write_report(folder / f"{case['question_id']}.json", row)
-            if not packed["evidence_sufficient"]:
+            if not packed.get("generation_allowed", packed["evidence_sufficient"]):
                 row["generation"] = {
                     "status": "gate_refusal_no_api_call",
                     "answer": get_insufficient_evidence_message(
@@ -188,9 +240,19 @@ def main():
             elif args.run:
                 generation_started = perf_counter()
                 # Only user question and retrieved context reach the model, never gold answers.
-                answer, resolved_model = generate_answer(
-                    case["question"], packed["context"], citations=packed["citations"]
-                )
+                from app.modules.chat.rag import generation
+
+                original_client = generation.create_chat_client
+
+                def bounded_client(*a, _factory=original_client, **kw):
+                    return _factory(*a, **kw).model_copy(
+                        update={"request_timeout": args.api_timeout, "max_retries": 0}
+                    )
+
+                with patch.object(generation, "create_chat_client", bounded_client):
+                    answer, resolved_model = generate_answer(
+                        case["question"], packed["context"], citations=packed["citations"]
+                    )
                 row["generation"] = {
                     "status": "generated_pending_review",
                     "answer": answer,

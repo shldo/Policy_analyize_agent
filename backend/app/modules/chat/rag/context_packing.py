@@ -74,13 +74,18 @@ def pack_generation_context(
     budget: int,
     count: Callable = generation_tokens,
     citation_numbers: dict | None = None,
+    preserve_order: bool = False,
 ) -> dict:
     s = get_settings()
     blocks, packed, citations = [], [], []
     numbers = dict(citation_numbers or {})
     per_document: Counter = Counter()
     seen = set()
-    for parent in sorted(parents, key=lambda p: p["parent_score"], reverse=True):
+    for parent in (
+        parents
+        if preserve_order
+        else sorted(parents, key=lambda p: p["parent_score"], reverse=True)
+    ):
         key = parent.get("context_id") or parent.get("section_id")
         if key in seen or len(packed) >= s.parent_context_k:
             continue

@@ -22,7 +22,7 @@ def test_hybrid_union_keeps_real_distance_and_scope(monkeypatch):
     monkeypatch.setattr(service.embedding_repository, "retrieve_lexical", lexical)
     result = service.retrieve_child_candidates("q", document_ids=["doc"])
     assert [c["chunk_id"] for c in result] == ["a", "b"]
-    assert result[0]["retrieval_sources"] == ["dense", "lexical"]
+    assert result[0]["retrieval_sources"] == ["dense", "bm25"]
     assert result[1]["distance"] == 0.8  # lexical recall cannot bypass vector gate
     assert observed["ids"] == ["doc"] and not observed["include_restricted"]
 

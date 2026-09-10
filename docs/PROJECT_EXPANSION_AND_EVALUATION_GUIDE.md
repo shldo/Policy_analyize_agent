@@ -1,5 +1,21 @@
 # Policy Research Agent：数据扩容、质量优化与交付指导
 
+接手开发请先读 [下一阶段交接与验收步骤](NEXT_AGENT_HANDOFF.md)。下方记录按时间保留，旧结论不代表当前默认配置。
+
+2026-09-10 最新：默认改为“有依据部分回答、缺口明确说明”，不因单个子问题缺证据而整题拒答。
+见[行为与字段说明](PARTIAL_ANSWER_POLICY.md)及[50 题实测结果](PARTIAL_ANSWER_RESULTS_20260910.md)。
+50 次生成成功、43 题计分；RRF 完整证据@20=41/43，重排=42/43，最终上下文=40/43；
+同候选下旧/新 Gate 最终覆盖均为 94.26%，没有 Gate 带来的召回提升。主要剩余损失是
+MC04 的 Top-8/每文档 5 Parents 限制、MC06 候选缺失、CS07 重排到第 13/16 位。
+358 tests passed、6 skipped；未改题库/模型/数据库，未宣称全量答案语义审核通过。
+
+2026-09-10 工程更新：已接入并默认启用 **BM25 + 向量 + RRF**，见
+[混合检索实现与复现说明](HYBRID_RETRIEVAL_IMPLEMENTATION.md)。原 `ts_rank_cd` 分支已替换；
+Classic、Full Corpus 和 Controlled 补查复用公共入口。351 tests passed、6 skipped；
+真实库两题验证两路召回与 reranker，Child/向量 fingerprint 未变化。以下“词法默认关闭”是历史状态，
+不再代表新代码默认值；旧进程需重启，显式 `CHILD_LEXICAL_CANDIDATE_K=0` 需改为 30。
+本轮未跑正式 50 题，不宣称质量指标提升。
+
 最新链路候选回归见[50题回归记录](CHAIN_REGRESSION_20260908.md)：不改题库，CS07用于诊断。
 ANN+英文全文补召回平均指标改善，但CS07/MC04退步，默认关闭全文候选；不宣称修复通过。
 下一步针对复合问题方面覆盖和重排截断，不通过增加无关Parent或手改生成答案解决。
@@ -417,3 +433,13 @@ MCP 只在确有工具接入需求时纳入交付，不为简历词汇额外引�
 - [语料建设记录](CORPUS_BUILD.md)
 
 执行时优先读取各文档最新状态。历史文件中的“下一步”只代表当时计划；本指南用于汇总后续安排，但不能覆盖实际数据版本、审核记录或用户的新指示。
+
+## 16. Controlled Retrieval 最新实验（2026-09-09）
+
+2026-09-10更新：V6范围保留修复后，固定6题Inspector隔离验证通过。下一步冻结候选版本，核对不变量后进行同批真实回归，不继续围绕语法字段反复改动；尚无新的正式覆盖成绩。记录见 [Inspector范围验证](INSPECTOR_SCOPE_SMOKE_RESULTS.md)。以下保留历史V3阶段记录。
+
+本阶段暂不扩容或改题。使用与 V2 相同的冻结 50 题及数据库，完成 anchored facets、四态检查、最终 inspection 融合、packed coverage 硬门控；默认仍关闭，未发布。
+
+实测完整证据仍为 38/43、平均 EGC 93.72%；新增映射题仍为 25/30、91%。selection_budget 4→1，最终 false sufficient 4→3，但 fallback 0→2，并新增 9 道 gold 已完整却拒答的案例。**不应包装为覆盖率提升或直接切换默认方案。**
+
+下一步优先解决并列要求/比较对象的原文 anchor 独立绑定，复核 Inspector 的泛化支持与过度保守判断，再用同一冻结题库回归。不能靠增加补查轮数、改变 gold 或降低阈值追求表面提升。完整文件清单、原始运行路径、指标口径与失败原因见 [V3 对照报告](CONTROLLED_FACETS_V3_RESULTS.md)。

@@ -452,10 +452,9 @@ def documents_have_embeddings(identifiers: list[str]) -> bool:
 
 
 def _rerank_or_dense(question: str, candidates: list[dict], limit: int) -> list[dict]:
-    """Apply the admin-toggleable reranker to vector candidates, or fall back
-    to dense-vector ranking when reranking is off or fails."""
+    """Rerank fused candidates; retain RRF order when reranking is off or fails."""
     logger.debug(
-        "ANN child candidates count=%d ids_distances=%s",
+        "Hybrid child candidates count=%d ids_distances=%s",
         len(candidates),
         [(c.get("chunk_id"), c.get("distance")) for c in candidates],
     )
@@ -486,7 +485,7 @@ def _rerank_or_dense(question: str, candidates: list[dict], limit: int) -> list[
             ranked = [*selected, *(c for c in ranked if c["chunk_id"] not in selected_ids)][:limit]
         return [dict(c, text=originals.get(c.get("chunk_id"), c["text"])) for c in ranked]
     except Exception:
-        logger.exception("Reranking failed; returning dense-vector ranking instead.")
+        logger.exception("Reranking failed; retaining candidate fusion order.")
         return candidates[:limit]
 
 
@@ -512,8 +511,13 @@ def retrieve_child_candidates(
     document_ids: list[str] | None = None,
     limit: int = 30,
     include_restricted: bool = False,
+    expand_aspects: bool = True,
 ) -> list[dict]:
-    """Union dense and lexical children before the shared cross-encoder/gate."""
+    """BM25 + dense -> RRF -> shared cross-encoder/gate in every search mode."""
+    from app.modules.documents.hybrid_search import reciprocal_rank_fusion
+
+    if document_ids == [] or limit <= 0:
+        return []
     query_vector = vector_literal(embed_query(question))
     if document_ids is None:
         dense = embedding_repository.retrieve_all(
@@ -528,15 +532,19 @@ def retrieve_child_candidates(
         limit=get_settings().child_lexical_candidate_k,
         include_restricted=include_restricted,
     )
-    merged = {c["chunk_id"]: dict(c, retrieval_sources=["dense"]) for c in dense}
-    for child in lexical:
-        key = child["chunk_id"]
-        if key in merged:
-            merged[key]["retrieval_sources"].append("lexical")
-            merged[key]["lexical_score"] = child["lexical_score"]
-        else:
-            merged[key] = dict(child, retrieval_sources=["lexical"])
-    if get_settings().compound_retrieval_enabled:
+    fused = reciprocal_rank_fusion(
+        {"dense": dense, "bm25": lexical},
+        rank_constant=get_settings().hybrid_rrf_rank_constant,
+    )
+    logger.info(
+        "Hybrid retrieval dense=%d bm25=%d fused=%d rrf_k=%d",
+        len(dense),
+        len(lexical),
+        len(fused),
+        get_settings().hybrid_rrf_rank_constant,
+    )
+    merged = {c["chunk_id"]: c for c in fused}
+    if expand_aspects and get_settings().compound_retrieval_enabled:
         from app.modules.documents.aspect_selection import plan_aspects
 
         try:
@@ -602,7 +610,7 @@ def search_full_corpus(
     limit: int = 8,
     include_restricted: bool = False,
 ) -> list[dict]:
-    """Vector search across the ENTIRE indexed corpus, not just selected documents.
+    """Hybrid search across the ENTIRE authorized corpus, not just selected documents.
 
     Used by the agent's search_full_corpus tool when the caller's selected
     documents don't have enough evidence to answer from.

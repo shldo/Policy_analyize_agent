@@ -1,3 +1,4 @@
+from app.core.config import get_settings
 from app.modules.chat.rag.evidence import (
     assess_evidence_sufficiency,
     max_vector_distance,
@@ -110,7 +111,7 @@ def retrieve_context_node(state: PDFQAState) -> dict:
 
 def check_evidence_node(state: PDFQAState) -> dict:
     """Decide whether retrieved material is strong enough for generation."""
-    if state.get("used_vector_retrieval", False):
+    if state.get("used_vector_retrieval", False) or get_settings().controlled_retrieval_enabled:
         from app.modules.chat.rag.generation import _build_citation_instruction
         from app.modules.chat.rag.prompts import get_system_prompt
 
@@ -147,6 +148,8 @@ def insufficient_evidence_node(state: PDFQAState) -> dict:
 
 def generate_answer_node(state: PDFQAState) -> dict:
     """Generate the final answer from the prepared document context."""
+    if _controlled_blocked(state):
+        return insufficient_evidence_node(state)
     answer, resolved_model = generate_answer(
         question=state["question"],
         context=state["context"],
@@ -159,8 +162,24 @@ def generate_answer_node(state: PDFQAState) -> dict:
     return {"answer": answer, "resolved_model": resolved_model}
 
 
+def _controlled_blocked(state: PDFQAState) -> bool:
+    if get_settings().rag_allow_partial_answers and "generation_allowed" in state:
+        return not state["generation_allowed"]
+    trace = state.get("controlled_trace")
+    if trace is not None or get_settings().controlled_retrieval_enabled:
+        return not (
+            trace
+            and trace.get("coverage_stage") == "packed"
+            and trace.get("coverage_sufficient") is True
+            and state.get("evidence_sufficient") is True
+        )
+    return False
+
+
 def route_after_evidence_check(state: PDFQAState) -> str:
-    if state.get("evidence_sufficient", False):
+    if _controlled_blocked(state):
+        return "insufficient_evidence"
+    if state.get("generation_allowed", state.get("evidence_sufficient", False)):
         return "generate_answer"
     # Policymaker mode is always document-grounded and must stop when evidence is weak.
     if _response_mode(state) == "policymaker":

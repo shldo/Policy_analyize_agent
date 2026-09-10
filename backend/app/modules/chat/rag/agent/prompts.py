@@ -216,6 +216,18 @@ def get_agent_system_prompt(
     *,
     is_admin: bool = False,
 ) -> str:
+    from app.core.config import get_settings
+
+    coverage_strategy = (
+        "For document tool results, generation_allowed controls whether you can prepare an "
+        "answer; evidence_sufficient/coverage_sufficient only describe completeness. "
+        "When generation_allowed=true, prepare_final_answer using supported parts and explicit "
+        "evidence gaps, even if evidence_sufficient=false. This replaces the legacy "
+        "whole-question refusal/escalation rule below. Do not ask for clarification merely "
+        "because evidence is missing for an otherwise clear question."
+        if get_settings().rag_allow_partial_answers
+        else ""
+    )
     # Policymaker is always forced to answer_mode="analysis" upstream
     # (normalize_answer_mode) — strategy is hardcoded to match rather than
     # trusting the caller passed the already-normalized value.
@@ -227,6 +239,7 @@ def get_agent_system_prompt(
                 POLICYMAKER_STYLE_PROMPT,
                 POLICYMAKER_BOUNDARY_PROMPT,
                 ANALYSIS_STRATEGY_PROMPT,
+                coverage_strategy,
             ]
             if part.strip()
         )
@@ -241,7 +254,7 @@ def get_agent_system_prompt(
             STUDENT_STRUCTURE_PROMPT if response_mode == "student" else RESEARCHER_STRUCTURE_PROMPT
         )
         parts.append(structure)
-    parts.extend([boundary, strategy])
+    parts.extend([boundary, strategy, coverage_strategy])
 
     if is_chat_mode and not is_admin:
         parts.append(

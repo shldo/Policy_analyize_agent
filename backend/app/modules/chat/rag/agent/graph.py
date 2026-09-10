@@ -8,7 +8,7 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.prebuilt import ToolNode
 
 from app.core.config import get_settings
-from app.modules.chat.rag.agent.context import pack_agent_messages
+from app.modules.chat.rag.agent.context import IncompleteControlledEvidence, pack_agent_messages
 from app.modules.chat.rag.agent.prompts import (
     get_agent_system_prompt,
     get_final_answer_system_prompt,
@@ -139,7 +139,7 @@ def _should_auto_finalize(state: AgentState) -> bool:
         payload = json.loads(last.content)
     except (TypeError, ValueError):
         return False
-    if not payload.get("evidence_sufficient"):
+    if not payload.get("generation_allowed", payload.get("evidence_sufficient")):
         return False
 
     counts = state.get("tool_call_counts", {})
@@ -395,7 +395,12 @@ async def final_generation_node(state: AgentState) -> dict:
         provider, selected_model, max_tokens=get_settings().rag_reserved_output_tokens
     )
     system_prompt = get_final_answer_system_prompt(response_mode, answer_mode)
-    messages = pack_agent_messages(_messages_for_current_turn(state["messages"]), system_prompt)
+    current = _messages_for_current_turn(state["messages"])
+    question = next((m.content for m in reversed(current) if isinstance(m, HumanMessage)), "")
+    try:
+        messages = pack_agent_messages(current, system_prompt, question=question)
+    except IncompleteControlledEvidence as exc:
+        return insufficient_evidence_node(dict(state, last_evidence_reason=str(exc)))
     validate_generation_budget(messages)
 
     response: AIMessage = await client.ainvoke(messages)

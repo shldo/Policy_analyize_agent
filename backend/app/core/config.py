@@ -55,7 +55,9 @@ class Settings(BaseSettings):
     contextual_header_reserve_tokens: int = Field(default=64, ge=0)
     structure_prefix_max_tokens: int = Field(default=96, ge=16)
     child_candidate_k: int = Field(default=30, ge=1)
-    child_lexical_candidate_k: int = Field(default=0, ge=0)
+    child_lexical_candidate_k: int = Field(default=30, ge=0)
+    hybrid_rrf_rank_constant: int = Field(default=60, ge=1)
+    rag_allow_partial_answers: bool = True
     compound_retrieval_enabled: bool = False
     controlled_retrieval_enabled: bool = False
     child_rerank_k: int = Field(default=8, ge=1)

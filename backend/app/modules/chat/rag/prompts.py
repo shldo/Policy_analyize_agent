@@ -5,6 +5,18 @@ from typing import Literal
 ResponseMode = Literal["researcher", "policymaker", "student"]
 AnswerMode = Literal["analysis", "chat"]
 
+PARTIAL_ANSWER_INSTRUCTION = """Evidence and answer coverage:
+- Do not refuse the entire question just because one subquestion lacks evidence.
+- Answer each supported part with its actual source citation. Preserve the actor,
+  conditions, exceptions, deadlines, and must/should/may strength of the source.
+- Explicitly identify unanswered parts under 'Evidence gaps' (in the user's language).
+  Say the provided context does not establish the requested fact; do not claim the
+  full corpus or the real world lacks it. Do not invent numbers, exceptions or sources.
+- A retrieved passage or generation_allowed=true is NOT proof of complete coverage.
+  Never describe a partial or unverified answer as fully supported or exhaustive.
+- If no part is supported, say so plainly; do not manufacture a partial answer.
+"""
+
 # Injected into the system prompt when numbered citations are available.
 # {source_list} is filled with one "[N] title, page X" line per retrieved chunk.
 CITATION_INSTRUCTION = (
@@ -182,6 +194,9 @@ def get_system_prompt(
     response_mode: ResponseMode = "researcher",
     answer_mode: AnswerMode = "analysis",
 ) -> str:
+    from app.core.config import get_settings
+
+    coverage = PARTIAL_ANSWER_INSTRUCTION if get_settings().rag_allow_partial_answers else ""
     # Policymaker is a dedicated, strictly document-grounded persona. It never
     # enters Open Discussion, even if a caller passes answer_mode="chat".
     if response_mode == "policymaker":
@@ -189,6 +204,7 @@ def get_system_prompt(
             POLICYMAKER_BASE_SYSTEM_PROMPT,
             POLICYMAKER_STYLE_PROMPT,
             POLICYMAKER_BOUNDARY_PROMPT,
+            coverage,
             CONTEXT_BLOCK,
         ]
         return "\n".join(part.strip() for part in parts if part.strip())
@@ -203,7 +219,7 @@ def get_system_prompt(
         structure = STUDENT_STRUCTURE_PROMPT if is_student else RESEARCHER_STRUCTURE_PROMPT
         parts.append(structure)
 
-    parts.extend([boundary, CONTEXT_BLOCK])
+    parts.extend([boundary, coverage, CONTEXT_BLOCK])
     return "\n".join(part.strip() for part in parts if part.strip())
 
 

@@ -38,6 +38,40 @@ from app.modules.reranking.service import rerank as rerank_chunks
 
 logger = logging.getLogger(__name__)
 
+
+def _compact_coverage(trace: dict) -> dict:
+    """Keep the final requirement/core contract, not candidates or model responses."""
+    final = (trace.get("inspections") or [[]])[-1]
+    return {
+        **{
+            k: trace.get(k)
+            for k in (
+                "question",
+                "question_type",
+                "comparison_subjects",
+                "requirements",
+                "needs",
+                "coverage_sufficient",
+                "coverage_stage",
+            )
+            if trace.get(k) is not None
+        },
+        "core_contract": trace.get("core_contract", {}),
+        "inspections": [
+            [
+                {
+                    "need_index": i["need_index"],
+                    "requirement_id": i.get("requirement_id"),
+                    "status": i["status"],
+                    "evidence_role": i.get("evidence_role"),
+                    "evidence": [{"chunk_id": e["chunk_id"]} for e in i.get("evidence", [])],
+                }
+                for i in final
+            ]
+        ],
+    }
+
+
 # Repeated on every sufficient result, not just stated once in the system
 # prompt: some models (verified with deepseek-chat) keep re-searching "for
 # more detail/corroboration" even when the system prompt explicitly says not
@@ -161,10 +195,9 @@ async def search_internal_documents(
 ) -> Command:
     """Search only the documents selected for this conversation.
 
-    The result includes `evidence_sufficient` — computed by the same
-    deterministic cosine-distance/reranker gate the classic answer path
-    uses, not your own judgement — telling you whether these documents
-    actually support an answer. Each result has a `number`: cite it with
+    The result includes `generation_allowed` for usable context and a separate
+    `coverage_sufficient` for verified completeness. Answer supported parts even
+    if coverage is partial; identify remaining gaps. Each result has a `number`: cite it with
     exactly that [N], never a guessed or recomputed one. Briefly state why
     you chose this action in `decision_reason`; it is shown as a concise UI
     trace, not hidden reasoning. If this is not your first tool call this
@@ -185,18 +218,23 @@ async def search_internal_documents(
         )
 
     result = await asyncio.to_thread(_run)
-    sufficient = result.get("evidence_sufficient", False)
+    sufficient = result.get("generation_allowed", result.get("evidence_sufficient", False))
     raw_citations = [
         dict(c, source_type="document", tier="internal") for c in result.get("citations", [])
     ]
     numbered_results, new_citations = _number_citations(citations, raw_citations)
     payload = {
-        "evidence_sufficient": sufficient,
+        "evidence_sufficient": result.get("evidence_sufficient", False),
+        "generation_allowed": sufficient,
+        "coverage_sufficient": result.get("coverage_sufficient", False),
+        "coverage_status": result.get("coverage_status", "not_assessed"),
         "reason": result.get("evidence_reason"),
         "results": numbered_results,
     }
     if result.get("generation_parents"):
         payload["generation_parents"] = result["generation_parents"]
+    if result.get("controlled_trace") is not None:
+        payload["controlled_trace"] = _compact_coverage(result["controlled_trace"])
     if sufficient:
         payload["reminder"] = SUFFICIENT_EVIDENCE_REMINDER
     update: dict = {
@@ -246,13 +284,23 @@ async def search_full_corpus(
         return prepare_child_context(query, chunks)
 
     result = await asyncio.to_thread(_run)
-    sufficient, reason = result["evidence_sufficient"], result["evidence_reason"]
+    sufficient = result.get("generation_allowed", result["evidence_sufficient"])
+    reason = result["evidence_reason"]
     raw_citations = [
         dict(c, source_type="document", tier="full_corpus") for c in result["citations"]
     ]
     numbered_results, new_citations = _number_citations(citations, raw_citations)
-    payload = {"evidence_sufficient": sufficient, "reason": reason, "results": numbered_results}
+    payload = {
+        "evidence_sufficient": result["evidence_sufficient"],
+        "generation_allowed": sufficient,
+        "coverage_sufficient": result.get("coverage_sufficient", False),
+        "coverage_status": result.get("coverage_status", "not_assessed"),
+        "reason": reason,
+        "results": numbered_results,
+    }
     payload["generation_parents"] = result["generation_parents"]
+    if result.get("controlled_trace") is not None:
+        payload["controlled_trace"] = _compact_coverage(result["controlled_trace"])
     if sufficient:
         payload["reminder"] = SUFFICIENT_EVIDENCE_REMINDER
     update: dict = {

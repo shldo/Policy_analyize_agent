@@ -374,56 +374,56 @@ class EmbeddingRepository:
         limit: int,
         include_restricted: bool = False,
     ) -> list[dict]:
-        """English stemmed OR-term recall; retain real vector distance for the gate.
+        """BM25 over authorized Child bodies, independently of ANN candidates.
 
-        This is PostgreSQL full-text ranking, not BM25. Match child text only;
-        parent expansion and access policy remain separate from retrieval.
+        Keep this entry point for callers using the lexical branch. PostgreSQL
+        supplies a fresh scope snapshot; the local inverted index is disposable.
         """
-        if limit <= 0 or document_ids == []:
+        from app.modules.documents.hybrid_search import bm25_index, bm25_query
+
+        if limit <= 0 or document_ids == [] or not bm25_query(question):
             return []
-        table, dim = _active_table_dim()
+        table, _ = _active_table_dim()
         filters = []
-        values = [question, query_vector]
+        values = []
         if document_ids is not None:
             filters.append("c.document_id = ANY(%s::uuid[])")
             values.append(document_ids)
         if not include_restricted:
             filters.append("d.approved = true AND d.access_level = 'public'")
-        where = " AND ".join(["v.lexemes @@ q.query", *filters])
+        where = "WHERE " + " AND ".join(filters) if filters else ""
         with get_connection() as connection:
             if not _table_exists(connection, table):
                 return []
             rows = connection.execute(
-                f"""WITH q AS (
-                    SELECT to_tsquery('english', replace(
-                        plainto_tsquery('english', %s)::text, ' & ', ' | ')) AS query
-                )
-                SELECT c.id AS chunk_id, c.document_id, d.original_filename AS file,
+                f"""SELECT c.id AS chunk_id, c.document_id, d.original_filename AS file,
                     COALESCE(dm.title, d.original_filename) AS doc_title,
                     c.page_start, c.page_end, c.text, c.section_title,
                     to_jsonb(c)->>'section_id' AS section_id,
-                    c.metadata_json->'section_path' AS section_path,
-                    e.embedding <=> %s::{_vector_type(dim)} AS distance,
-                    ts_rank_cd(v.lexemes, q.query, 32) AS lexical_score
+                    c.metadata_json->'section_path' AS section_path
                 FROM "{table}" e
                 JOIN document_chunks c ON c.id=e.chunk_id
                 JOIN documents d ON d.id=c.document_id
                 LEFT JOIN document_metadata dm ON dm.document_id=d.id
-                CROSS JOIN q
-                CROSS JOIN LATERAL (SELECT to_tsvector('english', c.text) AS lexemes) v
-                WHERE {where}
-                ORDER BY lexical_score DESC, c.id LIMIT %s""",
-                (*values, limit),
+                {where}
+                ORDER BY c.id""",
+                tuple(values),
             ).fetchall()
+        by_id = {str(row["chunk_id"]): row for row in rows}
+        hits = bm25_index.search(question, rows, limit)
+        distances = self.original_query_distances(query_vector, [key for key, _ in hits])
         return [
             dict(
-                row,
-                chunk_id=str(row["chunk_id"]),
-                document_id=str(row["document_id"]),
-                page=row["page_start"],
-                distance=float(row["distance"]),
+                by_id[key],
+                chunk_id=key,
+                document_id=str(by_id[key]["document_id"]),
+                page=by_id[key]["page_start"],
+                distance=distances[key],
+                bm25_score=score,
+                lexical_score=score,  # Compatibility metadata; now explicitly BM25.
             )
-            for row in rows
+            for key, score in hits
+            if key in distances  # Reprocessing may remove a Child after the snapshot.
         ]
 
     def retrieve_many(
