@@ -2,6 +2,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException
 
+from app.core.config import get_settings
 from app.modules.auth.dependencies import get_current_user
 from app.modules.auth.schemas import AuthRequest, AuthResponse, UserResponse
 from app.modules.auth.service import (
@@ -16,6 +17,10 @@ CurrentUser = Annotated[dict, Depends(get_current_user)]
 
 @router.post("/register", response_model=AuthResponse, status_code=201)
 async def register(payload: AuthRequest) -> dict:
+    settings = get_settings()
+    enabled = settings.registration_enabled
+    if enabled is False or (enabled is None and settings.app_env.lower() == "production"):
+        raise HTTPException(status_code=403, detail="Registration is closed. Contact the operator.")
     try:
         user = create_user(payload.username, payload.password, payload.role, payload.secret)
     except ValueError as exc:

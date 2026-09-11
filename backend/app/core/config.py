@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     app_name: str = "AI Policy Research Platform"
     app_env: str = "development"
     app_debug: bool = True
+    registration_enabled: bool | None = None
     api_v1_prefix: str = "/api/v1"
 
     crawling_enabled: bool = False

@@ -342,3 +342,6 @@ Agent工具响应的`evidence_sufficient=false`可在最终router中变为true�
 # 2026-09-11 最新接管结果
 
 优先阅读 [主张绑定与全量结果](CLAIM_BINDING_RESULTS_20260911.md)。已实现显式 `RAG_CLAIM_BINDING_ENABLED=false` 开关，Direct/Agent 文档分析共用 Child-only 单轮检查；默认关闭。50 题有初稿，离线渲染后 48 题有最终答案、2 题待复核。第二审核器也存在误判，不能宣称全量质量通过。公开实际产物位于 `docs/results/claim_binding_20260911/`。不要重新使用早期 environment-blocked 结论：本地模型配置、PDF、Playwright 均可用，隔离 UI 已验证。
+# 最新发布交付
+
+优先阅读 [稳定发布候选与指标总账](RELEASE_CANDIDATE_20260911.md)。本次生产启动校验与生产默认关闭注册是发布必修；公网目标尚待用户提供。不要把 main 合并称为公网部署成功。
