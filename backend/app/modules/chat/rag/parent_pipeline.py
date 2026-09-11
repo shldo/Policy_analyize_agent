@@ -3,7 +3,10 @@
 import logging
 
 from app.core.config import get_settings
-from app.modules.chat.rag.context_packing import available_context_tokens, pack_generation_context
+from app.modules.chat.rag.context_packing import (
+    available_context_tokens,
+    pack_generation_context,
+)
 from app.modules.chat.rag.evidence import (
     assess_evidence_sufficiency,
     max_vector_distance,
@@ -15,11 +18,15 @@ from app.modules.documents.controlled_retrieval import uncovered_facets
 logger = logging.getLogger(__name__)
 
 
-def _prepare_partial_context(question, children, overhead, trace):
+def _prepare_partial_context(question, children, overhead, trace, packing_policy):
     # Relevance ranking already happened. Do not veto BM25 hits using dense distance.
     candidates = [c for c in children if c.get("text", "").strip()]
     parents = resolve_generation_parents(candidates) if candidates else []
-    packed = pack_generation_context(parents, budget=available_context_tokens(question + overhead))
+    packed = pack_generation_context(
+        parents,
+        budget=available_context_tokens(question + overhead),
+        packing_policy=packing_policy,
+    )
     allowed = bool(packed["context"].strip()) and bool(packed["citations"])
     complete = False
     status = "not_assessed" if allowed else "no_context"
@@ -70,15 +77,23 @@ def _prepare_partial_context(question, children, overhead, trace):
 
 
 def prepare_child_context(
-    question: str, children: list[dict], *, overhead: str = "", controlled_trace: dict | None = None
+    question: str,
+    children: list[dict],
+    *,
+    overhead: str = "",
+    controlled_trace: dict | None = None,
+    packing_policy: str | None = None,
 ) -> dict:
+    # Explicit evaluation overrides take precedence over the application setting.
+    if packing_policy is None:
+        packing_policy = get_settings().rag_packing_policy
     trace = (
         controlled_trace
         if controlled_trace is not None
         else (children[0].get("controlled_trace") if children else None)
     )
     if get_settings().rag_allow_partial_answers:
-        return _prepare_partial_context(question, children, overhead, trace)
+        return _prepare_partial_context(question, children, overhead, trace, packing_policy)
     controlled = trace is not None or get_settings().controlled_retrieval_enabled
     distance, score = (
         (max_vector_distance(), min_reranker_score()) if children else (1.0, float("-inf"))
@@ -111,7 +126,10 @@ def prepare_child_context(
         )
     packing_options = {"preserve_order": True} if controlled else {}
     packed = pack_generation_context(
-        parents, budget=available_context_tokens(question + overhead), **packing_options
+        parents,
+        budget=available_context_tokens(question + overhead),
+        packing_policy=packing_policy,
+        **packing_options,
     )
     if sufficient and not packed["context"]:
         sufficient, reason = False, "Insufficient token budget for complete supporting evidence."
@@ -134,6 +152,13 @@ def prepare_child_context(
                 "generation was stopped without inferring absence from the full corpus."
             )
         )
+    coverage_status = "not_assessed"
+    if controlled:
+        coverage_status = (
+            "complete" if sufficient else ("partial" if packed["context"] else "no_context")
+        )
+    elif not packed["context"]:
+        coverage_status = "no_context"
     logger.info(
         "child_context reranked=%d evidence_passed=%d resolved=%s packed=%d tokens=%d",
         len(children),
@@ -149,6 +174,8 @@ def prepare_child_context(
         "raw_chunks": children,
         "evidence_sufficient": sufficient,
         "generation_allowed": sufficient,
+        "coverage_status": coverage_status,
+        "coverage_sufficient": coverage_status == "complete",
         "evidence_reason": reason,
         "used_vector_retrieval": True,
     }

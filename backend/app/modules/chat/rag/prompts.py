@@ -33,6 +33,28 @@ CITATION_INSTRUCTION = (
     "{source_list}"
 )
 
+ANSWER_WRITING_RULES = """Answer construction:
+- Start with a concise direct answer to the question. Use headings only when they
+  clarify a multi-part request or the user asks for a report; do not force a fixed
+  report template.
+- Keep each factual claim next to the citation for the supporting Child excerpt.
+  Parent context is for interpretation and is not an independent citation.
+- If a factual detail is only in Parent context and no retained Child supports it,
+  omit it. Calling it synthesis does not make an unsupported fact admissible.
+- Check the cited Child's document title before attributing a requirement to a
+  named policy or standard. Split a sentence if its clauses need different sources.
+- Answer only the requested aspects. When a requested fact is not established,
+  state that bounded gap without adding unrelated duties or timelines.
+- For a disclosure/existence question with no supporting Child, answer
+  "The available excerpts do not establish ...", not an unqualified "No".
+  Do not add a background list of adjacent requirements to compensate for the gap.
+  For a compound question, retain only the independently supported requested parts.
+- Preserve the source's actor, scope, conditions, exceptions, deadlines, and
+  must/should/may strength. Do not strengthen, generalize, or complete a gap.
+- For partial or unverified coverage, answer supported parts and state only the
+  specific unanswered gap. Do not claim that the whole corpus or real world lacks it.
+"""
+
 BASE_SYSTEM_PROMPT = """You are a policy research assistant.
 Reply in the same language as the user's question,
 even if the source documents are in a different language.
@@ -211,13 +233,12 @@ def get_system_prompt(
 
     style = STUDENT_STYLE_PROMPT if response_mode == "student" else RESEARCHER_STYLE_PROMPT
     boundary = CHAT_BOUNDARY_PROMPT if answer_mode == "chat" else ANALYSIS_BOUNDARY_PROMPT
-    parts = [BASE_SYSTEM_PROMPT, style]
+    parts = [BASE_SYSTEM_PROMPT, style, ANSWER_WRITING_RULES]
 
     # Preserve the existing structured layout for Researcher/Student document analysis.
     if answer_mode == "analysis":
-        is_student = response_mode == "student"
-        structure = STUDENT_STRUCTURE_PROMPT if is_student else RESEARCHER_STRUCTURE_PROMPT
-        parts.append(structure)
+        if response_mode == "student":
+            parts.append(STUDENT_STRUCTURE_PROMPT)
 
     parts.extend([boundary, coverage, CONTEXT_BLOCK])
     return "\n".join(part.strip() for part in parts if part.strip())

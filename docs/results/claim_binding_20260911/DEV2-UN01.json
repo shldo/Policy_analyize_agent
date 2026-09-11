@@ -1,0 +1,236 @@
+{
+  "question_id": "DEV2-UN01",
+  "question": "Does the provided policy corpus disclose the average monetary training cost per Australian Government employee?",
+  "inputs_sha256": "430c3052ea6476085bdbd5c6ca5b39a8a5de3bb216ff14ae205e21cb5f9f3181",
+  "messages_sha256": "e39df671eb047bd137169e4fd733f5842f108d63851781f5b97b205d38ebff6c",
+  "raw_artifact_sha256": "4f7cf2aea98e28495332973adc1178a6ceeafd508ee7e5714cc79203373ca61b",
+  "final_artifact_sha256": "18edec72233be6d7e5c91d8b064bbe716eaca32e03222abe0a56c821e6c51b5c",
+  "draft": "The available excerpts do not establish the average monetary training cost per Australian Government employee.\n\n**Evidence gaps**\n- No excerpt in the provided corpus states a per-employee training cost figure, a total training budget, or a cost-per-participant metric for AI training.\n- The excerpts address training in non-monetary terms only: mandatory training for all staff on responsible AI use within 12 months of the policy taking effect, with agencies able to use, modify, or incorporate the AI fundamentals training module [3], and access arrangements for APS versus non-APS organisations [6].\n- The AI Technical Standard excerpts reference cost considerations only in relation to model adaptation techniques (\"consider cost and performance implications associated with the adaptation techniques\") [7], which is unrelated to employee training costs.\n\nThis is a bounded gap in the retrieved excerpts, not a finding that no such figure exists in the underlying documents or in Australian Government practice generally.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The available excerpts do not establish the average monetary training cost per Australian Government employee.\n\n- No excerpt in the provided corpus states a per-employee training cost figure, a total training budget, or a cost-per-participant metric for AI training.\n\n- The excerpts address training in non-monetary terms only: mandatory training for all staff on responsible AI use within 12 months of the policy taking effect, with agencies able to use, modify, or incorporate the AI fundamentals training module [3], and access arrangements for APS versus non-APS organisations [6].\n\n- The AI Technical Standard excerpts reference cost considerations only in relation to model adaptation techniques (\"consider cost and performance implications associated with the adaptation techniques\") [7], which is unrelated to employee training costs.\n\nThis is a bounded gap in the retrieved excerpts, not a finding that no such figure exists in the underlying documents or in Australian Government practice generally.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The unit accurately states that the available excerpts do not establish the average monetary training cost per Australian Government employee; none of the supplied excerpts provide such a figure.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting label, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The unit accurately states that no supplied excerpt provides a per-employee training cost figure, total training budget, or cost-per-participant metric for AI training.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 3,\n          \"quote\": \"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"They can use the module as provided, modify it, or incorporate it into an existing training program\"\n        },\n        {\n          \"number\": 6,\n          \"quote\": \"If your organisation is part of the Australian Public Service, do not download these files.\"\n        },\n        {\n          \"number\": 6,\n          \"quote\": \"If you are outside the Australian Public Service (including if you are outside Australia)\"\n        }\n      ],\n      \"reason\": \"Child 3 supports the mandatory training requirement, the 12-month deadline, and the ability to use, modify, or incorporate the AI fundamentals training module. Child 6 supports the access arrangements distinguishing APS organisations from those outside the APS.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 7,\n          \"quote\": \"consider cost and performance implications associated with the adaptation techniques\"\n        }\n      ],\n      \"reason\": \"Child 7 contains the quoted cost consideration in the context of model adaptation techniques, and the unit accurately characterizes it as unrelated to employee training costs.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The unit accurately bounds the gap to the retrieved excerpts and does not claim that no such figure exists in the underlying documents or Australian Government practice generally.\"\n    }\n  ]\n}",
+    "answer": "The available excerpts do not establish the average monetary training cost per Australian Government employee.\n\n- No excerpt in the provided corpus states a per-employee training cost figure, a total training budget, or a cost-per-participant metric for AI training.\n\n- The excerpts address training in non-monetary terms only: mandatory training for all staff on responsible AI use within 12 months of the policy taking effect, with agencies able to use, modify, or incorporate the AI fundamentals training module [3], and access arrangements for APS versus non-APS organisations [6].\n\n- The AI Technical Standard excerpts reference cost considerations only in relation to model adaptation techniques (\"consider cost and performance implications associated with the adaptation techniques\") [7], which is unrelated to employee training costs.\n\nThis is a bounded gap in the retrieved excerpts, not a finding that no such figure exists in the underlying documents or in Australian Government practice generally.",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The unit accurately states that the available excerpts do not establish the average monetary training cost per Australian Government employee; none of the supplied excerpts provide such a figure."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting label, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u3",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The unit accurately states that no supplied excerpt provides a per-employee training cost figure, total training budget, or cost-per-participant metric for AI training."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect."
+            },
+            {
+              "number": 3,
+              "quote": "They can use the module as provided, modify it, or incorporate it into an existing training program"
+            },
+            {
+              "number": 6,
+              "quote": "If your organisation is part of the Australian Public Service, do not download these files."
+            },
+            {
+              "number": 6,
+              "quote": "If you are outside the Australian Public Service (including if you are outside Australia)"
+            }
+          ],
+          "reason": "Child 3 supports the mandatory training requirement, the 12-month deadline, and the ability to use, modify, or incorporate the AI fundamentals training module. Child 6 supports the access arrangements distinguishing APS organisations from those outside the APS."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 7,
+              "quote": "consider cost and performance implications associated with the adaptation techniques"
+            }
+          ],
+          "reason": "Child 7 contains the quoted cost consideration in the context of model adaptation techniques, and the unit accurately characterizes it as unrelated to employee training costs."
+        },
+        {
+          "id": "u6",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The unit accurately bounds the gap to the retrieved excerpts and does not claim that no such figure exists in the underlying documents or Australian Government practice generally."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "52f28ecd-0ef7-4961-a5e3-0a02e433c22e",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 8,
+      "page_end": 9,
+      "quote": "While not exhaustive, a list of related existing frameworks and related resources | digital.gov.au is provided by the Policy for the responsible use of AI in government.\n\nThe practices outlined in this document take the form of standard statements, criteria, and explanatory notes. 1. Statement: The standard statements describe ‘what’ needs to be done. 2. Criteria: Each statement has at least one criterion to satisfy the statement. Each criterion is ‘required’ or ‘recommended’. a. Required: Agencies must satisfy criterion marked as required to meet the standard. Required criterion are driven by Australian legislation, regulation and policies, and ethics principles. b. Recommended: Agencies should implement any criterion marked as recommended. 3. Explanatory notes: Explanatory notes are provided for each criterion. These notes are intended to offer guidance rather than serve as a comprehensive checklist. Unless specified, explanatory notes are not mandatory but are intended to support understanding, offer ways to implement the criterion, and provides examples, scenarios, and concepts to guide implementation. The level of detail and implementation of each statement will vary across use cases. Practical use case guidance has been provided in the Use case assessment section of the standard."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "a55fca50-f901-4aa8-9d8a-a3539707a160",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 8,
+      "page_end": 8,
+      "quote": "Rather than introducing new processes or duplication, it emphasises the reuse of agency policies, frameworks and practices.\n\nAgencies may choose to combine the standard with existing frameworks, such as project governance or data, to include AI-related activities. The standard complements existing frameworks and legislation to help ensure agencies meet their obligations in the use of AI. The challenges for government use of AI are complex and linked with other governance considerations, such as: • The Australian Public Service (APS) Code of Conduct • data governance • cyber security • ICT infrastructure • privacy • sourcing and procurement • copyright • ethics practices. While not exhaustive, a list of related existing frameworks and related resources | digital.gov.au is provided by the Policy for the responsible use of AI in government."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "90568ed7-e964-4da3-bda5-eddd325e17f1",
+      "section_id": "c84a594d-0737-55f3-bc94-77dacd5fca17",
+      "section_title": "1  A ustralian Government Style Manual, Plain language and word choice",
+      "title": "Standard for AI Transparency Statements",
+      "page": 4,
+      "page_end": 5,
+      "quote": "1 A ustralian Government Style Manual, Plain language and word choice\n\nHow to apply\n\nImplementing the AI transparency statements The policy provides a coordinated approach for the use of AI across the Australian Government. It builds public trust by supporting the Australian Public Service (APS) to engage with AI in a responsible way. Transparency is critical to public trust and is an important aim of the policy and broader APS Reform agenda2. The public should have confidence that agencies monitor the effectiveness of deployed AI systems and have measures to protect against negative impacts. AI transparency statements help agencies meet these aims by providing a foundational level of transparency on their use of AI. They publicly disclose: • how AI is used and managed by the agency • a commitment to safe and responsible use • compliance with the policy. Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent. Agencies are not required to list individual use cases or provide use case level detail. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI. Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "46eb624c-d42a-4af8-8a14-f07b95bf1e4b",
+      "section_id": "a91df602-7a5b-57f3-afc7-fb908ad6bd41",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 28,
+      "page_end": 29,
+      "quote": "NOTE: Agencies must consider data and lineage | naa.gov.au compliance with Australian Government regulations.\n\nNOTE: Agencies should refer to the Policy of responsible use of AI in government to implement AI fundamentals training | digital.gov.au for all staff, regardless of their role. To support agencies with their implementation of the Policy, the DTA provides Guidance for staff training on AI | digital.gov.au. NOTE: Australian Government API guidelines | api.gov.au mandate the use of semantic versioning. NOTE: Agencies should refer to the Australian parliamentary recommendations | aph.gov.au on AI including risk management, people capabilities, and implement measures for algorithmic bias | humanrights.gov.au. NOTE: Any infrastructure, both software and hardware, for AI services and solutions must adhere to Australian Government regulations and should consider security as priority as recommended by the Australian Government guidance on AI system Development | cyber.gov.au, Deploying AI systems Securely | cyber.gov.au and Engaging with AI | cyber.gov.au. The recommendations include secure well-architected environments, whether on-premises, cloud-based, or hybrid, to maintain the confidentiality, integrity, and availability of AI services."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "c866be0c-dad3-4087-8d76-87ee6c9735c3",
+      "section_id": "736cfe73-f401-5e69-ba8b-38bd8d26039d",
+      "section_title": "APS departments and agencies",
+      "title": "Guidance for Staff Training on AI",
+      "page": 6,
+      "page_end": 6,
+      "quote": "APS departments and agencies If your organisation is part of the Australian Public Service, do not download these files. Follow the above instructions to access the training module from APS Learning Bank or APSLearn, to receive updates to the training when they are issued. If you are outside the Australian Public Service (including if you are outside Australia) We have developed a version of this training that is not limited by location. As this version of the training module was originally developed for and by the Australian Government to support the implementation of the Policy for the responsible use of AI in government, it still refers to some Australian Government specific resources that may not be applicable in your place of work or jurisdiction."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "572c800c-ad73-46ac-a0cb-5483516089e8",
+      "section_id": "32a2306e-c49d-58de-ada3-f53b906332e8",
+      "section_title": "Statement 22: Implement model creation, tuning, and grounding",
+      "title": "Australian Government AI Technical Standard",
+      "page": 77,
+      "page_end": 78,
+      "quote": "For GenAI, implementing techniques such as threshold settings or content filtering could address these situations.\n\nCriterion 81: Apply considerations for reusing existing agency models, off-the- shelf, and pre-trained models. These include: o whether the model can be adapted to meet the KPIs for the AI system o suitability of pre-defined AI architecture o availability of AI specialist skills or skills required for configuration and integration o whether the model is relevant to the target operating domain or can be adapted to it, such as fine-tuning, retrieval-augmented generation (RAG), and pre-processing and post-processing techniques o cybersecurity assessment in line with Australian Government policies and guidance (see Whole of AI Lifecycle for more details).\n\nCriterion 82: Create or fine-tune models optimised for target domain environment. This includes: o model testing on target operating environment and infrastructure o using pre-processing and post-processing techniques o addressing input and output filtering requirements for safety and reliability o grounding such as RAG, which can augment a large language model (LLM) with trusted data from a database or knowledge base internal to an agency o for GenAI, prompt engineering or establishing a prompt library, which can streamline and improve interactions with an AI model o consider cost and performance implications associated with the adaptation techniques o perform unit testing for the training algorithm, pre-processing, and post-processing algorithms o track model training implementations systematically to speed up the discovery and development of models. Agencies should:"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "d9bb0011-e7ae-469e-a7a4-01a821157cc3",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "2  As defined by the Australian Government Protective Security Policy Framework",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 22,
+      "page_end": 22,
+      "quote": "While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment.\n\nExperimentation For the avoidance of doubt, agencies are not required to apply this policy if they are doing early-stage experimentation which does not: • commit to proceeding with a use case or to any design decisions that would affect implementation later • risk harming anyone • introduce or exacerbate any privacy or security risks. If there is a likelihood of proceeding with the AI use case while experimenting in this phase, agencies should apply the policy. Agencies should also apply the Australian Government AI technical standard, which provides relevant information for developing use cases at each stage of the AI lifecycle."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案正确指出检索到的语料未披露澳大利亚政府雇员人均培训费用，并逐项说明相关证据仅涉及非货币性培训要求及与员工培训无关的模型适配成本，且明确限定为检索片段范围内的缺口，未越界断言整个语料不存在该数据。所有实质主张均有对应引证支持。",
+      "claims": [
+        {
+          "answer_span": "The available excerpts do not establish the average monetary training cost per Australian Government employee.",
+          "label": "supported",
+          "citation_numbers": [
+            3,
+            5,
+            6,
+            7
+          ],
+          "reason_zh": "所引证据均未出现人均培训费用、培训总预算或每参与者成本数字，该否定性结论与证据一致，且答案明确限定为检索片段范围。"
+        },
+        {
+          "answer_span": "No excerpt in the provided corpus states a per-employee training cost figure, a total training budget, or a cost-per-participant metric for AI training.",
+          "label": "supported",
+          "citation_numbers": [
+            3,
+            5,
+            6,
+            7
+          ],
+          "reason_zh": "引证[3][5][6]仅涉及培训义务、模块获取方式与APS/非APS访问安排，[7]仅涉及模型适配的成本与性能考量，均无货币化培训成本数据。"
+        },
+        {
+          "answer_span": "mandatory training for all staff on responsible AI use within 12 months of the policy taking effect, with agencies able to use, modify, or incorporate the AI fundamentals training module [3]",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "引证[3]原文明确：Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect，且可使用、修改或并入AI fundamentals training module。"
+        },
+        {
+          "answer_span": "access arrangements for APS versus non-APS organisations [6]",
+          "label": "supported",
+          "citation_numbers": [
+            6
+          ],
+          "reason_zh": "引证[6]区分APS组织（通过APS Learning Bank或APSLearn获取）与非APS组织（使用不受地点限制的版本），描述准确。"
+        },
+        {
+          "answer_span": "The AI Technical Standard excerpts reference cost considerations only in relation to model adaptation techniques (\"consider cost and performance implications associated with the adaptation techniques\") [7], which is unrelated to employee training costs.",
+          "label": "supported",
+          "citation_numbers": [
+            7
+          ],
+          "reason_zh": "引证[7]Criterion 82确含该表述，且语境为模型创建/微调与适配技术，与员工培训成本无关，引用与解读均正确。"
+        },
+        {
+          "answer_span": "This is a bounded gap in the retrieved excerpts, not a finding that no such figure exists in the underlying documents or in Australian Government practice generally.",
+          "label": "supported",
+          "citation_numbers": [],
+          "reason_zh": "该句为对结论范围的恰当限定，未作超出证据的断言，符合未解决可答性下的诚实表述。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案正确指出检索到的语料未披露澳大利亚政府雇员人均培训费用，并逐项说明相关证据仅涉及非货币性培训要求及与员工培训无关的模型适配成本，且明确限定为检索片段范围内的缺口，未越界断言整个语料不存在该数据。所有实质主张均有对应引证支持。\",\"claims\":[{\"answer_span\":\"The available excerpts do not establish the average monetary training cost per Australian Government employee.\",\"label\":\"supported\",\"citation_numbers\":[3,5,6,7],\"reason_zh\":\"所引证据均未出现人均培训费用、培训总预算或每参与者成本数字，该否定性结论与证据一致，且答案明确限定为检索片段范围。\"},{\"answer_span\":\"No excerpt in the provided corpus states a per-employee training cost figure, a total training budget, or a cost-per-participant metric for AI training.\",\"label\":\"supported\",\"citation_numbers\":[3,5,6,7],\"reason_zh\":\"引证[3][5][6]仅涉及培训义务、模块获取方式与APS/非APS访问安排，[7]仅涉及模型适配的成本与性能考量，均无货币化培训成本数据。\"},{\"answer_span\":\"mandatory training for all staff on responsible AI use within 12 months of the policy taking effect, with agencies able to use, modify, or incorporate the AI fundamentals training module [3]\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"引证[3]原文明确：Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect，且可使用、修改或并入AI fundamentals training module。\"},{\"answer_span\":\"access arrangements for APS versus non-APS organisations [6]\",\"label\":\"supported\",\"citation_numbers\":[6],\"reason_zh\":\"引证[6]区分APS组织（通过APS Learning Bank或APSLearn获取）与非APS组织（使用不受地点限制的版本），描述准确。\"},{\"answer_span\":\"The AI Technical Standard excerpts reference cost considerations only in relation to model adaptation techniques (\\\"consider cost and performance implications associated with the adaptation techniques\\\") [7], which is unrelated to employee training costs.\",\"label\":\"supported\",\"citation_numbers\":[7],\"reason_zh\":\"引证[7]Criterion 82确含该表述，且语境为模型创建/微调与适配技术，与员工培训成本无关，引用与解读均正确。\"},{\"answer_span\":\"This is a bounded gap in the retrieved excerpts, not a finding that no such figure exists in the underlying documents or in Australian Government practice generally.\",\"label\":\"supported\",\"citation_numbers\":[],\"reason_zh\":\"该句为对结论范围的恰当限定，未作超出证据的断言，符合未解决可答性下的诚实表述。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

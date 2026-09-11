@@ -1,5 +1,6 @@
 from functools import lru_cache
 from pathlib import Path
+from typing import Literal
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -58,9 +59,20 @@ class Settings(BaseSettings):
     child_lexical_candidate_k: int = Field(default=30, ge=0)
     hybrid_rrf_rank_constant: int = Field(default=60, ge=1)
     rag_allow_partial_answers: bool = True
+    rag_claim_binding_enabled: bool = False
+    rag_packing_policy: Literal["original", "per_document_backfill_v1"] = "original"
     compound_retrieval_enabled: bool = False
     controlled_retrieval_enabled: bool = False
     child_rerank_k: int = Field(default=8, ge=1)
+    child_selection_strategy: Literal[
+        "reranker_top_k",
+        "reranker_rrf_reciprocal_rank_v1",
+        "reranker_protected_rrf_backfill_v1",
+    ] = "reranker_top_k"
+    # Independent inspection pool for post-rerank Child selection.  This is
+    # not the number of Children sent to generation; the existing child
+    # rerank K, Parent K, and token budget remain the downstream limits.
+    child_selection_pool_k: int = Field(default=20, ge=1)
     parent_context_k: int = Field(default=8, ge=1)
     max_parents_per_document: int = Field(default=5, ge=1)
     rag_context_window_tokens: int = Field(default=32768, ge=1024)

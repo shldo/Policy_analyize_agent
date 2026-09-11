@@ -1,0 +1,161 @@
+{
+  "question_id": "DEV-TECH01",
+  "question": "When does Criterion 22 require watermarking, and what must it provide?",
+  "inputs_sha256": "2ec36cd5677c7d1d71d89d965292a969af77c6a55be15a64c9c838d3d061c3a6",
+  "messages_sha256": "c98d34d4c9f347fdec6c718928d7951ee7cad9c5d7ecfb4eeb29bfa18c9e2948",
+  "raw_artifact_sha256": "6e8976b6c68e076104e2749b26bcc21505fee3bb6019415314ffc2fba740be34",
+  "final_artifact_sha256": "7a24ae70093356271b028bea4bab81922ccebb3a68627911470c635127f6387b",
+  "draft": "Criterion 22 requires agencies to apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship [1]. It applies only where AI-generated content may directly impact a user; for instance, using AI to generate a team logo would not need to be watermarked [1].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "Criterion 22 requires agencies to apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship [1]. It applies only where AI-generated content may directly impact a user; for instance, using AI to generate a team logo would not need to be watermarked [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user. For instance, using AI to generate a team logo would not need to be watermarked.\"\n        }\n      ],\n      \"reason\": \"Child 1 contains Criterion 22 and supports all clauses: visual watermarks and metadata, generated media content, transparency and provenance including authorship, and the condition that it applies only where AI-generated content may directly impact a user, with the team logo example.\"\n    }\n  ]\n}",
+    "answer": "Criterion 22 requires agencies to apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship [1]. It applies only where AI-generated content may directly impact a user; for instance, using AI to generate a team logo would not need to be watermarked [1].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user. For instance, using AI to generate a team logo would not need to be watermarked."
+            }
+          ],
+          "reason": "Child 1 contains Criterion 22 and supports all clauses: visual watermarks and metadata, generated media content, transparency and provenance including authorship, and the condition that it applies only where AI-generated content may directly impact a user, with the team logo example."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "120cdfa5-b097-46ce-88e5-b7e1e1deeb7a",
+      "section_id": "04cb8ca8-fbef-5e18-a0ac-971676cddd00",
+      "section_title": "Statement 8: Apply watermarking techniques",
+      "title": "Australian Government AI Technical Standard",
+      "page": 43,
+      "page_end": 43,
+      "quote": "Statement 8: Apply watermarking techniques AI watermarking can be used to embed visual or hidden markers into generated content, so that its creation details can be identified. It provides transparency, authenticity, and trust to content consumers. Visual watermarks or disclosures provide a simple way for someone to know they are viewing content created by, or interacting with, an AI system. This may include generated media content or GenAI systems. The Coalition for Content Provenance and Authenticity (C2PA) | c2pa.org is developing an open technical standard for publishers, creators, and consumers to establish the origin and edits of digital content. Advice on the use of C2PA is out of scope for the standard. Agencies must:\n\nCriterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user. For instance, using AI to generate a team logo would not need to be watermarked. Criterion 23: Apply watermarks and metadata that are WCAG compatible where\n\nrelevant"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "a95e23ad-4119-4562-b8c7-1867540dab4a",
+      "section_id": "04cb8ca8-fbef-5e18-a0ac-971676cddd00",
+      "section_title": "relevant",
+      "title": "Australian Government AI Technical Standard",
+      "page": 43,
+      "page_end": 44,
+      "quote": "relevant\n\nCriterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. For example, this may include adding text to a GenAI interface so that users are aware they are interacting with an AI system rather than a human. Agencies should: Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. This includes: o including provenance and authorship information o encrypting watermarks for high-risk content o using an existing tool or technique when practicable o embedding watermarks at the AI training stage to improve their effectiveness and allows additional information such as content modification to be included o verifying that the watermark does not impact the quality or efficiency of content generation, such as image degradation or text readability o including data sources, such as publicly available content used for AI training to manage copyright risks, and product details such as versioning information. Criterion 26: Assess watermarking risks and limitations."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "87452a19-8a9e-4a1c-b21d-7b1e60c954fe",
+      "section_id": "04cb8ca8-fbef-5e18-a0ac-971676cddd00",
+      "section_title": "relevant",
+      "title": "Australian Government AI Technical Standard",
+      "page": 44,
+      "page_end": 44,
+      "quote": "Criterion 26: Assess watermarking risks and limitations.\n\nThis includes: o ensuring users understand there is a risk of third parties replicating a visual watermark and to not over-rely on watermarks, such as sourcing content from external sources o preventing third-party use of watermarking algorithms to create their own content and act as the original content creator o consider situations where watermarking is not beneficial. For example, watermarking can be visually distracting for decision makers, or when it’s overused in low-risk applications o consider situations where malicious actors might remove or replicate the watermark to reproduce content generated by AI o managing copyright or trademark risks related to externally sourced data."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "7c944960-40e4-43cd-8182-98e5b97a1687",
+      "section_id": "1aa97e8e-023d-5d5d-af1f-af47a748d5b5",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 15,
+      "page_end": 16,
+      "quote": "Recommended • Criterion 13: Explain outputs made by the AI system to end users. • Criterion 14: Explain how data is used and shared by the AI system.\n\nStatement 6: Manage system bias Required • Criterion 15: Identify how bias could affect people, processes, data, and technologies involved in the AI system lifecycle. • Criterion 16: Assess the impact of bias on your use case. • Criterion 17: Manage identified bias across the AI system lifecycle.\n\nStatement 7: Apply version control practices Required • Criterion 18: Apply version management practices to the end-to-end development lifecycle. Recommended • Criterion 19: Use metadata in version control to distinguish between production and non-production data, models, and code. • Criterion 20: Use a version control toolset to improve useability for users. • Criterion 21: Record version control information in audit logs.\n\nStatement 8: Apply watermarking techniques Required • Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. • Criterion 23: Apply watermarks that are WCAG compatible where relevant. • Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. Recommended • Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. • Criterion 26: Assess watermarking risks and limitations."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ecc34f09-3a4d-4d8e-aea9-27fe853f22a7",
+      "section_id": "a91df602-7a5b-57f3-afc7-fb908ad6bd41",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 28,
+      "page_end": 28,
+      "quote": "Whole of AI lifecycle Whole of AI lifecycle includes statements that apply across multiple AI product lifecycle stages, for ease of use and to minimise content duplication. Across the lifecycle stages, agencies should consider: • operational model – to ensure compliance, efficiency, and ethical standards • reference architecture – to provide structured frameworks that guide the design, development, and management of AI systems • people capabilities – having the specialised skills required for successful implementation • auditability – enabling external scrutiny, supporting transparency, and accountability • explainability – identifying what needs to be explained and when, making complex AI processes transparent and trustworthy • system bias – maintaining the role of positive bias in delivering meaningful outcomes, while mitigating the source and impacts of problematic bias • version control – tracking and managing changes to information to inform stakeholder decision-making • watermarking – to embed visual or hidden markers into generated content so that its creation details can be identified. NOTE: Agencies must consider intellectual property rights and ownership derived from procured services or datasets used (including general AI outputs) to comply with copyright law | ag.gov.au. NOTE: Management of bias in an AI system is critical to ensuring compliance with Australia’s anti-discrimination law | ag.gov.au."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "53e3fbca-27eb-4fb7-a513-fb6cd705fa2e",
+      "section_id": "198cd713-9347-570b-a5a2-7348aea1c91b",
+      "section_title": "Key terms — passage 1",
+      "title": "Australian Government AI Technical Standard",
+      "page": 3,
+      "page_end": 3,
+      "quote": "An AI model can represent the transition dynamics of the environment, allowing an AI system to select actions by examining their possible consequences using the model.\n\nAI models can be built manually by human programmers or automatically through, for example, unsupervised, supervised, or reinforcement machine learning techniques.’ OECD definition page 8 | oecd.org AI system ‘An Artificial Intelligence (AI) system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments. Different AI systems vary in their levels of autonomy and adaptiveness after deployment.’ OECD definition | oecd.org AI watermarking Information embedded into digital content, either perceptibly or imperceptibly by humans, that can serve a variety of purposes, such as establishing digital content provenance or informing stakeholders that the contents are AI-generated or significantly modified. AI-generated content watermarking: a procedure by which watermarks are embedded into AI-generated content. This embedding can occur at 2 distinct stages: during generation by altering a GenAI model's inference procedure or post-generation, as the content is distributed along the data and information distribution chain."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "52f28ecd-0ef7-4961-a5e3-0a02e433c22e",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 8,
+      "page_end": 9,
+      "quote": "While not exhaustive, a list of related existing frameworks and related resources | digital.gov.au is provided by the Policy for the responsible use of AI in government.\n\nThe practices outlined in this document take the form of standard statements, criteria, and explanatory notes. 1. Statement: The standard statements describe ‘what’ needs to be done. 2. Criteria: Each statement has at least one criterion to satisfy the statement. Each criterion is ‘required’ or ‘recommended’. a. Required: Agencies must satisfy criterion marked as required to meet the standard. Required criterion are driven by Australian legislation, regulation and policies, and ethics principles. b. Recommended: Agencies should implement any criterion marked as recommended. 3. Explanatory notes: Explanatory notes are provided for each criterion. These notes are intended to offer guidance rather than serve as a comprehensive checklist. Unless specified, explanatory notes are not mandatory but are intended to support understanding, offer ways to implement the criterion, and provides examples, scenarios, and concepts to guide implementation. The level of detail and implementation of each statement will vary across use cases. Practical use case guidance has been provided in the Use case assessment section of the standard."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "1caa8fcf-927b-49ab-9d60-925006fe2c80",
+      "section_id": "330d095d-7729-58a0-8b88-a8d5d47e70a8",
+      "section_title": "Statement 5: Provide explainability based on the use case",
+      "title": "Australian Government AI Technical Standard",
+      "page": 36,
+      "page_end": 36,
+      "quote": "Statement 5: Provide explainability based on the use case Agencies must:\n\nCriterion 12: Explain the AI system and technology used, including the limitations and capabilities of the system. AI algorithms and technologies such as deep learning models, are often seen as ‘black boxes’. This can make it difficult to understand how they work and the factors that generate outcomes. Providing clear and understandable explanations of AI outputs helps maintain trust and transparency with AI systems. Explainability on the specific context of the use case ensures clear understanding and reasoning behind AI system output. This supports accountability, trust, and ethical considerations. This may include: o explaining the AI system such as: ◦ consideration of trade-offs such as cost and performance ◦ what changes are made with AI system updates ◦ how feedback is used in improving AI system performance ◦ whether the AI system is static or learns from user behaviour ◦ whether AI techniques would provide clearer explanations and validate AI actions and decisions. o use cases that are impacted by legislation, regulation, rules, or third-party involvement o explain how the system operates including situations that require human intervention o explain technical and governance mechanisms that ensure ethical outcomes from the use of an AI system o inform stakeholders when changes are made to the system o persona level explainability adhering to need-to-know principles. o Agencies should:"
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答准确覆盖Criterion 22的适用条件（AI生成内容可能直接影响用户时）和必须提供的内容（视觉水印与元数据，用于透明度和来源追溯，包括作者身份），并正确引用团队logo示例。所有实质主张均有[1]号Child证据支持，无事实错误或遗漏。",
+      "claims": [
+        {
+          "answer_span": "Criterion 22 requires agencies to apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "与Child证据[1]中Criterion 22原文完全一致：对生成的媒体内容应用视觉水印和元数据，以提供透明度和来源追溯，包括作者身份。"
+        },
+        {
+          "answer_span": "It applies only where AI-generated content may directly impact a user;",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Child证据[1]明确：'This will only apply where AI generated content may directly impact a user.'，适用条件表述准确。"
+        },
+        {
+          "answer_span": "for instance, using AI to generate a team logo would not need to be watermarked [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Child证据[1]原文：'using AI to generate a team logo would not need to be watermarked.'，示例引用准确。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答准确覆盖Criterion 22的适用条件（AI生成内容可能直接影响用户时）和必须提供的内容（视觉水印与元数据，用于透明度和来源追溯，包括作者身份），并正确引用团队logo示例。所有实质主张均有[1]号Child证据支持，无事实错误或遗漏。\",\"claims\":[{\"answer_span\":\"Criterion 22 requires agencies to apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与Child证据[1]中Criterion 22原文完全一致：对生成的媒体内容应用视觉水印和元数据，以提供透明度和来源追溯，包括作者身份。\"},{\"answer_span\":\"It applies only where AI-generated content may directly impact a user;\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Child证据[1]明确：'This will only apply where AI generated content may directly impact a user.'，适用条件表述准确。\"},{\"answer_span\":\"for instance, using AI to generate a team logo would not need to be watermarked [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Child证据[1]原文：'using AI to generate a team logo would not need to be watermarked.'，示例引用准确。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

@@ -1,0 +1,260 @@
+{
+  "question_id": "DEV2-UN06",
+  "question": "Does the provided corpus specify a universal number of years for retaining AI prediction logs across all agencies?",
+  "inputs_sha256": "3e0ec2d26ec3e1613a367baf7f852a8db24642bdd5ac11c40fb4eb019add64f9",
+  "messages_sha256": "0f5ada612996b87ac9fb828edbcb73f042af46c3f5fe87a44feabe24092c53a1",
+  "raw_artifact_sha256": "0296ae2c3100e8607a1e0fcbe9d4b2eb279c47071e9f581975d00a6580ad616d",
+  "final_artifact_sha256": "b2f04b646a1504d259dd501d633b6d4aeb601773ec2e45d0920719625d39014f",
+  "draft": "The available excerpts do not establish a universal retention period, in years, for AI prediction logs applicable across all agencies.\n\nWhat the excerpts do address on retention and logging:\n\n- Statement 7 (version control) requires that information across the AI lifecycle used to generate a decision or outcome must be captured, applying to all AI products including low code or no code third-party tools [1]. Criterion 21 (record version control information in audit logs) includes recording AI predictions and actions taken [2]. No retention duration is stated for these records.\n- Statement 4 (auditing) requires audit logging of AI tools and systems to be configured appropriately, which may include recording system version and other critical system information, and reviewing audit logs [4]. No retention period is specified.\n- Statement 13 (data supply chain) addresses planning for data archival and destruction, including clear criteria for archival and destruction at each stage of the AI lifecycle and alignment with the Information management for records created using AI technologies guidance [7]. This concerns data archival planning generally, not a fixed number of years for prediction logs.\n- Statement 23 (model validation) lists data retention policies and model retention policies as evaluation considerations [8], without specifying a duration.\n\n**Evidence gaps:** The provided excerpts do not state any numeric retention period (in years or otherwise) for AI prediction logs, nor do they establish that such a period applies uniformly across all agencies. The only retention-related obligation identified is the requirement that all documents relating to the establishment, design, and governance of an AI implemented solution must be retained as per the Archives Act 1983 [2] — but this is a legislative cross-reference without a stated duration in the excerpt, and it concerns governance documentation rather than prediction logs specifically.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The available excerpts do not establish a universal retention period, in years, for AI prediction logs applicable across all agencies.\n\nWhat the excerpts do address on retention and logging:\n\n- Statement 4 (auditing) requires audit logging of AI tools and systems to be configured appropriately, which may include recording system version and other critical system information, and reviewing audit logs [4]. No retention period is specified.\n\n- Statement 13 (data supply chain) addresses planning for data archival and destruction, including clear criteria for archival and destruction at each stage of the AI lifecycle and alignment with the Information management for records created using AI technologies guidance [7]. This concerns data archival planning generally, not a fixed number of years for prediction logs.\n\n- Statement 23 (model validation) lists data retention policies and model retention policies as evaluation considerations [8], without specifying a duration.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "```json\n{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish a universal retention period in years for AI prediction logs across all agencies.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting element, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Information across the AI lifecycle, that was used to generate a decision or outcome, must be captured. This applies to all AI products, including low code or no code third-party tools.\"\n        }\n      ],\n      \"reason\": \"The excerpt supports the capture requirement and its applicability to all AI products, but it does not mention Criterion 21 or recording AI predictions and actions taken in audit logs.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 4,\n          \"quote\": \"ensuring audit logging of the AI tools and systems are configured appropriately\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"record system version and any other critical system information\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"reviewing of audit logs\"\n        }\n      ],\n      \"reason\": \"The excerpt supports that Statement 4 requires audit logging of AI tools and systems to be configured appropriately, may include recording system version and other critical system information, and reviewing audit logs. It also states no retention period is specified.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 7,\n          \"quote\": \"Criterion 45: Plan for data archival and destruction.\"\n        },\n        {\n          \"number\": 7,\n          \"quote\": \"clear criteria for data archival and destruction for the data used at each stage of the AI lifecycle\"\n        },\n        {\n          \"number\": 7,\n          \"quote\": \"guidelines in the Information management for records created using AI technologies | naa.gov.au\"\n        }\n      ],\n      \"reason\": \"The excerpt supports that Statement 13 addresses planning for data archival and destruction, including clear criteria at each stage of the AI lifecycle and alignment with the Information management for records created using AI technologies guidance. It also states this concerns data archival planning generally, not a fixed number of years for prediction logs.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 8,\n          \"quote\": \"data retention policies\"\n        },\n        {\n          \"number\": 8,\n          \"quote\": \"model retention policies\"\n        }\n      ],\n      \"reason\": \"The excerpt supports that Statement 23 lists data retention policies and model retention policies as evaluation considerations without specifying a duration.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"all documents relating to the establishment, design, and governance of an AI implemented solution must be retained as per the Archives Act 1983\"\n        }\n      ],\n      \"reason\": \"The excerpt supports the Archives Act 1983 retention requirement for governance documents, but it does not support the broader claim that the excerpts do not state any numeric retention period for AI prediction logs or that no uniform period is established.\"\n    }\n  ]\n}\n```",
+    "answer": "The available excerpts do not establish a universal retention period, in years, for AI prediction logs applicable across all agencies.\n\nWhat the excerpts do address on retention and logging:\n\n- Statement 4 (auditing) requires audit logging of AI tools and systems to be configured appropriately, which may include recording system version and other critical system information, and reviewing audit logs [4]. No retention period is specified.\n\n- Statement 13 (data supply chain) addresses planning for data archival and destruction, including clear criteria for archival and destruction at each stage of the AI lifecycle and alignment with the Information management for records created using AI technologies guidance [7]. This concerns data archival planning generally, not a fixed number of years for prediction logs.\n\n- Statement 23 (model validation) lists data retention policies and model retention policies as evaluation considerations [8], without specifying a duration.",
+    "removed_unit_ids": [
+      "u3",
+      "u7"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish a universal retention period in years for AI prediction logs across all agencies."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting element, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Information across the AI lifecycle, that was used to generate a decision or outcome, must be captured. This applies to all AI products, including low code or no code third-party tools."
+            }
+          ],
+          "reason": "The excerpt supports the capture requirement and its applicability to all AI products, but it does not mention Criterion 21 or recording AI predictions and actions taken in audit logs."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "ensuring audit logging of the AI tools and systems are configured appropriately"
+            },
+            {
+              "number": 4,
+              "quote": "record system version and any other critical system information"
+            },
+            {
+              "number": 4,
+              "quote": "reviewing of audit logs"
+            }
+          ],
+          "reason": "The excerpt supports that Statement 4 requires audit logging of AI tools and systems to be configured appropriately, may include recording system version and other critical system information, and reviewing audit logs. It also states no retention period is specified."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 7,
+              "quote": "Criterion 45: Plan for data archival and destruction."
+            },
+            {
+              "number": 7,
+              "quote": "clear criteria for data archival and destruction for the data used at each stage of the AI lifecycle"
+            },
+            {
+              "number": 7,
+              "quote": "guidelines in the Information management for records created using AI technologies | naa.gov.au"
+            }
+          ],
+          "reason": "The excerpt supports that Statement 13 addresses planning for data archival and destruction, including clear criteria at each stage of the AI lifecycle and alignment with the Information management for records created using AI technologies guidance. It also states this concerns data archival planning generally, not a fixed number of years for prediction logs."
+        },
+        {
+          "id": "u6",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 8,
+              "quote": "data retention policies"
+            },
+            {
+              "number": 8,
+              "quote": "model retention policies"
+            }
+          ],
+          "reason": "The excerpt supports that Statement 23 lists data retention policies and model retention policies as evaluation considerations without specifying a duration."
+        },
+        {
+          "id": "u7",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "all documents relating to the establishment, design, and governance of an AI implemented solution must be retained as per the Archives Act 1983"
+            }
+          ],
+          "reason": "The excerpt supports the Archives Act 1983 retention requirement for governance documents, but it does not support the broader claim that the excerpts do not state any numeric retention period for AI prediction logs or that no uniform period is established."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "8edcdf1a-84fd-4da4-abe7-29a8194d6c20",
+      "section_id": "bc3953f0-c661-56af-af75-d5b4ce6b1fa5",
+      "section_title": "Statement 7: Apply version control practices",
+      "title": "Australian Government AI Technical Standard",
+      "page": 41,
+      "page_end": 41,
+      "quote": "Information across the AI lifecycle, that was used to generate a decision or outcome, must be captured. This applies to all AI products, including low code or no code third-party tools. Agencies must:\n\nCriterion 18: Apply version management practices to the end-to-end development lifecycle. Australian Government API | api.gov.au guidelines mandate the use of semantic versioning. They should be enhanced to cater for AI related information and processes. Version standards should clearly document the difference between production and non-production data, models and code. This involves applying version management practices to: o the model, training and operation dataset, data in the AI system, training algorithm, and hyperparameters o maintaining design documentation outlining the end-to-end AI system state in line with existing organisational control mechanisms o include point-in-time date and timestamps to data and any changes in data o authorship, relevant licencing details, and changes since last version o capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "1f4ce752-af68-4651-9f32-841d5300a617",
+      "section_id": "bc3953f0-c661-56af-af75-d5b4ce6b1fa5",
+      "section_title": "Criterion 18: Apply version management practices to the end-to-end development",
+      "title": "Australian Government AI Technical Standard",
+      "page": 41,
+      "page_end": 42,
+      "quote": "to data and any changes in data o authorship, relevant licencing details, and changes since last version o capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters\n\no managing any data poisoning and AI poisoning o data versioning supporting AI interoperability should include the following: ◦ consistency: data structures, exchanges, and formats across different sources are well-defined ◦ integration: enables data sourced from different sources to be integrated in a seamless manner ◦ all documents relating to the establishment, design, and governance of an AI implemented solution must be retained as per the Archives Act 1983. This does not apply to: o third-party software products, which are subject to existing controls. Agencies should:"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "babc9499-620a-45e6-ae85-2c3f60471452",
+      "section_id": "4a787f39-3f63-5895-b641-12b3739a9f5e",
+      "section_title": "Use case assessment",
+      "title": "Australian Government AI Technical Standard",
+      "page": 26,
+      "page_end": 26,
+      "quote": "Use case assessment The standard was assessed against a selection of use cases across government agencies. Outcomes were collated to identify how the standard can be used across each lifecycle stage. The assessment considered: • proofs of concept to those in operation • the nature of the applications, whether used by internal staff or public facing • the type of data involved, whether private, public, or a combination of both • the risk level of the applications, ranging from low to high. The applicability of the standard varied, based on who built each part of the AI system: 1. Fully built and managed in-house: Involves building AI systems from scratch. 2. Partially built and fully managed in-house: This includes using pre-trained or off-the- shelf models with or without grounding, RAG, and prompt engineering, such as large language models (LLMs) or reusing existing pre-trained machine learning or computer vision models. Note that fine-tuning a model would transfer the responsibility of applying the standard from the vendor to the agency. 3."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "a340cc7d-3cd5-45df-b02b-2f1b56eef61f",
+      "section_id": "acfa4704-f3b1-507b-be72-8b34cf5ce3a4",
+      "section_title": "Statement 4: Enable AI auditing",
+      "title": "Australian Government AI Technical Standard",
+      "page": 34,
+      "page_end": 35,
+      "quote": "Statement 4: Enable AI auditing Agencies must: Criterion 9: Provide end-to-end auditability. End-to-end AI auditability refers to the ability to trace and inspect the decisions and processes involved in the AI system lifecycle. This enables internal and external scrutiny. Publishing audit results enables public accountability, transparency, and trust. This may include: o establishing documentation across the AI system lifecycle as agreed with the accountable official. This should demonstrate conformance with the AI technical standard, and compliance with relevant legislation and regulations.\n\no establishing traceability of decisions and changes from requirements through to operational impacts o ensuring accessibility, availability, and explainability of technical and non-technical information to assist audits o ensuring audit logging of the AI tools and systems are configured appropriately This may include: ◦ enabling or disabling the capture of system inputs and outputs ◦ detect and record modifications to the system’s operation or performance ◦ record who made the modification, under what authority, and the rationale for the modification ◦ record system version and any other critical system information. o reviewing of audit logs o ensuring independence and avoiding conflict of interest when undertaking AI audits. Criterion 10: Perform ongoing data-specific checks across the AI lifecycle. This should address: o data quality for AI training, capabilities, and limitations o how data was evaluated for bias o controls to detect and manage data poisoning o legislative compliance. Criterion 11: Perform ongoing model-specific checks across the AI lifecycle."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ccbbf2d3-2f3c-493c-8c8c-d8faa15a9a03",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 9,
+      "page_end": 9,
+      "quote": "The level of detail and implementation of each statement will vary across use cases. Practical use case guidance has been provided in the Use case assessment section of the standard.\n\nThe standard is applicable regardless of whether an agency develops an AI system in-house or contracts an external provider to build or supply it. Engaging external providers does not prevent agencies from implementing each of the criteria in the statements. Agencies that adopt the standard are accountable for ensuring it is met in line with the required and recommended criterion. Transparency documents can be utilised to support assessments, including open-source software. For early experimentation, proofs of concept, and pilots of AI products and services, the standard should be used to provide guidance for building responsible and safe AI systems, ensuring a clear pathway to production. The standard helps government: • contribute to the ethical use of AI to ensure public trust • stay compliant with regulatory requirements and alignment with AI strategic frameworks • align with cybersecurity guidelines and the AI assurance framework • support innovation and whole of economy growth • support AI sourcing and adoption processes • provide alignment with international AI best practices across government."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "1cfeebd1-3ed8-43a4-9ced-0fd7dfbc1432",
+      "section_id": "c93301c3-fb95-5e16-9fd1-49bbbd321ced",
+      "section_title": "Implementation",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 6,
+      "page_end": 7,
+      "quote": "Defence and members of the NIC may voluntarily adopt elements of this policy where they are able to do so without compromising national security capabilities or interests.\n\nExisting frameworks The challenges raised by government use of AI are complex and inherently linked with other considerations, such as the APS Code of Conduct, data governance, cyber security, privacy and ethics practices. This policy has been designed to complement and strengthen – not duplicate – existing frameworks, legislation and practices that touch on government’s use of AI. This policy must be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations.\n\nDefinitions For the purposes of this policy, agencies should apply the definition of AI provided by the Organisation for Economic Co-operation and Development (OECD) and the following definition of AI use case: An AI use case is a specific application of an AI system or systems to achieve certain objectives or perform certain tasks. Definitions and how to apply them – including an optional approach to group AI use cases for some general-purpose AI solutions – is available in Appendix B. The appendix also defines an AI incident.\n\nTimeframes This policy provides implementation timeframes for agencies to meet some of its requirements. While agencies may need this time to action requirements, agencies should implement them sooner if practicable. Agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "4beb491f-5061-4e19-bb64-de2df74d16c4",
+      "section_id": "0ccdace4-9882-5d01-b7b6-24be56369285",
+      "section_title": "Statement 13: Establish data supply chain management processes",
+      "title": "Australian Government AI Technical Standard",
+      "page": 56,
+      "page_end": 57,
+      "quote": "-shelf AI models, products, or services in the AI system o cyber supply chain management o data quality monitoring and remediation o comprehensive documentation at each stage of the AI system to facilitate traceability and accountability o adherence to relevant legislation.\n\nThe consent framework for use of data across the AI system should satisfy the following: o clear framework o kept up to date o individuals are provided with informed consent for how their data will be used o a dedicated team to own and maintain a register on how data is being used and to show compliance with the terms of the consent The data should be thought of in groupings or packages, including: o the data within the organisation o the data surrounding the algorithm, APIs, and user interface o the data used to train the AI system o the data used for testing and integration o data inputted at regular intervals in monitoring the data o the data used at deployment, including input and output data from and to users. Criterion 45: Plan for data archival and destruction. Consider the following: o will data be made available for future use, and what data o restrictions and access controls in place o will data be restricted until a specific date o file formats to ensure data remains available during the archival period o alignment with data sharing arrangements o arrangements for data used to train and test AI models, and associated model management arrangements o clear criteria for data archival and destruction for the data used at each stage of the AI lifecycle o guidelines in the Information management for records created using AI technologies | naa.gov.au. Agencies should:"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "857914ca-bbeb-4790-8fdd-99a3d30396ff",
+      "section_id": "bafec03b-0360-524e-9da9-61221a34963a",
+      "section_title": "Statement 23: Validate, assess, and update model",
+      "title": "Australian Government AI Technical Standard",
+      "page": 78,
+      "page_end": 79,
+      "quote": "Statement 23: Validate, assess, and update model Agencies must: Criterion 84: Set techniques to validate AI trained models. There are multiple qualitative and quantitative techniques and tools for model validation, informed by the AI system success criteria (see Design section), including: o correct classifications, predictions or forecasts, and factual correctness and relevance o identify between positive and negative instances, and distinguish between classes\n\no benchmarking o consistency in responses, clarity and coherence o source attribution o data-centric validation approaches for GenAI models. Criterion 85: Evaluate the model against training boundaries. Evaluation considerations include: o poor or degraded performance of the model o change of AI context or operational setting o data retention policies o model retention policies. Criterion 86: Evaluate the model for bias, implement and test bias mitigations. This includes: o using suitable tools that test and discover unwarranted associations between an algorithm’s protected input features and its output o evaluating performance across suitable and intersectional dimensions o checking if bias could be managed through updating the training data (see Statement 18) o implementing bias mitigation thresholds that can be configured post-deployment o implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG. Agencies should: Criterion 87: Identify relevant model refinement methods."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答正确指出所提供语料未确立适用于所有机构的AI预测日志统一保留年限，并对审计日志、数据归档销毁、模型验证中的保留政策等相关条款作了准确、有引用的说明，未虚构年限或政策。",
+      "claims": [
+        {
+          "answer_span": "The available excerpts do not establish a universal retention period, in years, for AI prediction logs applicable across all agencies.",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            2,
+            4,
+            7,
+            8
+          ],
+          "reason_zh": "所引证据均未给出统一的预测日志保留年限；该表述为对检索证据范围的诚实限定，非虚假政策主张。"
+        },
+        {
+          "answer_span": "Statement 4 (auditing) requires audit logging of AI tools and systems to be configured appropriately, which may include recording system version and other critical system information, and reviewing audit logs [4]. No retention period is specified.",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "证据[4]确载审计日志配置、记录系统版本及审查审计日志，且未规定保留年限。"
+        },
+        {
+          "answer_span": "Statement 13 (data supply chain) addresses planning for data archival and destruction, including clear criteria for archival and destruction at each stage of the AI lifecycle and alignment with the Information management for records created using AI technologies guidance [7].",
+          "label": "supported",
+          "citation_numbers": [
+            7
+          ],
+          "reason_zh": "证据[7]Criterion 45确载数据归档与销毁规划、各阶段明确标准及与NAA指南对齐。"
+        },
+        {
+          "answer_span": "This concerns data archival planning generally, not a fixed number of years for prediction logs.",
+          "label": "supported",
+          "citation_numbers": [
+            7
+          ],
+          "reason_zh": "证据[7]仅涉及归档规划，未规定预测日志固定年限。"
+        },
+        {
+          "answer_span": "Statement 23 (model validation) lists data retention policies and model retention policies as evaluation considerations [8], without specifying a duration.",
+          "label": "supported",
+          "citation_numbers": [
+            8
+          ],
+          "reason_zh": "证据[8]Criterion 85确将数据保留政策和模型保留政策列为评估考虑，未给出具体期限。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答正确指出所提供语料未确立适用于所有机构的AI预测日志统一保留年限，并对审计日志、数据归档销毁、模型验证中的保留政策等相关条款作了准确、有引用的说明，未虚构年限或政策。\",\"claims\":[{\"answer_span\":\"The available excerpts do not establish a universal retention period, in years, for AI prediction logs applicable across all agencies.\",\"label\":\"supported\",\"citation_numbers\":[1,2,4,7,8],\"reason_zh\":\"所引证据均未给出统一的预测日志保留年限；该表述为对检索证据范围的诚实限定，非虚假政策主张。\"},{\"answer_span\":\"Statement 4 (auditing) requires audit logging of AI tools and systems to be configured appropriately, which may include recording system version and other critical system information, and reviewing audit logs [4]. No retention period is specified.\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"证据[4]确载审计日志配置、记录系统版本及审查审计日志，且未规定保留年限。\"},{\"answer_span\":\"Statement 13 (data supply chain) addresses planning for data archival and destruction, including clear criteria for archival and destruction at each stage of the AI lifecycle and alignment with the Information management for records created using AI technologies guidance [7].\",\"label\":\"supported\",\"citation_numbers\":[7],\"reason_zh\":\"证据[7]Criterion 45确载数据归档与销毁规划、各阶段明确标准及与NAA指南对齐。\"},{\"answer_span\":\"This concerns data archival planning generally, not a fixed number of years for prediction logs.\",\"label\":\"supported\",\"citation_numbers\":[7],\"reason_zh\":\"证据[7]仅涉及归档规划，未规定预测日志固定年限。\"},{\"answer_span\":\"Statement 23 (model validation) lists data retention policies and model retention policies as evaluation considerations [8], without specifying a duration.\",\"label\":\"supported\",\"citation_numbers\":[8],\"reason_zh\":\"证据[8]Criterion 85确将数据保留政策和模型保留政策列为评估考虑，未给出具体期限。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

@@ -1,5 +1,9 @@
 # Policy Research Agent：数据扩容、质量优化与交付指导
 
+**当前执行方向：工程收尾，暂缓指标优化。** 见 [子Agent详细实施方案](ENGINEERING_CLOSEOUT_AGENT_PLAN.md) 与 [交接文档§15](NEXT_AGENT_HANDOFF.md)。本轮只修状态语义、生成/引用、注册权限与Demo复现；以下历史计划中的selection优化和扩容不再作为当前任务。
+
+2026-09-10 最新验收：两题生成已恢复，主要真实UI路径已执行，50题完成模型辅助初审但尚无全量独立人工签核；390 tests passed、6 skipped。默认 original 未改变。当前进度及实施细则见 [交接文档第14节](NEXT_AGENT_HANDOFF.md) 和 [C恢复/答案/UI审核报告](C_ACCEPTANCE_AUDIT_20260910.md)。Child引用错配与Agent状态语义仍阻止放行；下一步先修状态合同和固定输入生成/引用，再解决MC04/CS07的selection损失，不扩大Parent预算或改题库。
+
 接手开发请先读 [下一阶段交接与验收步骤](NEXT_AGENT_HANDOFF.md)。下方记录按时间保留，旧结论不代表当前默认配置。
 
 2026-09-10 最新：默认改为“有依据部分回答、缺口明确说明”，不因单个子问题缺证据而整题拒答。
@@ -443,3 +447,13 @@ MCP 只在确有工具接入需求时纳入交付，不为简历词汇额外引�
 实测完整证据仍为 38/43、平均 EGC 93.72%；新增映射题仍为 25/30、91%。selection_budget 4→1，最终 false sufficient 4→3，但 fallback 0→2，并新增 9 道 gold 已完整却拒答的案例。**不应包装为覆盖率提升或直接切换默认方案。**
 
 下一步优先解决并列要求/比较对象的原文 anchor 独立绑定，复核 Inspector 的泛化支持与过度保守判断，再用同一冻结题库回归。不能靠增加补查轮数、改变 gold 或降低阈值追求表面提升。完整文件清单、原始运行路径、指标口径与失败原因见 [V3 对照报告](CONTROLLED_FACETS_V3_RESULTS.md)。
+
+## 17. Engineering closeout 最新状态（2026-09-10）
+
+工程收尾已按 [ENGINEERING_CLOSEOUT_AGENT_PLAN.md](ENGINEERING_CLOSEOUT_AGENT_PLAN.md) 增量执行，完整记录见 [ENGINEERING_CLOSEOUT_RESULTS.md](ENGINEERING_CLOSEOUT_RESULTS.md)，本地启动见 [DEMO_RUNBOOK.md](DEMO_RUNBOOK.md)。本节只更新工程状态，不改写历史检索指标。
+
+- 已完成状态合同、部分回答保留、最终 Child 引用身份过滤、简洁生成规则、admin secret 校验和可复现 generation-only 诊断入口。
+- 默认行为仍为 `reranker_top_k + original`；P2 `per_document_backfill_v1` 仍为显式实验。暂停召回率/selection 追逐，不改题库、gold、模型、数据库快照、阈值或 token 预算。
+- 固定 8 题和一次 50 题 generation-only 均使用保存的 C context/citations，检索调用 0、外层重试 0；50 题均标记 `generated_pending_review`，不能视为人工通过。
+- 完整测试在临时独立数据库完成：406 passed、6 skipped、1 个既有 warning；Ruff、format、diff、compile 和前端构建通过。
+- 仍需隔离库迁移后的当前版本浏览器复验、逐断言人工答案审核以及 UN02/UN05/UN06 引用语义风险处理。未知覆盖不得标为 complete；本版本不是公网政策决策系统。

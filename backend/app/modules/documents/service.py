@@ -595,14 +595,30 @@ def retrieve_relevant_chunks(
             limit=min(limit, get_settings().child_rerank_k),
         )
         return [dict(c, controlled_trace=trace) for c in selected]
-    candidate_limit = max(limit * 3, 20, get_settings().child_candidate_k)
+    settings = get_settings()
+    selection_limit = min(limit, settings.child_rerank_k)
+    from app.modules.documents.child_selection import rerank_limit_for_selection, select_children
+
+    rerank_limit = rerank_limit_for_selection(
+        settings.child_selection_strategy,
+        selection_limit=selection_limit,
+        inspection_pool_k=settings.child_selection_pool_k,
+    )
+    candidate_limit = max(limit * 3, 20, settings.child_candidate_k)
     candidates = retrieve_child_candidates(
         question,
         document_ids=document_ids,
         limit=candidate_limit,
         include_restricted=include_restricted,
     )
-    return _rerank_or_dense(question, candidates, min(limit, get_settings().child_rerank_k))
+    ranked = _rerank_or_dense(question, candidates, rerank_limit)
+    selected, _ = select_children(
+        ranked,
+        strategy=settings.child_selection_strategy,
+        limit=selection_limit,
+        inspection_pool_k=settings.child_selection_pool_k,
+    )
+    return selected
 
 
 def search_full_corpus(
@@ -624,13 +640,29 @@ def search_full_corpus(
             limit=min(limit, get_settings().child_rerank_k),
         )
         return [dict(c, controlled_trace=trace) for c in selected]
-    candidate_limit = max(limit * 3, 20, get_settings().child_candidate_k)
+    settings = get_settings()
+    selection_limit = min(limit, settings.child_rerank_k)
+    from app.modules.documents.child_selection import rerank_limit_for_selection, select_children
+
+    rerank_limit = rerank_limit_for_selection(
+        settings.child_selection_strategy,
+        selection_limit=selection_limit,
+        inspection_pool_k=settings.child_selection_pool_k,
+    )
+    candidate_limit = max(limit * 3, 20, settings.child_candidate_k)
     candidates = retrieve_child_candidates(
         question,
         limit=candidate_limit,
         include_restricted=include_restricted,
     )
-    return _rerank_or_dense(question, candidates, min(limit, get_settings().child_rerank_k))
+    ranked = _rerank_or_dense(question, candidates, rerank_limit)
+    selected, _ = select_children(
+        ranked,
+        strategy=settings.child_selection_strategy,
+        limit=selection_limit,
+        inspection_pool_k=settings.child_selection_pool_k,
+    )
+    return selected
 
 
 def copy_file_into_library(source_path: Path) -> str:

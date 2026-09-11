@@ -1,0 +1,145 @@
+{
+  "question_id": "DEV-TS02",
+  "question": "What two classification dimensions must agencies list in their AI transparency statements?",
+  "inputs_sha256": "3141e9d8b8fe01ea5225f739ce5a2586a8892a0c0a79b3e52392cc64fbd950b4",
+  "messages_sha256": "97d41f13f4fdeb4cd614061ad537bc23fb184ecd0c5125efae0f73f562836b41",
+  "raw_artifact_sha256": "3e7385e94ddb7fe1a23aa8461f111ca4f7ae44aec7b7279dd253d3849f9899b9",
+  "final_artifact_sha256": "7839bf83e3602b902b8c45ae843d75b426fab0f5fa120b442b04ae99c00baabe",
+  "draft": "Agencies must list both **usage patterns** and **domains** that apply to their use of AI in their transparency statements [1].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "Agencies must list both **usage patterns** and **domains** that apply to their use of AI in their transparency statements [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements.\"\n        }\n      ],\n      \"reason\": \"Child 1 (Attachment A) explicitly states that agencies must list both usage patterns and domains in their transparency statements, matching the unit's claim that agencies must list both usage patterns and domains.\"\n    }\n  ]\n}",
+    "answer": "Agencies must list both **usage patterns** and **domains** that apply to their use of AI in their transparency statements [1].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements."
+            }
+          ],
+          "reason": "Child 1 (Attachment A) explicitly states that agencies must list both usage patterns and domains in their transparency statements, matching the unit's claim that agencies must list both usage patterns and domains."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "667c931f-91fc-4be3-a202-cdb776a53142",
+      "section_id": "c84a594d-0737-55f3-bc94-77dacd5fca17",
+      "section_title": "1  A ustralian Government Style Manual, Plain language and word choice",
+      "title": "Standard for AI Transparency Statements",
+      "page": 5,
+      "page_end": 7,
+      "quote": "Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au.\n\n2 APS R eform, Priority one: An APS that embodies integrity in everything it does. “The APS acts with integrity and fairness and is accountable and transparent in everything it does. This will build public trust and strengthen standards of integrity in our federal government.” https:/ /www.apsreform.gov.au/about-aps-reform/our-focus- areas\n\nQuestions about implementation Accountable officials can contact the DTA with questions about implementing the transparency statements by emailing ai@dta.gov.au.\n\nAttachment A – Classification system for AI use The following classification system represents how AI is commonly used in government and the domains where they are applied. Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements. Agencies should link to digital.gov.au/ai/resources/use-classification when listing their usage patterns and domains and may expand on their use of AI to provide more details to the public."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "90568ed7-e964-4da3-bda5-eddd325e17f1",
+      "section_id": "c84a594d-0737-55f3-bc94-77dacd5fca17",
+      "section_title": "1  A ustralian Government Style Manual, Plain language and word choice",
+      "title": "Standard for AI Transparency Statements",
+      "page": 4,
+      "page_end": 5,
+      "quote": "1 A ustralian Government Style Manual, Plain language and word choice\n\nHow to apply\n\nImplementing the AI transparency statements The policy provides a coordinated approach for the use of AI across the Australian Government. It builds public trust by supporting the Australian Public Service (APS) to engage with AI in a responsible way. Transparency is critical to public trust and is an important aim of the policy and broader APS Reform agenda2. The public should have confidence that agencies monitor the effectiveness of deployed AI systems and have measures to protect against negative impacts. AI transparency statements help agencies meet these aims by providing a foundational level of transparency on their use of AI. They publicly disclose: • how AI is used and managed by the agency • a commitment to safe and responsible use • compliance with the policy. Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent. Agencies are not required to list individual use cases or provide use case level detail. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI. Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "4b38ee3d-2e5a-42d2-922a-71f83328677f",
+      "section_id": "1d92aa7d-5426-5336-b2ef-e6477c9e238b",
+      "section_title": "Standard for AI transparency statements",
+      "title": "Standard for AI Transparency Statements",
+      "page": 4,
+      "page_end": 4,
+      "quote": "a minimum, agencies must provide the following information regarding their use of AI in their transparency statement: • the intentions behind why the agency uses AI or is considering its adoption • classification of AI use according to usage patterns and domains, as listed at\n\nAttachment A • classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review • measures to monitor the effectiveness of deployed AI systems and protect the public against negative impacts • overview of compliance with the requirements under the Policy for responsible use of AI in government • compliance with applicable legislation and regulation • when the statement was most recently updated. Statements must use clear, plain language1 that avoids technical jargon and is consistent with the Australian Government Style Manual. They must also provide or direct to a contact email for further public enquiries. Agencies must publish transparency statements on their public facing website. It’s recommended that a link to the statement is placed in a global menu, aligned to the approach often taken for privacy policies. Transparency statements must be reviewed and updated at these junctures: • at least once a year • when making a significant change to the agency’s approach to AI • when any new factor materially impacts the existing statement’s accuracy."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "4efcbf78-884f-4877-842b-b96edf5d10bc",
+      "section_id": "1d92aa7d-5426-5336-b2ef-e6477c9e238b",
+      "section_title": "Standard for AI transparency statements",
+      "title": "Standard for AI Transparency Statements",
+      "page": 2,
+      "page_end": 4,
+      "quote": "Digital Transformation Agency is committed to providing web accessible content wherever possible. If you are having difficulties with accessing this document, please email: ai@dta.gov.au. Version: 2.0 Page ii\n\nY our responsibilities Under the policy, agencies must make a publicly available statement that outlines their approach to AI adoption, as directed by the Digital Transformation Agency (DTA). Agencies must follow this standard, which sets the direction for AI transparency statements including expectations and formatting. It establishes a consistent format and expectation for AI transparency statements in the Australian Government. Clear and consistent transparency statements build public trust and make it easier to understand and compare how government agencies adopt AI. At a minimum, agencies must provide the following information regarding their use of AI in their transparency statement: • the intentions behind why the agency uses AI or is considering its adoption • classification of AI use according to usage patterns and domains, as listed at"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "cb93394d-8d3c-4638-a890-477f3b04c629",
+      "section_id": "e169cfea-b1bd-5da7-ae46-101dafdfbf23",
+      "section_title": "Strategy and oversight",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 10,
+      "page_end": 10,
+      "quote": "Strategy and oversight The principles and requirements included in this section are designed to enable a forward- leaning approach to agency AI adoption. These requirements set out AI accountability at the agency level and use case level and seek to build trust through transparency.\n\nPrinciples • Adopt AI to enhance efficiency, decision-making, policy outcomes and government service delivery for the benefit of Australians. • Have clear accountabilities for the adoption of AI and understand its use. • Build public trust through transparency about government AI use.\n\nMandatory requirements\n\nAI transparency statement Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements. The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI. Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au.\n\nStrategic position on AI adoption Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect. This position is to emphasise how AI opportunities can be identified and embraced by the agency. Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption. In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "90003987-ae76-4213-a13c-2f60acd7ef01",
+      "section_id": "ee321f99-785b-5497-850b-4ce1384e16d0",
+      "section_title": "Statement 10: Adopt a human-centred approach",
+      "title": "Australian Government AI Technical Standard",
+      "page": 48,
+      "page_end": 48,
+      "quote": "Statement 10: Adopt a human-centred approach Agencies must: Criterion 32: Identify human values requirements. Human values represent what people deem important in life such as autonomy, simplicity, tradition, achievement, and social recognition. Refer to human value requirements for AI systems paper. This includes: o using traditional requirement elicitation techniques such as surveys, interviews, group discussions and workshops to capture relevant human values for the AI use case o translating human values into technical requirements, which may vary depending on the risk level and AI use case o reviewing feedback to identify ignored human-values in the AI system o understanding the hierarchy of human values and emphasising those with higher relevance o considering social, economic, political, ethical, and legal values when designing AI systems o considering human values that are domain specific and based on the context of the AI system. Criterion 33: Establish a mechanism to inform users of AI interactions and output, as part of transparency.\n\nDepending on use case this may include: o incorporating visual cues on the AI product when applicable o informing users when text, audio or visual messages addressed to them are generated by AI o including visual watermarks to identify content generated by AI o providing transparency on whether a user is interacting with a person, or system o including a disclaimer on the limitations of the system o displaying the relevance and currency of the information being provided o persona level transparency adhering to need-to-know principles"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "5772168b-aedb-4309-a789-688cb4fd9c43",
+      "section_id": "59d24e08-1e4c-5a61-a319-25395888c274",
+      "section_title": "Statement 21: Establish the training environment",
+      "title": "Australian Government AI Technical Standard",
+      "page": 75,
+      "page_end": 76,
+      "quote": "Statement 21: Establish the training environment Agencies must:\n\nCriterion 76: Establish compute resources and infrastructure for the training environment. This allows for infrastructure and computational constraints to be considered in relation to business needs and supports configuration of learning strategies best optimised for the infrastructure environment.\n\nCriterion 77: Secure the infrastructure. Implement required security and access controls for infrastructure used for training, validating, and testing the AI model which are dependent on the security classification of the data. For details, see the Information security manual (ISM) | cyber.gov.au, Essential Eight maturity model | cyber.gov.au, Protective Security Policy Framework | protectivesecurity.gov.au and Strategies to mitigate cyber security incidents | cyber.gov.au. Agencies should: Criterion 78: Reuse approved AI modelling frameworks, libraries, and tools."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "da76b221-9fd3-4648-8f65-eb803a04a0dd",
+      "section_id": "9fc49cc5-b318-5ca2-a11c-fcbd80af6d08",
+      "section_title": "Statement 19: Establish the model and context dataset",
+      "title": "Australian Government AI Technical Standard",
+      "page": 68,
+      "page_end": 69,
+      "quote": "Statement 19: Establish the model and context dataset Agencies must: Criterion 67: Measure how representative the model dataset is. Key considerations for measuring and selecting a model dataset include: o whether it is representative of the true population relevant to the purpose of the AI system – this will improve model generalisation and minimise overfitting o ensuring the dataset has the required features, volumes, distribution, representation and demographics, including people with lived experience and intersectional dimensions. For example, someone with cultural or linguistic diversity, may also be a person with disability, the dataset must consider how multiple dimensions of a person intersect and create unique experiences or challenges o for GenAI, assess data quality thresholds and mechanisms in the data setup for modelling to help avoid unwanted bias and hallucinations.\n\nCriterion 68: Separate the model training dataset from the validation and testing datasets. Agencies must maintain the separation between these datasets to avoid any misleading evaluation for trained models. Agencies can refresh these datasets to account for timeframes, degradation in AI performance during operation, and compute resource constraints.\n\nCriterion 69: Manage bias in the data."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案准确列出透明度声明必须分类的两个维度：usage patterns 与 domains，与引用[1]及参考要点一致，无事实错误。",
+      "claims": [
+        {
+          "answer_span": "Agencies must list both **usage patterns** and **domains** that apply to their use of AI in their transparency statements [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]原文明确写明“Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements”，直接支持该断言。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案准确列出透明度声明必须分类的两个维度：usage patterns 与 domains，与引用[1]及参考要点一致，无事实错误。\",\"claims\":[{\"answer_span\":\"Agencies must list both **usage patterns** and **domains** that apply to their use of AI in their transparency statements [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]原文明确写明“Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements”，直接支持该断言。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

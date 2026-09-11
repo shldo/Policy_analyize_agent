@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 
@@ -13,7 +14,7 @@ from app.modules.chat.rag.agent.prompts import (
     get_agent_system_prompt,
     get_final_answer_system_prompt,
 )
-from app.modules.chat.rag.agent.state import AgentState
+from app.modules.chat.rag.agent.state import AgentState, final_packed_citations
 from app.modules.chat.rag.agent.tools import (
     ALL_TOOLS,
     import_web_page,
@@ -22,6 +23,7 @@ from app.modules.chat.rag.agent.tools import (
 )
 from app.modules.chat.rag.checkpointer import get_checkpointer
 from app.modules.chat.rag.generation import (
+    bind_answer_claims,
     create_chat_client,
     resolve_generation_target,
     validate_generation_budget,
@@ -383,7 +385,14 @@ def insufficient_evidence_node(state: AgentState) -> dict:
         reason=reason,
         mode=state.get("response_mode", "researcher"),
     )
-    return {"messages": [AIMessage(content=message)]}
+    return {
+        "messages": [AIMessage(content=message)],
+        "final_citations": [],
+        "generation_allowed": False,
+        "coverage_status": state.get("coverage_status", "no_context"),
+        "coverage_sufficient": False,
+        "answer_status": "withheld",
+    }
 
 
 async def final_generation_node(state: AgentState) -> dict:
@@ -397,14 +406,48 @@ async def final_generation_node(state: AgentState) -> dict:
     system_prompt = get_final_answer_system_prompt(response_mode, answer_mode)
     current = _messages_for_current_turn(state["messages"])
     question = next((m.content for m in reversed(current) if isinstance(m, HumanMessage)), "")
+    pack_metadata: dict = {}
     try:
-        messages = pack_agent_messages(current, system_prompt, question=question)
+        messages = pack_agent_messages(
+            current, system_prompt, question=question, metadata=pack_metadata
+        )
     except IncompleteControlledEvidence as exc:
         return insufficient_evidence_node(dict(state, last_evidence_reason=str(exc)))
     validate_generation_budget(messages)
 
     response: AIMessage = await client.ainvoke(messages)
-    return {"messages": [response], "resolved_model": f"{provider}/{selected_model}"}
+    final_child_ids = set(pack_metadata.get("final_packed_child_ids", []))
+    final_citations = final_packed_citations(state.get("citations", []), final_child_ids)
+    binding_enabled = get_settings().rag_claim_binding_enabled and answer_mode == "analysis"
+    if binding_enabled:
+        response = response.model_copy(
+            update={
+                "content": await asyncio.to_thread(
+                    bind_answer_claims,
+                    question,
+                    str(response.content),
+                    final_citations,
+                    provider,
+                    selected_model,
+                )
+            }
+        )
+    return {
+        "messages": [response],
+        "final_citations": final_citations,
+        "resolved_model": f"{provider}/{selected_model}",
+        **pack_metadata,
+        "answer_status": "generated",
+        **(
+            {
+                "coverage_status": "not_assessed",
+                "coverage_sufficient": False,
+                "evidence_sufficient": False,
+            }
+            if binding_enabled
+            else {}
+        ),
+    }
 
 
 def build_agent_graph():

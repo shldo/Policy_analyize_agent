@@ -60,7 +60,9 @@ database = Database()
 
 
 async def init_db() -> None:
-    schema_path = BACKEND_ROOT / "supabase" / "local_schema.sql"
+    # Keep bootstrap aligned with the checked-in Docker schema. Incremental
+    # migrations are applied separately in filename order.
+    schema_path = BACKEND_ROOT / "database" / "init.sql"
     if schema_path.exists():
         await asyncio.to_thread(_init_db_sync, schema_path)
 

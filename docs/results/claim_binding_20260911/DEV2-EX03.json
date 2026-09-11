@@ -1,0 +1,208 @@
+{
+  "question_id": "DEV2-EX03",
+  "question": "Does an out-of-scope AI assessment exempt an agency from privacy/security obligations and all future scope checks?",
+  "inputs_sha256": "3c2d94654cb511ad4acd140e3ff756105cd2a805a80e846c4bbcf705c5da1364",
+  "messages_sha256": "f1cad7d11db46413d2af13c4fd6199af374f3c09196206222f27c74e83e388be",
+  "raw_artifact_sha256": "9af0370ed96a51ef244dc978d7449b932d6c86ae5b5570a4ede62055d86a4a6a",
+  "final_artifact_sha256": "4f0cf8c0d87583b8a8fef691d67e0092cb0b9f72e4bc732aeb486f8612f19672",
+  "draft": "No. The available excerpts establish the opposite on both points.\n\n**Privacy and security obligations are not displaced.** For use cases assessed as out of scope of the policy, agencies may adopt the use case \"while ensuring they comply with relevant existing obligations, such as privacy and security\" [1]. The policy is also to be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations [8].\n\n**Future scope checks are required.** If an agency adopts an out-of-scope AI use case, it must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution [1]. If a use case is in scope, agencies must follow any applicable actions in this policy [1].\n\n**Evidence gaps.** The excerpts do not establish any exemption mechanism, waiver, or de minimis threshold that would suspend privacy/security obligations or the re-assessment trigger for out-of-scope use cases.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**Privacy and security obligations are not displaced.** For use cases assessed as out of scope of the policy, agencies may adopt the use case \"while ensuring they comply with relevant existing obligations, such as privacy and security\" [1]. The policy is also to be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations [8].\n\n**Future scope checks are required.** If an agency adopts an out-of-scope AI use case, it must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution [1]. If a use case is in scope, agencies must follow any applicable actions in this policy [1].\n\n**Evidence gaps.** The excerpts do not establish any exemption mechanism, waiver, or de minimis threshold that would suspend privacy/security obligations or the re-assessment trigger for out-of-scope use cases.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"partial\",\n      \"bindings\": [],\n      \"reason\": \"The excerpts support the opposite of an exemption on both points, but the unit's categorical 'No' and 'establish the opposite on both points' are broader than the specific evidence available.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"For use cases assessed as out of scope of this policy, agencies may adopt the use case while ensuring they comply with relevant existing obligations, such as privacy and security.\"\n        },\n        {\n          \"number\": 8,\n          \"quote\": \"This policy must be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations.\"\n        }\n      ],\n      \"reason\": \"Child 1 supports that out-of-scope use cases may be adopted while ensuring compliance with relevant existing obligations such as privacy and security. Child 8 supports that the policy must be read and applied alongside existing frameworks and laws to ensure agencies meet all obligations.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"If an agency adopts an out-of-scope AI use case, they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"If a use case is in scope, agencies must follow any applicable actions in this policy.\"\n        }\n      ],\n      \"reason\": \"Child 1 supports both the material-change reassessment requirement for adopted out-of-scope AI use cases and the requirement to follow applicable policy actions if a use case is in scope.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish whether any exemption mechanism, waiver, or de minimis threshold exists that would suspend privacy/security obligations or the re-assessment trigger for out-of-scope use cases.\"\n    }\n  ]\n}",
+    "answer": "**Privacy and security obligations are not displaced.** For use cases assessed as out of scope of the policy, agencies may adopt the use case \"while ensuring they comply with relevant existing obligations, such as privacy and security\" [1]. The policy is also to be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations [8].\n\n**Future scope checks are required.** If an agency adopts an out-of-scope AI use case, it must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution [1]. If a use case is in scope, agencies must follow any applicable actions in this policy [1].\n\n**Evidence gaps.** The excerpts do not establish any exemption mechanism, waiver, or de minimis threshold that would suspend privacy/security obligations or the re-assessment trigger for out-of-scope use cases.",
+    "removed_unit_ids": [
+      "u1"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "partial",
+          "bindings": [],
+          "reason": "The excerpts support the opposite of an exemption on both points, but the unit's categorical 'No' and 'establish the opposite on both points' are broader than the specific evidence available."
+        },
+        {
+          "id": "u2",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "For use cases assessed as out of scope of this policy, agencies may adopt the use case while ensuring they comply with relevant existing obligations, such as privacy and security."
+            },
+            {
+              "number": 8,
+              "quote": "This policy must be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations."
+            }
+          ],
+          "reason": "Child 1 supports that out-of-scope use cases may be adopted while ensuring compliance with relevant existing obligations such as privacy and security. Child 8 supports that the policy must be read and applied alongside existing frameworks and laws to ensure agencies meet all obligations."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "If an agency adopts an out-of-scope AI use case, they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution."
+            },
+            {
+              "number": 1,
+              "quote": "If a use case is in scope, agencies must follow any applicable actions in this policy."
+            }
+          ],
+          "reason": "Child 1 supports both the material-change reassessment requirement for adopted out-of-scope AI use cases and the requirement to follow applicable policy actions if a use case is in scope."
+        },
+        {
+          "id": "u4",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish whether any exemption mechanism, waiver, or de minimis threshold exists that would suspend privacy/security obligations or the re-assessment trigger for out-of-scope use cases."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "5bb2a30b-4f6f-4da5-bf7f-a6bb03b25cb1",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 16,
+      "page_end": 16,
+      "quote": "The review must also consider the AI use case impact assessment and revisions to it, if required.\n\nOut-of-scope AI use cases For use cases assessed as out of scope of this policy, agencies may adopt the use case while ensuring they comply with relevant existing obligations, such as privacy and security. If an agency adopts an out-of-scope AI use case, they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution. If a use case is in scope, agencies must follow any applicable actions in this policy."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "c06d1e3b-008e-4c3b-b7e8-8e3f40f47cb3",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 15,
+      "page_end": 16,
+      "quote": "Agencies should also monitor changes that are not initiated by the agency. For example, vendor changes and changes in the regulatory environment. Agencies could also ask vendors to provide information on updates through contractual mechanisms.\n\nMedium-risk AI use cases If an agency determines their in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, they should consider if the use case would benefit from being governed through a designated board or a senior executive. Agencies should choose an approach appropriate for the size and scope of the agency if they apply additional governance.\n\nHigh-risk AI use cases If an agency determines their in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, they must: • report the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks • govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency. Once an agency has decided to deploy the use case, they must: • report the use case to the DTA through the accountable official, see the Standard for accountability • establish a system to regularly review the use case every 12 months at a minimum. The review must report to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed. The review must also consider the AI use case impact assessment and revisions to it, if required."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "63317ebb-686d-4081-8a18-bea93b91c9a7",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "AI use case impact assessment",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 14,
+      "page_end": 14,
+      "quote": "AI use case impact assessment The principles and requirements in this section intend to assess potential impacts of AI use cases and ensure additional oversight of higher risk AI.\n\nPrinciples • Ongoing monitoring and evaluation of AI uses. • AI risk mitigation is proportionate and targeted. • AI use is lawful, ethical, responsible, transparent and explainable to the public.\n\nMandatory requirements\n\nAll new AI use cases Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy. The assessment must be documented and take place during the design phase while developing requirements. Agencies must begin AI use case assessments within 12 months of this policy taking effect. For existing use cases not yet assessed, agencies must determine whether they are in scope of this policy and apply all relevant policy actions by 30 April 2027. Where practicable, agencies should implement the requirements ahead of the deadlines listed above.\n\nIn-scope AI use cases For AI use cases that are in-scope, agencies must conduct an AI use case impact assessment. Agencies are to commence an assessment at the design stage. Before the solution is deployed, agencies must finalise the assessment and apply any agreed risk treatments. Agencies may conduct an AI use case impact assessment by using either: • the Australian Government AI impact assessment tool (the impact assessment tool) • an internal process that integrates all provisions of the impact assessment tool."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "d9bb0011-e7ae-469e-a7a4-01a821157cc3",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "2  As defined by the Australian Government Protective Security Policy Framework",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 22,
+      "page_end": 22,
+      "quote": "While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment.\n\nExperimentation For the avoidance of doubt, agencies are not required to apply this policy if they are doing early-stage experimentation which does not: • commit to proceeding with a use case or to any design decisions that would affect implementation later • risk harming anyone • introduce or exacerbate any privacy or security risks. If there is a likelihood of proceeding with the AI use case while experimenting in this phase, agencies should apply the policy. Agencies should also apply the Australian Government AI technical standard, which provides relevant information for developing use cases at each stage of the AI lifecycle."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "ba219966-3549-47f7-b6d6-7cb6f50266a7",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "Appendix C: In-scope AI use cases",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 21,
+      "page_end": 22,
+      "quote": "This policy has been designed to exclude incidental and lower risk uses of AI that do not meet the criteria.\n\nIncidental uses of AI may include off-the-shelf software with AI features such as grammar checks and internet searches with AI functionality. The policy recognises that incidental usage of AI will grow over time and focuses on uses that require additional oversight and governance. 1 As defined by the Privacy Act 1988 (Cth).\n\n2 As defined by the Australian Government Protective Security Policy Framework\n\nIn assessing whether a use case is in scope, agencies should also carefully consider AI use in the following areas: • recruitment and other employment-related decision making • automated decision making of discretionary decisions • administration of justice and democratic processes • law enforcement, profiling individuals, and border control • health • education • critical infrastructure. While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "d275385f-58db-4776-a68f-2385712a2a9d",
+      "section_id": "26813548-8b6e-5ad6-802e-77260a8a082a",
+      "section_title": "Scope",
+      "title": "Australian Government AI Technical Standard",
+      "page": 10,
+      "page_end": 10,
+      "quote": "Scope\n\nIn scope The standard applies to: • AI services and products for administrative decision-making in government • AI systems that may produce discriminatory, unfair, or harmful outcomes • platform, data, and software for AI services and products • a product or service with at least one AI model, hosted internally or externally • reuse of AI assets, including applying to new or changed use cases • systems with embedded AI services and products • publicly available AI tools, such as ChatGPT. Examples of the types of AI considered for the standard include machine learning, computer vision, deep learning, artificial neural networks, generative AI (GenAI) or any combinations of these.\n\nOut of scope While the below list is out of scope, agencies can adapt and apply the standard at their own discretion: • automated decision-making | architecture.digital.gov.au • robotic process automation • human-repeatable scripts or processes • artificial general intelligence • incidental use of AI. The standard does not define, but works in conjunction with, the following: • procurement processes and guidance • project management methodologies • risk identification and impact assessment • incident, problem, and change management."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "a55fca50-f901-4aa8-9d8a-a3539707a160",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 8,
+      "page_end": 8,
+      "quote": "Rather than introducing new processes or duplication, it emphasises the reuse of agency policies, frameworks and practices.\n\nAgencies may choose to combine the standard with existing frameworks, such as project governance or data, to include AI-related activities. The standard complements existing frameworks and legislation to help ensure agencies meet their obligations in the use of AI. The challenges for government use of AI are complex and linked with other governance considerations, such as: • The Australian Public Service (APS) Code of Conduct • data governance • cyber security • ICT infrastructure • privacy • sourcing and procurement • copyright • ethics practices. While not exhaustive, a list of related existing frameworks and related resources | digital.gov.au is provided by the Policy for the responsible use of AI in government."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "1cfeebd1-3ed8-43a4-9ced-0fd7dfbc1432",
+      "section_id": "c93301c3-fb95-5e16-9fd1-49bbbd321ced",
+      "section_title": "Implementation",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 6,
+      "page_end": 7,
+      "quote": "Defence and members of the NIC may voluntarily adopt elements of this policy where they are able to do so without compromising national security capabilities or interests.\n\nExisting frameworks The challenges raised by government use of AI are complex and inherently linked with other considerations, such as the APS Code of Conduct, data governance, cyber security, privacy and ethics practices. This policy has been designed to complement and strengthen – not duplicate – existing frameworks, legislation and practices that touch on government’s use of AI. This policy must be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations.\n\nDefinitions For the purposes of this policy, agencies should apply the definition of AI provided by the Organisation for Economic Co-operation and Development (OECD) and the following definition of AI use case: An AI use case is a specific application of an AI system or systems to achieve certain objectives or perform certain tasks. Definitions and how to apply them – including an optional approach to group AI use cases for some general-purpose AI solutions – is available in Appendix B. The appendix also defines an AI incident.\n\nTimeframes This policy provides implementation timeframes for agencies to meet some of its requirements. While agencies may need this time to action requirements, agencies should implement them sooner if practicable. Agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答准确对应问题：明确否定“豁免隐私/安全义务与未来范围检查”，并分别引用[1]支持隐私/安全义务保留及重大变化时重新评估，引用[8]支持政策须与既有框架和法律并行适用。两个必需点均覆盖，无实质错误。",
+      "claims": [
+        {
+          "answer_span": "For use cases assessed as out of scope of the policy, agencies may adopt the use case \"while ensuring they comply with relevant existing obligations, such as privacy and security\" [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]原文明确：对评估为政策范围外的用例，机构可采用，但须确保遵守隐私和安全等相关既有义务。"
+        },
+        {
+          "answer_span": "The policy is also to be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations [8].",
+          "label": "supported",
+          "citation_numbers": [
+            8
+          ],
+          "reason_zh": "[8]原文：本政策必须与既有框架和法律一并阅读和适用，以确保机构履行所有义务。"
+        },
+        {
+          "answer_span": "If an agency adopts an out-of-scope AI use case, it must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]原文逐字支持：采用范围外用例后，若解决方案的范围、使用或运行发生重大变化，必须评估其是否变为政策范围内。"
+        },
+        {
+          "answer_span": "If a use case is in scope, agencies must follow any applicable actions in this policy [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]原文直接支持该条件性义务。"
+        },
+        {
+          "answer_span": "The excerpts do not establish any exemption mechanism, waiver, or de minimis threshold that would suspend privacy/security obligations or the re-assessment trigger for out-of-scope use cases.",
+          "label": "not_verifiable",
+          "citation_numbers": [],
+          "reason_zh": "这是对检索证据范围的谨慎限定，而非政策断言；未引用具体证据，但表述为“摘录未确立”，属于诚实的证据缺口说明，不构成虚假政策主张。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答准确对应问题：明确否定“豁免隐私/安全义务与未来范围检查”，并分别引用[1]支持隐私/安全义务保留及重大变化时重新评估，引用[8]支持政策须与既有框架和法律并行适用。两个必需点均覆盖，无实质错误。\", \"claims\":[{\"answer_span\":\"For use cases assessed as out of scope of the policy, agencies may adopt the use case \\\"while ensuring they comply with relevant existing obligations, such as privacy and security\\\" [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]原文明确：对评估为政策范围外的用例，机构可采用，但须确保遵守隐私和安全等相关既有义务。\"},{\"answer_span\":\"The policy is also to be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations [8].\",\"label\":\"supported\",\"citation_numbers\":[8],\"reason_zh\":\"[8]原文：本政策必须与既有框架和法律一并阅读和适用，以确保机构履行所有义务。\"},{\"answer_span\":\"If an agency adopts an out-of-scope AI use case, it must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]原文逐字支持：采用范围外用例后，若解决方案的范围、使用或运行发生重大变化，必须评估其是否变为政策范围内。\"},{\"answer_span\":\"If a use case is in scope, agencies must follow any applicable actions in this policy [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]原文直接支持该条件性义务。\"},{\"answer_span\":\"The excerpts do not establish any exemption mechanism, waiver, or de minimis threshold that would suspend privacy/security obligations or the re-assessment trigger for out-of-scope use cases.\",\"label\":\"not_verifiable\",\"citation_numbers\":[],\"reason_zh\":\"这是对检索证据范围的谨慎限定，而非政策断言；未引用具体证据，但表述为“摘录未确立”，属于诚实的证据缺口说明，不构成虚假政策主张。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

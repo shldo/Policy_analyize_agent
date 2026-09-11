@@ -8,8 +8,39 @@ from app.core.database import get_connection
 MAX_HISTORY_TURNS = 5  # mirrored from schemas.py to avoid circular import
 
 
+class ChatStatusMigrationRequired(RuntimeError):
+    """Raised when the database predates the additive chat status contract."""
+
+
 class ChatHistoryRepository:
     """Persistence for chat sessions and messages."""
+
+    def ensure_status_contract(self) -> None:
+        """Fail clearly before serving traffic when migration 020 is missing.
+
+        This probe is intentionally read-only.  It does not apply migrations
+        and therefore cannot mutate a frozen evaluation or production
+        snapshot.
+        """
+        try:
+            with get_connection() as conn:
+                conn.execute(
+                    """
+                    SELECT generation_allowed, coverage_status, answer_status
+                    FROM chat_messages
+                    LIMIT 0
+                    """
+                )
+        except Exception as exc:
+            error_text = str(exc)
+            if any(
+                column in error_text
+                for column in ("generation_allowed", "coverage_status", "answer_status")
+            ):
+                raise ChatStatusMigrationRequired(
+                    "Chat status migration 020 is required before starting the chat service."
+                ) from exc
+            raise
 
     # ------------------------------------------------------------------
     # Write
@@ -47,6 +78,9 @@ class ChatHistoryRepository:
         agent_mode: str | None = None,
         evidence_sources: list[str] | None = None,
         suggestions: list[str] | None = None,
+        generation_allowed: bool | None = None,
+        coverage_status: str | None = None,
+        answer_status: str | None = None,
     ) -> str:
         with get_connection() as conn:
             row = conn.execute(
@@ -54,8 +88,10 @@ class ChatHistoryRepository:
                 INSERT INTO chat_messages
                     (id, session_id, role, content, citations_json,
                      evidence_sufficient, response_mode, answer_mode, model, agent_mode,
-                     evidence_sources, suggestions_json)
-                VALUES (%s, %s, %s, %s, %s::jsonb, %s, %s, %s, %s, %s, %s::jsonb, %s::jsonb)
+                     evidence_sources, suggestions_json, generation_allowed,
+                     coverage_status, answer_status)
+                VALUES (%s, %s, %s, %s, %s::jsonb, %s, %s, %s, %s, %s, %s::jsonb,
+                        %s::jsonb, %s, %s, %s)
                 RETURNING id
                 """,
                 (
@@ -71,6 +107,9 @@ class ChatHistoryRepository:
                     agent_mode,
                     json.dumps(evidence_sources or []),
                     json.dumps(suggestions or []),
+                    generation_allowed,
+                    coverage_status,
+                    answer_status,
                 ),
             ).fetchone()
             conn.commit()
@@ -90,8 +129,10 @@ class ChatHistoryRepository:
         with get_connection() as conn:
             row = conn.execute(
                 """
-                INSERT INTO chat_messages (id, session_id, role, content, status, agent_mode)
-                VALUES (%s, %s, %s, '', 'streaming', %s)
+                INSERT INTO chat_messages
+                    (id, session_id, role, content, status, agent_mode,
+                     coverage_status, answer_status)
+                VALUES (%s, %s, %s, '', 'streaming', %s, 'not_assessed', 'streaming')
                 RETURNING id
                 """,
                 (str(uuid4()), session_id, role, agent_mode),
@@ -120,6 +161,9 @@ class ChatHistoryRepository:
         status: str = "complete",
         evidence_sources: list[str] | None = None,
         token_usage: dict | None = None,
+        generation_allowed: bool | None = None,
+        coverage_status: str | None = None,
+        answer_status: str | None = None,
     ) -> None:
         """Fill in a pending message's final answer, closing out the turn
         started by create_pending_message."""
@@ -129,7 +173,8 @@ class ChatHistoryRepository:
                 UPDATE chat_messages
                 SET content = %s, citations_json = %s::jsonb, evidence_sufficient = %s,
                     response_mode = %s, answer_mode = %s, model = %s, status = %s,
-                    evidence_sources = %s::jsonb, token_usage = %s::jsonb
+                    evidence_sources = %s::jsonb, token_usage = %s::jsonb,
+                    generation_allowed = %s, coverage_status = %s, answer_status = %s
                 WHERE id = %s
                 """,
                 (
@@ -142,6 +187,9 @@ class ChatHistoryRepository:
                     status,
                     json.dumps(evidence_sources or []),
                     json.dumps(token_usage or {}),
+                    generation_allowed,
+                    coverage_status,
+                    answer_status,
                     message_id,
                 ),
             )
@@ -251,7 +299,8 @@ class ChatHistoryRepository:
                 SELECT id, session_id, role, content, citations_json,
                        evidence_sufficient, response_mode, answer_mode, model,
                        reasoning_steps, status, agent_mode, evidence_sources,
-                       suggestions_json, token_usage, created_at
+                       suggestions_json, token_usage, generation_allowed,
+                       coverage_status, answer_status, created_at
                 FROM chat_messages
                 WHERE session_id = %s
                 ORDER BY created_at ASC

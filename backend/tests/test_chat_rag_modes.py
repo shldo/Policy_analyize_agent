@@ -10,11 +10,11 @@ from app.modules.chat.rag.prompts import (
 )
 
 
-def test_researcher_analysis_prompt_is_structured() -> None:
+def test_researcher_analysis_prompt_prioritises_direct_grounded_answers() -> None:
     prompt = get_system_prompt("researcher", "analysis")
-    assert "## Relevant Cases" in prompt
-    assert "## Key Lessons" in prompt
-    assert "## Risks" in prompt
+    assert "Start with a concise direct answer" in prompt
+    assert "do not force a fixed" in prompt
+    assert "Parent context is for interpretation" in prompt
     assert "ONLY the supplied policy document excerpts" in prompt
     assert "pretrained knowledge" in prompt.lower() or "Do not use pretrained" in prompt
 

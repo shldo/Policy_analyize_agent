@@ -1,0 +1,326 @@
+{
+  "question_id": "DEV2-CS08",
+  "question": "How do continuous-improvement model version control and logging tests work together in the technical standard?",
+  "inputs_sha256": "3e6bd443c8229af1033364e671a10fcdf817cdac75a743a94f5ab4f049fc9ea8",
+  "messages_sha256": "d0ed316d77608bfd5931f165af2323ad854146e19da08b1ccf4955ed3f887bb6",
+  "raw_artifact_sha256": "72e1c48cbb05b844a68140abafea3fa232a028a15b0fd4fb659f5181bb7eab09",
+  "final_artifact_sha256": "33bca41ea8366b61938949d5fb1a30fbc82c02f8e47638ec3d9b1a46b62e00a0",
+  "draft": "The available excerpts establish both mechanisms as separate requirements within the Australian Government AI Technical Standard, but do not describe an explicit interaction or integration between them.\n\n**Model version control (continuous improvement frameworks)**\n\nUnder Statement 25 (Implement continuous improvement frameworks), agencies must perform model version control [3]. AI model versioning and tracking is described as key to comparing performance over time, identifying factors affecting performance, and updating the model when needed [3]. Model tracking and versioning can involve dataset tracking and versioning, and model tracking and versioning — with each trained model potentially carrying details such as algorithm, learning type and hyperparameter settings, compile-time parameters, and the tools or version of tools used to compile the model [3]. The statement also directs setting up rollback options to historical models to help develop safety nets, reduce risk of deploying new models, and provide deployment flexibility [3]. Statement 25 additionally requires establishing interface tools and feedback channels for machines and humans, including appropriate human-machine interface tools for human interrogation and oversight [3].\n\n**Logging tests**\n\nUnder Statement 27 (Test for specified behaviour), agencies must perform logging tests as per the requirements [5]. This involves verifying that the system records system warnings and errors, and relevant system changes with corresponding details of who made the change, timestamp, and system version [5].\n\n**Synthesis (not stated as an integrated requirement in the excerpts)**\n\nThe two provisions are adjacent in function: logging tests verify that the system records the system version alongside change details [5], while model version control requires tracking model versions and their attributes and retaining rollback options [3]. Read together, the logging-test criterion supplies the evidentiary record (who changed what, when, and under which system version) that version-control tracking depends on. However, the excerpts do not state that logging tests are the mechanism for verifying version control, nor do they establish any cross-reference, sequencing, or dependency between Statement 25 and Statement 27.\n\n**Evidence gaps**\n\nThe provided excerpts do not establish an explicit linkage, shared procedure, or combined requirement connecting model version control and logging tests. Any relationship beyond their separate stated requirements is not supported by the retrieved evidence.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The available excerpts establish both mechanisms as separate requirements within the Australian Government AI Technical Standard, but do not describe an explicit interaction or integration between them. [3][5]\n\n**Model version control (continuous improvement frameworks)**\n\nUnder Statement 25 (Implement continuous improvement frameworks), agencies must perform model version control [3]. AI model versioning and tracking is described as key to comparing performance over time, identifying factors affecting performance, and updating the model when needed [3]. Model tracking and versioning can involve dataset tracking and versioning, and model tracking and versioning — with each trained model potentially carrying details such as algorithm, learning type and hyperparameter settings, compile-time parameters, and the tools or version of tools used to compile the model [3]. The statement also directs setting up rollback options to historical models to help develop safety nets, reduce risk of deploying new models, and provide deployment flexibility [3]. Statement 25 additionally requires establishing interface tools and feedback channels for machines and humans, including appropriate human-machine interface tools for human interrogation and oversight [3].\n\n**Logging tests**\n\nUnder Statement 27 (Test for specified behaviour), agencies must perform logging tests as per the requirements [5]. This involves verifying that the system records system warnings and errors, and relevant system changes with corresponding details of who made the change, timestamp, and system version [5].\n\n**Synthesis (not stated as an integrated requirement in the excerpts)**\n\nThe two provisions are adjacent in function: logging tests verify that the system records the system version alongside change details [5], while model version control requires tracking model versions and their attributes and retaining rollback options [3]. Read together, the logging-test criterion supplies the evidentiary record (who changed what, when, and under which system version) that version-control tracking depends on. However, the excerpts do not state that logging tests are the mechanism for verifying version control, nor do they establish any cross-reference, sequencing, or dependency between Statement 25 and Statement 27.\n\nThe provided excerpts do not establish an explicit linkage, shared procedure, or combined requirement connecting model version control and logging tests. Any relationship beyond their separate stated requirements is not supported by the retrieved evidence.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 3, \"quote\": \"Statement 25: Implement continuous improvement frameworks Agencies must:\"},\n        {\"number\": 5, \"quote\": \"Statement 27: Test for specified behaviour Agencies must:\"}\n      ],\n      \"reason\": \"The excerpts separately establish Statement 25 (continuous improvement frameworks) and Statement 27 (test for specified behaviour), and none of the supplied excerpts describes an explicit interaction or integration between model version control and logging tests.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 3, \"quote\": \"Statement 25: Implement continuous improvement frameworks Agencies must:\"},\n        {\"number\": 3, \"quote\": \"Criterion 90: Perform model version control. AI model versioning and tracking is key to comparing performance over time, identifying factors affecting performance and updating the model when needed.\"},\n        {\"number\": 3, \"quote\": \"AI model tracking and versioning can involve: o dataset tracking and versioning o model tracking and versioning \\u2013 each trained model can have the following details: o algorithm, learning type and hyperparameter settings o compile-time parameters o the tools or version of tools used to compile the model.\"},\n        {\"number\": 3, \"quote\": \"Set-up rollback options to historical models to help develop safety nets in the AI system, reduce risk of deploying new models, and provide deployment flexibility.\"},\n        {\"number\": 3, \"quote\": \"Criterion 89: Establish interface tools and feedback channels for machines and humans. This also involves providing appropriate human-machine interface tools for human interrogation and oversight.\"}\n      ],\n      \"reason\": \"Child 3 supports the Statement 25 attribution, the model version control requirement, the versioning/tracking details, rollback options, and the interface/feedback channel requirement.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 5, \"quote\": \"Statement 27: Test for specified behaviour Agencies must:\"},\n        {\"number\": 5, \"quote\": \"Criterion 100: Perform logging tests as per the requirements. This involves verifying that the system records: o system warnings and errors o relevant system changes with corresponding details of who made the change, timestamp, and system version.\"}\n      ],\n      \"reason\": \"Child 5 supports the Statement 27 attribution, the logging tests requirement, and the listed records including warnings/errors and relevant system changes with who, timestamp, and system version.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 5, \"quote\": \"Criterion 100: Perform logging tests as per the requirements. This involves verifying that the system records: o system warnings and errors o relevant system changes with corresponding details of who made the change, timestamp, and system version.\"},\n        {\"number\": 3, \"quote\": \"Criterion 90: Perform model version control. AI model versioning and tracking is key to comparing performance over time, identifying factors affecting performance and updating the model when needed.\"},\n        {\"number\": 3, \"quote\": \"Set-up rollback options to historical models to help develop safety nets in the AI system, reduce risk of deploying new models, and provide deployment flexibility.\"}\n      ],\n      \"reason\": \"The excerpts support the separate logging-test record elements and model version control/rollback requirements, and they do not state that logging tests verify version control or establish cross-reference, sequencing, or dependency between Statement 25 and Statement 27.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The supplied excerpts do not establish an explicit linkage, shared procedure, or combined requirement connecting model version control and logging tests; this is accurately bounded to the available excerpts.\"\n    }\n  ]\n}",
+    "answer": "The available excerpts establish both mechanisms as separate requirements within the Australian Government AI Technical Standard, but do not describe an explicit interaction or integration between them. [3][5]\n\n**Model version control (continuous improvement frameworks)**\n\nUnder Statement 25 (Implement continuous improvement frameworks), agencies must perform model version control [3]. AI model versioning and tracking is described as key to comparing performance over time, identifying factors affecting performance, and updating the model when needed [3]. Model tracking and versioning can involve dataset tracking and versioning, and model tracking and versioning — with each trained model potentially carrying details such as algorithm, learning type and hyperparameter settings, compile-time parameters, and the tools or version of tools used to compile the model [3]. The statement also directs setting up rollback options to historical models to help develop safety nets, reduce risk of deploying new models, and provide deployment flexibility [3]. Statement 25 additionally requires establishing interface tools and feedback channels for machines and humans, including appropriate human-machine interface tools for human interrogation and oversight [3].\n\n**Logging tests**\n\nUnder Statement 27 (Test for specified behaviour), agencies must perform logging tests as per the requirements [5]. This involves verifying that the system records system warnings and errors, and relevant system changes with corresponding details of who made the change, timestamp, and system version [5].\n\n**Synthesis (not stated as an integrated requirement in the excerpts)**\n\nThe two provisions are adjacent in function: logging tests verify that the system records the system version alongside change details [5], while model version control requires tracking model versions and their attributes and retaining rollback options [3]. Read together, the logging-test criterion supplies the evidentiary record (who changed what, when, and under which system version) that version-control tracking depends on. However, the excerpts do not state that logging tests are the mechanism for verifying version control, nor do they establish any cross-reference, sequencing, or dependency between Statement 25 and Statement 27.\n\nThe provided excerpts do not establish an explicit linkage, shared procedure, or combined requirement connecting model version control and logging tests. Any relationship beyond their separate stated requirements is not supported by the retrieved evidence.",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [
+      "u1"
+    ],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Statement 25: Implement continuous improvement frameworks Agencies must:"
+            },
+            {
+              "number": 5,
+              "quote": "Statement 27: Test for specified behaviour Agencies must:"
+            }
+          ],
+          "reason": "The excerpts separately establish Statement 25 (continuous improvement frameworks) and Statement 27 (test for specified behaviour), and none of the supplied excerpts describes an explicit interaction or integration between model version control and logging tests."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Statement 25: Implement continuous improvement frameworks Agencies must:"
+            },
+            {
+              "number": 3,
+              "quote": "Criterion 90: Perform model version control. AI model versioning and tracking is key to comparing performance over time, identifying factors affecting performance and updating the model when needed."
+            },
+            {
+              "number": 3,
+              "quote": "AI model tracking and versioning can involve: o dataset tracking and versioning o model tracking and versioning – each trained model can have the following details: o algorithm, learning type and hyperparameter settings o compile-time parameters o the tools or version of tools used to compile the model."
+            },
+            {
+              "number": 3,
+              "quote": "Set-up rollback options to historical models to help develop safety nets in the AI system, reduce risk of deploying new models, and provide deployment flexibility."
+            },
+            {
+              "number": 3,
+              "quote": "Criterion 89: Establish interface tools and feedback channels for machines and humans. This also involves providing appropriate human-machine interface tools for human interrogation and oversight."
+            }
+          ],
+          "reason": "Child 3 supports the Statement 25 attribution, the model version control requirement, the versioning/tracking details, rollback options, and the interface/feedback channel requirement."
+        },
+        {
+          "id": "u4",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 5,
+              "quote": "Statement 27: Test for specified behaviour Agencies must:"
+            },
+            {
+              "number": 5,
+              "quote": "Criterion 100: Perform logging tests as per the requirements. This involves verifying that the system records: o system warnings and errors o relevant system changes with corresponding details of who made the change, timestamp, and system version."
+            }
+          ],
+          "reason": "Child 5 supports the Statement 27 attribution, the logging tests requirement, and the listed records including warnings/errors and relevant system changes with who, timestamp, and system version."
+        },
+        {
+          "id": "u6",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 5,
+              "quote": "Criterion 100: Perform logging tests as per the requirements. This involves verifying that the system records: o system warnings and errors o relevant system changes with corresponding details of who made the change, timestamp, and system version."
+            },
+            {
+              "number": 3,
+              "quote": "Criterion 90: Perform model version control. AI model versioning and tracking is key to comparing performance over time, identifying factors affecting performance and updating the model when needed."
+            },
+            {
+              "number": 3,
+              "quote": "Set-up rollback options to historical models to help develop safety nets in the AI system, reduce risk of deploying new models, and provide deployment flexibility."
+            }
+          ],
+          "reason": "The excerpts support the separate logging-test record elements and model version control/rollback requirements, and they do not state that logging tests verify version control or establish cross-reference, sequencing, or dependency between Statement 25 and Statement 27."
+        },
+        {
+          "id": "u8",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u9",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The supplied excerpts do not establish an explicit linkage, shared procedure, or combined requirement connecting model version control and logging tests; this is accurately bounded to the available excerpts."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "956b34f8-457c-4b7e-8de6-2d94bd65fb28",
+      "section_id": "cf8b8527-5072-50db-a881-d9651c809cf0",
+      "section_title": "o Define alert thresholds:",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 44,
+      "page_end": 45,
+      "quote": "ty platforms: Consider integrating agent monitoring with existing observability and debugging platforms, including standards like OpenTelemetry for tracing, to enable detailed analysis of tool calls, traces, and system interactions across the agent workflow.\n\no Ensure log immutability: Maintain complete audit trails by ensuring that problematic agent trajectories and failures cannot be deleted, preserving them for analysis and compliance purposes.\n\no Establish feedback loops: Establish feedback loops to feed monitoring insights back into training datasets and evaluation frameworks for continuous improvement.\n\nFinally, continuously test the agentic system even post-deployment to ensure that it works as expected and is not affected by model drift or other changes in the environment.\n\n|\n\n45"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "c753fe36-e390-411a-b46c-16941c985544",
+      "section_id": "0d832625-d96d-5d56-8b19-4a87da1a3343",
+      "section_title": "Train",
+      "title": "Australian Government AI Technical Standard",
+      "page": 71,
+      "page_end": 72,
+      "quote": "-the-shelf or pre-trained models • selection and development of the algorithms and learning strategies used to train the AI model • an iterative process of implementing model architecture, setting hyperparameters, and training on model datasets\n\n• model validation tests, supplemented by human evaluation, which evaluate whether the model is fit-for-purpose and reliable • trained model selection assessments, which streamline development and enhance capabilities by comparing various models for the AI system • continuous improvement frameworks which set processes for measuring model outputs, business, and user feedback to manage model performance. If after multiple attempts of refinement, the model does not meet requirements or success criteria, a new model may need to be created, business requirements updated, or the model is retired. See the Design lifecycle stage for details on measuring model outputs, as well as business and user feedback, to manage AI model performance. See the Apply version control practices statement in the Whole of AI lifecycle section for detail on tracking changes to training models, trained models, algorithms, learning types, and hyperparameters."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "e71b6034-6dfe-4dec-a342-be7d15de8872",
+      "section_id": "0b4ad12e-75f1-5a25-8f4d-ad4fba0deeba",
+      "section_title": "Statement 25: Implement continuous improvement frameworks",
+      "title": "Australian Government AI Technical Standard",
+      "page": 80,
+      "page_end": 81,
+      "quote": "Statement 25: Implement continuous improvement frameworks Agencies must:\n\nCriterion 89: Establish interface tools and feedback channels for machines and humans. This also involves providing appropriate human-machine interface tools for human interrogation and oversight. Criterion 90: Perform model version control. AI model versioning and tracking is key to comparing performance over time, identifying factors affecting performance and updating the model when needed.\n\nAI model tracking and versioning can involve: o dataset tracking and versioning o model tracking and versioning – each trained model can have the following details: o algorithm, learning type and hyperparameter settings o compile-time parameters o the tools or version of tools used to compile the model. Set-up rollback options to historical models to help develop safety nets in the AI system, reduce risk of deploying new models, and provide deployment flexibility."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ec40c943-98dc-4add-b28d-965a8036cc87",
+      "section_id": "0ff47716-6d54-5795-ab15-ded6230871bb",
+      "section_title": "Evaluate",
+      "title": "Australian Government AI Technical Standard",
+      "page": 21,
+      "page_end": 22,
+      "quote": "Evaluate\n\nStatement 26: Adapt strategies and practices for AI systems Required • Criterion 91: Mitigate bias in the testing process. • Criterion 92: Define test criteria approaches. Recommended • Criterion 93: Define how test coverage will be measured. • Criterion 94: Define a strategy to ensure test adequacy.\n\nStatement 27: Test for specified behaviour Required • Criterion 95: Undertake human verification of test design and implementation for correctness, consistency, and completeness. • Criterion 96: Conduct functional performance testing to verify the correctness of the AI system Under Test (SUT) as per the pre-defined metrics. • Criterion 97: Perform controllability testing to verify human oversight and control, and system control requirements. • Criterion 98: Perform explainability and transparency testing as per the requirements.\n\n• Criterion 99: Perform calibration testing as per the requirements. • Criterion 100: Perform logging tests as per the requirements.\n\nStatement 28: Test for safety, robustness, and reliability Required • Criterion 101: Test the computational performance of the system. • Criterion 102: Test safety measures through negative testing methods, failure testing, and fault injection. • Criterion 103: Test reliability of the AI output, through stress testing over an extended period, simulating edge cases, and operating under extreme conditions. Recommended • Criterion 104: Undertake adversarial testing (red team testing), attempting to break security and privacy measures to identify weaknesses."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "99ced7e6-ed62-48c7-8d1e-b001e6172197",
+      "section_id": "f9bb6fb9-f2cf-57fd-8457-f470463d86f2",
+      "section_title": "Statement 27: Test for specified behaviour",
+      "title": "Australian Government AI Technical Standard",
+      "page": 85,
+      "page_end": 85,
+      "quote": "Statement 27: Test for specified behaviour Agencies must:\n\nCriterion 95: Undertake human verification of test design and implementation for correctness, consistency, and completeness.\n\nCriterion 96: Conduct functional performance testing to verify the correctness of the SUT as per the pre-defined metrics. This includes testing for fairness and bias to inform affirmative actions. For off-the-shelf systems, consider benchmark testing using industry-standard benchmark suites and comparisons with competing AI systems. Criterion 97: Perform controllability testing to verify human oversight and control, and system control requirements.\n\nCriterion 98: Perform explainability and transparency testing as per the requirements. This involves: o testing that AI outputs are understandable for the target audience, ensuring diversity of test subjects and representativeness of the target population o testing that the right information is available for the right user. Criterion 99: Perform calibration testing as per the requirements. This involves: o measuring functional performance across various operating or installation conditions o testing that changes in calibration parameters are detected o testing that any out-of-range calibration parameters are rejected by the AI system in a transparent and explainable way. Criterion 100: Perform logging tests as per the requirements. This involves verifying that the system records: o system warnings and errors o relevant system changes with corresponding details of who made the change, timestamp, and system version."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "07240a1d-1065-4698-8fed-37e0a627d57a",
+      "section_id": "6cbd7329-19fc-50b6-b0b7-5e8b2f95ed36",
+      "section_title": "Train",
+      "title": "Australian Government AI Technical Standard",
+      "page": 20,
+      "page_end": 21,
+      "quote": "• Criterion 82: Create or fine-tune models optimised for target domain environment. Recommended • Criterion 83: Create and train using multiple model architectures and learning strategies.\n\nStatement 23: Validate, assess, and update model Required • Criterion 84: Set techniques to validate AI trained models. • Criterion 85: Evaluate the model against training boundaries. • Criterion 86: Evaluate the model for bias, implement and test bias mitigations.\n\nRecommended • Criterion 87: Identify relevant model refinement methods.\n\nStatement 24: Select trained models Recommended • Criterion 88: Assess a pool of trained models against acceptance metrics to select a model for the AI system.\n\nStatement 25: Implement continuous improvement frameworks Required • Criterion 89: Establish interface tools and feedback channels for machines and humans. • Criterion 90: Perform model version control."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "dcfa3bb4-044c-4423-8e3b-7ba333848b84",
+      "section_id": "6427e2d0-190d-533c-a8c0-9a5a5e4731a4",
+      "section_title": "Key considerations when setting up a monitoring system include:",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 44,
+      "page_end": 44,
+      "quote": "Key considerations when setting up a monitoring system include:\n\n• What to log: Organisations should determine their objectives for monitoring (e.g. real -time intervention, debugging , integration between components ) to identify what to log. In doing so, prioritise monitoring for high -risk activities such as updating database records or financial transactions.\n\n• How to effectively monitor logs: Organisations can consider implementing these practices:\n\no Monitor on multiple layers, such as the user-agent interaction, agent-tool invocation, and model reasoning layers to identify specific sources of failure."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "342fb03e-f030-487d-b666-0e9069adaf8c",
+      "section_id": "1cbfa088-cd86-5a89-b094-c8a198798a95",
+      "section_title": "4. Enable end-user responsibility",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 4,
+      "page_end": 5,
+      "quote": "4. Enable end-user responsibility\n\nTrustworthy deployment of agents does not rely solely on developers, but also on end- users using them responsibly. To enable responsible use, as a baseline, users should be informed of the agent’s range of actions, access to data, and the user’s own responsibilities. Organisations should consider layering on training to equip employees with the knowledge required to manage human-agent interactions and exercise effective oversight, while maintaining their tradecraft and foundational skills.\n\nThis is a living document. We have worked with government agencies and leading companies to collate current best practices and contribute real- world case studies, but this is a fast-developing space. This framework will need to be continuously updated to keep pace with new developments. We invite feedback to refine the framework, and more case studies demonstrating how the framework can be applied for responsible agentic deployment.\n\nWhat’s new in this version\n\nThis version incorporates feedback received from 60+ companies since v1.0. The main changes include:\n\nIntroduction to Agentic AI What is Agentic\n\nAI? • Agentic components: Added safety and reliability components (controls, logging and monitoring) as part of agent’s core components • Protocols: Updated for newer protocols, especially for agentic commerce Risks of Agentic AI • Systemic and multi-agent risks: Added systemic and multi-agent risks\n\nThe four dimensions • Case study from IMDA on how the framework can be applied to OpenClaw deployments"
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案准确区分了澳大利亚政府AI技术标准中Statement 25的模型版本控制（Criterion 90）与Statement 27的日志测试（Criterion 100），并如实说明检索证据未建立二者之间的显式关联，符合参考答案要点且未虚构整合要求。",
+      "claims": [
+        {
+          "answer_span": "The available excerpts establish both mechanisms as separate requirements within the Australian Government AI Technical Standard, but do not describe an explicit interaction or integration between them. [3][5]",
+          "label": "supported",
+          "citation_numbers": [
+            3,
+            5
+          ],
+          "reason_zh": "证据[3]为Statement 25，证据[5]为Statement 27，二者确为独立条款，且均未提及彼此关联。"
+        },
+        {
+          "answer_span": "Under Statement 25 (Implement continuous improvement frameworks), agencies must perform model version control [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]明确Statement 25下Criterion 90为Perform model version control，且属Agencies must。"
+        },
+        {
+          "answer_span": "AI model versioning and tracking is described as key to comparing performance over time, identifying factors affecting performance, and updating the model when needed [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "与证据[3]原文表述一致。"
+        },
+        {
+          "answer_span": "Model tracking and versioning can involve dataset tracking and versioning, and model tracking and versioning — with each trained model potentially carrying details such as algorithm, learning type and hyperparameter settings, compile-time parameters, and the tools or version of tools used to compile the model [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]逐项列出dataset tracking、model tracking及algorithm、learning type、hyperparameter settings、compile-time parameters、tools/version等细节。"
+        },
+        {
+          "answer_span": "The statement also directs setting up rollback options to historical models to help develop safety nets, reduce risk of deploying new models, and provide deployment flexibility [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]原文包含Set-up rollback options to historical models及其三项目的。"
+        },
+        {
+          "answer_span": "Statement 25 additionally requires establishing interface tools and feedback channels for machines and humans, including appropriate human-machine interface tools for human interrogation and oversight [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]Criterion 89内容一致。"
+        },
+        {
+          "answer_span": "Under Statement 27 (Test for specified behaviour), agencies must perform logging tests as per the requirements [5].",
+          "label": "supported",
+          "citation_numbers": [
+            5
+          ],
+          "reason_zh": "证据[5]Criterion 100为Perform logging tests as per the requirements，属Agencies must。"
+        },
+        {
+          "answer_span": "This involves verifying that the system records system warnings and errors, and relevant system changes with corresponding details of who made the change, timestamp, and system version [5].",
+          "label": "supported",
+          "citation_numbers": [
+            5
+          ],
+          "reason_zh": "与证据[5]Criterion 100的列举完全一致。"
+        },
+        {
+          "answer_span": "Read together, the logging-test criterion supplies the evidentiary record (who changed what, when, and under which system version) that version-control tracking depends on.",
+          "label": "partial",
+          "citation_numbers": [
+            3,
+            5
+          ],
+          "reason_zh": "该句为答案自述的推断性综合，证据[3][5]分别支持日志记录内容与版本追踪内容，但未直接陈述二者存在依赖关系；答案随后明确标注该关联未被证据确立，故整体不构成虚假政策主张。"
+        },
+        {
+          "answer_span": "However, the excerpts do not state that logging tests are the mechanism for verifying version control, nor do they establish any cross-reference, sequencing, or dependency between Statement 25 and Statement 27.",
+          "label": "supported",
+          "citation_numbers": [
+            3,
+            5
+          ],
+          "reason_zh": "证据[3][5]中确无交叉引用、顺序或依赖关系表述，该否定性陈述与所引证据一致。"
+        },
+        {
+          "answer_span": "The provided excerpts do not establish an explicit linkage, shared procedure, or combined requirement connecting model version control and logging tests.",
+          "label": "supported",
+          "citation_numbers": [
+            3,
+            5
+          ],
+          "reason_zh": "基于所引证据的合理限定性结论，未超出证据范围。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案准确区分了澳大利亚政府AI技术标准中Statement 25的模型版本控制（Criterion 90）与Statement 27的日志测试（Criterion 100），并如实说明检索证据未建立二者之间的显式关联，符合参考答案要点且未虚构整合要求。\",\"claims\":[{\"answer_span\":\"The available excerpts establish both mechanisms as separate requirements within the Australian Government AI Technical Standard, but do not describe an explicit interaction or integration between them. [3][5]\",\"label\":\"supported\",\"citation_numbers\":[3,5],\"reason_zh\":\"证据[3]为Statement 25，证据[5]为Statement 27，二者确为独立条款，且均未提及彼此关联。\"},{\"answer_span\":\"Under Statement 25 (Implement continuous improvement frameworks), agencies must perform model version control [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]明确Statement 25下Criterion 90为Perform model version control，且属Agencies must。\"},{\"answer_span\":\"AI model versioning and tracking is described as key to comparing performance over time, identifying factors affecting performance, and updating the model when needed [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"与证据[3]原文表述一致。\"},{\"answer_span\":\"Model tracking and versioning can involve dataset tracking and versioning, and model tracking and versioning — with each trained model potentially carrying details such as algorithm, learning type and hyperparameter settings, compile-time parameters, and the tools or version of tools used to compile the model [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]逐项列出dataset tracking、model tracking及algorithm、learning type、hyperparameter settings、compile-time parameters、tools/version等细节。\"},{\"answer_span\":\"The statement also directs setting up rollback options to historical models to help develop safety nets, reduce risk of deploying new models, and provide deployment flexibility [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]原文包含Set-up rollback options to historical models及其三项目的。\"},{\"answer_span\":\"Statement 25 additionally requires establishing interface tools and feedback channels for machines and humans, including appropriate human-machine interface tools for human interrogation and oversight [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]Criterion 89内容一致。\"},{\"answer_span\":\"Under Statement 27 (Test for specified behaviour), agencies must perform logging tests as per the requirements [5].\",\"label\":\"supported\",\"citation_numbers\":[5],\"reason_zh\":\"证据[5]Criterion 100为Perform logging tests as per the requirements，属Agencies must。\"},{\"answer_span\":\"This involves verifying that the system records system warnings and errors, and relevant system changes with corresponding details of who made the change, timestamp, and system version [5].\",\"label\":\"supported\",\"citation_numbers\":[5],\"reason_zh\":\"与证据[5]Criterion 100的列举完全一致。\"},{\"answer_span\":\"Read together, the logging-test criterion supplies the evidentiary record (who changed what, when, and under which system version) that version-control tracking depends on.\",\"label\":\"partial\",\"citation_numbers\":[3,5],\"reason_zh\":\"该句为答案自述的推断性综合，证据[3][5]分别支持日志记录内容与版本追踪内容，但未直接陈述二者存在依赖关系；答案随后明确标注该关联未被证据确立，故整体不构成虚假政策主张。\"},{\"answer_span\":\"However, the excerpts do not state that logging tests are the mechanism for verifying version control, nor do they establish any cross-reference, sequencing, or dependency between Statement 25 and Statement 27.\",\"label\":\"supported\",\"citation_numbers\":[3,5],\"reason_zh\":\"证据[3][5]中确无交叉引用、顺序或依赖关系表述，该否定性陈述与所引证据一致。\"},{\"answer_span\":\"The provided excerpts do not establish an explicit linkage, shared procedure, or combined requirement connecting model version control and logging tests.\",\"label\":\"supported\",\"citation_numbers\":[3,5],\"reason_zh\":\"基于所引证据的合理限定性结论，未超出证据范围。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

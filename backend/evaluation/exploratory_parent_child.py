@@ -42,7 +42,24 @@ def write_report(path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
 
 
+def _prepare_child_context_with_policy(
+    prepare_child_context,
+    question,
+    children,
+    *,
+    packing_policy,
+    controlled_trace=None,
+):
+    options = {"packing_policy": packing_policy}
+    if controlled_trace is not None:
+        options["controlled_trace"] = controlled_trace
+    return prepare_child_context(question, children, **options)
+
+
 def main():
+    from app.modules.chat.rag.context_packing import PACKING_POLICIES
+    from app.modules.documents.child_selection import SELECTION_STRATEGIES, select_children
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--output", type=Path, default=Path("data/evaluation/exploratory"))
@@ -57,6 +74,17 @@ def main():
         "--compare-strict",
         action="store_true",
         help="Pack the same ranked candidates with the previous strict policy too",
+    )
+    parser.add_argument(
+        "--selection-strategy",
+        choices=SELECTION_STRATEGIES,
+        help="Explicit post-rerank Child selection policy for non-controlled runs",
+    )
+    parser.add_argument(
+        "--packing-policy",
+        choices=PACKING_POLICIES,
+        default="original",
+        help="Explicit Parent packing policy; default preserves historical packing",
     )
     parser.add_argument("--remaining-from", type=Path, help="Run unfinished cases in a new folder")
     parser.add_argument(
@@ -82,6 +110,12 @@ def main():
     corpus_hash = digest([pool, documents])
     parent_hash = section_snapshot()
     settings = get_settings()
+    requested_selection_strategy = args.selection_strategy or settings.child_selection_strategy
+    effective_selection_strategy = (
+        "controlled_unchanged"
+        if settings.controlled_retrieval_enabled
+        else requested_selection_strategy
+    )
     provider, model, _ = resolve_generation_target(None)
     if args.remaining_from:
         previous = json.loads((args.remaining_from / "report.json").read_text(encoding="utf-8"))
@@ -90,6 +124,8 @@ def main():
             or previous["corpus_snapshot"] != corpus_hash
             or previous["parent_snapshot"] != parent_hash
             or previous["generation_target"] != f"{provider}/{model}"
+            or previous.get("selection_strategy") != effective_selection_strategy
+            or previous.get("packing_policy") != args.packing_policy
         ):
             parser.error("Resume dataset, corpus or model mismatch")
         done = set()
@@ -139,6 +175,9 @@ def main():
         "allow_partial_answers": settings.rag_allow_partial_answers,
         "strict_comparison": args.compare_strict,
         "rerank_k": settings.child_rerank_k,
+        "selection_pool_k": settings.child_selection_pool_k,
+        "selection_strategy": effective_selection_strategy,
+        "packing_policy": args.packing_policy,
         "selected_ids": [c["question_id"] for c in selected],
         "results": [],
         "semantic_review": "pending; citation syntax is not correctness",
@@ -193,17 +232,34 @@ def main():
             row["ranked"] = ranked
             row["cross_encoder_used"] = bool(ranked) and all("reranker_score" in c for c in ranked)
             row["reranked_scores"] = stage_scores([c["chunk_id"] for c in ranked], groups)
+            if settings.controlled_retrieval_enabled:
+                selected_children = ranked
+                selection_trace = {
+                    "strategy": "controlled_unchanged",
+                    "input_count": len(ranked),
+                    "selected_ids": [c["chunk_id"] for c in ranked],
+                }
+            else:
+                selected_children, selection_trace = select_children(
+                    ranked,
+                    strategy=effective_selection_strategy,
+                    limit=settings.child_rerank_k,
+                    inspection_pool_k=settings.child_selection_pool_k,
+                )
+            row["selected_child_ids"] = [c["chunk_id"] for c in selected_children]
+            row["selection_trace"] = selection_trace
+            row["selected_scores"] = stage_scores(
+                [c["chunk_id"] for c in selected_children], groups
+            )
             row["stage"] = "evidence_and_packing"
             if args.compare_strict:
                 with patch.object(settings, "rag_allow_partial_answers", False):
-                    baseline = prepare_child_context(
+                    baseline = _prepare_child_context_with_policy(
+                        prepare_child_context,
                         case["question"],
-                        ranked[: settings.child_rerank_k],
-                        **(
-                            {"controlled_trace": trace}
-                            if settings.controlled_retrieval_enabled
-                            else {}
-                        ),
+                        selected_children,
+                        packing_policy=args.packing_policy,
+                        controlled_trace=trace if settings.controlled_retrieval_enabled else None,
                     )
                 row["strict_baseline"] = {
                     "generation_allowed": baseline["generation_allowed"],
@@ -215,10 +271,12 @@ def main():
                     "context_tokens": baseline["packed_token_count"],
                     "generation": "not_run; eligibility comparison only",
                 }
-            packed = prepare_child_context(
+            packed = _prepare_child_context_with_policy(
+                prepare_child_context,
                 case["question"],
-                ranked[: settings.child_rerank_k],
-                **({"controlled_trace": trace} if settings.controlled_retrieval_enabled else {}),
+                selected_children,
+                packing_policy=args.packing_policy,
+                controlled_trace=trace if settings.controlled_retrieval_enabled else None,
             )
             row["packed"] = packed
             row["gated_scores"] = stage_scores([c["chunk_id"] for c in packed["chunks"]], groups)
@@ -239,6 +297,8 @@ def main():
                 }
             elif args.run:
                 generation_started = perf_counter()
+                row["generation"] = {"status": "attempted", "attempt_count": 1}
+                write_report(folder / f"{case['question_id']}.json", row)
                 # Only user question and retrieved context reach the model, never gold answers.
                 from app.modules.chat.rag import generation
 
@@ -255,6 +315,7 @@ def main():
                     )
                 row["generation"] = {
                     "status": "generated_pending_review",
+                    "attempt_count": 1,
                     "answer": answer,
                     "model": resolved_model,
                     "seconds": perf_counter() - generation_started,
@@ -264,6 +325,13 @@ def main():
         except Exception as exc:
             # Provider error strings may contain credentials or request payloads.
             row.update(status="error", error_type=type(exc).__name__)
+            if row["generation"].get("status") == "attempted":
+                row["generation"] = {
+                    "status": "error",
+                    "attempt_count": 1,
+                    "error_type": type(exc).__name__,
+                    "seconds": perf_counter() - generation_started,
+                }
         row["seconds"] = perf_counter() - started
         write_report(folder / f"{case['question_id']}.json", row)
         report["results"].append(

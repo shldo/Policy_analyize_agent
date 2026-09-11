@@ -1,0 +1,106 @@
+{
+  "question_id": "DEV2-EX05",
+  "question": "If an internal team logo does not directly impact users, does Criterion 22 prohibit adding a watermark?",
+  "inputs_sha256": "78b7ed66e180117d492ec57f8fcabe4293eb3428085defbd500ee62f19270789",
+  "messages_sha256": "b90298447d75a52a2d14d772519e5681f9910752a9ae912edafacade963304c4",
+  "raw_artifact_sha256": "697143f57cfa4a443d184f7287585a975c35858f7dc34559f62ec6cc2c6785aa",
+  "final_artifact_sha256": "5bc1bf6f1428e1409dde5e2743020f831630f4c9db1d4b7b18ead18093aa42ed",
+  "draft": "No. Criterion 22 does not prohibit watermarking in that case; it limits the requirement's scope. The criterion requires agencies to apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship, but states this \"will only apply where AI generated content may directly impact a user,\" giving the example that using AI to generate a team logo would not need to be watermarked [1]. The provision therefore does not mandate a watermark for a non-user-impacting team logo; the available excerpts do not state that it prohibits one.",
+  "generation": {
+    "status": "needs_adjudication",
+    "error": "No reviewed substantive content remains"
+  },
+  "binding": {
+    "status": "needs_adjudication",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user. For instance, using AI to generate a team logo would not need to be watermarked.\"\n        }\n      ],\n      \"reason\": \"The cited Child supports that Criterion 22 requires visual watermarks and metadata for transparency and provenance, including authorship, and that it applies only where AI-generated content may directly impact a user, with a team logo example not needing a watermark. It also supports that the provision does not mandate a watermark for a non-user-impacting team logo. However, the unit's assertion that the available excerpts do not state that Criterion 22 prohibits watermarking is not an accurately bounded gap statement because it is framed as a categorical absence rather than a statement that the available excerpts do not establish the requested fact.\"\n    }\n  ]\n}",
+    "error": "No reviewed substantive content remains",
+    "draft": "No. Criterion 22 does not prohibit watermarking in that case; it limits the requirement's scope. The criterion requires agencies to apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship, but states this \"will only apply where AI generated content may directly impact a user,\" giving the example that using AI to generate a team logo would not need to be watermarked [1]. The provision therefore does not mandate a watermark for a non-user-impacting team logo; the available excerpts do not state that it prohibits one."
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "120cdfa5-b097-46ce-88e5-b7e1e1deeb7a",
+      "section_id": "04cb8ca8-fbef-5e18-a0ac-971676cddd00",
+      "section_title": "Statement 8: Apply watermarking techniques",
+      "title": "Australian Government AI Technical Standard",
+      "page": 43,
+      "page_end": 43,
+      "quote": "Statement 8: Apply watermarking techniques AI watermarking can be used to embed visual or hidden markers into generated content, so that its creation details can be identified. It provides transparency, authenticity, and trust to content consumers. Visual watermarks or disclosures provide a simple way for someone to know they are viewing content created by, or interacting with, an AI system. This may include generated media content or GenAI systems. The Coalition for Content Provenance and Authenticity (C2PA) | c2pa.org is developing an open technical standard for publishers, creators, and consumers to establish the origin and edits of digital content. Advice on the use of C2PA is out of scope for the standard. Agencies must:\n\nCriterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user. For instance, using AI to generate a team logo would not need to be watermarked. Criterion 23: Apply watermarks and metadata that are WCAG compatible where\n\nrelevant"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "a95e23ad-4119-4562-b8c7-1867540dab4a",
+      "section_id": "04cb8ca8-fbef-5e18-a0ac-971676cddd00",
+      "section_title": "relevant",
+      "title": "Australian Government AI Technical Standard",
+      "page": 43,
+      "page_end": 44,
+      "quote": "relevant\n\nCriterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. For example, this may include adding text to a GenAI interface so that users are aware they are interacting with an AI system rather than a human. Agencies should: Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. This includes: o including provenance and authorship information o encrypting watermarks for high-risk content o using an existing tool or technique when practicable o embedding watermarks at the AI training stage to improve their effectiveness and allows additional information such as content modification to be included o verifying that the watermark does not impact the quality or efficiency of content generation, such as image degradation or text readability o including data sources, such as publicly available content used for AI training to manage copyright risks, and product details such as versioning information. Criterion 26: Assess watermarking risks and limitations."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "87452a19-8a9e-4a1c-b21d-7b1e60c954fe",
+      "section_id": "04cb8ca8-fbef-5e18-a0ac-971676cddd00",
+      "section_title": "relevant",
+      "title": "Australian Government AI Technical Standard",
+      "page": 44,
+      "page_end": 44,
+      "quote": "Criterion 26: Assess watermarking risks and limitations.\n\nThis includes: o ensuring users understand there is a risk of third parties replicating a visual watermark and to not over-rely on watermarks, such as sourcing content from external sources o preventing third-party use of watermarking algorithms to create their own content and act as the original content creator o consider situations where watermarking is not beneficial. For example, watermarking can be visually distracting for decision makers, or when it’s overused in low-risk applications o consider situations where malicious actors might remove or replicate the watermark to reproduce content generated by AI o managing copyright or trademark risks related to externally sourced data."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "7c944960-40e4-43cd-8182-98e5b97a1687",
+      "section_id": "1aa97e8e-023d-5d5d-af1f-af47a748d5b5",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 15,
+      "page_end": 16,
+      "quote": "Recommended • Criterion 13: Explain outputs made by the AI system to end users. • Criterion 14: Explain how data is used and shared by the AI system.\n\nStatement 6: Manage system bias Required • Criterion 15: Identify how bias could affect people, processes, data, and technologies involved in the AI system lifecycle. • Criterion 16: Assess the impact of bias on your use case. • Criterion 17: Manage identified bias across the AI system lifecycle.\n\nStatement 7: Apply version control practices Required • Criterion 18: Apply version management practices to the end-to-end development lifecycle. Recommended • Criterion 19: Use metadata in version control to distinguish between production and non-production data, models, and code. • Criterion 20: Use a version control toolset to improve useability for users. • Criterion 21: Record version control information in audit logs.\n\nStatement 8: Apply watermarking techniques Required • Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. • Criterion 23: Apply watermarks that are WCAG compatible where relevant. • Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. Recommended • Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. • Criterion 26: Assess watermarking risks and limitations."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "68f4190d-eae1-4c84-bf7f-7b84cee8133e",
+      "section_id": "21719a1d-6c81-563f-ac1e-81a427d9749a",
+      "section_title": "Target audience",
+      "title": "Australian Government AI Technical Standard",
+      "page": 11,
+      "page_end": 11,
+      "quote": "Target audience The standard impacts both roles and responsibilities at varying organisational levels across government, and impacts Australians more broadly. The following functions and communities may be impacted or assisted by the standard. Noting individuals may perform multiple roles. Entities external to government agencies includes the following: 1. Civil society can be the owners of the data used by AI systems, or users who are directly or indirectly impacted by AI systems. They can investigate the use of AI in the public sector and publish their findings. Civil society helps shape government’s AI policy, programs and strategy to safeguard human rights. They include the public, academia and research, advocacy and media groups. 2. Oversight bodies review the extent to which agencies have implemented the standard. They enforce laws, assess compliance, and provide stakeholder confidence. They include the regulators, assurance teams, ethics officers and auditors. They can be internal or external to an agency. 3. Industry partners implement the standard for the products or services they provide. They may need to adopt the standard to conform with responsible AI principles and policies for government: They include government suppliers, managed services providers, consultants and contractors."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "0566bae2-fae1-4edc-b5c1-bdaad1c3426a",
+      "section_id": "32a2306e-c49d-58de-ada3-f53b906332e8",
+      "section_title": "Statement 22: Implement model creation, tuning, and grounding",
+      "title": "Australian Government AI Technical Standard",
+      "page": 76,
+      "page_end": 77,
+      "quote": "Statement 22: Implement model creation, tuning, and grounding Agencies must: Criterion 79: Set assessment criteria for the AI model, with respect to pre-defined metrics for the AI system. These criteria should address: o success factors specific to user stories o model quality thresholds and performance of the AI system o explainability and interpretability requirements o security and privacy requirements o ethics requirements o tolerance for error for model outputs o tolerance for negative impacts o error rates by scale and similar processing by humans. Considerations for modelling include: o model training, maintenance, and support costs o data and compute infrastructure constraints o likelihood of the AI models becoming outdated o whether the model can be legally used for the intended use case\n\no whether methods can be implemented to mitigate risk of new harms being introduced into the AI system o bias, security, and ethical concerns o whether the model meets the explainability and interpretability requirements o use of model interpretability tools to analyse important features and decision logic. Criterion 80: Identify and address situations when AI outputs should not be provided. These situations include: o low confidence scores o when user input and context are ambiguous or lack reliable sources o complex questions as input o limited knowledge base o privacy concerns and potential breach of safety o harmful content o unlawful content o misleading content. For GenAI, implementing techniques such as threshold settings or content filtering could address these situations."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "1c96fa01-667f-4af4-b661-200f0d31baa4",
+      "section_id": "35fc3f2d-b57b-512a-9457-78bf23fb58f3",
+      "section_title": "2.4.3 Users who integrate agents into their work processes — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 47,
+      "page_end": 47,
+      "quote": "2.4.3 Users who integrate agents into their work processes\n\nSuch users typically utilise agents as part of their internal workflows e.g. coding assistants, automation of enterprise processes. The agent acts for and on behalf of the user.\n\nFor these users, in addition to the information above, layer on education and training so that users can use the agents responsibly. Key aspects include education and training on:\n\n• Foundational knowledge on agents o Relevant use cases , so that the user s understand how to best integrate the agents into their day-to-day work, and the scenarios under which the use of agents should be restricted (e.g. do not use an agent for confidential data) o Instructing the agents e.g. general best practices in prompting o Agents’ range of actions, so the user is aware of their capabilities and potential impact\n\n• Effective oversight of agents o Common agent failure modes, such as hallucinations, getting stuck in loops after errors, so that the user can identify and flag out issues. o Ongoing support, such as refreshers to update on latest features and common mistakes o Feedback loops e.g. when users override agent actions or identify wrong actions, enable them to report this such that it can be used to improve the agent processes if needed."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "7cd29ca9-d51c-4fe6-a7c5-37c32d8798ba",
+      "section_id": "dec728d5-5aa0-5bd6-be3f-4d3005189009",
+      "section_title": "Statement 9: Conduct pre-work",
+      "title": "Australian Government AI Technical Standard",
+      "page": 46,
+      "page_end": 46,
+      "quote": "Statement 9: Conduct pre-work Agencies must: Criterion 27: Define the problem to be solved, its context, intended use, and impacted stakeholders. This includes: o analysing the problem through problem-solving frameworks such as root cause analysis, design thinking, and DMAIC (define, measure, analyse, improve, control) o define user needs, system goals and the scope of AI in the system o identifying and documenting stakeholders, including: ◦ internal or external end users, such as APS staff or members of the public ◦ indigenous Australians, refer to Framework for Governance of Indigenous Data | niaa.gov.au ◦ people with lived experiences, including those defined by religion, ethnicity, or migration status ◦ data experts, such as owners of the data being used to train and validate the AI system ◦ subject matter experts, such as internal staff ◦ the development team, including SROs, architects, and engineers. o understanding the context of the problem such as interacting processes, data, systems, and the internal and external operating environment o phrasing the problem in a way that is technology agnostic. Criterion 28: Assess AI and non-AI alternatives."
+    }
+  ],
+  "audit": {
+    "status": "no_reviewable_answer"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

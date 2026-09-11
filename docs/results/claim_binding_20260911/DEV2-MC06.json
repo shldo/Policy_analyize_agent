@@ -1,0 +1,406 @@
+{
+  "question_id": "DEV2-MC06",
+  "question": "How do the Dayos IT-support and Bank of Singapore wealth-analysis cases differ in the autonomy they allow, and what human checks remain?",
+  "inputs_sha256": "c073f3599000a7db64ceffb6c4023e07d50b700ebb04248d13111add78d88874",
+  "messages_sha256": "4a4e932a6ee8736ddc0a81ccf2757ab172f7267e0b4fd2af443952741c261d28",
+  "raw_artifact_sha256": "636c0fc1bb4af2a882b8919205c03706932c9cf04658a0b1b21700eb7ce8ffc9",
+  "final_artifact_sha256": "a56b4e3f1926b9d2b548337dc9f032ec380819b22012a86c4883253e28f3e18c",
+  "draft": "**Direct answer:** Both cases bound agent autonomy by design, but at different points. Dayos tiers autonomy by ticket risk and lets the agent resolve some tickets automatically [2]; Bank of Singapore confines agents to task-level work with no decision authority and human validation of all outputs [1].\n\n**Dayos (IT management)**\n- Every type of IT ticket was scored against three questions before go-live: severity of impact, reversibility, and feasibility of human oversight [2].\n- The scores determined each ticket type's tier, and the tier dictated the agent's reasoning strategy and how much autonomy it gets [2].\n- The agent reads each ticket, determines urgency and complexity, and either resolves it automatically or routes it to a human [2].\n\n**Bank of Singapore (source of wealth analysis)**\n- The agentic system parses income-related documents and generates a draft Source of Wealth memo based on internal guidelines and benchmarks [1].\n- It provides decision support only and does not make credit, onboarding or risk decisions autonomously; final validation and approval remain with designated human reviewers [1].\n- Autonomy limits are: task-level autonomy only (extraction, drafting, checking, not end-to-end decisions); no self-initiation of actions (agents operate only when triggered by predefined workflows); and no decision authority, with human review at critical decision points, including after income and financial documents have been assessed to ensure accuracy [1].\n- Outputs are advisory and subject to human validation [1].\n\n**Key difference:** Dayos permits the agent to resolve some tickets without human routing, with autonomy calibrated per ticket tier [2]; Bank of Singapore's agents never hold decision authority, and human review occurs at critical decision points with all outputs advisory [1].\n\n**Evidence gaps:** The excerpts do not state the specific tiers, scoring thresholds, or approval levels used by Dayos, nor the specific checkpoints or reviewer roles in the Bank of Singapore workflow beyond those described above.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**Dayos (IT management)**\n\n- Every type of IT ticket was scored against three questions before go-live: severity of impact, reversibility, and feasibility of human oversight [2].\n\n- The scores determined each ticket type's tier, and the tier dictated the agent's reasoning strategy and how much autonomy it gets [2].\n\n- The agent reads each ticket, determines urgency and complexity, and either resolves it automatically or routes it to a human [2].\n\n**Bank of Singapore (source of wealth analysis)**\n\n- The agentic system parses income-related documents and generates a draft Source of Wealth memo based on internal guidelines and benchmarks [1].\n\n- It provides decision support only and does not make credit, onboarding or risk decisions autonomously; final validation and approval remain with designated human reviewers [1].\n\n- Autonomy limits are: task-level autonomy only (extraction, drafting, checking, not end-to-end decisions); no self-initiation of actions (agents operate only when triggered by predefined workflows); and no decision authority, with human review at critical decision points, including after income and financial documents have been assessed to ensure accuracy [1].\n\n- Outputs are advisory and subject to human validation [1].\n\n**Key difference:** Dayos permits the agent to resolve some tickets without human routing, with autonomy calibrated per ticket tier [2]; Bank of Singapore's agents never hold decision authority, and human review occurs at critical decision points with all outputs advisory [1].\n\n**Evidence gaps:** The excerpts do not state the specific tiers, scoring thresholds, or approval levels used by Dayos, nor the specific checkpoints or reviewer roles in the Bank of Singapore workflow beyond those described above.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"either resolves it automatically or routes it to a human\"},\n        {\"number\": 2, \"quote\": \"that tier dictated what reasoning strategy the agent uses and how much autonomy the agent gets\"},\n        {\"number\": 1, \"quote\": \"Task-level autonomy only: Agents perform narrowly scoped tasks (extraction, drafting, checking), not end-to-end decisions\"},\n        {\"number\": 1, \"quote\": \"No decision authority: There is human review at critical decision points\"},\n        {\"number\": 1, \"quote\": \"outputs are advisory and subject to human validation\"}\n      ],\n      \"reason\": \"The Dayos tiering and automatic resolution are supported, and Bank of Singapore's task-level autonomy, no decision authority, and human validation are supported. However, the unit's phrase 'human validation of all outputs' overstates the excerpt, which says outputs are advisory and subject to human validation, not that all outputs are validated.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"Every type of IT ticket was scored against three questions\"},\n        {\"number\": 2, \"quote\": \"Severity of impact: If the agent gets this wrong, how bad is it?\"},\n        {\"number\": 2, \"quote\": \"Reversibility: Can the action be undone?\"},\n        {\"number\": 2, \"quote\": \"Feasibility of human oversight: Is it realistic for a human to review this at each step?\"},\n        {\"number\": 2, \"quote\": \"Before any of this went live, Dayos ran a structured risk assessment\"}\n      ],\n      \"reason\": \"The excerpt states that before go-live, every type of IT ticket was scored against the three listed questions: severity of impact, reversibility, and feasibility of human oversight.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"The scores determined which tier each ticket type falls into\"},\n        {\"number\": 2, \"quote\": \"that tier dictated what reasoning strategy the agent uses and how much autonomy the agent gets\"}\n      ],\n      \"reason\": \"The excerpt directly states that scores determined each ticket type's tier and that the tier dictated the agent's reasoning strategy and autonomy.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"it reads the ticket, determines how urgent and complex it is, and either resolves it automatically or routes it to a human\"}\n      ],\n      \"reason\": \"The excerpt states the agent reads the ticket, determines urgency and complexity, and either resolves it automatically or routes it to a human.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"parses income-related documents\"},\n        {\"number\": 1, \"quote\": \"generates a draft Source of Wealth memo based on internal guidelines and benchmarks\"}\n      ],\n      \"reason\": \"The excerpt states the agentic AI system parses income-related documents and generates a draft Source of Wealth memo based on internal guidelines and benchmarks.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"The system provides decision support only and does not make credit, onboarding or risk decisions autonomously\"},\n        {\"number\": 1, \"quote\": \"final validation and approval remain with designated human reviewers\"}\n      ],\n      \"reason\": \"The excerpt states the system provides decision support only, does not make credit, onboarding, or risk decisions autonomously, and final validation and approval remain with designated human reviewers.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Task-level autonomy only: Agents perform narrowly scoped tasks (extraction, drafting, checking), not end-to-end decisions\"},\n        {\"number\": 1, \"quote\": \"No self-initiation of actions: Agents operate only when triggered by predefined workflows\"},\n        {\"number\": 1, \"quote\": \"No decision authority: There is human review at critical decision points, including after the income and financial documents have been assessed to ensure accuracy\"}\n      ],\n      \"reason\": \"The excerpt lists all three autonomy limits: task-level autonomy only, no self-initiation of actions, and no decision authority with human review at critical decision points including after income and financial documents are assessed.\"\n    },\n    {\n      \"id\": \"u10\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"outputs are advisory and subject to human validation\"}\n      ],\n      \"reason\": \"The excerpt states outputs are advisory and subject to human validation.\"\n    },\n    {\n      \"id\": \"u11\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"either resolves it automatically or routes it to a human\"},\n        {\"number\": 2, \"quote\": \"that tier dictated what reasoning strategy the agent uses and how much autonomy the agent gets\"},\n        {\"number\": 1, \"quote\": \"No decision authority: There is human review at critical decision points\"},\n        {\"number\": 1, \"quote\": \"outputs are advisory and subject to human validation\"}\n      ],\n      \"reason\": \"The excerpt supports that Dayos permits automatic resolution with autonomy calibrated per tier, and that Bank of Singapore agents have no decision authority, human review at critical decision points, and advisory outputs.\"\n    },\n    {\n      \"id\": \"u12\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not state the specific tiers, scoring thresholds, or approval levels used by Dayos, nor specific checkpoints or reviewer roles in the Bank of Singapore workflow beyond those described.\"\n    }\n  ]\n}",
+    "answer": "**Dayos (IT management)**\n\n- Every type of IT ticket was scored against three questions before go-live: severity of impact, reversibility, and feasibility of human oversight [2].\n\n- The scores determined each ticket type's tier, and the tier dictated the agent's reasoning strategy and how much autonomy it gets [2].\n\n- The agent reads each ticket, determines urgency and complexity, and either resolves it automatically or routes it to a human [2].\n\n**Bank of Singapore (source of wealth analysis)**\n\n- The agentic system parses income-related documents and generates a draft Source of Wealth memo based on internal guidelines and benchmarks [1].\n\n- It provides decision support only and does not make credit, onboarding or risk decisions autonomously; final validation and approval remain with designated human reviewers [1].\n\n- Autonomy limits are: task-level autonomy only (extraction, drafting, checking, not end-to-end decisions); no self-initiation of actions (agents operate only when triggered by predefined workflows); and no decision authority, with human review at critical decision points, including after income and financial documents have been assessed to ensure accuracy [1].\n\n- Outputs are advisory and subject to human validation [1].\n\n**Key difference:** Dayos permits the agent to resolve some tickets without human routing, with autonomy calibrated per ticket tier [2]; Bank of Singapore's agents never hold decision authority, and human review occurs at critical decision points with all outputs advisory [1].\n\n**Evidence gaps:** The excerpts do not state the specific tiers, scoring thresholds, or approval levels used by Dayos, nor the specific checkpoints or reviewer roles in the Bank of Singapore workflow beyond those described above.",
+    "removed_unit_ids": [
+      "u1"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "either resolves it automatically or routes it to a human"
+            },
+            {
+              "number": 2,
+              "quote": "that tier dictated what reasoning strategy the agent uses and how much autonomy the agent gets"
+            },
+            {
+              "number": 1,
+              "quote": "Task-level autonomy only: Agents perform narrowly scoped tasks (extraction, drafting, checking), not end-to-end decisions"
+            },
+            {
+              "number": 1,
+              "quote": "No decision authority: There is human review at critical decision points"
+            },
+            {
+              "number": 1,
+              "quote": "outputs are advisory and subject to human validation"
+            }
+          ],
+          "reason": "The Dayos tiering and automatic resolution are supported, and Bank of Singapore's task-level autonomy, no decision authority, and human validation are supported. However, the unit's phrase 'human validation of all outputs' overstates the excerpt, which says outputs are advisory and subject to human validation, not that all outputs are validated."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting label, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Every type of IT ticket was scored against three questions"
+            },
+            {
+              "number": 2,
+              "quote": "Severity of impact: If the agent gets this wrong, how bad is it?"
+            },
+            {
+              "number": 2,
+              "quote": "Reversibility: Can the action be undone?"
+            },
+            {
+              "number": 2,
+              "quote": "Feasibility of human oversight: Is it realistic for a human to review this at each step?"
+            },
+            {
+              "number": 2,
+              "quote": "Before any of this went live, Dayos ran a structured risk assessment"
+            }
+          ],
+          "reason": "The excerpt states that before go-live, every type of IT ticket was scored against the three listed questions: severity of impact, reversibility, and feasibility of human oversight."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "The scores determined which tier each ticket type falls into"
+            },
+            {
+              "number": 2,
+              "quote": "that tier dictated what reasoning strategy the agent uses and how much autonomy the agent gets"
+            }
+          ],
+          "reason": "The excerpt directly states that scores determined each ticket type's tier and that the tier dictated the agent's reasoning strategy and autonomy."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "it reads the ticket, determines how urgent and complex it is, and either resolves it automatically or routes it to a human"
+            }
+          ],
+          "reason": "The excerpt states the agent reads the ticket, determines urgency and complexity, and either resolves it automatically or routes it to a human."
+        },
+        {
+          "id": "u6",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting label, not a policy assertion."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "parses income-related documents"
+            },
+            {
+              "number": 1,
+              "quote": "generates a draft Source of Wealth memo based on internal guidelines and benchmarks"
+            }
+          ],
+          "reason": "The excerpt states the agentic AI system parses income-related documents and generates a draft Source of Wealth memo based on internal guidelines and benchmarks."
+        },
+        {
+          "id": "u8",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "The system provides decision support only and does not make credit, onboarding or risk decisions autonomously"
+            },
+            {
+              "number": 1,
+              "quote": "final validation and approval remain with designated human reviewers"
+            }
+          ],
+          "reason": "The excerpt states the system provides decision support only, does not make credit, onboarding, or risk decisions autonomously, and final validation and approval remain with designated human reviewers."
+        },
+        {
+          "id": "u9",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Task-level autonomy only: Agents perform narrowly scoped tasks (extraction, drafting, checking), not end-to-end decisions"
+            },
+            {
+              "number": 1,
+              "quote": "No self-initiation of actions: Agents operate only when triggered by predefined workflows"
+            },
+            {
+              "number": 1,
+              "quote": "No decision authority: There is human review at critical decision points, including after the income and financial documents have been assessed to ensure accuracy"
+            }
+          ],
+          "reason": "The excerpt lists all three autonomy limits: task-level autonomy only, no self-initiation of actions, and no decision authority with human review at critical decision points including after income and financial documents are assessed."
+        },
+        {
+          "id": "u10",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "outputs are advisory and subject to human validation"
+            }
+          ],
+          "reason": "The excerpt states outputs are advisory and subject to human validation."
+        },
+        {
+          "id": "u11",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "either resolves it automatically or routes it to a human"
+            },
+            {
+              "number": 2,
+              "quote": "that tier dictated what reasoning strategy the agent uses and how much autonomy the agent gets"
+            },
+            {
+              "number": 1,
+              "quote": "No decision authority: There is human review at critical decision points"
+            },
+            {
+              "number": 1,
+              "quote": "outputs are advisory and subject to human validation"
+            }
+          ],
+          "reason": "The excerpt supports that Dayos permits automatic resolution with autonomy calibrated per tier, and that Bank of Singapore agents have no decision authority, human review at critical decision points, and advisory outputs."
+        },
+        {
+          "id": "u12",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not state the specific tiers, scoring thresholds, or approval levels used by Dayos, nor specific checkpoints or reviewer roles in the Bank of Singapore workflow beyond those described."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "2c6df4b6-a204-475a-a9a7-54eb92027150",
+      "section_id": "6fae3315-da91-5d9e-86c7-364e26219467",
+      "section_title": "OCBC: Bounding agent autonomy in source of wealth analysis",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 20,
+      "page_end": 21,
+      "quote": "OCBC: Bounding agent autonomy in source of wealth analysis\n\nOCBC is the longest established Singapore bank and the second largest financial services group in Southeast Asia by assets, operating in 19 countries and regions. Bank of Singapore is a wholly owned private banking subsidiary of OCBC.\n\nBank of Singapore Relationship Manager and compliance team synthesise customer-provided financial documents into a structured Source of Wealth memo. The bank developed an agentic AI system to support this work with the objectives of:\n\n• Improving consistency and completeness of the analysis • Reducing manual effort in document review and drafting\n\nThe agentic AI system parses income-related documents (e.g. tax submissions, corporate annual reports, property documents, dividend statements) and generates a draft Source of Wealth memo based on internal guidelines and benchmarks. The system provides decision support only and does not make credit, onboarding or risk decisions autonomously – final validation and approval remain with designated human reviewers.\n\nThe agentic workflow bounds risk through design by defining limits on the agents’ autonomy: • Task-level autonomy only: Agents perform narrowly scoped tasks (extraction, drafting, checking), not end-to-end decisions • No self-initiation of actions: Agents operate only when triggered by predefined workflows • No decision authority: There is human review at critical decision points, including after the income and financial documents have been assessed to ensure accuracy. Ultimately, outputs are advisory and subject to human validation.\n\n| Assess and bound the risks upfront"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "4cae9b7e-cb21-411b-b5a8-469c193eaa57",
+      "section_id": "742bf475-ba91-51f9-914f-72564b7db14a",
+      "section_title": "Dayos: Tiering and bounding agentic actions by risk level in IT management",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 18,
+      "page_end": 18,
+      "quote": "Dayos: Tiering and bounding agentic actions by risk level in IT management\n\nDayos is an enterprise AI automation company headquartered in Singapore with operations in the US. The company builds Hero, an agentic platform that sits on top of Oracle, SAP, Workday, NetSuite and Microsoft Dynamics and automates workflows across IT management, accounting, HR and procurement.\n\nDayos replaced its own ServiceNow instance with an AI-powered ticketing agent built on Hero. The full retirement took 45 days and reduced legacy licensing costs by $121,000 annually. The agent now handles every internal IT request that comes in: it reads the ticket, determines how urgent and complex it is, and either resolves it automatically or routes it to a human.\n\nBefore any of this went live, Dayos ran a structured risk assessment. Every type of IT ticket was scored against three questions: • Severity of impact: If the agent gets this wrong, how bad is it? • Reversibility: Can the action be undone? • Feasibility of human oversight: Is it realistic for a human to review this at each step?\n\nThe scores determined which tier each ticket type falls into, and that tier dictated what reasoning strategy the agent uses and how much autonomy the agent gets."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "68a885d7-6a4e-4845-af52-f81e70f1429e",
+      "section_id": "bb443b95-37ad-59de-bfbb-2eb33dc0db4a",
+      "section_title": "2. Make humans meaningfully accountable",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 3,
+      "page_end": 4,
+      "quote": "2. Make humans meaningfully accountable\n\nOnce the “green light” is given for agentic AI deployment, an organisation should take steps to ensure human accountability.\n\nHowever, the autonomy of agents may complicate traditional responsibility assignments which are tied to static workflows. Multiple actors may also be involved in different parts of the agent lifecycle, diffusing accountability. It is therefore important to clearly define the responsibilities of different stakeholders, both within the organisation and with external vendors, while emphasising adaptive governance, so that the organisation is set up to quickly understand new developments and update its approach as the technology evolves.\n\nSpecifically, “human-in-the-loop” has to be adapted to address automation bias, which has become a bigger concern with increasingly capable agents. This includes\n\ndefining significant checkpoints in the agentic workflow that require human approval, such as high-stakes or irreversible actions, and regularly auditing human oversight to check that it remains effective over time."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "9adbe26f-7be9-4aba-a56c-182aa20753c4",
+      "section_id": "1cbfa088-cd86-5a89-b094-c8a198798a95",
+      "section_title": "What’s new in this version",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 5,
+      "page_end": 6,
+      "quote": "The four dimensions • Case study from IMDA on how the framework can be applied to OpenClaw deployments\n\nAssess and bound the risks • Risk factors: Added new factors for risk assessment, including system complexity and usage of third-party solutions • Case studies from Dayos, MSD, OCBC\n\nEnable meaningful human accountability • Agentic value chain: Refined the agentic AI value chain to separate platform providers and system providers or app developers • Automation bias: Added more practices to guard against automation bias, such as monitoring human override rates and response times • Case studies from PwC, Tencent, X0PA\n\nImplement technical controls and processes • Types of controls: Added overview of different types of controls and how to select them (e.g. structural, rule-based vs prompt-layer controls) • Change management: Included recommendations for change management processes to avoid outsized impact from small changes, especially as system complexity increases • Case studies from CDL x Knovel, CyberSierra, Google, GovTech, Stability Solutions, Terminal 3\n\nEnable end-user responsibility • Tradecraft and business continuity: Added detail on loss of tradecraft and how it can impact business continuity • Case studies from Ant International, Workday\n\n| Introduction to Agentic AI 6"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "7faad90c-c01a-49a5-81df-a08a3207ca02",
+      "section_id": "e45174f1-455e-5a62-a6fb-8e9264e53d5d",
+      "section_title": "Annex B: Call for feedback and case studies",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 53,
+      "page_end": 53,
+      "quote": "|\n\nAcknowledgements\n\n53\n\nAcknowledgements\n\nWe extend our sincere gratitude to the organisations and individuals that supported the development of this document by sharing their feedback and real-world experiences.\n\nIndustry\n\n Advai Limited  Aethryx  AIDX Tech  Aires A.T Private Limited  Airwallex  Alibaba Cloud  Ant International  Artha Solutions Pte Ltd  Amazon Web Services  Baker Tilly Malaysia  CDL  Cleanverse International Pte Ltd  Cyber & Artificial Intelligence for Future Impact  Cyber Sierra (Fort One Technologies Pte. Ltd.)  Dayos Pte. Ltd.  DBS  Dynamo AI  Ernst & Young  Ethics Advisory Services  Ferz.AI  Finiteloop  Flux AI  Gradient Institute  Google  Grab  HM Strategy  IBM  Imagenz Pte Ltd  Interpol Singapore  KASIKORN Business- Technology Group (KBTG)  Knovel  Levy Lens  Mastercard  Microsoft  MSD  NCS  Nobulex  OCBC  OpenSymbolicAI  Protos Labs  PwC  Resaro  Safer Agentic AI Working Group  Salesforce  Singapore Computer Society  Security Awareness Consultants SL  Singapore Fintech Association  Sovaign  SP Group Pte Ltd  Stability Solutions  TomorrowX  Vaara  Verixiom Pte. Ltd.  Workato  Workday  X0PA  ZLAR  Tech Mahindra  Temus  Tencent  Terminal 3  The Box Commons\n\nGovernment agencies"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "7aa5000e-40c0-4117-8476-50d049f2b9d7",
+      "section_id": "59b54976-cc20-57de-9025-52d9a9bdbe0e",
+      "section_title": "8  For examples, see AWS, Inside AWS Security Agent: A multi -agent architecture for automated penetration",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 9,
+      "page_end": 10,
+      "quote": "Another relevant factor is the level of human involvement. When interacting with an agent, a human can be involved to different levels:11\n\n• Agent proposes, human operates: The human reviews and approves every agent action. • Agent and human collaborate: The human and agent work together. The agent requires human approval at significant steps, such as before writing to a database or making a payment. However, the human can intervene anytime by taking over the agent’s work or pausing the agent and requesting a change. • Agent operates, human approves: The agent requires human approval only at critical steps or failures, such as deleting a database or making a payment above a predefined amount.\n\n10 For more information on testing computer use agents, see the case study Google x Singapore Government: Testing computer use agents below. 11 See Knight First Amendment Institute at Columbia University, Levels of Autonomy for AI Agents.\n\n| Introduction to Agentic AI 10 • Agent operates, human observes: The agent does not require human approval as it completes its task, though its actions may be audited after the fact.\n\nIllustration of differing action-spaces and autonomy for a software engineering agent\n\n1.2 Risks of Agentic AI\n\n1.2.1 Sources of risk"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "abb94cbb-ce0c-466d-9b89-6aeb2db93a4b",
+      "section_id": "59b54976-cc20-57de-9025-52d9a9bdbe0e",
+      "section_title": "8  For examples, see AWS, Inside AWS Security Agent: A multi -agent architecture for automated penetration",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 9,
+      "page_end": 9,
+      "quote": "• Actions it can take in relation to the system it can access: o Read vs write: An agent may only be able to read and retrieve information from a system, rather than write to and modify data within the system.\n\nAn emerging modality of agentic AI is a computer use agent, whose primary tool is access to a computer and browser. This means that it can take any action that a human can take with a computer and browser (e.g. scrolling, clicking, typing) without having to rely on specifically defined tools and APIs. This significantly increases what the agent can access and do.10\n\nAutonomy\n\nAn agent’s autonomy mainly depends on its instructions and the level of human involvement in the agentic system. In enterprise deployments, most agentic implementations are hybrid systems combining deterministic rules with some autonomy.\n\nIn terms of instructions, an agent can be given differing level of instructions:\n\n• Detailed instructions and SOP: An agent instructed to follow a detailed SOP to complete a task would be limited in the decisions it can make at each stage. • Using its own judgment: An agent instructed to use its own judgment to complete a task would have more freedom to define its plan and workflow.\n\nAnother relevant factor is the level of human involvement. When interacting with an agent, a human can be involved to different levels:11"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "feb444ae-5140-4503-a63d-883f68c82cf8",
+      "section_id": "c9e10784-b937-5579-bd6c-c09d98e6068b",
+      "section_title": "Defining significant checkpoints for human intervention",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 31,
+      "page_end": 31,
+      "quote": "Defining significant checkpoints for human intervention\n\nHigher-stakes or irreversible actions: Default human approval requirements correspond to the risk level of each action: • No approval required: o Read (reading files, directory listings) • Approval required: o Edit (modifying files): Approval required, valid only for that session. Future sessions require new approvals o Bash (shell command execution): Approval required, permanent per project or command o WebFetch (network requests): Approval required o MCP (external tool invocation): Governed through allow, ask, and deny rules; additional first-use control via trust verification for a newly connected MCP server\n\nSelf-defined: To mitigate alert fatigue, the default permission level for each project can be set by each user or organisation, calibrated to a project’s context, potential impact, and risk tolerance. For instance: • Lower-risk projects, such as internal documentation sites or prototype repositories with no production credentials, may justify more permissive settings for routine file edits. • Higher-risk projects, such as those with access to secrets, sensitive data, production infrastructure, deployment pipelines, or external tools, warrant stricter approval requirements."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "needs_revision",
+      "summary_zh": "答案对Bank of Singapore的自主性限制描述准确且有引用支持，但Dayos部分仅描述了风险评分与分层机制，未给出参考要点要求的Tier 1自动化、Tier 1双周审计、Tier 2需工程师批准、Tier 3不执行等具体分层规则，因此关键差异与人类检查点缺失，属不完整。",
+      "claims": [
+        {
+          "answer_span": "Every type of IT ticket was scored against three questions before go-live: severity of impact, reversibility, and feasibility of human oversight [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "引用[2]明确列出三项评分问题，与原文一致。"
+        },
+        {
+          "answer_span": "The scores determined each ticket type's tier, and the tier dictated the agent's reasoning strategy and how much autonomy it gets [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "引用[2]原文说明分数决定tier，tier决定推理策略与自主程度。"
+        },
+        {
+          "answer_span": "The agent reads each ticket, determines urgency and complexity, and either resolves it automatically or routes it to a human [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "引用[2]原文一致。"
+        },
+        {
+          "answer_span": "The agentic system parses income-related documents and generates a draft Source of Wealth memo based on internal guidelines and benchmarks [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]原文一致。"
+        },
+        {
+          "answer_span": "It provides decision support only and does not make credit, onboarding or risk decisions autonomously; final validation and approval remain with designated human reviewers [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]原文一致。"
+        },
+        {
+          "answer_span": "Autonomy limits are: task-level autonomy only (extraction, drafting, checking, not end-to-end decisions); no self-initiation of actions (agents operate only when triggered by predefined workflows); and no decision authority, with human review at critical decision points, including after income and financial documents have been assessed to ensure accuracy [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]逐项列出这些自主性边界，表述准确。"
+        },
+        {
+          "answer_span": "Outputs are advisory and subject to human validation [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]原文一致。"
+        },
+        {
+          "answer_span": "Dayos permits the agent to resolve some tickets without human routing, with autonomy calibrated per ticket tier [2]; Bank of Singapore's agents never hold decision authority, and human review occurs at critical decision points with all outputs advisory [1].",
+          "label": "partial",
+          "citation_numbers": [
+            1,
+            2
+          ],
+          "reason_zh": "Bank of Singapore部分有引用支持；Dayos部分虽与引用[2]一致，但未说明Tier 1自动化、Tier 1审计、Tier 2批准、Tier 3排除等具体分层规则，差异描述不完整。"
+        },
+        {
+          "answer_span": "The excerpts do not state the specific tiers, scoring thresholds, or approval levels used by Dayos",
+          "label": "contradicted",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "引用[2]虽未给出阈值，但参考要点要求的Tier 1/2/3具体规则属于应回答内容；答案以证据缺口为由回避，导致关键要点缺失。"
+        }
+      ],
+      "issues": [
+        {
+          "severity": "major",
+          "dimension": "completeness",
+          "answer_span": "",
+          "reason_zh": "缺少参考要点：Dayos Tier 1自动化、Tier 1双周审计、Tier 2需工程师批准、Tier 3不执行。这些是问题所问自主性差异与人类检查的核心内容。",
+          "evidence_child_ids": [
+            "4cae9b7e-cb21-411b-b5a8-469c193eaa57"
+          ]
+        },
+        {
+          "severity": "minor",
+          "dimension": "relevance",
+          "answer_span": "The excerpts do not state the specific tiers, scoring thresholds, or approval levels used by Dayos",
+          "reason_zh": "将未检索到的具体阈值表述为证据缺口可以，但不应因此省略已可回答的分层规则要点。",
+          "evidence_child_ids": [
+            "4cae9b7e-cb21-411b-b5a8-469c193eaa57"
+          ]
+        }
+      ],
+      "missing_required_points": [
+        "Dayos Tier 1 tickets are automated without a human engineer in the loop",
+        "Dayos Tier 1 receives biweekly audits",
+        "Dayos Tier 2 actions need engineer approval",
+        "Dayos Tier 3 actions are not performed by the agent"
+      ]
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"needs_revision\",\"summary_zh\":\"答案对Bank of Singapore的自主性限制描述准确且有引用支持，但Dayos部分仅描述了风险评分与分层机制，未给出参考要点要求的Tier 1自动化、Tier 1双周审计、Tier 2需工程师批准、Tier 3不执行等具体分层规则，因此关键差异与人类检查点缺失，属不完整。\",\"claims\":[{\"answer_span\":\"Every type of IT ticket was scored against three questions before go-live: severity of impact, reversibility, and feasibility of human oversight [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"引用[2]明确列出三项评分问题，与原文一致。\"},{\"answer_span\":\"The scores determined each ticket type's tier, and the tier dictated the agent's reasoning strategy and how much autonomy it gets [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"引用[2]原文说明分数决定tier，tier决定推理策略与自主程度。\"},{\"answer_span\":\"The agent reads each ticket, determines urgency and complexity, and either resolves it automatically or routes it to a human [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"引用[2]原文一致。\"},{\"answer_span\":\"The agentic system parses income-related documents and generates a draft Source of Wealth memo based on internal guidelines and benchmarks [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]原文一致。\"},{\"answer_span\":\"It provides decision support only and does not make credit, onboarding or risk decisions autonomously; final validation and approval remain with designated human reviewers [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]原文一致。\"},{\"answer_span\":\"Autonomy limits are: task-level autonomy only (extraction, drafting, checking, not end-to-end decisions); no self-initiation of actions (agents operate only when triggered by predefined workflows); and no decision authority, with human review at critical decision points, including after income and financial documents have been assessed to ensure accuracy [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]逐项列出这些自主性边界，表述准确。\"},{\"answer_span\":\"Outputs are advisory and subject to human validation [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]原文一致。\"},{\"answer_span\":\"Dayos permits the agent to resolve some tickets without human routing, with autonomy calibrated per ticket tier [2]; Bank of Singapore's agents never hold decision authority, and human review occurs at critical decision points with all outputs advisory [1].\",\"label\":\"partial\",\"citation_numbers\":[1,2],\"reason_zh\":\"Bank of Singapore部分有引用支持；Dayos部分虽与引用[2]一致，但未说明Tier 1自动化、Tier 1审计、Tier 2批准、Tier 3排除等具体分层规则，差异描述不完整。\"},{\"answer_span\":\"The excerpts do not state the specific tiers, scoring thresholds, or approval levels used by Dayos\",\"label\":\"contradicted\",\"citation_numbers\":[2],\"reason_zh\":\"引用[2]虽未给出阈值，但参考要点要求的Tier 1/2/3具体规则属于应回答内容；答案以证据缺口为由回避，导致关键要点缺失。\"}],\"issues\":[{\"severity\":\"major\",\"dimension\":\"completeness\",\"answer_span\":\"\",\"reason_zh\":\"缺少参考要点：Dayos Tier 1自动化、Tier 1双周审计、Tier 2需工程师批准、Tier 3不执行。这些是问题所问自主性差异与人类检查的核心内容。\",\"evidence_child_ids\":[\"4cae9b7e-cb21-411b-b5a8-469c193eaa57\"]},{\"severity\":\"minor\",\"dimension\":\"relevance\",\"answer_span\":\"The excerpts do not state the specific tiers, scoring thresholds, or approval levels used by Dayos\",\"reason_zh\":\"将未检索到的具体阈值表述为证据缺口可以，但不应因此省略已可回答的分层规则要点。\",\"evidence_child_ids\":[\"4cae9b7e-cb21-411b-b5a8-469c193eaa57\"]}],\"missing_required_points\":[\"Dayos Tier 1 tickets are automated without a human engineer in the loop\",\"Dayos Tier 1 receives biweekly audits\",\"Dayos Tier 2 actions need engineer approval\",\"Dayos Tier 3 actions are not performed by the agent\"]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

@@ -39,6 +39,7 @@ class PDFQAState(TypedDict):
     generation_allowed: NotRequired[bool]
     coverage_sufficient: NotRequired[bool]
     coverage_status: NotRequired[str]
+    answer_status: NotRequired[str]
     controlled_trace: NotRequired[dict | None]
     evidence_reason: NotRequired[str | None]
     answer: NotRequired[str]

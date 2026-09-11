@@ -1,0 +1,225 @@
+{
+  "question_id": "DEV-SG03",
+  "question": "What three design patterns does the framework list for multi-agent systems?",
+  "inputs_sha256": "362495b7b2e62654481852d0f8e6c4e6c917d1dc8273453cc75a0f0fd86cba58",
+  "messages_sha256": "92ccdcb805e1358a1a11eedbd5cbf77f590e602248f194104cfef01004d154a1",
+  "raw_artifact_sha256": "8675976799bc47714b5367d2817383e79f0256d79bef9c0553687ba8ccb09b60",
+  "final_artifact_sha256": "8bb4bf0e87677a88a22eb3408ef7e3636d6f9beb3c6fe91ff84344ba889f3131",
+  "draft": "The framework lists three simple design patterns for multi-agent systems [1]:\n\n- **Sequential**: Agents work one after another in a linear or otherwise structured workflow (e.g. a graph), with each agent's output becoming the next agent's input [1].\n- **Supervisor**: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required [1].\n- **Swarm**: Agents work at the same time, handing off to another agent when needed [1].\n\nThe framework notes there is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns [1].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The framework lists three simple design patterns for multi-agent systems [1]:\n\n- **Sequential**: Agents work one after another in a linear or otherwise structured workflow (e.g. a graph), with each agent's output becoming the next agent's input [1].\n\n- **Supervisor**: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required [1].\n\n- **Swarm**: Agents work at the same time, handing off to another agent when needed [1].\n\nThe framework notes there is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Three simple design patterns for multi-agent systems are:\"\n        }\n      ],\n      \"reason\": \"Child 1 explicitly states that there are three simple design patterns for multi-agent systems, supporting the unit's claim.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Sequential: Agents work one after another in a linear or otherwise structured workflow e.g. a graph. Each agent\\u2019s output becomes the next agent\\u2019s input.\"\n        }\n      ],\n      \"reason\": \"Child 1 provides the exact definition of the Sequential pattern, matching all clauses in the unit.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Supervisor: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required.\"\n        }\n      ],\n      \"reason\": \"Child 1 provides the exact definition of the Supervisor pattern, matching all clauses in the unit.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Swarm: Agents work at the same time, handing off to another agent when needed.\"\n        }\n      ],\n      \"reason\": \"Child 1 provides the exact definition of the Swarm pattern, matching all clauses in the unit.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"There is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns\"\n        }\n      ],\n      \"reason\": \"Child 1 contains the exact statement that there is no universally correct architecture and that the task can require different or hybrid patterns, supporting the unit.\"\n    }\n  ]\n}",
+    "answer": "The framework lists three simple design patterns for multi-agent systems [1]:\n\n- **Sequential**: Agents work one after another in a linear or otherwise structured workflow (e.g. a graph), with each agent's output becoming the next agent's input [1].\n\n- **Supervisor**: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required [1].\n\n- **Swarm**: Agents work at the same time, handing off to another agent when needed [1].\n\nThe framework notes there is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns [1].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Three simple design patterns for multi-agent systems are:"
+            }
+          ],
+          "reason": "Child 1 explicitly states that there are three simple design patterns for multi-agent systems, supporting the unit's claim."
+        },
+        {
+          "id": "u2",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Sequential: Agents work one after another in a linear or otherwise structured workflow e.g. a graph. Each agent’s output becomes the next agent’s input."
+            }
+          ],
+          "reason": "Child 1 provides the exact definition of the Sequential pattern, matching all clauses in the unit."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Supervisor: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required."
+            }
+          ],
+          "reason": "Child 1 provides the exact definition of the Supervisor pattern, matching all clauses in the unit."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Swarm: Agents work at the same time, handing off to another agent when needed."
+            }
+          ],
+          "reason": "Child 1 provides the exact definition of the Swarm pattern, matching all clauses in the unit."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "There is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns"
+            }
+          ],
+          "reason": "Child 1 contains the exact statement that there is no universally correct architecture and that the task can require different or hybrid patterns, supporting the unit."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "9474af10-10b2-4cfd-85ab-d73dd2df3967",
+      "section_id": "dda4e3d9-4719-5560-b3c8-8445a04b5c65",
+      "section_title": "5  See OpenAI, Agentic Commerce Protocol, Alipay, Agentic Mobile Protocol, and Google, Universal Commerce",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 7,
+      "page_end": 8,
+      "quote": "5 See OpenAI, Agentic Commerce Protocol, Alipay, Agentic Mobile Protocol, and Google, Universal Commerce Protocol. 6 More information on this can be found in 2.3 Implement technical controls and processes.\n\n| Introduction to Agentic AI 8\n\n1.1.2 Multi-agent setups\n\nIn an agentic system, it is common for multiple agents to be set up to work together. This allows each agent to specialise in a certain function or ta sk and/or work in parallel. Having multiple agents specialising in different tasks also means that each agent’s tools and permissions can be separately scoped and defined, compared to a single agent with access to many tools.\n\nThree simple design patterns for multi-agent systems are:7\n\n• Sequential: Agents work one after another in a linear or otherwise structured workflow e.g. a graph. Each agent’s output becomes the next agent’s input. • Supervisor: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required. • Swarm: Agents work at the same time, handing off to another agent when needed.\n\nThere is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns . 8 A well-defined task with a step -by-step workflow can lend itself to a sequential architecture, whereas a more open -ended task that requires brainstorming or pursuing different lines of inquiry may benefit from a swarm architecture."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "37cdef02-41f0-47cf-825d-3b3207a9a098",
+      "section_id": "dda4e3d9-4719-5560-b3c8-8445a04b5c65",
+      "section_title": "5  See OpenAI, Agentic Commerce Protocol, Alipay, Agentic Mobile Protocol, and Google, Universal Commerce",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 8,
+      "page_end": 8,
+      "quote": "8 A well-defined task with a step -by-step workflow can lend itself to a sequential architecture, whereas a more open -ended task that requires brainstorming or pursuing different lines of inquiry may benefit from a swarm architecture.\n\n1.1.3 How agent design affects the limits and capabilities of each agent\n\nWhile each agent may have the same core components, the design of each component can significantly affect what the agent can do.\n\nIt is generally helpful to distinguish between two concepts when considering what an agent can do:9\n\n7 Adapted from AWS , Multi-Agent Collaboration Patterns with Strands Agents and Amazon Nova . See also Claude, Building multi-agent systems: When and how to use them."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "9584ebdf-478f-472f-a64d-df93f2f5745d",
+      "section_id": "b8107b65-ffe5-52a7-8d4c-01fae8b72171",
+      "section_title": "Annex A: Further resources",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 50,
+      "page_end": 50,
+      "quote": "Annex A: Further resources\n\n1. Introduction to Agentic AI\n\nWhat is\n\nAgentic AI? • AWS, Agentic AI Security Scoping Matrix: A framework for securing autonomous AI systems • WEF, AI Agents in Action: Foundations for Evaluation and Governance • Anthropic, The 2026 State of AI Agents Report and 2026 Agentic Coding Trends Report • OpenAI, A Practical Guide to Building Agents • IBM, The 2026 Guide to AI Agents\n\nRisks of Agentic AI\n\n• GovTech, Agentic Risk & Capability Framework • CSA, Draft Addendum on Securing Agentic AI • OWASP, Multi-Agentic System Threat Modelling Guide • OWASP, Top 10 for Agentic Applications for 2026 • IBM, AI agents: Opportunities, risks, and mitigations • Partnership on AI, Six AI Governance Priorities for 2026 • Palo Alto Networks, A Complete Guide to Agentic AI Governance • Infosys, Agentic AI risks to the enterprise, and its mitigations\n\n2. MGF for Agentic AI\n\nAssess and bound the risks upfront\n\nAgentic governance in general • EY, Building a risk framework for Agentic AI • McKinsey, Deploying agentic AI with safety and security: A playbook for technology leaders • Bain, Building the Foundation for Agentic AI • OWASP, State of Agentic AI Security and Governance 1.0 • AWS, AI agents in enterprises: Best practices with Amazon Bedrock AgentCore"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "fd4c3df4-2ab5-418f-8fa7-e4e8785cd855",
+      "section_id": "b8107b65-ffe5-52a7-8d4c-01fae8b72171",
+      "section_title": "2. MGF for Agentic AI",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 50,
+      "page_end": 51,
+      "quote": "A playbook for technology leaders • Bain, Building the Foundation for Agentic AI • OWASP, State of Agentic AI Security and Governance 1.0 • AWS, AI agents in enterprises: Best practices with Amazon Bedrock AgentCore\n\nRisk assessment and threat modelling • OWASP, Agentic AI – Threats & Mitigations • OWASP, Multi-Agentic System Threat Modelling Guide • Cloud Security Alliance, Agentic AI: Understanding Its Evolution, Risks, and Security Challenges • Cloud Security Alliance, The AI Agent Governance Gap: What CISOs Need Now • Google Cloud, AI risk and resilience\n\nAgent limits and agent identity • Meta, Agents Rule of Two: A Practical Approach to AI Agent Security • OpenID, Identity Management for Agentic AI • Cloud Security Alliance, The Agentic Trust Framework: Zero Trust Governance for AI Agents\n\n| Annexes\n\n51 • Google Cloud Office of the CISO, These 4 AI governance tips help counter shadow agents\n\nMake humans meaningfully accountable\n\nAllocating responsibility within and outside an organisation • Carnegie Mellon University, The ‘Who’, ‘What’, and ‘How’ of Responsible AI Governance • IBM, AI agent governance: Big challenges, big opportunities • CSA and FAR.AI, Securing Agentic AI: A Discussion Paper • McKinsey, Accountability by design in the agentic organization • McKinsey, State of AI trust in 2026: Shifting to the agentic era"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "fab67d09-d305-49da-9cc5-d2327a5ba1f3",
+      "section_id": "3b01be01-ffd2-5003-84a4-2c805263a66b",
+      "section_title": "Statement 2: Define the reference architecture",
+      "title": "Australian Government AI Technical Standard",
+      "page": 32,
+      "page_end": 32,
+      "quote": "Statement 2: Define the reference architecture The use of a reference architecture provides a structured framework that guides the design, development, and management of an AI system. Agencies must: Criterion 4: Evaluate existing reference architectures. Make use of the Australian Government Architecture | dta.gov.au to: o consider reusing pretrained models when applicable o consider whether to build in-house or use off-the-shelf software or services o embed flexible architecture practices to avoid vendor lock-in o ensure strategic alignment with government's digital direction o ensure consistency and interoperability across agencies. Agencies should:\n\nCriterion 5: Monitor emerging reference architectures to evaluate and update the AI system. New architectural paradigms are emerging that address complex AI applications, including: o Large Language Model (LLM) architectures: These architectures focus on deploying and managing large-scale language models. They encompass systems, tools, and design patterns that facilitate the integration of LLMs into applications, ensuring scalability and efficiency. o AI infrastructure architectures: Conceptualised to streamline the production of AI models, AI factories provide comprehensive guidelines for building high- performance, scalable, and secure data centres dedicated to AI development. These architectures support the end-to-end lifecycle of AI system creation, from development to deployment."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "c1f761cd-6a58-4ff9-b29c-c1132055e6d5",
+      "section_id": "2b241f57-942a-5fc0-af40-e03fb17e0235",
+      "section_title": "1.2.3 Systemic and multi-agent risks",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 11,
+      "page_end": 12,
+      "quote": "1.2.3 Systemic and multi-agent risks\n\nThe speed and complexity of agentic systems can increase the risks above. In particular:\n\n• Speed and volume: The speed at which agents take decisions make it difficult for oversight mechanisms to detect and prevent unauthorised actions in real -time before they cause harm. Requiring human approvers to continuously oversee agents as a safeguard can also lead to automation bias and alert fatigue.\n\nErroneous actions Unauthorised\n\nactions\n\nBiased or unfair\n\nactions Data breaches Disruption to\n\nconnected systems\n\n| Introduction to Agentic AI 12 • Cascading or compounding effects: A mistake in one step can propagate and amplify across later steps, resulting in outsized impact . For example, in supply chain management, a n initial hallucinated inventory figure could potentially cause downstream actions to reorder excessive or insufficient stock.\n\nMulti-agent systems exacerbate these risks because of the increase in number of interacting agents . For example, multi-agent systems often require agents to share context, memory, and intermediate outputs with other agents. This increases the likelihood for sensitive data to be unintentionally logged, passed to less secure agents, or exposed through prompt injection attacks.\n\nThe extent to which multi -agent systems introduce qualitatively different risks is still being studied , but some of the more pertinent ones include:14"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "b6479045-7ae2-4e04-9aca-e76f04588402",
+      "section_id": "2b241f57-942a-5fc0-af40-e03fb17e0235",
+      "section_title": "1.2.3 Systemic and multi-agent risks",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 12,
+      "page_end": 13,
+      "quote": "For example, pricing agents used by different organisations could observe each other’s prices and converge on higher prices rather than competing. This behaviour has already been studied for pricing algorithms 15 and is being studied for LLM-based agents.\n\n• Unpredictability and other emergent behaviours: When multiple non-deterministic agents work together, the number of possible outcomes grows exponentially . This can cause emergent behaviours that cannot be predicted from testing each agent individually.\n\nFinally, multiple agents can interact both within a system or across systems. When agents cross system or organisational boundaries, it becomes more difficult to test for and anticipate the spectrum of potential outcomes, especially if an organisation does not have white-box access to these external systems.\n\n14 See Gradient Institute, Risk Analysis Techniques for Governed LLM-based Multi-Agent Systems. 15 See Bichler, Durmann, & Oberlechner, Algorithmic Pricing and Algorithmic Collusion.\n\n|\n\nThe four dimensions\n\n13"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "342fb03e-f030-487d-b666-0e9069adaf8c",
+      "section_id": "1cbfa088-cd86-5a89-b094-c8a198798a95",
+      "section_title": "4. Enable end-user responsibility",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 4,
+      "page_end": 5,
+      "quote": "4. Enable end-user responsibility\n\nTrustworthy deployment of agents does not rely solely on developers, but also on end- users using them responsibly. To enable responsible use, as a baseline, users should be informed of the agent’s range of actions, access to data, and the user’s own responsibilities. Organisations should consider layering on training to equip employees with the knowledge required to manage human-agent interactions and exercise effective oversight, while maintaining their tradecraft and foundational skills.\n\nThis is a living document. We have worked with government agencies and leading companies to collate current best practices and contribute real- world case studies, but this is a fast-developing space. This framework will need to be continuously updated to keep pace with new developments. We invite feedback to refine the framework, and more case studies demonstrating how the framework can be applied for responsible agentic deployment.\n\nWhat’s new in this version\n\nThis version incorporates feedback received from 60+ companies since v1.0. The main changes include:\n\nIntroduction to Agentic AI What is Agentic\n\nAI? • Agentic components: Added safety and reliability components (controls, logging and monitoring) as part of agent’s core components • Protocols: Updated for newer protocols, especially for agentic commerce Risks of Agentic AI • Systemic and multi-agent risks: Added systemic and multi-agent risks\n\nThe four dimensions • Case study from IMDA on how the framework can be applied to OpenClaw deployments"
+    }
+  ],
+  "audit": {
+    "status": "needs_adjudication",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整且准确地列出了框架中的三种多智能体设计模式（Sequential、Supervisor、Swarm），描述与引用证据[1]一致，并正确补充了不存在普适架构、任务可能需要混合模式的说明。所有实质主张均有证据支持。",
+      "claims": [
+        {
+          "answer_span": "The framework lists three simple design patterns for multi-agent systems [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]明确写道'Three simple design patterns for multi-agent systems are'，与答案表述一致。"
+        },
+        {
+          "answer_span": "Sequential: Agents work one after another in a linear or otherwise structured workflow (e.g. a graph), with each agent's output becoming the next agent's input [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文：'Sequential: Agents work one after another in a linear or otherwise structured workflow e.g. a graph. Each agent's output becomes the next agent's input.'完全对应。"
+        },
+        {
+          "answer_span": "Supervisor: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文：'Supervisor: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required.'完全对应。"
+        },
+        {
+          "answer_span": "Swarm: Agents work at the same time, handing off to another agent when needed [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文：'Swarm: Agents work at the same time, handing off to another agent when needed.'完全对应。"
+        },
+        {
+          "answer_span": "The framework notes there is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文：'There is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns.'完全对应。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [
+      "claim_span_not_exact",
+      "claim_span_not_exact",
+      "claim_span_not_exact"
+    ],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整且准确地列出了框架中的三种多智能体设计模式（Sequential、Supervisor、Swarm），描述与引用证据[1]一致，并正确补充了不存在普适架构、任务可能需要混合模式的说明。所有实质主张均有证据支持。\",\"claims\":[{\"answer_span\":\"The framework lists three simple design patterns for multi-agent systems [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]明确写道'Three simple design patterns for multi-agent systems are'，与答案表述一致。\"},{\"answer_span\":\"Sequential: Agents work one after another in a linear or otherwise structured workflow (e.g. a graph), with each agent's output becoming the next agent's input [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文：'Sequential: Agents work one after another in a linear or otherwise structured workflow e.g. a graph. Each agent's output becomes the next agent's input.'完全对应。\"},{\"answer_span\":\"Supervisor: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文：'Supervisor: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required.'完全对应。\"},{\"answer_span\":\"Swarm: Agents work at the same time, handing off to another agent when needed [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文：'Swarm: Agents work at the same time, handing off to another agent when needed.'完全对应。\"},{\"answer_span\":\"The framework notes there is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文：'There is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns.'完全对应。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

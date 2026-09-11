@@ -1,0 +1,194 @@
+{
+  "question_id": "DEV-TECH02",
+  "question": "Which version management practice is required under Statement 7?",
+  "inputs_sha256": "289d4bebbc789360dd5d135ea0ec8c2f7a956173977411a1782c1c98ed7a1c04",
+  "messages_sha256": "c3755381b6997383f785ff5c51f6515f5020e9c334656ddcdcd99227fdaa0be3",
+  "raw_artifact_sha256": "fa76d3f65cbc53e65f4b0da696fb72730e2159df0cc59c4ef84908db5381bd69",
+  "final_artifact_sha256": "3a83a09043418d8abc8c2d21956d2a47e3a06196c129bb472cd433d000b1e131",
+  "draft": "Under Statement 7 (Apply version control practices), the required practice is Criterion 18: Apply version management practices to the end-to-end development lifecycle [6]. Criteria 19–21 are listed as recommended, not required [6].\n\nCriterion 18 involves applying version management practices to the model, training and operation dataset, data in the AI system, training algorithm, and hyperparameters; maintaining design documentation outlining the end-to-end AI system state in line with existing organisational control mechanisms; including point-in-time date and timestamps to data and any changes in data; authorship, relevant licencing details, and changes since last version; and capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters [1]. The Australian Government API | api.gov.au guidelines mandate the use of semantic versioning, which should be enhanced to cater for AI related information and processes, and version standards should clearly document the difference between production and non-production data, models and code [1].\n\n**Evidence gaps:** The excerpts do not establish the full set of sub-elements under Criterion 18 beyond those listed above (e.g., data poisoning/AI poisoning management, interoperability consistency and integration, and Archives Act 1983 retention appear in the generation context but are not within the retained Child evidence cited here).",
+  "generation": {
+    "status": "reviewed",
+    "answer": "Under Statement 7 (Apply version control practices), the required practice is Criterion 18: Apply version management practices to the end-to-end development lifecycle [6]. Criteria 19–21 are listed as recommended, not required [6].\n\nCriterion 18 involves applying version management practices to the model, training and operation dataset, data in the AI system, training algorithm, and hyperparameters; maintaining design documentation outlining the end-to-end AI system state in line with existing organisational control mechanisms; including point-in-time date and timestamps to data and any changes in data; authorship, relevant licencing details, and changes since last version; and capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters [1]. The Australian Government API | api.gov.au guidelines mandate the use of semantic versioning, which should be enhanced to cater for AI related information and processes, and version standards should clearly document the difference between production and non-production data, models and code [1].\n\n**Evidence gaps:** The excerpts do not establish the full set of sub-elements under Criterion 18 beyond those listed above (e.g., data poisoning/AI poisoning management, interoperability consistency and integration, and Archives Act 1983 retention appear in the generation context but are not within the retained Child evidence cited here).",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 6,\n          \"quote\": \"Statement 7: Apply version control practices Required • Criterion 18: Apply version management practices to the end-to-end development lifecycle. Recommended • Criterion 19: Use metadata in version control to distinguish between production and non-production data, models, and code. • Criterion 20: Use a version control toolset to improve useability for users. • Criterion 21: Record version control information in audit logs.\"\n        }\n      ],\n      \"reason\": \"Child 6 explicitly lists Statement 7 as Required with Criterion 18, and lists Criteria 19–21 under Recommended, supporting all clauses of the unit.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Criterion 18: Apply version management practices to the end-to-end development lifecycle. Australian Government API | api.gov.au guidelines mandate the use of semantic versioning. They should be enhanced to cater for AI related information and processes. Version standards should clearly document the difference between production and non-production data, models and code. This involves applying version management practices to: o the model, training and operation dataset, data in the AI system, training algorithm, and hyperparameters o maintaining design documentation outlining the end-to-end AI system state in line with existing organisational control mechanisms o include point-in-time date and timestamps to data and any changes in data o authorship, relevant licencing details, and changes since last version o capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters\"\n        }\n      ],\n      \"reason\": \"Child 1 contains the Criterion 18 sub-elements listed in the unit and the API | api.gov.au semantic versioning and production/non-production documentation statements, supporting all clauses.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The unit accurately states that the cited Child evidence does not establish additional Criterion 18 sub-elements such as data poisoning/AI poisoning management, interoperability consistency and integration, and Archives Act 1983 retention; those items appear only in a different Child excerpt not cited by the unit.\"\n    }\n  ]\n}",
+    "answer": "Under Statement 7 (Apply version control practices), the required practice is Criterion 18: Apply version management practices to the end-to-end development lifecycle [6]. Criteria 19–21 are listed as recommended, not required [6].\n\nCriterion 18 involves applying version management practices to the model, training and operation dataset, data in the AI system, training algorithm, and hyperparameters; maintaining design documentation outlining the end-to-end AI system state in line with existing organisational control mechanisms; including point-in-time date and timestamps to data and any changes in data; authorship, relevant licencing details, and changes since last version; and capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters [1]. The Australian Government API | api.gov.au guidelines mandate the use of semantic versioning, which should be enhanced to cater for AI related information and processes, and version standards should clearly document the difference between production and non-production data, models and code [1].\n\n**Evidence gaps:** The excerpts do not establish the full set of sub-elements under Criterion 18 beyond those listed above (e.g., data poisoning/AI poisoning management, interoperability consistency and integration, and Archives Act 1983 retention appear in the generation context but are not within the retained Child evidence cited here).",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 6,
+              "quote": "Statement 7: Apply version control practices Required • Criterion 18: Apply version management practices to the end-to-end development lifecycle. Recommended • Criterion 19: Use metadata in version control to distinguish between production and non-production data, models, and code. • Criterion 20: Use a version control toolset to improve useability for users. • Criterion 21: Record version control information in audit logs."
+            }
+          ],
+          "reason": "Child 6 explicitly lists Statement 7 as Required with Criterion 18, and lists Criteria 19–21 under Recommended, supporting all clauses of the unit."
+        },
+        {
+          "id": "u2",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Criterion 18: Apply version management practices to the end-to-end development lifecycle. Australian Government API | api.gov.au guidelines mandate the use of semantic versioning. They should be enhanced to cater for AI related information and processes. Version standards should clearly document the difference between production and non-production data, models and code. This involves applying version management practices to: o the model, training and operation dataset, data in the AI system, training algorithm, and hyperparameters o maintaining design documentation outlining the end-to-end AI system state in line with existing organisational control mechanisms o include point-in-time date and timestamps to data and any changes in data o authorship, relevant licencing details, and changes since last version o capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters"
+            }
+          ],
+          "reason": "Child 1 contains the Criterion 18 sub-elements listed in the unit and the API | api.gov.au semantic versioning and production/non-production documentation statements, supporting all clauses."
+        },
+        {
+          "id": "u3",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The unit accurately states that the cited Child evidence does not establish additional Criterion 18 sub-elements such as data poisoning/AI poisoning management, interoperability consistency and integration, and Archives Act 1983 retention; those items appear only in a different Child excerpt not cited by the unit."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "8edcdf1a-84fd-4da4-abe7-29a8194d6c20",
+      "section_id": "bc3953f0-c661-56af-af75-d5b4ce6b1fa5",
+      "section_title": "Statement 7: Apply version control practices",
+      "title": "Australian Government AI Technical Standard",
+      "page": 41,
+      "page_end": 41,
+      "quote": "Information across the AI lifecycle, that was used to generate a decision or outcome, must be captured. This applies to all AI products, including low code or no code third-party tools. Agencies must:\n\nCriterion 18: Apply version management practices to the end-to-end development lifecycle. Australian Government API | api.gov.au guidelines mandate the use of semantic versioning. They should be enhanced to cater for AI related information and processes. Version standards should clearly document the difference between production and non-production data, models and code. This involves applying version management practices to: o the model, training and operation dataset, data in the AI system, training algorithm, and hyperparameters o maintaining design documentation outlining the end-to-end AI system state in line with existing organisational control mechanisms o include point-in-time date and timestamps to data and any changes in data o authorship, relevant licencing details, and changes since last version o capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "8b987664-7a21-4fbb-aad7-c90a58de2da7",
+      "section_id": "bc3953f0-c661-56af-af75-d5b4ce6b1fa5",
+      "section_title": "Statement 7: Apply version control practices",
+      "title": "Australian Government AI Technical Standard",
+      "page": 41,
+      "page_end": 41,
+      "quote": "Statement 7: Apply version control practices Version control is a process that tracks and manages changes to information such as data, models, and system code. This allows business and technical stakeholders to identify the state of an AI system when decisions are made, restore previous versions, and restore deleted or overwritten files. AI system versioning can extend beyond traditional coding practices, which manages a package of identifiable code or configuration information. Version control for information such as training data, models, and hyperparameters will need to be considered. Information across the AI lifecycle, that was used to generate a decision or outcome, must be captured. This applies to all AI products, including low code or no code third-party tools. Agencies must:"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "1f4ce752-af68-4651-9f32-841d5300a617",
+      "section_id": "bc3953f0-c661-56af-af75-d5b4ce6b1fa5",
+      "section_title": "Criterion 18: Apply version management practices to the end-to-end development",
+      "title": "Australian Government AI Technical Standard",
+      "page": 41,
+      "page_end": 42,
+      "quote": "to data and any changes in data o authorship, relevant licencing details, and changes since last version o capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters\n\no managing any data poisoning and AI poisoning o data versioning supporting AI interoperability should include the following: ◦ consistency: data structures, exchanges, and formats across different sources are well-defined ◦ integration: enables data sourced from different sources to be integrated in a seamless manner ◦ all documents relating to the establishment, design, and governance of an AI implemented solution must be retained as per the Archives Act 1983. This does not apply to: o third-party software products, which are subject to existing controls. Agencies should:"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "e6a4c3ef-b5ec-48be-9490-0c09f318a352",
+      "section_id": "bc3953f0-c661-56af-af75-d5b4ce6b1fa5",
+      "section_title": "Statement 7: Apply version control practices",
+      "title": "Australian Government AI Technical Standard",
+      "page": 42,
+      "page_end": 42,
+      "quote": "This does not apply to: o third-party software products, which are subject to existing controls. Agencies should:\n\nCriterion 19: Use metadata in version control to distinguish between production and non-production data, models, and code. This includes: o a simple and transparent way for all users of the system to understand the version of each component at the time a decision was made o the use of tags in the version number to provide a visual representation of non- production versions without needing direct access to data or source control toolsets o the use of metadata can also distinguish between different control states where outputs can vary, and core system functionality of the system has not changed. Criterion 20: Use a version control toolset to improve useability for users. Version toolsets improve the usability for service delivery and business users, addressing activities such as appeals, Ministerial correspondence, executive briefs, court cases, audit, assurance, privacy, and legislative reviews. This includes: o using purpose built in-house or commercial version management products o storing sufficient information to allow rollback to a previous system state o considering archival requirements of training data used in a test environment."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "0eea6fa0-a03e-4a39-a506-56033121de9b",
+      "section_id": "bc3953f0-c661-56af-af75-d5b4ce6b1fa5",
+      "section_title": "Criterion 19: Use metadata in version control to distinguish between production",
+      "title": "Australian Government AI Technical Standard",
+      "page": 42,
+      "page_end": 43,
+      "quote": "This includes: o using purpose built in-house or commercial version management products o storing sufficient information to allow rollback to a previous system state o considering archival requirements of training data used in a test environment.\n\nCriterion 21: Record version control information in audit logs. This includes: o use of a commit hash to identify the control state of all elements, to reduce the volume and complexity of audit log data. A commit hash, is a unique identifier for every single commit in a repository o recording AI predictions and actions taken o pro-active data analytics to be processed against the audit logs, to monitor and assess ongoing AI system performance o where low code or no code third-party tools are used."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "7c944960-40e4-43cd-8182-98e5b97a1687",
+      "section_id": "1aa97e8e-023d-5d5d-af1f-af47a748d5b5",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 15,
+      "page_end": 16,
+      "quote": "Recommended • Criterion 13: Explain outputs made by the AI system to end users. • Criterion 14: Explain how data is used and shared by the AI system.\n\nStatement 6: Manage system bias Required • Criterion 15: Identify how bias could affect people, processes, data, and technologies involved in the AI system lifecycle. • Criterion 16: Assess the impact of bias on your use case. • Criterion 17: Manage identified bias across the AI system lifecycle.\n\nStatement 7: Apply version control practices Required • Criterion 18: Apply version management practices to the end-to-end development lifecycle. Recommended • Criterion 19: Use metadata in version control to distinguish between production and non-production data, models, and code. • Criterion 20: Use a version control toolset to improve useability for users. • Criterion 21: Record version control information in audit logs.\n\nStatement 8: Apply watermarking techniques Required • Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. • Criterion 23: Apply watermarks that are WCAG compatible where relevant. • Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. Recommended • Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. • Criterion 26: Assess watermarking risks and limitations."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "39dd1c22-a818-4826-8e5c-d76c5ca7241b",
+      "section_id": "1aa97e8e-023d-5d5d-af1f-af47a748d5b5",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 14,
+      "page_end": 15,
+      "quote": "Whole of AI lifecycle\n\nStatement 1: Define an operational model Recommended • Criterion 1: Identify a suitable operational model to design, develop, and deliver the system securely and efficiently. • Criterion 2: Consider the technology impacts of the operating model. • Criterion 3: Consider technology hosting strategies.\n\nStatement 2: Define the reference architecture Required • Criterion 4: Evaluate existing reference architectures. Recommended • Criterion 5: Monitor emerging reference architectures to evaluate and update the AI system.\n\nStatement 3: Identify and build people capabilities Required • Criterion 6: Identify and assign AI roles to ensure a diverse team of business and technology professionals with specialised skills. • Criterion 7: Build and maintain AI capabilities by undertaking regular training and education of end users, staff, and stakeholders. Recommended • Criterion 8: Mitigate staff over reliance, under reliance, and aversion of AI.\n\nStatement 4: Enable AI auditing Required • Criterion 9: Provide end-to-end auditability. • Criterion 10: Perform ongoing data-specific checks across the AI lifecycle. • Criterion 11: Perform ongoing model-specific checks across the AI lifecycle.\n\nStatement 5: Provide explainability based on the use case Required • Criterion 12: Explain the AI system and technology used, including the limitations and capabilities of the system. Recommended • Criterion 13: Explain outputs made by the AI system to end users. • Criterion 14: Explain how data is used and shared by the AI system."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "2e03b7d3-f88d-4166-917c-c153558d0325",
+      "section_id": "ac555b14-3c95-5bc8-ba22-f255d5dacf19",
+      "section_title": "Statement 3: Identify and build people capabilities",
+      "title": "Australian Government AI Technical Standard",
+      "page": 33,
+      "page_end": 34,
+      "quote": "delines, mitigating risks associated with AI systems o Domain experts: Individuals with specialised knowledge in specific fields, such as healthcare or finance, who provide context and insights to ensure that AI systems are relevant and effective within their respective domain.\n\nCriterion 7: Build and maintain AI capabilities by undertaking regular training and education of end users, staff, and stakeholders. This may involve: o agencies should provide regular training programs keep staff updated on the latest tools, methodologies, ethical guidelines and regulatory requirements o consider how to tailor training to the knowledge requirements of each role and provide staff involved in procurement, design, development, testing, and deployment of AI systems with specialised training. For example, individuals responsible for managing and operating AI decision-making systems should undergo specific AI ethics training o consider tailoring training for people with disability o consider interactive workshops, simulations, case study walk-throughs and computing sandpit environments to provide more immersive and real-world-like experiences especially for more complex aspects of AI. Agencies should: Criterion 8: Mitigate staff over-reliance, under-reliance, and aversion of AI. This may involve: o perform periodic technology-specific training, performance assessments, peer reviews, or random audits o implement a regular feedback loop for incorrect AI outcomes."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答准确指出Statement 7下必需实践为Criterion 18（端到端开发生命周期版本管理），并正确区分Criterion 19–21为推荐项，所有实质主张均有Child证据[1][6]支持，且对未在Child证据中出现的子要素作了明确限定说明，无虚构或矛盾。",
+      "claims": [
+        {
+          "answer_span": "Under Statement 7 (Apply version control practices), the required practice is Criterion 18: Apply version management practices to the end-to-end development lifecycle [6].",
+          "label": "supported",
+          "citation_numbers": [
+            6
+          ],
+          "reason_zh": "Child证据[6]明确列出Statement 7 Required项为Criterion 18，措辞与回答一致。"
+        },
+        {
+          "answer_span": "Criteria 19–21 are listed as recommended, not required [6].",
+          "label": "supported",
+          "citation_numbers": [
+            6
+          ],
+          "reason_zh": "Child证据[6]将Criterion 19、20、21列于Statement 7的Recommended之下，区分正确。"
+        },
+        {
+          "answer_span": "Criterion 18 involves applying version management practices to the model, training and operation dataset, data in the AI system, training algorithm, and hyperparameters; maintaining design documentation outlining the end-to-end AI system state in line with existing organisational control mechanisms; including point-in-time date and timestamps to data and any changes in data; authorship, relevant licencing details, and changes since last version; and capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Child证据[1]逐项列出Criterion 18的这些子要素，回答为忠实转述。"
+        },
+        {
+          "answer_span": "The Australian Government API | api.gov.au guidelines mandate the use of semantic versioning, which should be enhanced to cater for AI related information and processes, and version standards should clearly document the difference between production and non-production data, models and code [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Child证据[1]原文包含该语义化版本及生产/非生产数据、模型、代码区分要求。"
+        },
+        {
+          "answer_span": "The excerpts do not establish the full set of sub-elements under Criterion 18 beyond those listed above (e.g., data poisoning/AI poisoning management, interoperability consistency and integration, and Archives Act 1983 retention appear in the generation context but are not within the retained Child evidence cited here).",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "该限定说明本身准确：这些子要素确实出现在Child证据[3]中，但回答明确将其排除在已引用范围外，属于诚实的证据边界声明，不构成虚假政策主张。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答准确指出Statement 7下必需实践为Criterion 18（端到端开发生命周期版本管理），并正确区分Criterion 19–21为推荐项，所有实质主张均有Child证据[1][6]支持，且对未在Child证据中出现的子要素作了明确限定说明，无虚构或矛盾。\",\"claims\":[{\"answer_span\":\"Under Statement 7 (Apply version control practices), the required practice is Criterion 18: Apply version management practices to the end-to-end development lifecycle [6].\",\"label\":\"supported\",\"citation_numbers\":[6],\"reason_zh\":\"Child证据[6]明确列出Statement 7 Required项为Criterion 18，措辞与回答一致。\"},{\"answer_span\":\"Criteria 19–21 are listed as recommended, not required [6].\",\"label\":\"supported\",\"citation_numbers\":[6],\"reason_zh\":\"Child证据[6]将Criterion 19、20、21列于Statement 7的Recommended之下，区分正确。\"},{\"answer_span\":\"Criterion 18 involves applying version management practices to the model, training and operation dataset, data in the AI system, training algorithm, and hyperparameters; maintaining design documentation outlining the end-to-end AI system state in line with existing organisational control mechanisms; including point-in-time date and timestamps to data and any changes in data; authorship, relevant licencing details, and changes since last version; and capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Child证据[1]逐项列出Criterion 18的这些子要素，回答为忠实转述。\"},{\"answer_span\":\"The Australian Government API | api.gov.au guidelines mandate the use of semantic versioning, which should be enhanced to cater for AI related information and processes, and version standards should clearly document the difference between production and non-production data, models and code [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Child证据[1]原文包含该语义化版本及生产/非生产数据、模型、代码区分要求。\"},{\"answer_span\":\"The excerpts do not establish the full set of sub-elements under Criterion 18 beyond those listed above (e.g., data poisoning/AI poisoning management, interoperability consistency and integration, and Archives Act 1983 retention appear in the generation context but are not within the retained Child evidence cited here).\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"该限定说明本身准确：这些子要素确实出现在Child证据[3]中，但回答明确将其排除在已引用范围外，属于诚实的证据边界声明，不构成虚假政策主张。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

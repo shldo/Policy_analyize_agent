@@ -1,0 +1,280 @@
+{
+  "question_id": "DEV2-UN05",
+  "question": "Does the provided technical standard prescribe a single minimum RAG Recall@5 score for every agency deployment?",
+  "inputs_sha256": "2b189181cda0923d2725b19d3350b52ce16a199816a5cc4a2ea38843992ce22f",
+  "messages_sha256": "8acd794ea905057232f82dcf9cb5b8481e8fa3aed3f9076939c6d823ef057b22",
+  "raw_artifact_sha256": "256f5373e65ad9d0144b57e45ef76adf2dc88f67f2e2ddf7131db7fc7c21533f",
+  "final_artifact_sha256": "860cda39add6f5ac679f9c56ef06db33c97b3f4b38a7157abe13c7a2253a7ee4",
+  "draft": "The available excerpts do not establish a single minimum RAG Recall@5 score prescribed for every agency deployment.\n\nWhat the excerpts do support:\n\n- The standard requires agencies to set assessment criteria for the AI model against pre-defined metrics for the AI system, addressing model quality thresholds and performance, explainability and interpretability requirements, security and privacy requirements, ethics requirements, tolerance for error for model outputs, tolerance for negative impacts, and error rates by scale and similar processing by humans [6].\n- Grounding such as RAG is addressed as a technique that can augment an LLM with trusted data from an agency database or knowledge base, and agencies must create or fine-tune models optimised for the target domain environment, including grounding such as RAG [6].\n- Model validation techniques are to be set by agencies, informed by the AI system success criteria, covering matters such as factual correctness and relevance, benchmarking, consistency, clarity and coherence, source attribution, and data-centric validation approaches for GenAI models [7].\n- Bias evaluation includes implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG [7].\n- Monitoring criteria are framed as \"Agencies should\" and include defining thresholds and out-of-pattern behaviour as triggers for alert levels, without specifying a retrieval metric or numeric threshold [8].\n\nEvidence gaps: The provided excerpts do not state any specific retrieval metric (including Recall@5) or any numeric minimum score applicable to RAG components, nor do they establish that such a threshold is uniform across agency deployments.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The available excerpts do not establish a single minimum RAG Recall@5 score prescribed for every agency deployment.\n\nWhat the excerpts do support:\n\n- Bias evaluation includes implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG [7].\n\n- Monitoring criteria are framed as \"Agencies should\" and include defining thresholds and out-of-pattern behaviour as triggers for alert levels, without specifying a retrieval metric or numeric threshold [8].\n\nEvidence gaps: The provided excerpts do not state any specific retrieval metric (including Recall@5) or any numeric minimum score applicable to RAG components, nor do they establish that such a threshold is uniform across agency deployments.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish a single minimum RAG Recall@5 score prescribed for every agency deployment; this is an accurately bounded statement about the supplied excerpts.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting phrase, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"unsupported\",\n      \"bindings\": [],\n      \"reason\": \"No supplied Child contains the quoted requirement that agencies set assessment criteria for the AI model against pre-defined metrics, nor the listed threshold, explainability, security, privacy, ethics, tolerance, or error-rate clauses attributed to [6].\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 6,\n          \"quote\": \"grounding such as RAG, which can augment a large language model (LLM) with trusted data from a database or knowledge base internal to an agency\"\n        },\n        {\n          \"number\": 6,\n          \"quote\": \"Create or fine-tune models optimised for target domain environment\"\n        }\n      ],\n      \"reason\": \"Child 6 supports that RAG can augment an LLM with trusted agency data and that agencies should create or fine-tune models optimised for the target domain environment, but it does not support the unit's broader wording that agencies 'must' do so or the exact phrase 'including grounding such as RAG' as a mandatory requirement.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 7,\n          \"quote\": \"Set techniques to validate AI trained models\"\n        },\n        {\n          \"number\": 7,\n          \"quote\": \"informed by the AI system success criteria\"\n        },\n        {\n          \"number\": 7,\n          \"quote\": \"factual correctness and relevance\"\n        },\n        {\n          \"number\": 7,\n          \"quote\": \"benchmarking\"\n        },\n        {\n          \"number\": 7,\n          \"quote\": \"consistency in responses, clarity and coherence\"\n        },\n        {\n          \"number\": 7,\n          \"quote\": \"source attribution\"\n        },\n        {\n          \"number\": 7,\n          \"quote\": \"data-centric validation approaches for GenAI models\"\n        }\n      ],\n      \"reason\": \"Child 7 supports that agencies must set model validation techniques informed by AI system success criteria and lists factual correctness and relevance, benchmarking, consistency, clarity and coherence, source attribution, and data-centric validation approaches for GenAI models, but it does not support the unit's phrase 'covering matters such as' as an exhaustive or exact framing.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 7,\n          \"quote\": \"implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG\"\n        }\n      ],\n      \"reason\": \"Child 7 directly supports that bias evaluation includes implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 8,\n          \"quote\": \"Agencies should:\"\n        },\n        {\n          \"number\": 8,\n          \"quote\": \"defining thresholds, out-of-pattern behaviour, and other triggers for each alert level\"\n        }\n      ],\n      \"reason\": \"Child 8 supports that monitoring criteria are framed as 'Agencies should' and include defining thresholds and out-of-pattern behaviour as triggers for alert levels, without specifying a retrieval metric or numeric threshold.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The supplied excerpts do not state any specific retrieval metric including Recall@5, any numeric minimum score applicable to RAG components, or that such a threshold is uniform across agency deployments.\"\n    }\n  ]\n}",
+    "answer": "The available excerpts do not establish a single minimum RAG Recall@5 score prescribed for every agency deployment.\n\nWhat the excerpts do support:\n\n- Bias evaluation includes implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG [7].\n\n- Monitoring criteria are framed as \"Agencies should\" and include defining thresholds and out-of-pattern behaviour as triggers for alert levels, without specifying a retrieval metric or numeric threshold [8].\n\nEvidence gaps: The provided excerpts do not state any specific retrieval metric (including Recall@5) or any numeric minimum score applicable to RAG components, nor do they establish that such a threshold is uniform across agency deployments.",
+    "removed_unit_ids": [
+      "u3",
+      "u4",
+      "u5"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish a single minimum RAG Recall@5 score prescribed for every agency deployment; this is an accurately bounded statement about the supplied excerpts."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting phrase, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u3",
+          "status": "unsupported",
+          "bindings": [],
+          "reason": "No supplied Child contains the quoted requirement that agencies set assessment criteria for the AI model against pre-defined metrics, nor the listed threshold, explainability, security, privacy, ethics, tolerance, or error-rate clauses attributed to [6]."
+        },
+        {
+          "id": "u4",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 6,
+              "quote": "grounding such as RAG, which can augment a large language model (LLM) with trusted data from a database or knowledge base internal to an agency"
+            },
+            {
+              "number": 6,
+              "quote": "Create or fine-tune models optimised for target domain environment"
+            }
+          ],
+          "reason": "Child 6 supports that RAG can augment an LLM with trusted agency data and that agencies should create or fine-tune models optimised for the target domain environment, but it does not support the unit's broader wording that agencies 'must' do so or the exact phrase 'including grounding such as RAG' as a mandatory requirement."
+        },
+        {
+          "id": "u5",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 7,
+              "quote": "Set techniques to validate AI trained models"
+            },
+            {
+              "number": 7,
+              "quote": "informed by the AI system success criteria"
+            },
+            {
+              "number": 7,
+              "quote": "factual correctness and relevance"
+            },
+            {
+              "number": 7,
+              "quote": "benchmarking"
+            },
+            {
+              "number": 7,
+              "quote": "consistency in responses, clarity and coherence"
+            },
+            {
+              "number": 7,
+              "quote": "source attribution"
+            },
+            {
+              "number": 7,
+              "quote": "data-centric validation approaches for GenAI models"
+            }
+          ],
+          "reason": "Child 7 supports that agencies must set model validation techniques informed by AI system success criteria and lists factual correctness and relevance, benchmarking, consistency, clarity and coherence, source attribution, and data-centric validation approaches for GenAI models, but it does not support the unit's phrase 'covering matters such as' as an exhaustive or exact framing."
+        },
+        {
+          "id": "u6",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 7,
+              "quote": "implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG"
+            }
+          ],
+          "reason": "Child 7 directly supports that bias evaluation includes implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 8,
+              "quote": "Agencies should:"
+            },
+            {
+              "number": 8,
+              "quote": "defining thresholds, out-of-pattern behaviour, and other triggers for each alert level"
+            }
+          ],
+          "reason": "Child 8 supports that monitoring criteria are framed as 'Agencies should' and include defining thresholds and out-of-pattern behaviour as triggers for alert levels, without specifying a retrieval metric or numeric threshold."
+        },
+        {
+          "id": "u8",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The supplied excerpts do not state any specific retrieval metric including Recall@5, any numeric minimum score applicable to RAG components, or that such a threshold is uniform across agency deployments."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "55701578-d7f7-4498-82ff-53b6ae12fc72",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 8,
+      "page_end": 8,
+      "quote": "Introduction The AI technical standard (the standard) sets consistent practices for government agencies adopting artificial intelligence (AI) systems across the AI lifecycle. The standard brings together a set of practices for procuring, designing, developing, deploying, and using AI systems. The standard reinforces the Australian Government’s AI Ethics Principles | industry.gov.au into a set of technical requirements and guidelines. It complements the Policy for the responsible use of AI in government | digital.gov.au, the AI assurance framework | digital.gov.au, and the Voluntary AI Safety Standard | industry.gov.au. The standard adopts the OECD definition of an Artificial Intelligence (AI) system | oecd.ai: ‘An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments. Different AI systems vary in their levels of autonomy and adaptiveness after deployment.’ The standard adopts an agency-first approach. Rather than introducing new processes or duplication, it emphasises the reuse of agency policies, frameworks and practices."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "d9bb0011-e7ae-469e-a7a4-01a821157cc3",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "2  As defined by the Australian Government Protective Security Policy Framework",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 22,
+      "page_end": 22,
+      "quote": "While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment.\n\nExperimentation For the avoidance of doubt, agencies are not required to apply this policy if they are doing early-stage experimentation which does not: • commit to proceeding with a use case or to any design decisions that would affect implementation later • risk harming anyone • introduce or exacerbate any privacy or security risks. If there is a likelihood of proceeding with the AI use case while experimenting in this phase, agencies should apply the policy. Agencies should also apply the Australian Government AI technical standard, which provides relevant information for developing use cases at each stage of the AI lifecycle."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "babc9499-620a-45e6-ae85-2c3f60471452",
+      "section_id": "4a787f39-3f63-5895-b641-12b3739a9f5e",
+      "section_title": "Use case assessment",
+      "title": "Australian Government AI Technical Standard",
+      "page": 26,
+      "page_end": 26,
+      "quote": "Use case assessment The standard was assessed against a selection of use cases across government agencies. Outcomes were collated to identify how the standard can be used across each lifecycle stage. The assessment considered: • proofs of concept to those in operation • the nature of the applications, whether used by internal staff or public facing • the type of data involved, whether private, public, or a combination of both • the risk level of the applications, ranging from low to high. The applicability of the standard varied, based on who built each part of the AI system: 1. Fully built and managed in-house: Involves building AI systems from scratch. 2. Partially built and fully managed in-house: This includes using pre-trained or off-the- shelf models with or without grounding, RAG, and prompt engineering, such as large language models (LLMs) or reusing existing pre-trained machine learning or computer vision models. Note that fine-tuning a model would transfer the responsibility of applying the standard from the vendor to the agency. 3."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "297ff493-7a6a-4773-ad8b-09fcae8928b9",
+      "section_id": "198cd713-9347-570b-a5a2-7348aea1c91b",
+      "section_title": "Key terms — passage 1",
+      "title": "Australian Government AI Technical Standard",
+      "page": 3,
+      "page_end": 4,
+      "quote": "This embedding can occur at 2 distinct stages: during generation by altering a GenAI model's inference procedure or post-generation, as the content is distributed along the data and information distribution chain.\n\nAlgorithm ‘A clearly specified mathematical process for computation; a set of rules that, if followed, will give a prescribed result’ NIST definition | csrc.nist.gov Application programming interface (API) ‘A system access point or library function that has a well-defined syntax and is accessible from application programs or user code to provide well-defined functionality.’ NIST definition | csrc.nist.gov\n\nTerm Definition Artificial general intelligence (AGI) ‘Artificial general intelligence (AGI), also known as strong AI, is the (currently hypothetical) intelligence of a machine that can accomplish any intellectual task that a human can perform. AGI is a trait attributed to future autonomous AI systems that can achieve goals in a wide range of real or virtual environments at least as effectively as humans can.’ Gartner | gartner.com Bias ‘systematic difference in treatment of certain objects, people, or groups in comparison to others’ – ISO/IEC 24027 | iso.org C2PA The Coalition for Content Provenance and Authenticity, or C2PA | c2pa.org, provides an open technical standard for publishers, creators and consumers to establish the origin and edits of digital content."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "572c800c-ad73-46ac-a0cb-5483516089e8",
+      "section_id": "32a2306e-c49d-58de-ada3-f53b906332e8",
+      "section_title": "Statement 22: Implement model creation, tuning, and grounding",
+      "title": "Australian Government AI Technical Standard",
+      "page": 77,
+      "page_end": 78,
+      "quote": "For GenAI, implementing techniques such as threshold settings or content filtering could address these situations.\n\nCriterion 81: Apply considerations for reusing existing agency models, off-the- shelf, and pre-trained models. These include: o whether the model can be adapted to meet the KPIs for the AI system o suitability of pre-defined AI architecture o availability of AI specialist skills or skills required for configuration and integration o whether the model is relevant to the target operating domain or can be adapted to it, such as fine-tuning, retrieval-augmented generation (RAG), and pre-processing and post-processing techniques o cybersecurity assessment in line with Australian Government policies and guidance (see Whole of AI Lifecycle for more details).\n\nCriterion 82: Create or fine-tune models optimised for target domain environment. This includes: o model testing on target operating environment and infrastructure o using pre-processing and post-processing techniques o addressing input and output filtering requirements for safety and reliability o grounding such as RAG, which can augment a large language model (LLM) with trusted data from a database or knowledge base internal to an agency o for GenAI, prompt engineering or establishing a prompt library, which can streamline and improve interactions with an AI model o consider cost and performance implications associated with the adaptation techniques o perform unit testing for the training algorithm, pre-processing, and post-processing algorithms o track model training implementations systematically to speed up the discovery and development of models. Agencies should:"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "857914ca-bbeb-4790-8fdd-99a3d30396ff",
+      "section_id": "bafec03b-0360-524e-9da9-61221a34963a",
+      "section_title": "Statement 23: Validate, assess, and update model",
+      "title": "Australian Government AI Technical Standard",
+      "page": 78,
+      "page_end": 79,
+      "quote": "Statement 23: Validate, assess, and update model Agencies must: Criterion 84: Set techniques to validate AI trained models. There are multiple qualitative and quantitative techniques and tools for model validation, informed by the AI system success criteria (see Design section), including: o correct classifications, predictions or forecasts, and factual correctness and relevance o identify between positive and negative instances, and distinguish between classes\n\no benchmarking o consistency in responses, clarity and coherence o source attribution o data-centric validation approaches for GenAI models. Criterion 85: Evaluate the model against training boundaries. Evaluation considerations include: o poor or degraded performance of the model o change of AI context or operational setting o data retention policies o model retention policies. Criterion 86: Evaluate the model for bias, implement and test bias mitigations. This includes: o using suitable tools that test and discover unwarranted associations between an algorithm’s protected input features and its output o evaluating performance across suitable and intersectional dimensions o checking if bias could be managed through updating the training data (see Statement 18) o implementing bias mitigation thresholds that can be configured post-deployment o implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG. Agencies should: Criterion 87: Identify relevant model refinement methods."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "71562771-4504-4b79-8974-e706592faf70",
+      "section_id": "323759b6-1873-56e6-9bea-ea7d315af73c",
+      "section_title": "Statement 37: Establish monitoring framework",
+      "title": "Australian Government AI Technical Standard",
+      "page": 95,
+      "page_end": 96,
+      "quote": "Statement 37: Establish monitoring framework Agencies should: Criterion 124: Define reporting requirements. This includes: o establishing a plan for providing different stakeholders with reports o for each group of stakeholders (persona), define what needs to be reported, why, when, and how. Criterion 125: Define alerting requirements. This includes: o defining what information needs alerting o defining what information is critical to be alerted in real-time o defining severity levels, such as major, minor, warning o defining thresholds, out-of-pattern behaviour, and other triggers for each alert level o defining who needs to be alerted and the method of alert such as SMS or e-mail. Criterion 126: Implement monitoring tools. This includes: o monitoring the information needed to satisfy alerting and reporting requirements\n\no automating monitoring, alerting, and reporting o implementing management information and dashboards o implementing role-based access to protect sensitive information and meet security requirements o implementing real-time alerting requirements. Criterion 127: Implement feedback loop to ensure that insights from monitoring are fed back into the development and improvement of the AI system. This includes: o a decision matrix outlining guidance on what components in the AI system would need an update or refresh, such as pre or post processing components, AI model, or a RAG knowledge base in a GenAI system o a framework to provide and track recommended actions from the insights o a guideline for identifying actions to address insights, with considerations to costs, delays, AI trust, and effectiveness."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_partial",
+      "summary_zh": "回答正确指出所提供摘录未确立统一的 RAG Recall@5 最低分数，并准确引用证据[7]（RAG 作为偏差缓解技术）和[8]（监测阈值未指定检索指标）。但结论基于有限摘录，属证据不足的诚实部分回答，未覆盖标准全文，故为部分通过。",
+      "claims": [
+        {
+          "answer_span": "The available excerpts do not establish a single minimum RAG Recall@5 score prescribed for every agency deployment.",
+          "label": "supported",
+          "citation_numbers": [
+            7,
+            8
+          ],
+          "reason_zh": "所引证据中未出现 Recall@5 或任何统一检索指标阈值；[7]仅将 RAG 列为偏差缓解技术，[8]的阈值要求未指定检索指标，支持该否定性结论。"
+        },
+        {
+          "answer_span": "Bias evaluation includes implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG [7].",
+          "label": "supported",
+          "citation_numbers": [
+            7
+          ],
+          "reason_zh": "证据[7]Criterion 86 原文列出 disparate impact remover、equalised odds post-processing、content filtering 和 RAG，表述准确。"
+        },
+        {
+          "answer_span": "Monitoring criteria are framed as \"Agencies should\" and include defining thresholds and out-of-pattern behaviour as triggers for alert levels, without specifying a retrieval metric or numeric threshold [8].",
+          "label": "supported",
+          "citation_numbers": [
+            8
+          ],
+          "reason_zh": "证据[8]Statement 37 确以\"Agencies should\"开头，Criterion 125 提及 defining thresholds、out-of-pattern behaviour 作为 alert level 触发条件，且未指定检索指标或数值阈值。"
+        },
+        {
+          "answer_span": "The provided excerpts do not state any specific retrieval metric (including Recall@5) or any numeric minimum score applicable to RAG components, nor do they establish that such a threshold is uniform across agency deployments.",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "reason_zh": "全部八条证据均未出现 Recall@5 或针对 RAG 组件的数值最低分要求，该证据缺口陈述与所引材料一致。"
+        }
+      ],
+      "issues": [
+        {
+          "severity": "minor",
+          "dimension": "completeness",
+          "answer_span": "",
+          "reason_zh": "回答仅基于有限摘录作否定性结论，未声明标准全文是否可能在其他未检索部分规定此类阈值；虽已用\"available excerpts\"限定，但未明确提示结论受检索范围限制。",
+          "evidence_child_ids": [
+            "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d"
+          ]
+        }
+      ],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_partial\",\"summary_zh\":\"回答正确指出所提供摘录未确立统一的 RAG Recall@5 最低分数，并准确引用证据[7]（RAG 作为偏差缓解技术）和[8]（监测阈值未指定检索指标）。但结论基于有限摘录，属证据不足的诚实部分回答，未覆盖标准全文，故为部分通过。\",\"claims\":[{\"answer_span\":\"The available excerpts do not establish a single minimum RAG Recall@5 score prescribed for every agency deployment.\",\"label\":\"supported\",\"citation_numbers\":[7,8],\"reason_zh\":\"所引证据中未出现 Recall@5 或任何统一检索指标阈值；[7]仅将 RAG 列为偏差缓解技术，[8]的阈值要求未指定检索指标，支持该否定性结论。\"},{\"answer_span\":\"Bias evaluation includes implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG [7].\",\"label\":\"supported\",\"citation_numbers\":[7],\"reason_zh\":\"证据[7]Criterion 86 原文列出 disparate impact remover、equalised odds post-processing、content filtering 和 RAG，表述准确。\"},{\"answer_span\":\"Monitoring criteria are framed as \\\"Agencies should\\\" and include defining thresholds and out-of-pattern behaviour as triggers for alert levels, without specifying a retrieval metric or numeric threshold [8].\",\"label\":\"supported\",\"citation_numbers\":[8],\"reason_zh\":\"证据[8]Statement 37 确以\\\"Agencies should\\\"开头，Criterion 125 提及 defining thresholds、out-of-pattern behaviour 作为 alert level 触发条件，且未指定检索指标或数值阈值。\"},{\"answer_span\":\"The provided excerpts do not state any specific retrieval metric (including Recall@5) or any numeric minimum score applicable to RAG components, nor do they establish that such a threshold is uniform across agency deployments.\",\"label\":\"supported\",\"citation_numbers\":[1,2,3,4,5,6,7,8],\"reason_zh\":\"全部八条证据均未出现 Recall@5 或针对 RAG 组件的数值最低分要求，该证据缺口陈述与所引材料一致。\"}],\"issues\":[{\"severity\":\"minor\",\"dimension\":\"completeness\",\"answer_span\":\"\",\"reason_zh\":\"回答仅基于有限摘录作否定性结论，未声明标准全文是否可能在其他未检索部分规定此类阈值；虽已用\\\"available excerpts\\\"限定，但未明确提示结论受检索范围限制。\",\"evidence_child_ids\":[\"448cc0ea-b68a-46ef-81f7-3f7c5b2e886d\"]}],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

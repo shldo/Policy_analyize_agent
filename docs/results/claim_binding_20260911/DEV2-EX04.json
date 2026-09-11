@@ -1,0 +1,242 @@
+{
+  "question_id": "DEV2-EX04",
+  "question": "For a general-purpose AI solution with several uses, does the Australian policy require treating every use separately?",
+  "inputs_sha256": "785c1d6b6eb9005d3c04de9186baee8302705d80227325a7bc6930871e8c806a",
+  "messages_sha256": "158a8062b5e737029c8b1df168d22ba136f6b1a67f5934d4e670af46c3d7b7b9",
+  "raw_artifact_sha256": "a78c75aae8beb9bc818f833af5d3e256c375526b80da722e628e87fa310bdbd4",
+  "final_artifact_sha256": "1f89962ecf637e6e307fac0f072d949199451a09ea645b506f6e466c579150b0",
+  "draft": "No. The policy does not require treating every use separately; it offers agencies a choice between two approaches.\n\nFor general-purpose AI solutions that may include a variety of use cases (the policy cites Microsoft Copilot as an example), agencies can choose one of the following approaches [2]:\n- treat the AI solution as a single complex use case and undertake policy actions appropriate for the highest level of risk; or\n- treat each use case separately and undertake policy actions appropriate to each use case's respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency's internal register [2].\n\nThe separate-treatment option is therefore one permissible approach rather than a mandatory one, and where it is chosen it carries the associated requirements of appointing separate accountable use case owners and registering each in-scope use case on the internal register [2].\n\n**Evidence gap:** The available excerpts do not establish any criteria for when an agency must select one approach over the other, nor any deadline for making that choice.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "No. The policy does not require treating every use separately; it offers agencies a choice between two approaches. [2]\n\nFor general-purpose AI solutions that may include a variety of use cases (the policy cites Microsoft Copilot as an example), agencies can choose one of the following approaches [2]:\n\n- treat the AI solution as a single complex use case and undertake policy actions appropriate for the highest level of risk; or [2]\n\n- treat each use case separately and undertake policy actions appropriate to each use case's respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency's internal register [2].\n\nThe separate-treatment option is therefore one permissible approach rather than a mandatory one, and where it is chosen it carries the associated requirements of appointing separate accountable use case owners and registering each in-scope use case on the internal register [2].\n\n**Evidence gap:** The available excerpts do not establish any criteria for when an agency must select one approach over the other, nor any deadline for making that choice.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"agencies can choose one of the following approaches\"\n        }\n      ],\n      \"reason\": \"Child 2 states agencies can choose between approaches for general-purpose AI solutions, supporting that the policy does not require treating every use separately.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"Some general-purpose AI solutions, such as Microsoft Copilot, may include a variety of use cases. When applying the policy to these solutions, agencies can choose one of the following approaches:\"\n        }\n      ],\n      \"reason\": \"Child 2 explicitly cites Microsoft Copilot as an example and states agencies can choose one of the following approaches.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"treat the AI solution as a single complex use case and undertake policy actions appropriate for the highest level of risk\"\n        }\n      ],\n      \"reason\": \"Child 2 contains this option verbatim.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"treat each use case separately and undertake policy actions appropriate to each use case\\u2019s respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency\\u2019s internal register.\"\n        }\n      ],\n      \"reason\": \"Child 2 contains this option verbatim, including the separate owner and internal register requirements.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"agencies can choose one of the following approaches\"\n        },\n        {\n          \"number\": 2,\n          \"quote\": \"treat each use case separately and undertake policy actions appropriate to each use case\\u2019s respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency\\u2019s internal register.\"\n        }\n      ],\n      \"reason\": \"Child 2 supports that separate treatment is one permissible choice and that choosing it includes appointing separate accountable owners and registering each in-scope use case.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish criteria for when an agency must select one approach over the other, nor any deadline for making that choice.\"\n    }\n  ]\n}",
+    "answer": "No. The policy does not require treating every use separately; it offers agencies a choice between two approaches. [2]\n\nFor general-purpose AI solutions that may include a variety of use cases (the policy cites Microsoft Copilot as an example), agencies can choose one of the following approaches [2]:\n\n- treat the AI solution as a single complex use case and undertake policy actions appropriate for the highest level of risk; or [2]\n\n- treat each use case separately and undertake policy actions appropriate to each use case's respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency's internal register [2].\n\nThe separate-treatment option is therefore one permissible approach rather than a mandatory one, and where it is chosen it carries the associated requirements of appointing separate accountable use case owners and registering each in-scope use case on the internal register [2].\n\n**Evidence gap:** The available excerpts do not establish any criteria for when an agency must select one approach over the other, nor any deadline for making that choice.",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [
+      "u1",
+      "u3"
+    ],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "agencies can choose one of the following approaches"
+            }
+          ],
+          "reason": "Child 2 states agencies can choose between approaches for general-purpose AI solutions, supporting that the policy does not require treating every use separately."
+        },
+        {
+          "id": "u2",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Some general-purpose AI solutions, such as Microsoft Copilot, may include a variety of use cases. When applying the policy to these solutions, agencies can choose one of the following approaches:"
+            }
+          ],
+          "reason": "Child 2 explicitly cites Microsoft Copilot as an example and states agencies can choose one of the following approaches."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "treat the AI solution as a single complex use case and undertake policy actions appropriate for the highest level of risk"
+            }
+          ],
+          "reason": "Child 2 contains this option verbatim."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "treat each use case separately and undertake policy actions appropriate to each use case’s respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency’s internal register."
+            }
+          ],
+          "reason": "Child 2 contains this option verbatim, including the separate owner and internal register requirements."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "agencies can choose one of the following approaches"
+            },
+            {
+              "number": 2,
+              "quote": "treat each use case separately and undertake policy actions appropriate to each use case’s respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency’s internal register."
+            }
+          ],
+          "reason": "Child 2 supports that separate treatment is one permissible choice and that choosing it includes appointing separate accountable owners and registering each in-scope use case."
+        },
+        {
+          "id": "u6",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish criteria for when an agency must select one approach over the other, nor any deadline for making that choice."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "367a4c0b-951d-44a6-a2aa-5fd001945e10",
+      "section_id": "2b294a2f-f978-53a9-964c-db65f440069a",
+      "section_title": "Appendix B: Definitions",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 19,
+      "page_end": 20,
+      "quote": "hest level of risk • treat each use case separately and undertake policy actions appropriate to each use case’s respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency’s internal register.\n\nAI incident This policy requires agencies to provide a way to manage AI incidents through operationalising the responsible use of AI. The definition of an AI incident is still being considered globally. As this evolves, the policy will adapt to changes in the policy environment as necessary. For the purposes of applying this policy, the following definition of an AI incident has been adapted from the OECD’s draft definition to better suit the Australian government context: an event, circumstance or series of events where the development, use or malfunction of one or more AI systems by, or under the direction of, an Australian Government agency directly or indirectly leads to any of the following: a. injury or harm to the health of a person or groups of people;\n\nb. disruption of the management and operation of critical\n\ninfrastructure; c. violations of human rights or harms arising from a breach of obligations under applicable laws, including intellectual property, privacy and Indigenous cultural and intellectual property; d. harm to property, communities or the environment. In addition to the definition provided above, agencies may choose to designate additional circumstances that constitute an AI incident in their operating context."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "53826ddc-3226-4ca3-98cb-d819aee15baf",
+      "section_id": "2b294a2f-f978-53a9-964c-db65f440069a",
+      "section_title": "Appendix B: Definitions",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 18,
+      "page_end": 19,
+      "quote": "The definition in this policy will be reviewed as the broader, whole-of-economy regulatory environment matures to ensure an aligned approach.\n\nAI use case This policy uses the term ‘AI use case’ in some of its requirements. AI systems can have one or more applications, which can each differ in their intended purpose, functionality and risk level. The policy focuses on conducting assessments and applying actions at the AI use case level. Agencies are to use the following definition of AI use case in applying this policy: An AI use case is a specific application of an AI system or systems to achieve certain objectives or perform certain tasks. Some general-purpose AI solutions, such as Microsoft Copilot, may include a variety of use cases. When applying the policy to these solutions, agencies can choose one of the following approaches: • treat the AI solution as a single complex use case and undertake policy actions appropriate for the highest level of risk • treat each use case separately and undertake policy actions appropriate to each use case’s respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency’s internal register."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "ba219966-3549-47f7-b6d6-7cb6f50266a7",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "Appendix C: In-scope AI use cases",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 21,
+      "page_end": 22,
+      "quote": "This policy has been designed to exclude incidental and lower risk uses of AI that do not meet the criteria.\n\nIncidental uses of AI may include off-the-shelf software with AI features such as grammar checks and internet searches with AI functionality. The policy recognises that incidental usage of AI will grow over time and focuses on uses that require additional oversight and governance. 1 As defined by the Privacy Act 1988 (Cth).\n\n2 As defined by the Australian Government Protective Security Policy Framework\n\nIn assessing whether a use case is in scope, agencies should also carefully consider AI use in the following areas: • recruitment and other employment-related decision making • automated decision making of discretionary decisions • administration of justice and democratic processes • law enforcement, profiling individuals, and border control • health • education • critical infrastructure. While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "d9bb0011-e7ae-469e-a7a4-01a821157cc3",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "2  As defined by the Australian Government Protective Security Policy Framework",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 22,
+      "page_end": 22,
+      "quote": "While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment.\n\nExperimentation For the avoidance of doubt, agencies are not required to apply this policy if they are doing early-stage experimentation which does not: • commit to proceeding with a use case or to any design decisions that would affect implementation later • risk harming anyone • introduce or exacerbate any privacy or security risks. If there is a likelihood of proceeding with the AI use case while experimenting in this phase, agencies should apply the policy. Agencies should also apply the Australian Government AI technical standard, which provides relevant information for developing use cases at each stage of the AI lifecycle."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "d69887a0-db6b-4314-81fb-283d36d9b2f7",
+      "section_id": "78c2eeb3-2fa0-514f-a01e-24077b1e7a9e",
+      "section_title": "Policy introduction",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 4,
+      "page_end": 4,
+      "quote": "In recognition of the speed and scale of change in this area, the policy will evolve over time as the technology changes, leading practices emerge, the broader regulatory environment develops, and government’s AI maturity improves.\n\nPolicy overview This policy provides a framework to enable the accelerated and sustainable adoption of AI by agencies. It allows them to embrace AI while continuing to position government as an exemplar in responsible AI use, in line with the Australian community’s expectations. The policy aims to create a coordinated approach to government’s use of AI and has been designed to complement and strengthen – not duplicate – existing frameworks in use by the APS. The policy outlines principles and requirements under the following sections: strategy and oversight, preparedness and operations, and AI use case impact assessment. Each section of the policy is underpinned by principles and outlines the mandatory requirements agencies must follow. Recommended actions and considerations are also included where relevant."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "1760d0fd-4145-41d7-b8bd-d0948ccf1c7f",
+      "section_id": "78c2eeb3-2fa0-514f-a01e-24077b1e7a9e",
+      "section_title": "Policy introduction",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 4,
+      "page_end": 4,
+      "quote": "Policy introduction The increasing adoption of artificial intelligence (AI) is reshaping the economy, society and government. Government agencies are embracing the AI opportunity to boost efficiency, enable better data analysis and evidence-based decisions, and improve service delivery for people and business. The Australian Government is committed to capturing the opportunities of AI in a way that facilitates innovation while mitigating harms. Government has an elevated responsibility to adopt AI safely and should be held to a high ethical standard of use. The December 2025 update to the policy strengthens government’s approach to safe and responsible AI through new measures on AI governance. It introduces requirements for agencies to develop a strategic approach to adopting AI, establish an approach to operationalise the responsible use of AI, ensure designated accountability for AI use cases, and undertake risk-based use case-level actions. In recognition of the speed and scale of change in this area, the policy will evolve over time as the technology changes, leading practices emerge, the broader regulatory environment develops, and government’s AI maturity improves."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "46eb624c-d42a-4af8-8a14-f07b95bf1e4b",
+      "section_id": "a91df602-7a5b-57f3-afc7-fb908ad6bd41",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 28,
+      "page_end": 29,
+      "quote": "NOTE: Agencies must consider data and lineage | naa.gov.au compliance with Australian Government regulations.\n\nNOTE: Agencies should refer to the Policy of responsible use of AI in government to implement AI fundamentals training | digital.gov.au for all staff, regardless of their role. To support agencies with their implementation of the Policy, the DTA provides Guidance for staff training on AI | digital.gov.au. NOTE: Australian Government API guidelines | api.gov.au mandate the use of semantic versioning. NOTE: Agencies should refer to the Australian parliamentary recommendations | aph.gov.au on AI including risk management, people capabilities, and implement measures for algorithmic bias | humanrights.gov.au. NOTE: Any infrastructure, both software and hardware, for AI services and solutions must adhere to Australian Government regulations and should consider security as priority as recommended by the Australian Government guidance on AI system Development | cyber.gov.au, Deploying AI systems Securely | cyber.gov.au and Engaging with AI | cyber.gov.au. The recommendations include secure well-architected environments, whether on-premises, cloud-based, or hybrid, to maintain the confidentiality, integrity, and availability of AI services."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "1cfeebd1-3ed8-43a4-9ced-0fd7dfbc1432",
+      "section_id": "c93301c3-fb95-5e16-9fd1-49bbbd321ced",
+      "section_title": "Implementation",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 6,
+      "page_end": 7,
+      "quote": "Defence and members of the NIC may voluntarily adopt elements of this policy where they are able to do so without compromising national security capabilities or interests.\n\nExisting frameworks The challenges raised by government use of AI are complex and inherently linked with other considerations, such as the APS Code of Conduct, data governance, cyber security, privacy and ethics practices. This policy has been designed to complement and strengthen – not duplicate – existing frameworks, legislation and practices that touch on government’s use of AI. This policy must be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations.\n\nDefinitions For the purposes of this policy, agencies should apply the definition of AI provided by the Organisation for Economic Co-operation and Development (OECD) and the following definition of AI use case: An AI use case is a specific application of an AI system or systems to achieve certain objectives or perform certain tasks. Definitions and how to apply them – including an optional approach to group AI use cases for some general-purpose AI solutions – is available in Appendix B. The appendix also defines an AI incident.\n\nTimeframes This policy provides implementation timeframes for agencies to meet some of its requirements. While agencies may need this time to action requirements, agencies should implement them sooner if practicable. Agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答正确指出政策不要求逐一单独处理每个用途，而是提供两种可选路径，并完整覆盖单一复杂用例/最高风险规则、分别处理选项及其附带要求，引用[2]与证据一致；证据缺口说明也属恰当限定。",
+      "claims": [
+        {
+          "answer_span": "No. The policy does not require treating every use separately; it offers agencies a choice between two approaches.",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "证据[2]明确说明对通用型AI解决方案，机构可在两种方法中选择，因此并非强制逐一处理。"
+        },
+        {
+          "answer_span": "For general-purpose AI solutions that may include a variety of use cases (the policy cites Microsoft Copilot as an example), agencies can choose one of the following approaches",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "证据[2]原文提到Microsoft Copilot等通用型AI解决方案可能包含多种用例，并列出两种可选方法。"
+        },
+        {
+          "answer_span": "treat the AI solution as a single complex use case and undertake policy actions appropriate for the highest level of risk",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "与证据[2]第一项选项完全一致。"
+        },
+        {
+          "answer_span": "treat each use case separately and undertake policy actions appropriate to each use case's respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency's internal register",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "与证据[2]第二项选项一致，包括指定独立责任所有者和登记每个在范围内用例。"
+        },
+        {
+          "answer_span": "The separate-treatment option is therefore one permissible approach rather than a mandatory one, and where it is chosen it carries the associated requirements of appointing separate accountable use case owners and registering each in-scope use case on the internal register",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "证据[2]将分别处理列为可选方法之一，并说明选择该方法时附带相应要求。"
+        },
+        {
+          "answer_span": "The available excerpts do not establish any criteria for when an agency must select one approach over the other, nor any deadline for making that choice.",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "所引证据仅列出两种可选方法，未提供选择标准或期限；该表述为恰当限定的证据缺口说明。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答正确指出政策不要求逐一单独处理每个用途，而是提供两种可选路径，并完整覆盖单一复杂用例/最高风险规则、分别处理选项及其附带要求，引用[2]与证据一致；证据缺口说明也属恰当限定。\",\"claims\":[{\"answer_span\":\"No. The policy does not require treating every use separately; it offers agencies a choice between two approaches.\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"证据[2]明确说明对通用型AI解决方案，机构可在两种方法中选择，因此并非强制逐一处理。\"},{\"answer_span\":\"For general-purpose AI solutions that may include a variety of use cases (the policy cites Microsoft Copilot as an example), agencies can choose one of the following approaches\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"证据[2]原文提到Microsoft Copilot等通用型AI解决方案可能包含多种用例，并列出两种可选方法。\"},{\"answer_span\":\"treat the AI solution as a single complex use case and undertake policy actions appropriate for the highest level of risk\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"与证据[2]第一项选项完全一致。\"},{\"answer_span\":\"treat each use case separately and undertake policy actions appropriate to each use case's respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency's internal register\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"与证据[2]第二项选项一致，包括指定独立责任所有者和登记每个在范围内用例。\"},{\"answer_span\":\"The separate-treatment option is therefore one permissible approach rather than a mandatory one, and where it is chosen it carries the associated requirements of appointing separate accountable use case owners and registering each in-scope use case on the internal register\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"证据[2]将分别处理列为可选方法之一，并说明选择该方法时附带相应要求。\"},{\"answer_span\":\"The available excerpts do not establish any criteria for when an agency must select one approach over the other, nor any deadline for making that choice.\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"所引证据仅列出两种可选方法，未提供选择标准或期限；该表述为恰当限定的证据缺口说明。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

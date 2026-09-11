@@ -1,0 +1,205 @@
+{
+  "question_id": "DEV2-EX06",
+  "question": "Does the technical standard's discussion of C2PA amount to instructions that agencies must implement that standard?",
+  "inputs_sha256": "1cdd006f657afdfc2d19de97fe73a61f278d7c5811a0b4de44a0f72bacf348fa",
+  "messages_sha256": "5756b5b6eee1974c9da0935811e6ce03dd382411e4e504c5b8f5d8824a3d5421",
+  "raw_artifact_sha256": "8b498dec910252e09bd86e1752c2d0cceb1a29b25a8d5c25b5ffcc83649e5bfe",
+  "final_artifact_sha256": "972339e296dfcbd8d2700c43a48e1990f42dececa6c53f615769132bc4ce9414",
+  "draft": "No. The available excerpts do not establish that agencies must implement C2PA.\n\nThe technical standard's Statement 8 describes C2PA as an open technical standard being developed by the Coalition for Content Provenance and Authenticity for publishers, creators and consumers to establish the origin and edits of digital content, and states explicitly that \"Advice on the use of C2PA is out of scope for the standard\" [1]. The Key terms passage similarly defines C2PA only descriptively, as providing an open technical standard for establishing the origin and edits of digital content [3].\n\nThe mandatory obligations in Statement 8 are framed as separate criteria — Criterion 22 (visual watermarks and metadata on generated media content, applicable only where AI-generated content may directly impact a user), Criterion 23 (WCAG-compatible watermarks and metadata where relevant) [1], and Criterion 24 (visual and accessible content indicating interaction with an AI system) [1]. None of these criteria, as excerpted, names C2PA as the required mechanism.\n\n**Evidence gaps:** The excerpts do not establish whether any other part of the technical standard (outside Statement 8 and the Key terms) mandates C2PA, nor whether C2PA is referenced in the standard's criteria as an acceptable or preferred implementation method. The retrieved excerpts also do not establish the standard's overall adoption status beyond the policy statement that it is \"strongly recommended\" that agencies apply the AI technical standard [4].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "No. The available excerpts do not establish that agencies must implement C2PA.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "```json\n{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish whether agencies must implement C2PA; this is an accurately bounded statement of absence in the supplied excerpts.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"The Coalition for Content Provenance and Authenticity (C2PA) | c2pa.org is developing an open technical standard for publishers, creators, and consumers to establish the origin and edits of digital content. Advice on the use of C2PA is out of scope for the standard.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"C2PA The Coalition for Content Provenance and Authenticity, or C2PA | c2pa.org, provides an open technical standard for publishers, creators and consumers to establish the origin and edits of digital content.\"\n        }\n      ],\n      \"reason\": \"The descriptive C2PA definition and the out-of-scope statement are supported by Child 1 and Child 3. However, the unit attributes the out-of-scope statement to 'Statement 8' and the descriptive definition to a 'Key terms passage'; Child 1 does not label the passage as 'Statement 8' in the excerpt, and Child 3 is a term-definition passage but is not explicitly titled 'Key terms' in the supplied quote.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Agencies must:\\n\\nCriterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"Criterion 23: Apply watermarks and metadata that are WCAG compatible where\\n\\nrelevant\"\n        }\n      ],\n      \"reason\": \"Child 1 supports Criterion 22 and Criterion 23 as excerpted, including the condition for Criterion 22. The unit also cites Criterion 24 and states that none of the criteria names C2PA as the required mechanism; the supplied excerpts do not include Criterion 24, so that clause is not supported by the available text.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 4,\n          \"quote\": \"It is strongly recommended that agencies apply the AI technical standard for Australian Government.\"\n        }\n      ],\n      \"reason\": \"The statement that the excerpts do not establish whether other parts of the standard mandate C2PA or reference C2PA as an implementation method is an accurate gap statement. The final clause about adoption status is supported by Child 4's 'strongly recommended' language, but the unit frames this as the standard's overall adoption status beyond the policy statement, which is broader than what the excerpt establishes.\"\n    }\n  ]\n}\n```",
+    "answer": "No. The available excerpts do not establish that agencies must implement C2PA.",
+    "removed_unit_ids": [
+      "u2",
+      "u3",
+      "u4"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish whether agencies must implement C2PA; this is an accurately bounded statement of absence in the supplied excerpts."
+        },
+        {
+          "id": "u2",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "The Coalition for Content Provenance and Authenticity (C2PA) | c2pa.org is developing an open technical standard for publishers, creators, and consumers to establish the origin and edits of digital content. Advice on the use of C2PA is out of scope for the standard."
+            },
+            {
+              "number": 3,
+              "quote": "C2PA The Coalition for Content Provenance and Authenticity, or C2PA | c2pa.org, provides an open technical standard for publishers, creators and consumers to establish the origin and edits of digital content."
+            }
+          ],
+          "reason": "The descriptive C2PA definition and the out-of-scope statement are supported by Child 1 and Child 3. However, the unit attributes the out-of-scope statement to 'Statement 8' and the descriptive definition to a 'Key terms passage'; Child 1 does not label the passage as 'Statement 8' in the excerpt, and Child 3 is a term-definition passage but is not explicitly titled 'Key terms' in the supplied quote."
+        },
+        {
+          "id": "u3",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must:\n\nCriterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user."
+            },
+            {
+              "number": 1,
+              "quote": "Criterion 23: Apply watermarks and metadata that are WCAG compatible where\n\nrelevant"
+            }
+          ],
+          "reason": "Child 1 supports Criterion 22 and Criterion 23 as excerpted, including the condition for Criterion 22. The unit also cites Criterion 24 and states that none of the criteria names C2PA as the required mechanism; the supplied excerpts do not include Criterion 24, so that clause is not supported by the available text."
+        },
+        {
+          "id": "u4",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "It is strongly recommended that agencies apply the AI technical standard for Australian Government."
+            }
+          ],
+          "reason": "The statement that the excerpts do not establish whether other parts of the standard mandate C2PA or reference C2PA as an implementation method is an accurate gap statement. The final clause about adoption status is supported by Child 4's 'strongly recommended' language, but the unit frames this as the standard's overall adoption status beyond the policy statement, which is broader than what the excerpt establishes."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "120cdfa5-b097-46ce-88e5-b7e1e1deeb7a",
+      "section_id": "04cb8ca8-fbef-5e18-a0ac-971676cddd00",
+      "section_title": "Statement 8: Apply watermarking techniques",
+      "title": "Australian Government AI Technical Standard",
+      "page": 43,
+      "page_end": 43,
+      "quote": "Statement 8: Apply watermarking techniques AI watermarking can be used to embed visual or hidden markers into generated content, so that its creation details can be identified. It provides transparency, authenticity, and trust to content consumers. Visual watermarks or disclosures provide a simple way for someone to know they are viewing content created by, or interacting with, an AI system. This may include generated media content or GenAI systems. The Coalition for Content Provenance and Authenticity (C2PA) | c2pa.org is developing an open technical standard for publishers, creators, and consumers to establish the origin and edits of digital content. Advice on the use of C2PA is out of scope for the standard. Agencies must:\n\nCriterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user. For instance, using AI to generate a team logo would not need to be watermarked. Criterion 23: Apply watermarks and metadata that are WCAG compatible where\n\nrelevant"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "297ff493-7a6a-4773-ad8b-09fcae8928b9",
+      "section_id": "198cd713-9347-570b-a5a2-7348aea1c91b",
+      "section_title": "Key terms — passage 1",
+      "title": "Australian Government AI Technical Standard",
+      "page": 3,
+      "page_end": 4,
+      "quote": "This embedding can occur at 2 distinct stages: during generation by altering a GenAI model's inference procedure or post-generation, as the content is distributed along the data and information distribution chain.\n\nAlgorithm ‘A clearly specified mathematical process for computation; a set of rules that, if followed, will give a prescribed result’ NIST definition | csrc.nist.gov Application programming interface (API) ‘A system access point or library function that has a well-defined syntax and is accessible from application programs or user code to provide well-defined functionality.’ NIST definition | csrc.nist.gov\n\nTerm Definition Artificial general intelligence (AGI) ‘Artificial general intelligence (AGI), also known as strong AI, is the (currently hypothetical) intelligence of a machine that can accomplish any intellectual task that a human can perform. AGI is a trait attributed to future autonomous AI systems that can achieve goals in a wide range of real or virtual environments at least as effectively as humans can.’ Gartner | gartner.com Bias ‘systematic difference in treatment of certain objects, people, or groups in comparison to others’ – ISO/IEC 24027 | iso.org C2PA The Coalition for Content Provenance and Authenticity, or C2PA | c2pa.org, provides an open technical standard for publishers, creators and consumers to establish the origin and edits of digital content."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "4446942a-a775-4b4f-b2e5-4c6158e8379f",
+      "section_id": "198cd713-9347-570b-a5a2-7348aea1c91b",
+      "section_title": "Key terms — passage 1",
+      "title": "Australian Government AI Technical Standard",
+      "page": 4,
+      "page_end": 4,
+      "quote": "24027 | iso.org C2PA The Coalition for Content Provenance and Authenticity, or C2PA | c2pa.org, provides an open technical standard for publishers, creators and consumers to establish the origin and edits of digital content.\n\nClassification model ‘Machine learning model whose expected output for a given input is one or more classes’ ISO/IEC 23053 | iso.org Data labelling ‘data labelling, in which datasets are labelled, which means that samples are associated with target variables.’ ISO/IEC 22989 | iso.org Dataset ‘collection of data with a shared format’ ISO/IEC 22989 | iso.org Explainability ‘property of an AI system to express important factors influencing the AI system results in a way that humans can understand’ ISO/IEC 22989 | iso.org Fairness See Guidance 4. Fairness | digital.gov.au Fine-tuning ‘Model fine-tuning involves adjusting the parameters of foundation models or training models with small datasets for a specific task. This process adapts and enhances the model's performance for particular business needs.’ ITU-T F.748.43 publication | itu.int Generative AI (GenAI) ‘The class of AI models that emulate the structure and characteristics of input data in order to generate derived synthetic content."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "be9c4bec-5bcc-4235-ad5b-21814b9768a2",
+      "section_id": "e169cfea-b1bd-5da7-ae46-101dafdfbf23",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 10,
+      "page_end": 11,
+      "quote": "In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff.\n\nAccountable officials Agencies must designate accountable official(s) to take accountability for implementing this policy. Agencies must follow the Standard for accountability when designating accountable official(s) and implementing this requirement. The responsibilities of accountable officials are set in the standard. Agencies must notify the DTA when they designate and make any changes to their accountable official(s) by emailing ai@dta.gov.au.\n\nAccountable use case owners Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of this policy taking effect. Accountable official(s) are to maintain a register of accountable use case owners. Agencies must follow the Standard for accountability when implementing this requirement. The responsibilities of accountable use case owners are set in the standard.\n\nInternal AI use case register Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of this policy taking effect. Agencies must share the register with the DTA every 6 months, commencing from when they create the register to meet the above requirement. The Standard for accountability lists the minimum fields agencies must capture in the use case register. Agencies can add additional fields to meet their organisational needs. An existing register may be reused for the purposes of meeting this requirement. The standard also provides the instructions for how to share agency registers with the DTA."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "52f28ecd-0ef7-4961-a5e3-0a02e433c22e",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 8,
+      "page_end": 9,
+      "quote": "While not exhaustive, a list of related existing frameworks and related resources | digital.gov.au is provided by the Policy for the responsible use of AI in government.\n\nThe practices outlined in this document take the form of standard statements, criteria, and explanatory notes. 1. Statement: The standard statements describe ‘what’ needs to be done. 2. Criteria: Each statement has at least one criterion to satisfy the statement. Each criterion is ‘required’ or ‘recommended’. a. Required: Agencies must satisfy criterion marked as required to meet the standard. Required criterion are driven by Australian legislation, regulation and policies, and ethics principles. b. Recommended: Agencies should implement any criterion marked as recommended. 3. Explanatory notes: Explanatory notes are provided for each criterion. These notes are intended to offer guidance rather than serve as a comprehensive checklist. Unless specified, explanatory notes are not mandatory but are intended to support understanding, offer ways to implement the criterion, and provides examples, scenarios, and concepts to guide implementation. The level of detail and implementation of each statement will vary across use cases. Practical use case guidance has been provided in the Use case assessment section of the standard."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ccbbf2d3-2f3c-493c-8c8c-d8faa15a9a03",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 9,
+      "page_end": 9,
+      "quote": "The level of detail and implementation of each statement will vary across use cases. Practical use case guidance has been provided in the Use case assessment section of the standard.\n\nThe standard is applicable regardless of whether an agency develops an AI system in-house or contracts an external provider to build or supply it. Engaging external providers does not prevent agencies from implementing each of the criteria in the statements. Agencies that adopt the standard are accountable for ensuring it is met in line with the required and recommended criterion. Transparency documents can be utilised to support assessments, including open-source software. For early experimentation, proofs of concept, and pilots of AI products and services, the standard should be used to provide guidance for building responsible and safe AI systems, ensuring a clear pathway to production. The standard helps government: • contribute to the ethical use of AI to ensure public trust • stay compliant with regulatory requirements and alignment with AI strategic frameworks • align with cybersecurity guidelines and the AI assurance framework • support innovation and whole of economy growth • support AI sourcing and adoption processes • provide alignment with international AI best practices across government."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "8ae4469a-aff9-4a76-a245-cd1aaa3b554a",
+      "section_id": "0093e64c-efaf-5b11-8621-43ef71d20b0c",
+      "section_title": "Design",
+      "title": "Australian Government AI Technical Standard",
+      "page": 45,
+      "page_end": 45,
+      "quote": "Design The design stage includes concept development, requirements engineering, and solution design. Designing AI systems that are effective, efficient, and ethical involves being clear on the problem, understanding the impacts of technical decisions, taking a design approach with humans at the centre and having a clear definition of success. In the design stage agencies consider how the AI system will operate with and impact existing processes, people, data, and technology. This includes considering potential malfunctions and harms. Without appropriate design an AI system could: • cause harm due to incorrect information, caused by AI hallucinations, false positives, or false negatives • be used beyond their purpose • perpetuate existing injustices • be misused, misunderstood, or abused • be susceptible to malfunctions of another interacting system • experience behaviour and performance issues caused by other external factors. At the design stage agencies also determine the performance and reliability measures relevant to their AI system’s tasks. Considerations when selecting metrics include business, performance, safety, reliability, explainability, and transparency. NOTE: Under the Digital Experience Policy | digital.gov.au agencies must meet design standards for digital services. NOTE: The Voluntary AI Safety Standard | industry.gov.au outlines the need to establish and implement a risk management process to identify and mitigate risks."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_partial",
+      "summary_zh": "答案正确回答“否”，但仅以“现有摘录未确立强制实施”作答，未给出参考要点中“C2PA使用建议明确不在标准范围内”这一关键依据，因此结论正确但不完整。",
+      "claims": [
+        {
+          "answer_span": "No.",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]明确说明C2PA使用建议不在该标准范围内，且标准中的强制要求是水印/元数据相关标准，而非实施C2PA，故否定结论有依据。"
+        },
+        {
+          "answer_span": "The available excerpts do not establish that agencies must implement C2PA.",
+          "label": "partial",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "该表述本身谨慎且与证据一致，但未引用或说明证据[1]中“Advice on the use of C2PA is out of scope for the standard”这一直接排除性依据，仅以“摘录未确立”作弱化表述，未完整覆盖参考要点。"
+        }
+      ],
+      "issues": [
+        {
+          "severity": "major",
+          "dimension": "completeness",
+          "answer_span": "The available excerpts do not establish that agencies must implement C2PA.",
+          "reason_zh": "缺少参考要点“C2PA advice out of scope”。证据[1]明确写明“Advice on the use of C2PA is out of scope for the standard”，这是回答该问题的核心依据，答案未体现。",
+          "evidence_child_ids": [
+            "120cdfa5-b097-46ce-88e5-b7e1e1deeb7a"
+          ]
+        }
+      ],
+      "missing_required_points": [
+        "C2PA advice out of scope"
+      ]
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_partial\",\"summary_zh\":\"答案正确回答“否”，但仅以“现有摘录未确立强制实施”作答，未给出参考要点中“C2PA使用建议明确不在标准范围内”这一关键依据，因此结论正确但不完整。\",\"claims\":[{\"answer_span\":\"No.\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]明确说明C2PA使用建议不在该标准范围内，且标准中的强制要求是水印/元数据相关标准，而非实施C2PA，故否定结论有依据。\"},{\"answer_span\":\"The available excerpts do not establish that agencies must implement C2PA.\",\"label\":\"partial\",\"citation_numbers\":[1],\"reason_zh\":\"该表述本身谨慎且与证据一致，但未引用或说明证据[1]中“Advice on the use of C2PA is out of scope for the standard”这一直接排除性依据，仅以“摘录未确立”作弱化表述，未完整覆盖参考要点。\"}],\"issues\":[{\"severity\":\"major\",\"dimension\":\"completeness\",\"answer_span\":\"The available excerpts do not establish that agencies must implement C2PA.\",\"reason_zh\":\"缺少参考要点“C2PA advice out of scope”。证据[1]明确写明“Advice on the use of C2PA is out of scope for the standard”，这是回答该问题的核心依据，答案未体现。\",\"evidence_child_ids\":[\"120cdfa5-b097-46ce-88e5-b7e1e1deeb7a\"]}],\"missing_required_points\":[\"C2PA advice out of scope\"]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

@@ -1,0 +1,234 @@
+{
+  "question_id": "DEV2-UN02",
+  "question": "Does the provided corpus disclose a dated agency-specific AI governance board meeting calendar?",
+  "inputs_sha256": "58c9bdf18fdff8557aca1ac39acf496fd6e146e918ccbbbbb79848fe26533c42",
+  "messages_sha256": "9bb8efe3d71e1e8eb2b278dbe400aa430fbcca977623393ae14ee98336f7b840",
+  "raw_artifact_sha256": "b3377f9bfdaba6a4300a576cb9c7091f81786c67826d5bed2868e445f33da75c",
+  "final_artifact_sha256": "6ebda5a2633a4d525dde47c8f03ba2da9c7b9c9cf1a323d41e6d8e8594f2b0d6",
+  "draft": "The available excerpts do not establish that the corpus discloses a dated agency-specific AI governance board meeting calendar.\n\n**Evidence gaps**\n\n- No excerpt in the provided context describes a governance board meeting calendar, scheduled meeting dates, or an agency-specific cadence for such a body.\n- The closest related provisions concern governance structures and oversight responsibilities rather than a published calendar: agencies must establish an approach to embed responsible AI practices, including clear processes to address AI incidents with remediation overseen by an appropriate governance body or senior executive [6]; and accountable officials are responsible for deciding the appropriate approach for their agency [6]. These do not establish any dated meeting schedule.\n- The transparency statement provisions require agencies to publicly disclose how AI is used and managed, and to send the DTA a link when the statement is published or updated [4], but do not establish a meeting calendar requirement or disclosure.\n\nThis is a bounded gap in the provided excerpts, not a finding that no such calendar exists in the full documents or in practice.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The available excerpts do not establish that the corpus discloses a dated agency-specific AI governance board meeting calendar.\n\n- No excerpt in the provided context describes a governance board meeting calendar, scheduled meeting dates, or an agency-specific cadence for such a body.\n\n- The transparency statement provisions require agencies to publicly disclose how AI is used and managed, and to send the DTA a link when the statement is published or updated [4], but do not establish a meeting calendar requirement or disclosure.\n\nThis is a bounded gap in the provided excerpts, not a finding that no such calendar exists in the full documents or in practice.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The unit is an accurately bounded statement that the available excerpts do not establish the requested fact about a dated agency-specific AI governance board meeting calendar.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting label, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The unit accurately states that no excerpt in the provided context describes a governance board meeting calendar, scheduled meeting dates, or an agency-specific cadence for such a body.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 6,\n          \"quote\": \"Accountable officials are responsible for deciding the appropriate approach for their agency.\"\n        }\n      ],\n      \"reason\": \"The cited Child 6 supports the accountable-officials clause, but it does not contain the quoted language about agencies establishing an approach to embed responsible AI practices or remediation overseen by an appropriate governance body or senior executive.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 4,\n          \"quote\": \"They publicly disclose: \\u2022 how AI is used and managed by the agency\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"Agencies must send the DTA a link to the statement when it is published or updated\"\n        }\n      ],\n      \"reason\": \"Child 4 supports that transparency statements require agencies to publicly disclose how AI is used and managed and to send the DTA a link when the statement is published or updated; it does not establish a meeting calendar requirement or disclosure.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The unit is an accurately bounded statement that this is a gap in the provided excerpts, not a finding that no such calendar exists in the full documents or in practice.\"\n    }\n  ]\n}",
+    "answer": "The available excerpts do not establish that the corpus discloses a dated agency-specific AI governance board meeting calendar.\n\n- No excerpt in the provided context describes a governance board meeting calendar, scheduled meeting dates, or an agency-specific cadence for such a body.\n\n- The transparency statement provisions require agencies to publicly disclose how AI is used and managed, and to send the DTA a link when the statement is published or updated [4], but do not establish a meeting calendar requirement or disclosure.\n\nThis is a bounded gap in the provided excerpts, not a finding that no such calendar exists in the full documents or in practice.",
+    "removed_unit_ids": [
+      "u4"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The unit is an accurately bounded statement that the available excerpts do not establish the requested fact about a dated agency-specific AI governance board meeting calendar."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting label, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u3",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The unit accurately states that no excerpt in the provided context describes a governance board meeting calendar, scheduled meeting dates, or an agency-specific cadence for such a body."
+        },
+        {
+          "id": "u4",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 6,
+              "quote": "Accountable officials are responsible for deciding the appropriate approach for their agency."
+            }
+          ],
+          "reason": "The cited Child 6 supports the accountable-officials clause, but it does not contain the quoted language about agencies establishing an approach to embed responsible AI practices or remediation overseen by an appropriate governance body or senior executive."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "They publicly disclose: • how AI is used and managed by the agency"
+            },
+            {
+              "number": 4,
+              "quote": "Agencies must send the DTA a link to the statement when it is published or updated"
+            }
+          ],
+          "reason": "Child 4 supports that transparency statements require agencies to publicly disclose how AI is used and managed and to send the DTA a link when the statement is published or updated; it does not establish a meeting calendar requirement or disclosure."
+        },
+        {
+          "id": "u6",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The unit is an accurately bounded statement that this is a gap in the provided excerpts, not a finding that no such calendar exists in the full documents or in practice."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "a55fca50-f901-4aa8-9d8a-a3539707a160",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 8,
+      "page_end": 8,
+      "quote": "Rather than introducing new processes or duplication, it emphasises the reuse of agency policies, frameworks and practices.\n\nAgencies may choose to combine the standard with existing frameworks, such as project governance or data, to include AI-related activities. The standard complements existing frameworks and legislation to help ensure agencies meet their obligations in the use of AI. The challenges for government use of AI are complex and linked with other governance considerations, such as: • The Australian Public Service (APS) Code of Conduct • data governance • cyber security • ICT infrastructure • privacy • sourcing and procurement • copyright • ethics practices. While not exhaustive, a list of related existing frameworks and related resources | digital.gov.au is provided by the Policy for the responsible use of AI in government."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "52f28ecd-0ef7-4961-a5e3-0a02e433c22e",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 8,
+      "page_end": 9,
+      "quote": "While not exhaustive, a list of related existing frameworks and related resources | digital.gov.au is provided by the Policy for the responsible use of AI in government.\n\nThe practices outlined in this document take the form of standard statements, criteria, and explanatory notes. 1. Statement: The standard statements describe ‘what’ needs to be done. 2. Criteria: Each statement has at least one criterion to satisfy the statement. Each criterion is ‘required’ or ‘recommended’. a. Required: Agencies must satisfy criterion marked as required to meet the standard. Required criterion are driven by Australian legislation, regulation and policies, and ethics principles. b. Recommended: Agencies should implement any criterion marked as recommended. 3. Explanatory notes: Explanatory notes are provided for each criterion. These notes are intended to offer guidance rather than serve as a comprehensive checklist. Unless specified, explanatory notes are not mandatory but are intended to support understanding, offer ways to implement the criterion, and provides examples, scenarios, and concepts to guide implementation. The level of detail and implementation of each statement will vary across use cases. Practical use case guidance has been provided in the Use case assessment section of the standard."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "1cfeebd1-3ed8-43a4-9ced-0fd7dfbc1432",
+      "section_id": "c93301c3-fb95-5e16-9fd1-49bbbd321ced",
+      "section_title": "Implementation",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 6,
+      "page_end": 7,
+      "quote": "Defence and members of the NIC may voluntarily adopt elements of this policy where they are able to do so without compromising national security capabilities or interests.\n\nExisting frameworks The challenges raised by government use of AI are complex and inherently linked with other considerations, such as the APS Code of Conduct, data governance, cyber security, privacy and ethics practices. This policy has been designed to complement and strengthen – not duplicate – existing frameworks, legislation and practices that touch on government’s use of AI. This policy must be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations.\n\nDefinitions For the purposes of this policy, agencies should apply the definition of AI provided by the Organisation for Economic Co-operation and Development (OECD) and the following definition of AI use case: An AI use case is a specific application of an AI system or systems to achieve certain objectives or perform certain tasks. Definitions and how to apply them – including an optional approach to group AI use cases for some general-purpose AI solutions – is available in Appendix B. The appendix also defines an AI incident.\n\nTimeframes This policy provides implementation timeframes for agencies to meet some of its requirements. While agencies may need this time to action requirements, agencies should implement them sooner if practicable. Agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "90568ed7-e964-4da3-bda5-eddd325e17f1",
+      "section_id": "c84a594d-0737-55f3-bc94-77dacd5fca17",
+      "section_title": "1  A ustralian Government Style Manual, Plain language and word choice",
+      "title": "Standard for AI Transparency Statements",
+      "page": 4,
+      "page_end": 5,
+      "quote": "1 A ustralian Government Style Manual, Plain language and word choice\n\nHow to apply\n\nImplementing the AI transparency statements The policy provides a coordinated approach for the use of AI across the Australian Government. It builds public trust by supporting the Australian Public Service (APS) to engage with AI in a responsible way. Transparency is critical to public trust and is an important aim of the policy and broader APS Reform agenda2. The public should have confidence that agencies monitor the effectiveness of deployed AI systems and have measures to protect against negative impacts. AI transparency statements help agencies meet these aims by providing a foundational level of transparency on their use of AI. They publicly disclose: • how AI is used and managed by the agency • a commitment to safe and responsible use • compliance with the policy. Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent. Agencies are not required to list individual use cases or provide use case level detail. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI. Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "1ac7e4c1-0887-448b-9c94-2d6b0be7a023",
+      "section_id": "6ca5f0e7-0e8b-5524-a3df-5b2bc8703069",
+      "section_title": "Criterion 66: Identify data sharing arrangements and processes to maintain",
+      "title": "Australian Government AI Technical Standard",
+      "page": 67,
+      "page_end": 68,
+      "quote": "Criterion 66: Identify data sharing arrangements and processes to maintain consistency. Data sharing considerations include:\n\no whether other systems could leverage the data analysed by the AI system o which areas within the agency would benefit from analysed data being shared with them o what data containers could improve with access to the system’s data sources o whether data on how the system was trained could be used to train other systems o documentation such as a memorandum of understanding, or similar, for data sharing arrangements intra-agency, inter-agency, or with external parties o addressing risks of creating personal identifiable information o what can be published for public, government, or internal benefit o any legislative implications."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "3b3b1ca9-52e8-4dcd-b389-380659b093f4",
+      "section_id": "5875c3fc-1729-50cb-8b94-b12942676b58",
+      "section_title": "Statement 17: Validate and select data",
+      "title": "Australian Government AI Technical Standard",
+      "page": 65,
+      "page_end": 66,
+      "quote": "Statement 17: Validate and select data Agencies must:\n\nCriterion 62: Perform data validation activities to ensure data meets the requirements for the AI system’s purpose. This involves including AI-specific validations in schema migrations to ensure data pipelines and feature stores remain functional. Suitable data validation techniques include: o type validation – ensuring data is in the correct data type o format validation – ensuring data aligns to a predefined pattern o range validation – checking whether data falls within a specific range\n\no outlier detection – checking for data points that significantly deviate from the general data pattern o completeness – verifying that all required fields are filled o diversity – ensuring the data represents a variety of data points Considerations include: o a quality framework o online near real-time and offline batch data validation mechanisms to support the purpose and operations of the AI system. Criterion 63: Select data for use that is aligned with the purpose of the AI system. This includes: o alignment with the agency’s business intent and the goals of the AI system, as well as ensuring data meets the data quality criteria previously established o maintaining a live test dataset to test the AI system in production, to help monitor and maintain the operational integrity of the AI system."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "1f4ce752-af68-4651-9f32-841d5300a617",
+      "section_id": "bc3953f0-c661-56af-af75-d5b4ce6b1fa5",
+      "section_title": "Criterion 18: Apply version management practices to the end-to-end development",
+      "title": "Australian Government AI Technical Standard",
+      "page": 41,
+      "page_end": 42,
+      "quote": "to data and any changes in data o authorship, relevant licencing details, and changes since last version o capturing approvals from accountable officials for workflow and model reviews, datasets used for training, and relevant hyperparameters\n\no managing any data poisoning and AI poisoning o data versioning supporting AI interoperability should include the following: ◦ consistency: data structures, exchanges, and formats across different sources are well-defined ◦ integration: enables data sourced from different sources to be integrated in a seamless manner ◦ all documents relating to the establishment, design, and governance of an AI implemented solution must be retained as per the Archives Act 1983. This does not apply to: o third-party software products, which are subject to existing controls. Agencies should:"
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_partial",
+      "summary_zh": "答案对“未在所提供摘录中发现有日期的机构级AI治理委员会会议日历”这一结论表述谨慎，并明确限定为摘录范围内的缺口，未虚构政策或数字。引用[4]对透明度声明要求的转述基本准确，但答案未穷尽所有可能相关的检索证据，且部分引用（如[1][2][3][5][6][7][8]）与问题无关，属于证据相关性不足；因此作为诚实的部分回答可接受，但不构成完整回答。",
+      "claims": [
+        {
+          "answer_span": "The available excerpts do not establish that the corpus discloses a dated agency-specific AI governance board meeting calendar.",
+          "label": "supported",
+          "citation_numbers": [],
+          "reason_zh": "该主张是对所提供摘录范围的限定性陈述，未断言全语料不存在，属于可接受的证据缺口表述。"
+        },
+        {
+          "answer_span": "No excerpt in the provided context describes a governance board meeting calendar, scheduled meeting dates, or an agency-specific cadence for such a body.",
+          "label": "partial",
+          "citation_numbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "reason_zh": "所引证据中确实没有出现治理委员会会议日历或会议日期，但答案未说明检索范围是否覆盖全部相关章节，且部分引用与问题无关，不能完全支持“无摘录描述”的强表述。"
+        },
+        {
+          "answer_span": "The transparency statement provisions require agencies to publicly disclose how AI is used and managed, and to send the DTA a link when the statement is published or updated [4], but do not establish a meeting calendar requirement or disclosure.",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "引用[4]明确列出透明度声明公开披露内容及向DTA发送链接的要求，未提及会议日历，转述准确。"
+        },
+        {
+          "answer_span": "This is a bounded gap in the provided excerpts, not a finding that no such calendar exists in the full documents or in practice.",
+          "label": "supported",
+          "citation_numbers": [],
+          "reason_zh": "该句正确限定了结论范围，未将摘录缺口等同于全语料不存在，符合证据审计要求。"
+        }
+      ],
+      "issues": [
+        {
+          "severity": "minor",
+          "dimension": "relevance",
+          "answer_span": "No excerpt in the provided context describes a governance board meeting calendar, scheduled meeting dates, or an agency-specific cadence for such a body.",
+          "reason_zh": "答案引用了多段与治理委员会会议日历无关的证据（如数据验证、版本控制、数据共享等），虽未造成事实错误，但削弱了“无摘录描述”这一否定性主张的证据覆盖度。",
+          "evidence_child_ids": [
+            "1ac7e4c1-0887-448b-9c94-2d6b0be7a023",
+            "3b3b1ca9-52e8-4dcd-b389-380659b093f4",
+            "1f4ce752-af68-4651-9f32-841d5300a617"
+          ]
+        },
+        {
+          "severity": "minor",
+          "dimension": "completeness",
+          "answer_span": "",
+          "reason_zh": "答案未说明是否检索了可能包含治理安排或会议日历的章节（如政策中的治理、运营或附录部分），因此只能作为部分回答，不能确认完整覆盖。",
+          "evidence_child_ids": [
+            "3c867de1-2f08-4c34-9f39-de6d1591fa0f"
+          ]
+        }
+      ],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_partial\",\"summary_zh\":\"答案对“未在所提供摘录中发现有日期的机构级AI治理委员会会议日历”这一结论表述谨慎，并明确限定为摘录范围内的缺口，未虚构政策或数字。引用[4]对透明度声明要求的转述基本准确，但答案未穷尽所有可能相关的检索证据，且部分引用（如[1][2][3][5][6][7][8]）与问题无关，属于证据相关性不足；因此作为诚实的部分回答可接受，但不构成完整回答。\",\"claims\":[{\"answer_span\":\"The available excerpts do not establish that the corpus discloses a dated agency-specific AI governance board meeting calendar.\",\"label\":\"supported\",\"citation_numbers\":[],\"reason_zh\":\"该主张是对所提供摘录范围的限定性陈述，未断言全语料不存在，属于可接受的证据缺口表述。\"},{\"answer_span\":\"No excerpt in the provided context describes a governance board meeting calendar, scheduled meeting dates, or an agency-specific cadence for such a body.\",\"label\":\"partial\",\"citation_numbers\":[1,2,3,4,5,6,7,8],\"reason_zh\":\"所引证据中确实没有出现治理委员会会议日历或会议日期，但答案未说明检索范围是否覆盖全部相关章节，且部分引用与问题无关，不能完全支持“无摘录描述”的强表述。\"},{\"answer_span\":\"The transparency statement provisions require agencies to publicly disclose how AI is used and managed, and to send the DTA a link when the statement is published or updated [4], but do not establish a meeting calendar requirement or disclosure.\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"引用[4]明确列出透明度声明公开披露内容及向DTA发送链接的要求，未提及会议日历，转述准确。\"},{\"answer_span\":\"This is a bounded gap in the provided excerpts, not a finding that no such calendar exists in the full documents or in practice.\",\"label\":\"supported\",\"citation_numbers\":[],\"reason_zh\":\"该句正确限定了结论范围，未将摘录缺口等同于全语料不存在，符合证据审计要求。\"}],\"issues\":[{\"severity\":\"minor\",\"dimension\":\"relevance\",\"answer_span\":\"No excerpt in the provided context describes a governance board meeting calendar, scheduled meeting dates, or an agency-specific cadence for such a body.\",\"reason_zh\":\"答案引用了多段与治理委员会会议日历无关的证据（如数据验证、版本控制、数据共享等），虽未造成事实错误，但削弱了“无摘录描述”这一否定性主张的证据覆盖度。\",\"evidence_child_ids\":[\"1ac7e4c1-0887-448b-9c94-2d6b0be7a023\",\"3b3b1ca9-52e8-4dcd-b389-380659b093f4\",\"1f4ce752-af68-4651-9f32-841d5300a617\"]},{\"severity\":\"minor\",\"dimension\":\"completeness\",\"answer_span\":\"\",\"reason_zh\":\"答案未说明是否检索了可能包含治理安排或会议日历的章节（如政策中的治理、运营或附录部分），因此只能作为部分回答，不能确认完整覆盖。\",\"evidence_child_ids\":[\"3c867de1-2f08-4c34-9f39-de6d1591fa0f\"]}],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

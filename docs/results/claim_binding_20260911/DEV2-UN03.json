@@ -1,0 +1,167 @@
+{
+  "question_id": "DEV2-UN03",
+  "question": "Does the Singapore framework disclose the deployment budget for the Bank of Singapore Source of Wealth agentic system?",
+  "inputs_sha256": "db134595848066181e868ee7567bf47a0fb1cae4397a2acb4ad17e3ac628ed83",
+  "messages_sha256": "0be6490981d0729e4fe20210de03779618afbe72e087eb6c33f87c6cdc7210d7",
+  "raw_artifact_sha256": "8546c579262395fd3586632b6c3f8a094dddc5db3855f9ae94f33e3e03bd051c",
+  "final_artifact_sha256": "1b39ef046943447c48525564f1b2969b7ca71963154d8f8db24378f452cfb059",
+  "draft": "The available excerpts do not establish the deployment budget for the Bank of Singapore Source of Wealth agentic system. The OCBC/Bank of Singapore case describes the system's objectives, scope, and autonomy bounds, but no cost or budget figures are disclosed [1].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The available excerpts do not establish the deployment budget for the Bank of Singapore Source of Wealth agentic system. The OCBC/Bank of Singapore case describes the system's objectives, scope, and autonomy bounds, but no cost or budget figures are disclosed [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"The bank developed an agentic AI system to support this work with the objectives of:\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"The agentic workflow bounds risk through design by defining limits on the agents’ autonomy:\"\n        }\n      ],\n      \"reason\": \"Child 1 describes the Bank of Singapore Source of Wealth agentic system's objectives, scope, and autonomy bounds, but contains no cost or budget figures. The unit's gap statement is accurately bounded to the available excerpts, and its description of the case is supported by Child 1.\"\n    }\n  ]\n}",
+    "answer": "The available excerpts do not establish the deployment budget for the Bank of Singapore Source of Wealth agentic system. The OCBC/Bank of Singapore case describes the system's objectives, scope, and autonomy bounds, but no cost or budget figures are disclosed [1].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "The bank developed an agentic AI system to support this work with the objectives of:"
+            },
+            {
+              "number": 1,
+              "quote": "The agentic workflow bounds risk through design by defining limits on the agents’ autonomy:"
+            }
+          ],
+          "reason": "Child 1 describes the Bank of Singapore Source of Wealth agentic system's objectives, scope, and autonomy bounds, but contains no cost or budget figures. The unit's gap statement is accurately bounded to the available excerpts, and its description of the case is supported by Child 1."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "2c6df4b6-a204-475a-a9a7-54eb92027150",
+      "section_id": "6fae3315-da91-5d9e-86c7-364e26219467",
+      "section_title": "OCBC: Bounding agent autonomy in source of wealth analysis",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 20,
+      "page_end": 21,
+      "quote": "OCBC: Bounding agent autonomy in source of wealth analysis\n\nOCBC is the longest established Singapore bank and the second largest financial services group in Southeast Asia by assets, operating in 19 countries and regions. Bank of Singapore is a wholly owned private banking subsidiary of OCBC.\n\nBank of Singapore Relationship Manager and compliance team synthesise customer-provided financial documents into a structured Source of Wealth memo. The bank developed an agentic AI system to support this work with the objectives of:\n\n• Improving consistency and completeness of the analysis • Reducing manual effort in document review and drafting\n\nThe agentic AI system parses income-related documents (e.g. tax submissions, corporate annual reports, property documents, dividend statements) and generates a draft Source of Wealth memo based on internal guidelines and benchmarks. The system provides decision support only and does not make credit, onboarding or risk decisions autonomously – final validation and approval remain with designated human reviewers.\n\nThe agentic workflow bounds risk through design by defining limits on the agents’ autonomy: • Task-level autonomy only: Agents perform narrowly scoped tasks (extraction, drafting, checking), not end-to-end decisions • No self-initiation of actions: Agents operate only when triggered by predefined workflows • No decision authority: There is human review at critical decision points, including after the income and financial documents have been assessed to ensure accuracy. Ultimately, outputs are advisory and subject to human validation.\n\n| Assess and bound the risks upfront"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "a7a8ccf2-ba06-4496-a93b-39cdbc38508a",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "Users",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 26,
+      "page_end": 27,
+      "quote": "Chief Security Officer, Cyber Security Specialist, Penetration Tester\n\nKey responsibilities can include: • Defining baseline security guardrails and secure-by-design templates that technical teams should implement or adapt to the agentic system being deployed • Conducting regular red teaming and threat modelling Who: Any individual who utilises the output of the agents to contribute to an organisational goal e.g. company employees making decisions or automating workflows and practices.\n\nKey responsibilities can include: • Ethical and responsible usage of agents • Attending required training, complying with usage policies, timely reporting of bugs or issues with agents\n\n| Make humans meaningfully accountable\n\n27\n\nPwC Singapore: Allocating human accountability across different internal teams for agentic system for report drafting\n\nPwC is a network of professional services firms in 137 territories, across audit and assurance, tax and legal, deals and consulting.\n\nTo accelerate internal productivity, PwC Singapore’s AI Factory developed an agentic application that automates the drafting of research and analysis sections for internal reports, a process that has been traditionally manual and research-intensive. Users define the sections required, then the system draws from standardised templates maintained and updated (for regulatory and market developments) by PwC, retrieves and synthesises information from source materials, and generates draft content in seconds.\n\nThe system uses three coordinated agents in a primarily sequential workflow, with feedback loops for additional retrieval or restructuring where needed:"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "ef7c13ff-a7c9-4f22-8b9f-726f0442ba5f",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "2.2.1 Clear allocation of responsibilities within and outside the organisation",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 27,
+      "page_end": 28,
+      "quote": "The system uses three coordinated agents in a primarily sequential workflow, with feedback loops for additional retrieval or restructuring where needed:\n\nThe responsibilities below describe how operating accountability for this report -drafting use case is allocated, within the context of PwC Singapore’s broader AI governance framework:\n\n1. Use case owner – Use case appropriateness and accountable use: Confirming that the use case serves a legitimate business need, is appropriate for the intended purpose, and is aligned with the organisation’s AI governance framework. The use case owner remains accountable for the responsible use of the application and for ensuring that appropriate human oversight is in place.\n\n2. Technology Risk Management Team – Risk assessment and control advice: Supports the assessment of technology, risk, security, and compliance considerations for the use case, including any regulatory requirements . This includes advising on appropriate controls relating to tools and models, access rights, and connected knowledge bases or data sources.\n\n3. AI Factory – Design, development, guardrails and monitoring: Designing, developing, and maintaining the application, including prompt design, model selection, tool configuration, integration with approved knowledge bases , and appropriate guardrails . AI Factory also monitors for model changes and manages updates through standard change management processes rather than leaving it to the end users.\n\n| Make humans meaningfully accountable\n\n28\n\nOutside the organisation\n\nOrganisations may also need to work with external parties when deploying agents e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "6162aecf-16f2-4281-861e-4660bb84c183",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "2.2.1 Clear allocation of responsibilities within and outside the organisation",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 28,
+      "page_end": 28,
+      "quote": "28\n\nOutside the organisation\n\nOrganisations may also need to work with external parties when deploying agents e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools.\n\nIn these cases, organisations should similarly ensure that there are measures in place to fulfil its own accountability. Some agent-specific considerations are:\n\n• Clarify distribution of obligations in any terms and conditions or contracts between the organisation and the external party. In particular, organisations should consider provisions on security arrangements, performance guarantees, or data protection. Where there are gaps, the organisation should reassess if the agentic deployment meets its risk tolerance.\n\n• Address third-party opacity: Agents provided by external parties can be difficult to observe and control, making it challenging to understand what information they are grounded on, what they infer from conversations, or how data is stored and used . Organisations should take steps to maintain sufficient security and control, such as: o Require transparency and accountability from external parties e.g. through disclosures on agent capabilities and data handling practices o Request and evaluate technical security and control features e.g. strong authentication measures such as scoped API keys, per -agent identity tokens, and observability such as the logging of tool calls and access history. Where such features are lacking, organisations should consider alternative or in -house solutions, or scoping down the agentic use case, such as restricting access to sensitive data.\n\nEnd users"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "26206c20-f5b8-4534-a1c2-1324b11df4bf",
+      "section_id": "2b241f57-942a-5fc0-af40-e03fb17e0235",
+      "section_title": "12  See BCG, What Happens When AI Stops Asking Permission?",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 11,
+      "page_end": 11,
+      "quote": "• Unauthorised actions: Actions taken by the agent outside its permitted scope or authority, such as taking an action without escalating it for human approval based on explicit human instruction, a company policy, or standard operating procedures.\n\n• Biased or unfair actions: Biased or unfair output is a known problem for LLMs and can translate to biased actions in agents. These are actions that lead to unfair outcomes, especially when dealing with groups of different profiles and demographics e.g. biased vendor selection in procurement, disbursements of grants, and/or hiring decisions.\n\n• Data breaches: Actions that lead to the exposure or manipulation of sensitive data. Such data may be personally identifiable or confidential information e.g. customer details, trade secrets, and/or internal communications. This can be due to a security breach, where attackers exploit agents to reveal private information, or an agent disclosing sensitive data due to a failure to recognise it as sensitive. While this is also a known risk for LLMs, agents generally have greater access to data, and can not only leak but also wrongly modify data.\n\n• Disruption to connected systems : As agents interact with other systems, they can cause disruption to connected systems when they are compromised or malfunction e.g. deleting a production codebase, or overwhelming external systems with requests.\n\n1.2.3 Systemic and multi-agent risks\n\nThe speed and complexity of agentic systems can increase the risks above. In particular:"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "fdc580ae-ff56-4c5f-b563-338ebfa27bc6",
+      "section_id": "46cc59e1-4d0f-5a23-9b9e-2b94b5492031",
+      "section_title": "MCP as a governance layer",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 36,
+      "page_end": 36,
+      "quote": "Cyber Sierra is a Singapore-based company that is a Governance, Risk and Compliance (GRC) Agent Factory, building multi-agentic infrastructure for cyber operations, security compliance and audit tasks.\n\nIt developed TracyAI, which is a solution to automate responses to security and compliance questionnaires. Such questionnaires usually contain hundreds of repetitive questions relating to data protection, access controls, certifications and risk management. It does so through an agentic system that searches and reasons over multiple steps through past due diligence questionnaires, information security policy documents and an evidence folder. TracyAI was deployed in the Governance, Risk and Compliance team of a large financial institution based in Hong Kong, reducing a task that typically took more than 100 manual hours to 15 minutes.\n\nTo reduce the chances of inaccurate output and hallucination, the team implemented these technical controls:\n\n• Reflection architecture for agent to review its own outputs: The agentic system incorporated two types of reflection nodes, implemented using LangGraph, to provide feedback to the agent after it generated its output: o LLM Judge-based: An LLM judge critiqued the output based on whether it addressed the question, the justification aligned with retrieved evidence, and no unsupported or fabricated claims were introduced. o Metrics-based: Similarity scores and RAGAS metrics like faithfulness, context relevance, response relevance score."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "80f9d6fe-0ba6-4986-9bac-f1893b849dab",
+      "section_id": "1970ddee-0e2a-50f3-9347-fb2dc0f9e4b6",
+      "section_title": "Stability Solutions: Differing controls on internal-facing vs external-facing agents",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 37,
+      "page_end": 37,
+      "quote": "Stability Solutions: Differing controls on internal-facing vs external-facing agents\n\nStability Solutions is a company based in the US and Singapore that builds and provides blockchain - powered infrastructure to record, preserve, and verify the integrity of data at scale. Their solutions include the Global Trust Network (“GTN”, a high -throughput cryptoless public blockchain, currently used in supply chain and logistics), and Monolith, an application that records the provenance of creative works by allowing creators to digitally fingerprint any file, issue C2PA manifests and provenance metadata, and embed IP licenses and AI training permissions, recording all of this in a robust, verifiable, and machine-readable format on the GTN.\n\nStability deploys their in-house agentic AI system, L3, which currently comprises 26 AI agents that run 24/7 across almost all company functions, including product development, software engineering, and marketing. Its internal agents have action -taking cap abilities e.g. consolidating and archiving information across the entire company, sending daily morning briefs, monitoring and resolving network issues, acting as digital twins or personal assistants, and supporting engineering and development activities s uch as planning projects and writing code. L3 is optimised to have access to as much information as possible, enabling it to coordinate across teams (e.g. if the engineering team is planning an upgrade, L3 will inform them of planned marketing activities to avoid any disruptions)."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "16ba2988-d7b7-43ba-aacd-5cc49d5805bb",
+      "section_id": "ad01ed37-b61d-5db6-b897-f3300c6c16bd",
+      "section_title": "1.1.1 Core components of an agent",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 6,
+      "page_end": 7,
+      "quote": "Core components of a simple agent3\n\nAs agents are built on top of language models, it is helpful to start with the core components of a simple LLM-based app, which an agent uses in similar ways.\n\n1 Adapted from the International AI Safety Report. 2 See World Economic Forum (WEF), AI Agents in Action: Foundations for Evaluation and Governance . 3 Adapted from GovTech Singapore, Agentic Risk & Capability Framework, CSA Singapore, Draft Addendum on Securing Agentic AI and Anthropic, Building Effective Agents). Controls (Access controls, guardrails, human approvals) Guide decisions and actions Retrieve and store info for long-term Interact with external systems\n\nModel\n\nPlanning & Reasoning\n\nInstructions\n\nTools\n\nMemory\n\n1 v\n\n2 v\n\n3 v\n\n5 v\n\n4 v\n\nLogging and monitoring\n\n7 v\n\n8 v\n\n| Introduction to Agentic AI 7 1. Model: an SLM, LLM or MLLM that serves as the central reasoning and planning engine, or the “brain” of the agent. It processes instructions, interprets user inputs, and generates contextually appropriate responses.\n\n2. Instructions: Natural language commands that define an agent's role, capabilities, and behavioural constraints e.g. a system prompt for an LLM."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_partial",
+      "summary_zh": "答案正确指出所引用的OCBC/新加坡银行案例片段未披露部署预算，并准确概括该案例描述了目标、范围与自主性边界。但“未披露”的结论仅基于可用片段，属于有保留的缺乏证据陈述，不能等同于确认整个框架未披露预算，因此为部分完整。",
+      "claims": [
+        {
+          "answer_span": "The available excerpts do not establish the deployment budget for the Bank of Singapore Source of Wealth agentic system.",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用的OCBC案例片段确实未包含任何成本或预算数字，且答案明确限定为“available excerpts”，属于诚实的缺乏证据陈述。"
+        },
+        {
+          "answer_span": "The OCBC/Bank of Singapore case describes the system's objectives, scope, and autonomy bounds, but no cost or budget figures are disclosed [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]确实描述了该系统的目标（提升一致性/完整性、减少人工）、范围（解析收入相关文件、生成Source of Wealth备忘录草稿）以及自主性边界（任务级自主、无自我发起、无决策权），且全段无任何成本或预算数字。"
+        }
+      ],
+      "issues": [
+        {
+          "severity": "minor",
+          "dimension": "completeness",
+          "answer_span": "The available excerpts do not establish the deployment budget",
+          "reason_zh": "答案仅基于检索到的片段作出“未披露”判断，未说明这是否为整个新加坡框架的完整结论；在answerability为unresolved_candidate的情况下，该限定虽诚实，但未完全回答框架整体是否披露预算。",
+          "evidence_child_ids": [
+            "2c6df4b6-a204-475a-a9a7-54eb92027150"
+          ]
+        }
+      ],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_partial\",\"summary_zh\":\"答案正确指出所引用的OCBC/新加坡银行案例片段未披露部署预算，并准确概括该案例描述了目标、范围与自主性边界。但“未披露”的结论仅基于可用片段，属于有保留的缺乏证据陈述，不能等同于确认整个框架未披露预算，因此为部分完整。\",\"claims\":[{\"answer_span\":\"The available excerpts do not establish the deployment budget for the Bank of Singapore Source of Wealth agentic system.\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用的OCBC案例片段确实未包含任何成本或预算数字，且答案明确限定为“available excerpts”，属于诚实的缺乏证据陈述。\"},{\"answer_span\":\"The OCBC/Bank of Singapore case describes the system's objectives, scope, and autonomy bounds, but no cost or budget figures are disclosed [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]确实描述了该系统的目标（提升一致性/完整性、减少人工）、范围（解析收入相关文件、生成Source of Wealth备忘录草稿）以及自主性边界（任务级自主、无自我发起、无决策权），且全段无任何成本或预算数字。\"}],\"issues\":[{\"severity\":\"minor\",\"dimension\":\"completeness\",\"answer_span\":\"The available excerpts do not establish the deployment budget\",\"reason_zh\":\"答案仅基于检索到的片段作出“未披露”判断，未说明这是否为整个新加坡框架的完整结论；在answerability为unresolved_candidate的情况下，该限定虽诚实，但未完全回答框架整体是否披露预算。\",\"evidence_child_ids\":[\"2c6df4b6-a204-475a-a9a7-54eb92027150\"]}],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

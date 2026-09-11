@@ -6,6 +6,7 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException
 
 from app.modules.auth.dependencies import get_current_user
+from app.modules.chat.contracts import status_for_history
 from app.modules.chat.history_repository import chat_history_repository
 from app.modules.chat.schemas import (
     Citation,
@@ -58,6 +59,7 @@ async def get_session(session_id: UUID, user: CurrentUser) -> SessionDetail:
             citations=_parse_citations(m.get("citations_json")),
             evidence_sufficient=m.get("evidence_sufficient"),
             evidence_sources=_parse_json_list(m.get("evidence_sources")),
+            **status_for_history(m),
             response_mode=m.get("response_mode"),
             answer_mode=m.get("answer_mode"),
             agent_mode=m.get("agent_mode"),

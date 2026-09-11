@@ -1,0 +1,234 @@
+{
+  "question_id": "DEV2-MO01",
+  "question": "Are mandatory staff training and applying the AI technical standard expressed with the same obligation strength in the responsible-AI policy?",
+  "inputs_sha256": "f39f36d6aa839654d1aaa42cc8760868210f5ea771a33d1dd1f5f4f8bd02f7c0",
+  "messages_sha256": "e0c58fdf6234298c45878a7942f5a835341145ab48305c97efe2ba0f00955c46",
+  "raw_artifact_sha256": "cfae50c842a45526f4ba95a99e761be86e59318ed7302710aa06b65d9768e510",
+  "final_artifact_sha256": "614ac09fc478a402a5d135e9776a20ce65ef95e2b62e99fb2b1d937244a07ddd",
+  "draft": "No. The two are expressed at different obligation strengths.\n\n**Mandatory staff training — binding requirement.** Agencies must implement mandatory training for all staff on responsible AI use within 12 months of the policy taking effect [1]. The Guidance for Staff Training on AI likewise states that the policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role [3].\n\n**AI technical standard — recommended, not mandatory.** It is strongly recommended that agencies apply the AI technical standard for Australian Government [1]. The standard is designed for Australian Government agencies adopting AI and embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines [1].\n\n**Synthesis.** The policy therefore distinguishes a \"must\" obligation (staff training) from a \"strongly recommended\" action (applying the AI technical standard). Note that this comparison concerns the obligation strength as expressed in the policy; the AI Technical Standard document itself describes its own internal criteria as \"required\" or \"recommended\" [8], which is a separate matter from whether an agency is obliged to adopt the standard.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "No. The two are expressed at different obligation strengths. [1]\n\n**Mandatory staff training — binding requirement.** Agencies must implement mandatory training for all staff on responsible AI use within 12 months of the policy taking effect [1]. The Guidance for Staff Training on AI likewise states that the policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role [3].\n\n**AI technical standard — recommended, not mandatory.** It is strongly recommended that agencies apply the AI technical standard for Australian Government [1]. The standard is designed for Australian Government agencies adopting AI and embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect.\"},\n        {\"number\": 1, \"quote\": \"It is strongly recommended that agencies apply the AI technical standard for Australian Government.\"}\n      ],\n      \"reason\": \"Child 1 expresses staff training as a 'must' obligation and applying the AI technical standard as 'strongly recommended', supporting the claim that the two are expressed at different obligation strengths.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect.\"},\n        {\"number\": 3, \"quote\": \"The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role.\"}\n      ],\n      \"reason\": \"Child 1 supports the binding requirement, all-staff scope, and 12-month deadline. Child 3 supports the Guidance for Staff Training on AI statement that the policy requires mandatory training for all staff on responsible and ethical AI use regardless of role.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"It is strongly recommended that agencies apply the AI technical standard for Australian Government.\"},\n        {\"number\": 1, \"quote\": \"The standard is designed for Australian Government agencies adopting AI.\"},\n        {\"number\": 1, \"quote\": \"It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\"}\n      ],\n      \"reason\": \"Child 1 supports that applying the AI technical standard is strongly recommended, that the standard is designed for Australian Government agencies adopting AI, and that it embeds fairness, transparency, and accountability into technical requirements and guidelines.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect.\"},\n        {\"number\": 1, \"quote\": \"It is strongly recommended that agencies apply the AI technical standard for Australian Government.\"}\n      ],\n      \"reason\": \"The synthesis that the policy distinguishes a 'must' obligation for staff training from a 'strongly recommended' action for applying the AI technical standard is supported by Child 1. However, the additional claim that the AI Technical Standard document itself describes its own internal criteria as 'required' or 'recommended' is not supported by the supplied excerpts, including Child 8.\"\n    }\n  ]\n}",
+    "answer": "No. The two are expressed at different obligation strengths. [1]\n\n**Mandatory staff training — binding requirement.** Agencies must implement mandatory training for all staff on responsible AI use within 12 months of the policy taking effect [1]. The Guidance for Staff Training on AI likewise states that the policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role [3].\n\n**AI technical standard — recommended, not mandatory.** It is strongly recommended that agencies apply the AI technical standard for Australian Government [1]. The standard is designed for Australian Government agencies adopting AI and embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines [1].",
+    "removed_unit_ids": [
+      "u4"
+    ],
+    "rebound_unit_ids": [
+      "u1"
+    ],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect."
+            },
+            {
+              "number": 1,
+              "quote": "It is strongly recommended that agencies apply the AI technical standard for Australian Government."
+            }
+          ],
+          "reason": "Child 1 expresses staff training as a 'must' obligation and applying the AI technical standard as 'strongly recommended', supporting the claim that the two are expressed at different obligation strengths."
+        },
+        {
+          "id": "u2",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect."
+            },
+            {
+              "number": 3,
+              "quote": "The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role."
+            }
+          ],
+          "reason": "Child 1 supports the binding requirement, all-staff scope, and 12-month deadline. Child 3 supports the Guidance for Staff Training on AI statement that the policy requires mandatory training for all staff on responsible and ethical AI use regardless of role."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "It is strongly recommended that agencies apply the AI technical standard for Australian Government."
+            },
+            {
+              "number": 1,
+              "quote": "The standard is designed for Australian Government agencies adopting AI."
+            },
+            {
+              "number": 1,
+              "quote": "It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines."
+            }
+          ],
+          "reason": "Child 1 supports that applying the AI technical standard is strongly recommended, that the standard is designed for Australian Government agencies adopting AI, and that it embeds fairness, transparency, and accountability into technical requirements and guidelines."
+        },
+        {
+          "id": "u4",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect."
+            },
+            {
+              "number": 1,
+              "quote": "It is strongly recommended that agencies apply the AI technical standard for Australian Government."
+            }
+          ],
+          "reason": "The synthesis that the policy distinguishes a 'must' obligation for staff training from a 'strongly recommended' action for applying the AI technical standard is supported by Child 1. However, the additional claim that the AI Technical Standard document itself describes its own internal criteria as 'required' or 'recommended' is not supported by the supplied excerpts, including Child 8."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "8111121c-9ece-40d1-839c-2803fe4ab492",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 12,
+      "quote": "Mandatory requirements\n\nOperationalise the responsible use of AI Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect. This may vary according to the scale and scope of agency AI use. At a minimum, the approach will provide an agency with: • a process for adopting AI use cases in line with the implemented actions of this policy, as well as the agency’s enterprise risk management and governance approach. • a way to inform staff who are designing and implementing AI use cases about Australia’s AI Ethics Principles. • a pathway for staff to report AI safety concerns, including AI incidents. • pathways for the public to report AI safety concerns, appropriate to the agency’s AI use. • clear processes to address AI incidents aligned to their ICT incident management approach - incident remediation must be overseen by an appropriate governance body or senior executive and should be undertaken in line with any other legal obligations. Agencies may modify existing policies, procedures and frameworks, or create new ones. Smaller agencies with minimal AI adoption could amend existing documentation and/or assign key personnel to guide staff on responsible AI adoption on an ad hoc basis. Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "90971b4b-8c01-4b69-b4c2-c46dc554057d",
+      "section_id": "598c7c87-39ad-5d22-b4eb-856c19f307d0",
+      "section_title": "Guidance for staff training on AI",
+      "title": "Guidance for Staff Training on AI",
+      "page": 1,
+      "page_end": 4,
+      "quote": "Guidance for staff training on AI Supporting the policy for the responsible use of AI in government 2.0 Version 2.0\n\nDigital Transformation Agency © Commonwealth of Australia (Digital Transformation Agency) 2025 | Version 1801 With the exception of the Commonwealth Coat of Arms and where otherwise noted, this product is provided under a Creative Commons Attribution 4.0 International Licence. (http:/ /creativecommons.org/licenses/by/4.0/legalcode) The Digital Transformation Agency has tried to make the information in this product as accurate as possible. However, it does not guarantee that the information is totally accurate or complete. Therefore, you should not solely rely on this information when making a commercial decision. Digital Transformation Agency is committed to providing web accessible content wherever possible. If you are having difficulties with accessing this document, please email: ai@dta.gov.au. Page ii\n\nThe policy recognises that AI is used in many areas of the APS and everyday life. As adoption grows, staff at all levels will interact with AI and its outputs, directly or indirectly. The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role. Agencies should also consider if it is appropriate for staff to complete annual refresher training."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "46eb624c-d42a-4af8-8a14-f07b95bf1e4b",
+      "section_id": "a91df602-7a5b-57f3-afc7-fb908ad6bd41",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 28,
+      "page_end": 29,
+      "quote": "NOTE: Agencies must consider data and lineage | naa.gov.au compliance with Australian Government regulations.\n\nNOTE: Agencies should refer to the Policy of responsible use of AI in government to implement AI fundamentals training | digital.gov.au for all staff, regardless of their role. To support agencies with their implementation of the Policy, the DTA provides Guidance for staff training on AI | digital.gov.au. NOTE: Australian Government API guidelines | api.gov.au mandate the use of semantic versioning. NOTE: Agencies should refer to the Australian parliamentary recommendations | aph.gov.au on AI including risk management, people capabilities, and implement measures for algorithmic bias | humanrights.gov.au. NOTE: Any infrastructure, both software and hardware, for AI services and solutions must adhere to Australian Government regulations and should consider security as priority as recommended by the Australian Government guidance on AI system Development | cyber.gov.au, Deploying AI systems Securely | cyber.gov.au and Engaging with AI | cyber.gov.au. The recommendations include secure well-architected environments, whether on-premises, cloud-based, or hybrid, to maintain the confidentiality, integrity, and availability of AI services."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "f7b75008-733a-4959-878d-b4a724921f0c",
+      "section_id": "3ba379c1-0592-50c5-9534-eb9c3cc125f0",
+      "section_title": "Foundational AI training",
+      "title": "Guidance for Staff Training on AI",
+      "page": 4,
+      "page_end": 4,
+      "quote": "Foundational AI training Providing foundational training will help staff become confident in using AI in a responsible way. Foundational training focused on responsible and ethical AI use should address the following learning outcomes: • introduction to AI ○ identify different types of AI and their functions ○ recognise AI in everyday tools and services. • generative AI ○ understand how generative AI works ○ use clear prompts and verify outputs • foundations of safe and responsible AI use ○ recognise the importance of ethical AI use ○ understand how to remain accountable for AI use ○ appropriate management of security classified, personal and sensitive information ○ understand how AI ethics should be applied in practice, including how to manage AI for accuracy, bias, sensitivity and transparency The training must align with the Policy for the responsible use of AI in government, Australia’s AI Ethics Principles and expectations such as Australia’s Public Service Values and Code of Conduct."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "1760d0fd-4145-41d7-b8bd-d0948ccf1c7f",
+      "section_id": "78c2eeb3-2fa0-514f-a01e-24077b1e7a9e",
+      "section_title": "Policy introduction",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 4,
+      "page_end": 4,
+      "quote": "Policy introduction The increasing adoption of artificial intelligence (AI) is reshaping the economy, society and government. Government agencies are embracing the AI opportunity to boost efficiency, enable better data analysis and evidence-based decisions, and improve service delivery for people and business. The Australian Government is committed to capturing the opportunities of AI in a way that facilitates innovation while mitigating harms. Government has an elevated responsibility to adopt AI safely and should be held to a high ethical standard of use. The December 2025 update to the policy strengthens government’s approach to safe and responsible AI through new measures on AI governance. It introduces requirements for agencies to develop a strategic approach to adopting AI, establish an approach to operationalise the responsible use of AI, ensure designated accountability for AI use cases, and undertake risk-based use case-level actions. In recognition of the speed and scale of change in this area, the policy will evolve over time as the technology changes, leading practices emerge, the broader regulatory environment develops, and government’s AI maturity improves."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "11345108-61b6-4657-8378-e7af589d61cb",
+      "section_id": "1eb6c856-ec1b-5b36-b61e-0e9c13d66c59",
+      "section_title": "AI fundamentals training",
+      "title": "Guidance for Staff Training on AI",
+      "page": 5,
+      "page_end": 5,
+      "quote": "AI fundamentals training The Digital Transformation Agency (DTA) has developed AI fundamentals training for agency use. This training meets the learning outcomes described above for foundational AI training and can be used to satisfy the policy requirement for staff training. The training will be updated periodically to address changes in the AI landscape, such as evolutions in the technology and its use in government. As staff will likely interact with generative AI now and in the future, it is an area of focus for the training. The training is designed for all staff regardless of their experience using AI. It takes approximately 20 to 30 minutes to complete. It does not cover advanced topics such as model training, system development or instructions for specific technologies or platforms."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "55701578-d7f7-4498-82ff-53b6ae12fc72",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 8,
+      "page_end": 8,
+      "quote": "Introduction The AI technical standard (the standard) sets consistent practices for government agencies adopting artificial intelligence (AI) systems across the AI lifecycle. The standard brings together a set of practices for procuring, designing, developing, deploying, and using AI systems. The standard reinforces the Australian Government’s AI Ethics Principles | industry.gov.au into a set of technical requirements and guidelines. It complements the Policy for the responsible use of AI in government | digital.gov.au, the AI assurance framework | digital.gov.au, and the Voluntary AI Safety Standard | industry.gov.au. The standard adopts the OECD definition of an Artificial Intelligence (AI) system | oecd.ai: ‘An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments. Different AI systems vary in their levels of autonomy and adaptiveness after deployment.’ The standard adopts an agency-first approach. Rather than introducing new processes or duplication, it emphasises the reuse of agency policies, frameworks and practices."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答正确区分了两种义务强度：强制员工培训为约束性要求（must，12个月内），应用AI技术标准为强烈建议（strongly recommended），与参考要点一致，引用证据充分。",
+      "claims": [
+        {
+          "answer_span": "No. The two are expressed at different obligation strengths.",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]中培训为'must'，技术标准为'strongly recommended'，义务强度不同，结论正确。"
+        },
+        {
+          "answer_span": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of the policy taking effect",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文明确为'Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect'。"
+        },
+        {
+          "answer_span": "The Guidance for Staff Training on AI likewise states that the policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]原文为'The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role'，表述一致。"
+        },
+        {
+          "answer_span": "It is strongly recommended that agencies apply the AI technical standard for Australian Government",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文为'It is strongly recommended that agencies apply the AI technical standard for Australian Government'，属推荐而非强制。"
+        },
+        {
+          "answer_span": "The standard is designed for Australian Government agencies adopting AI and embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文包含该表述，内容一致。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答正确区分了两种义务强度：强制员工培训为约束性要求（must，12个月内），应用AI技术标准为强烈建议（strongly recommended），与参考要点一致，引用证据充分。\",\"claims\":[{\"answer_span\":\"No. The two are expressed at different obligation strengths.\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]中培训为'must'，技术标准为'strongly recommended'，义务强度不同，结论正确。\"},{\"answer_span\":\"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of the policy taking effect\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文明确为'Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect'。\"},{\"answer_span\":\"The Guidance for Staff Training on AI likewise states that the policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]原文为'The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role'，表述一致。\"},{\"answer_span\":\"It is strongly recommended that agencies apply the AI technical standard for Australian Government\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文为'It is strongly recommended that agencies apply the AI technical standard for Australian Government'，属推荐而非强制。\"},{\"answer_span\":\"The standard is designed for Australian Government agencies adopting AI and embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文包含该表述，内容一致。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

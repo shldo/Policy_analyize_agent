@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import asyncio
 import json
+import re
 from collections.abc import AsyncGenerator
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
@@ -21,6 +23,34 @@ from app.modules.settings.service import (
     get_llm_provider,
     get_provider_api_key,
 )
+
+_CITATION_MARKER = re.compile(r"\[(\d+)\]")
+
+
+def validate_answer_citations(answer: str, citations: list[dict] | None) -> dict:
+    """Check citation syntax and identity without pretending to check semantics.
+
+    Direct-mode citations are implicitly numbered by their final list order;
+    Agent citations carry an explicit ``number``.  The result is suitable for
+    an audit warning and never upgrades coverage or answer status.
+    """
+
+    available = set()
+    for index, citation in enumerate(citations or []):
+        number = (
+            citation.get("number")
+            if isinstance(citation, dict)
+            else getattr(citation, "number", None)
+        )
+        available.add(index + 1 if number is None else number)
+    used = {int(marker) for marker in _CITATION_MARKER.findall(answer or "")}
+    unknown = sorted(used - available)
+    return {
+        "has_numbered_citation": bool(used),
+        "valid_identity": not unknown,
+        "unknown_numbers": unknown,
+        "semantic_support_checked": False,
+    }
 
 
 def format_context(pages: list[dict]) -> tuple[str, bool]:
@@ -47,7 +77,10 @@ def _build_citation_instruction(citations: list[dict]) -> str:
     lines = []
     for index, citation in enumerate(citations, 1):
         page = f", page {citation['page']}" if citation.get("page") else ""
-        lines.append(f"[{index}] {citation.get('title', 'Unknown document')}{page}")
+        number = citation.get("number")
+        if number is None:
+            number = index
+        lines.append(f"[{number}] {citation.get('title', 'Unknown document')}{page}")
     return CITATION_INSTRUCTION.format(source_list="\n".join(lines))
 
 
@@ -159,7 +192,23 @@ def generate_answer(
             provider, selected_model, max_tokens=get_settings().rag_reserved_output_tokens
         ).invoke(messages)
     )
+    if get_settings().rag_claim_binding_enabled and answer_mode == "analysis":
+        answer = bind_answer_claims(question, answer, citations or [], provider, selected_model)
     return answer, f"{provider}/{selected_model}"
+
+
+def bind_answer_claims(question, answer, citations, provider, model):
+    from app.modules.chat.rag.claim_binding import review_and_revise
+
+    client = create_chat_client(provider, model, max_tokens=6500).model_copy(
+        update={"request_timeout": 120, "max_retries": 0}
+    )
+    result = review_and_revise(question, answer, citations, client)
+    if result["status"] != "reviewed":
+        raise ValueError(
+            "Evidence review could not be validated; please retry or inspect the sources."
+        )
+    return result["answer"]
 
 
 async def generate_answer_streaming(
@@ -171,6 +220,21 @@ async def generate_answer_streaming(
     citations: list[dict] | None = None,
     answer_mode: AnswerMode = "analysis",
 ) -> AsyncGenerator[str, None]:
+    if get_settings().rag_claim_binding_enabled and answer_mode == "analysis":
+        # Do not leak the unreviewed draft through SSE. Opt-in review trades
+        # first-token latency for returning only the bounded revised answer.
+        answer, _ = await asyncio.to_thread(
+            generate_answer,
+            question,
+            context,
+            model,
+            response_mode,
+            history,
+            citations,
+            answer_mode,
+        )
+        yield answer
+        return
     provider, selected_model, _ = resolve_generation_target(model)
     messages = _generation_messages(
         question,

@@ -1,0 +1,272 @@
+{
+  "question_id": "DEV2-MO02",
+  "question": "Does the policy impose the same board-or-senior-executive governance obligation on medium- and high-inherent-risk use cases?",
+  "inputs_sha256": "dba17fa106df96b61c002133744aff598a01719a7190fa415551e84d449ed2d1",
+  "messages_sha256": "6638b0851f71f255003870f4c00f85bb35eb21091e646707d1019d6db7f18f65",
+  "raw_artifact_sha256": "827229e8f11d107e7974e3b508fda28ea9964f236d37c0c1b3649d19fc053a1b",
+  "final_artifact_sha256": "d89f694564637d02026e7e234e5a35bbfac3133fb485c61b1769c9775666faba",
+  "draft": "No. The obligations differ in strength and trigger.\n\n**High inherent risk — mandatory.** Where an agency determines an in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, it **must** govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency [1]. The same provision also requires reporting the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks [1]. Once the agency has decided to deploy the use case, it must report the use case to the DTA through the accountable official and establish a system to regularly review the use case every 12 months at a minimum, with the review reporting to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed, and considering the AI use case impact assessment and revisions to it if required [1].\n\n**Medium inherent risk — discretionary.** Where an agency determines an in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, it **should consider** whether the use case would benefit from being governed through a designated board or a senior executive, and should choose an approach appropriate for the size and scope of the agency if it applies additional governance [1].\n\n**Synthesis.** The board-or-senior-executive mechanism is common to both tiers, but only the high-risk tier imposes it as a mandatory requirement; the medium-risk tier frames it as a consideration, with the choice of approach conditioned on agency size and scope [1]. The excerpts do not establish any equivalent mandatory board-or-senior-executive governance requirement for medium-risk use cases, nor any reporting or 12-month review obligations attaching to the medium-risk tier [1].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "No. The obligations differ in strength and trigger. [1]\n\n**High inherent risk — mandatory.** Where an agency determines an in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, it **must** govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency [1]. The same provision also requires reporting the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks [1]. Once the agency has decided to deploy the use case, it must report the use case to the DTA through the accountable official and establish a system to regularly review the use case every 12 months at a minimum, with the review reporting to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed, and considering the AI use case impact assessment and revisions to it if required [1].\n\n**Medium inherent risk — discretionary.** Where an agency determines an in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, it **should consider** whether the use case would benefit from being governed through a designated board or a senior executive, and should choose an approach appropriate for the size and scope of the agency if it applies additional governance [1].\n\n**Synthesis.** The board-or-senior-executive mechanism is common to both tiers, but only the high-risk tier imposes it as a mandatory requirement; the medium-risk tier frames it as a consideration, with the choice of approach conditioned on agency size and scope [1]. The excerpts do not establish any equivalent mandatory board-or-senior-executive governance requirement for medium-risk use cases, nor any reporting or 12-month review obligations attaching to the medium-risk tier [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"they should consider if the use case would benefit from being governed through a designated board or a senior executive\"},\n        {\"number\": 1, \"quote\": \"they must: \\u2022 report the use case to the agency accountable official\"}\n      ],\n      \"reason\": \"Child 1 shows the medium-risk tier uses 'should consider' while the high-risk tier uses 'must', supporting that the obligations differ in strength and trigger.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"If an agency determines their in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, they must:\"},\n        {\"number\": 1, \"quote\": \"govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency\"},\n        {\"number\": 1, \"quote\": \"report the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks\"},\n        {\"number\": 1, \"quote\": \"report the use case to the DTA through the accountable official\"},\n        {\"number\": 1, \"quote\": \"establish a system to regularly review the use case every 12 months at a minimum\"},\n        {\"number\": 1, \"quote\": \"The review must report to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed\"},\n        {\"number\": 1, \"quote\": \"The review must also consider the AI use case impact assessment and revisions to it, if required.\"}\n      ],\n      \"reason\": \"Child 1 supports the high-risk mandatory governance, accountable-official reporting, DTA reporting, 12-month review, review reporting, and consideration of the impact assessment.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"If an agency determines their in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, they should consider if the use case would benefit from being governed through a designated board or a senior executive.\"},\n        {\"number\": 1, \"quote\": \"Agencies should choose an approach appropriate for the size and scope of the agency if they apply additional governance.\"}\n      ],\n      \"reason\": \"Child 1 supports the medium-risk discretionary consideration and the size-and-scope condition for additional governance.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"they should consider if the use case would benefit from being governed through a designated board or a senior executive\"},\n        {\"number\": 1, \"quote\": \"they must: \\u2022 report the use case to the agency accountable official\"},\n        {\"number\": 1, \"quote\": \"govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency\"},\n        {\"number\": 1, \"quote\": \"Agencies should choose an approach appropriate for the size and scope of the agency if they apply additional governance.\"}\n      ],\n      \"reason\": \"Child 1 supports the synthesis that the board-or-senior-executive mechanism appears in both tiers, is mandatory only for high-risk, and is discretionary for medium-risk; it also shows no equivalent mandatory medium-risk reporting or 12-month review obligations in the excerpt.\"\n    }\n  ]\n}",
+    "answer": "No. The obligations differ in strength and trigger. [1]\n\n**High inherent risk — mandatory.** Where an agency determines an in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, it **must** govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency [1]. The same provision also requires reporting the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks [1]. Once the agency has decided to deploy the use case, it must report the use case to the DTA through the accountable official and establish a system to regularly review the use case every 12 months at a minimum, with the review reporting to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed, and considering the AI use case impact assessment and revisions to it if required [1].\n\n**Medium inherent risk — discretionary.** Where an agency determines an in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, it **should consider** whether the use case would benefit from being governed through a designated board or a senior executive, and should choose an approach appropriate for the size and scope of the agency if it applies additional governance [1].\n\n**Synthesis.** The board-or-senior-executive mechanism is common to both tiers, but only the high-risk tier imposes it as a mandatory requirement; the medium-risk tier frames it as a consideration, with the choice of approach conditioned on agency size and scope [1]. The excerpts do not establish any equivalent mandatory board-or-senior-executive governance requirement for medium-risk use cases, nor any reporting or 12-month review obligations attaching to the medium-risk tier [1].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [
+      "u1"
+    ],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "they should consider if the use case would benefit from being governed through a designated board or a senior executive"
+            },
+            {
+              "number": 1,
+              "quote": "they must: • report the use case to the agency accountable official"
+            }
+          ],
+          "reason": "Child 1 shows the medium-risk tier uses 'should consider' while the high-risk tier uses 'must', supporting that the obligations differ in strength and trigger."
+        },
+        {
+          "id": "u2",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "If an agency determines their in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, they must:"
+            },
+            {
+              "number": 1,
+              "quote": "govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency"
+            },
+            {
+              "number": 1,
+              "quote": "report the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks"
+            },
+            {
+              "number": 1,
+              "quote": "report the use case to the DTA through the accountable official"
+            },
+            {
+              "number": 1,
+              "quote": "establish a system to regularly review the use case every 12 months at a minimum"
+            },
+            {
+              "number": 1,
+              "quote": "The review must report to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed"
+            },
+            {
+              "number": 1,
+              "quote": "The review must also consider the AI use case impact assessment and revisions to it, if required."
+            }
+          ],
+          "reason": "Child 1 supports the high-risk mandatory governance, accountable-official reporting, DTA reporting, 12-month review, review reporting, and consideration of the impact assessment."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "If an agency determines their in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, they should consider if the use case would benefit from being governed through a designated board or a senior executive."
+            },
+            {
+              "number": 1,
+              "quote": "Agencies should choose an approach appropriate for the size and scope of the agency if they apply additional governance."
+            }
+          ],
+          "reason": "Child 1 supports the medium-risk discretionary consideration and the size-and-scope condition for additional governance."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "they should consider if the use case would benefit from being governed through a designated board or a senior executive"
+            },
+            {
+              "number": 1,
+              "quote": "they must: • report the use case to the agency accountable official"
+            },
+            {
+              "number": 1,
+              "quote": "govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency"
+            },
+            {
+              "number": 1,
+              "quote": "Agencies should choose an approach appropriate for the size and scope of the agency if they apply additional governance."
+            }
+          ],
+          "reason": "Child 1 supports the synthesis that the board-or-senior-executive mechanism appears in both tiers, is mandatory only for high-risk, and is discretionary for medium-risk; it also shows no equivalent mandatory medium-risk reporting or 12-month review obligations in the excerpt."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "c06d1e3b-008e-4c3b-b7e8-8e3f40f47cb3",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 15,
+      "page_end": 16,
+      "quote": "Agencies should also monitor changes that are not initiated by the agency. For example, vendor changes and changes in the regulatory environment. Agencies could also ask vendors to provide information on updates through contractual mechanisms.\n\nMedium-risk AI use cases If an agency determines their in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, they should consider if the use case would benefit from being governed through a designated board or a senior executive. Agencies should choose an approach appropriate for the size and scope of the agency if they apply additional governance.\n\nHigh-risk AI use cases If an agency determines their in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, they must: • report the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks • govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency. Once an agency has decided to deploy the use case, they must: • report the use case to the DTA through the accountable official, see the Standard for accountability • establish a system to regularly review the use case every 12 months at a minimum. The review must report to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed. The review must also consider the AI use case impact assessment and revisions to it, if required."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "ba219966-3549-47f7-b6d6-7cb6f50266a7",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "Appendix C: In-scope AI use cases",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 21,
+      "page_end": 22,
+      "quote": "This policy has been designed to exclude incidental and lower risk uses of AI that do not meet the criteria.\n\nIncidental uses of AI may include off-the-shelf software with AI features such as grammar checks and internet searches with AI functionality. The policy recognises that incidental usage of AI will grow over time and focuses on uses that require additional oversight and governance. 1 As defined by the Privacy Act 1988 (Cth).\n\n2 As defined by the Australian Government Protective Security Policy Framework\n\nIn assessing whether a use case is in scope, agencies should also carefully consider AI use in the following areas: • recruitment and other employment-related decision making • automated decision making of discretionary decisions • administration of justice and democratic processes • law enforcement, profiling individuals, and border control • health • education • critical infrastructure. While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "d9bb0011-e7ae-469e-a7a4-01a821157cc3",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "2  As defined by the Australian Government Protective Security Policy Framework",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 22,
+      "page_end": 22,
+      "quote": "While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment.\n\nExperimentation For the avoidance of doubt, agencies are not required to apply this policy if they are doing early-stage experimentation which does not: • commit to proceeding with a use case or to any design decisions that would affect implementation later • risk harming anyone • introduce or exacerbate any privacy or security risks. If there is a likelihood of proceeding with the AI use case while experimenting in this phase, agencies should apply the policy. Agencies should also apply the Australian Government AI technical standard, which provides relevant information for developing use cases at each stage of the AI lifecycle."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "5df0e4e5-5a61-47fa-bcb8-31f2f665bb25",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "Appendix C: In-scope AI use cases",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 21,
+      "page_end": 21,
+      "quote": "Appendix C: In-scope AI use cases\n\nCriteria and areas of consideration At a minimum, an AI use case is in scope of this policy if any of the following apply: • The use, misuse or failure of AI could lead to more than insignificant harm to individuals, communities, organisations, the environment or the collective rights of cultural groups including First Nations peoples. • The use of AI will materially influence administrative decisions that affect individuals, communities, organisations, the environment or the collective rights of cultural groups including First Nations peoples. • It is possible the public will directly interact with, or be significantly impacted by, the AI or its outputs without human review. • The AI is designed to use personal or sensitive data1 or security classified information2. • It is deemed an elevated risk AI use case as directed by the DTA. Agencies may wish to apply this policy to AI use cases that do not meet the above criteria. This includes use cases with specific characteristics or factors unique to an agency’s operating environment that may benefit from applying an impact assessment and governance actions. This policy has been designed to exclude incidental and lower risk uses of AI that do not meet the criteria."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "7685199c-7b34-47c9-971d-00e101a2a044",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "2.2.1 Clear allocation of responsibilities within and outside the organisation",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 26,
+      "page_end": 26,
+      "quote": "Key decision\n\nmakers\n\nProduct teams\n\nCybersecurity\n\nteams\n\nUsers\n\nWho: Leaders who define strategic decisions and high -level policies for the organisation e.g. board members, C -suite executives, managing directors, or department leaders.\n\nKey responsibilities can include: • Setting high-level goals for use of agents • Defining permitted operational use cases for agents, including limits on agent’s data access • Setting the overall governance approach, including risk management frameworks and escalation processes Who: These roles oversee the translation of stakeholder needs or business goals into a technical agentic solution e.g. Product Managers, UI / UX Designers, AI Engineers, Software Engineers\n\nKey responsibilities can include: • Defining the design and requirements for agents, as well as any feature controls or phased rollouts • Reliable implementation of agents i.e. development, pre -deployment testing and post-deployment monitoring across the agent lifecycle • Educating users on responsible use of agentic product Who: These roles oversee the protection of agentic systems from cyber threats, by implementing and managing security measures, identifying vulnerabilities, and responding to incidents e.g. Chief Security Officer, Cyber Security Specialist, Penetration Tester"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "367a4c0b-951d-44a6-a2aa-5fd001945e10",
+      "section_id": "2b294a2f-f978-53a9-964c-db65f440069a",
+      "section_title": "Appendix B: Definitions",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 19,
+      "page_end": 20,
+      "quote": "hest level of risk • treat each use case separately and undertake policy actions appropriate to each use case’s respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency’s internal register.\n\nAI incident This policy requires agencies to provide a way to manage AI incidents through operationalising the responsible use of AI. The definition of an AI incident is still being considered globally. As this evolves, the policy will adapt to changes in the policy environment as necessary. For the purposes of applying this policy, the following definition of an AI incident has been adapted from the OECD’s draft definition to better suit the Australian government context: an event, circumstance or series of events where the development, use or malfunction of one or more AI systems by, or under the direction of, an Australian Government agency directly or indirectly leads to any of the following: a. injury or harm to the health of a person or groups of people;\n\nb. disruption of the management and operation of critical\n\ninfrastructure; c. violations of human rights or harms arising from a breach of obligations under applicable laws, including intellectual property, privacy and Indigenous cultural and intellectual property; d. harm to property, communities or the environment. In addition to the definition provided above, agencies may choose to designate additional circumstances that constitute an AI incident in their operating context."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "90908194-4b0c-4feb-b560-ffb76df7cc7e",
+      "section_id": "c93301c3-fb95-5e16-9fd1-49bbbd321ced",
+      "section_title": "Implementation",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 7,
+      "page_end": 8,
+      "quote": "While agencies may need this time to action requirements, agencies should implement them sooner if practicable. Agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline.\n\nIn-scope AI use cases This policy specifies actions that apply at the use case level. AI use cases in scope of this policy (referred to as in-scope AI use cases) are use cases that meet any criteria in Appendix C. In addition to the criteria, the appendix lists areas of AI use to consider that are not automatically high risk, but are more likely to involve risks that require careful attention through an impact assessment. It also provides information on how to apply the policy for agencies experimenting with AI."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "1760d0fd-4145-41d7-b8bd-d0948ccf1c7f",
+      "section_id": "78c2eeb3-2fa0-514f-a01e-24077b1e7a9e",
+      "section_title": "Policy introduction",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 4,
+      "page_end": 4,
+      "quote": "Policy introduction The increasing adoption of artificial intelligence (AI) is reshaping the economy, society and government. Government agencies are embracing the AI opportunity to boost efficiency, enable better data analysis and evidence-based decisions, and improve service delivery for people and business. The Australian Government is committed to capturing the opportunities of AI in a way that facilitates innovation while mitigating harms. Government has an elevated responsibility to adopt AI safely and should be held to a high ethical standard of use. The December 2025 update to the policy strengthens government’s approach to safe and responsible AI through new measures on AI governance. It introduces requirements for agencies to develop a strategic approach to adopting AI, establish an approach to operationalise the responsible use of AI, ensure designated accountability for AI use cases, and undertake risk-based use case-level actions. In recognition of the speed and scale of change in this area, the policy will evolve over time as the technology changes, leading practices emerge, the broader regulatory environment develops, and government’s AI maturity improves."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答正确区分了中风险与高风险用例的治理义务：高风险为强制（must），中风险为酌情考虑（should consider），并准确引用了[1]中的原文。所有实质事实主张均有[1]支持，未发现虚构或矛盾。",
+      "claims": [
+        {
+          "answer_span": "No. The obligations differ in strength and trigger. [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]明确区分中风险（should consider）与高风险（must）的治理义务，结论正确。"
+        },
+        {
+          "answer_span": "Where an agency determines an in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, it **must** govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "与[1]高风险段落原文一致，强制义务及适用条件均准确。"
+        },
+        {
+          "answer_span": "The same provision also requires reporting the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]高风险must列表第一项原文支持。"
+        },
+        {
+          "answer_span": "Once the agency has decided to deploy the use case, it must report the use case to the DTA through the accountable official and establish a system to regularly review the use case every 12 months at a minimum, with the review reporting to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed, and considering the AI use case impact assessment and revisions to it if required [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]部署后must列表原文支持，包括DTA报告、12个月审查及审查内容。"
+        },
+        {
+          "answer_span": "Where an agency determines an in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, it **should consider** whether the use case would benefit from being governed through a designated board or a senior executive, and should choose an approach appropriate for the size and scope of the agency if it applies additional governance [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "与[1]中风险段落原文一致，酌情性质及条件均准确。"
+        },
+        {
+          "answer_span": "The board-or-senior-executive mechanism is common to both tiers, but only the high-risk tier imposes it as a mandatory requirement; the medium-risk tier frames it as a consideration, with the choice of approach conditioned on agency size and scope [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "综合准确，符合[1]两段原文的强制/酌情区分。"
+        },
+        {
+          "answer_span": "The excerpts do not establish any equivalent mandatory board-or-senior-executive governance requirement for medium-risk use cases, nor any reporting or 12-month review obligations attaching to the medium-risk tier [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]中风险段落仅含should consider，未规定强制治理、报告或12个月审查，该限定性表述准确。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答正确区分了中风险与高风险用例的治理义务：高风险为强制（must），中风险为酌情考虑（should consider），并准确引用了[1]中的原文。所有实质事实主张均有[1]支持，未发现虚构或矛盾。\",\"claims\":[{\"answer_span\":\"No. The obligations differ in strength and trigger. [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]明确区分中风险（should consider）与高风险（must）的治理义务，结论正确。\"},{\"answer_span\":\"Where an agency determines an in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, it **must** govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与[1]高风险段落原文一致，强制义务及适用条件均准确。\"},{\"answer_span\":\"The same provision also requires reporting the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]高风险must列表第一项原文支持。\"},{\"answer_span\":\"Once the agency has decided to deploy the use case, it must report the use case to the DTA through the accountable official and establish a system to regularly review the use case every 12 months at a minimum, with the review reporting to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed, and considering the AI use case impact assessment and revisions to it if required [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]部署后must列表原文支持，包括DTA报告、12个月审查及审查内容。\"},{\"answer_span\":\"Where an agency determines an in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, it **should consider** whether the use case would benefit from being governed through a designated board or a senior executive, and should choose an approach appropriate for the size and scope of the agency if it applies additional governance [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与[1]中风险段落原文一致，酌情性质及条件均准确。\"},{\"answer_span\":\"The board-or-senior-executive mechanism is common to both tiers, but only the high-risk tier imposes it as a mandatory requirement; the medium-risk tier frames it as a consideration, with the choice of approach conditioned on agency size and scope [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"综合准确，符合[1]两段原文的强制/酌情区分。\"},{\"answer_span\":\"The excerpts do not establish any equivalent mandatory board-or-senior-executive governance requirement for medium-risk use cases, nor any reporting or 12-month review obligations attaching to the medium-risk tier [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]中风险段落仅含should consider，未规定强制治理、报告或12个月审查，该限定性表述准确。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

@@ -137,12 +137,19 @@ def check_evidence_node(state: PDFQAState) -> dict:
 def insufficient_evidence_node(state: PDFQAState) -> dict:
     """Return a mode-aware refusal when evidence is too weak."""
     reason = state.get("evidence_reason") or "The retrieved excerpts are too weak."
+    coverage_status = state.get("coverage_status") or (
+        "no_context" if not state.get("context") else "partial"
+    )
     return {
         "answer": get_insufficient_evidence_message(
             question=state["question"],
             reason=reason,
             mode=_response_mode(state),
-        )
+        ),
+        "answer_status": "withheld",
+        "coverage_status": coverage_status,
+        "coverage_sufficient": False,
+        "generation_allowed": False,
     }
 
 
@@ -159,7 +166,20 @@ def generate_answer_node(state: PDFQAState) -> dict:
         history=state.get("history", []),
         citations=state.get("citations", []),
     )
-    return {"answer": answer, "resolved_model": resolved_model}
+    return {
+        "answer": answer,
+        "resolved_model": resolved_model,
+        "answer_status": "generated",
+        **(
+            {
+                "coverage_status": "not_assessed",
+                "coverage_sufficient": False,
+                "evidence_sufficient": False,
+            }
+            if get_settings().rag_claim_binding_enabled and _answer_mode(state) == "analysis"
+            else {}
+        ),
+    }
 
 
 def _controlled_blocked(state: PDFQAState) -> bool:

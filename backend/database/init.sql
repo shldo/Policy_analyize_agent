@@ -847,6 +847,9 @@ CREATE TABLE IF NOT EXISTS "public"."chat_messages" (
   "agent_mode"          text        COLLATE "pg_catalog"."default" DEFAULT 'react',
   "evidence_sources"    jsonb       NOT NULL DEFAULT '[]',
   "suggestions_json"    jsonb       NOT NULL DEFAULT '[]',
+  "generation_allowed"  bool,
+  "coverage_status"     text,
+  "answer_status"       text,
   "created_at"          timestamptz(6) NOT NULL DEFAULT now()
 );
 
@@ -862,6 +865,16 @@ ALTER TABLE "public"."chat_messages"
 ALTER TABLE "public"."chat_messages"
   ADD CONSTRAINT "chat_messages_role_check"
   CHECK (role IN ('user', 'assistant'));
+
+ALTER TABLE "public"."chat_messages"
+  ADD CONSTRAINT "chat_messages_coverage_status_check"
+  CHECK (coverage_status IS NULL OR coverage_status IN
+    ('not_assessed', 'partial', 'complete', 'no_context'));
+
+ALTER TABLE "public"."chat_messages"
+  ADD CONSTRAINT "chat_messages_answer_status_check"
+  CHECK (answer_status IS NULL OR answer_status IN
+    ('pending', 'streaming', 'generated', 'withheld', 'error', 'unknown'));
 
 -- ----------------------------
 -- Migration 011: web-import tracking + content-hash dedup on documents

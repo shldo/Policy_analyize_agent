@@ -1,0 +1,305 @@
+{
+  "question_id": "DEV2-CS05",
+  "question": "Why should a team assess external-system exposure before allowing vendor agents to act across enterprise platforms?",
+  "inputs_sha256": "de2bc0a7cd513ada1c1a7bff152c280f5aa6289ed2d371cdc7bddfdc12cd03b8",
+  "messages_sha256": "a472e40301ee5d1871f74b8ef2166bab34ed02a43658e17e1e336c61da5df0c5",
+  "raw_artifact_sha256": "78dab061711c278e985403f5e6126d63679bc281ea7b3e6840ad83d0f0568e36",
+  "final_artifact_sha256": "40cdd591d2b303c7f597b303cdd9c7410d8e0f235ad6b6951c75b20cf893c618",
+  "draft": "Assessing external-system exposure matters because the level of exposure determines the agent's vulnerability surface and the scope of harm it can cause. The framework treats \"whether the agent is exposed to external systems, and who maintains these systems\" as a risk factor, noting that a higher level of exposure makes the agent more vulnerable to prompt injections and cyberattacks — contrasting an agent confined to an internal knowledge base maintained by trusted internal teams with one that can access the web containing untrusted data [2]. The same factor is framed in terms of outbound risk: an agent that sends data to third-party APIs can leak data to those third parties, or disrupt those systems by making too many requests, versus an agent with access only to sandboxed or internal tools [5].\n\nFor vendor agents specifically, the framework directs organisations using third-party solutions to consider the extent to which their visibility and control over the agent is limited, contrasting an internally developed and maintained agent with full visibility against a third-party vendor agent with limited transparency into its operations and data processing [6]. This is the governance rationale for the containment strategy MSD adopted: rather than allowing vendor-embedded agents to act freely across MSD's data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems, containing residual risk while preserving the productivity benefits of approved use cases [1]. The stated risk driver is that while each third-party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross-platform actions which may not have been exhaustively tested, particularly as interoperability frameworks are still nascent and maturing [1].\n\nThe framework's general position is that organisations should adapt their internal structures and processes to account for new risks from agents, with the key first step being to understand the risks posed by the agent's actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent's level of autonomy [4]. To manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems, and could ensure the agent's actions are traceable and controllable through measures such as identity management and access controls for agents [4].\n\n**Synthesis (not a source-stated requirement):** Read together, these excerpts position external-system exposure assessment as an ex ante bounding step — it establishes the exposure baseline against which containment, access limits, and traceability controls are calibrated before cross-platform vendor agent actions are permitted. The excerpts do not prescribe a specific assessment methodology, approval gate, or timeline for doing so.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "Assessing external-system exposure matters because the level of exposure determines the agent's vulnerability surface and the scope of harm it can cause. The framework treats \"whether the agent is exposed to external systems, and who maintains these systems\" as a risk factor, noting that a higher level of exposure makes the agent more vulnerable to prompt injections and cyberattacks — contrasting an agent confined to an internal knowledge base maintained by trusted internal teams with one that can access the web containing untrusted data [2]. The same factor is framed in terms of outbound risk: an agent that sends data to third-party APIs can leak data to those third parties, or disrupt those systems by making too many requests, versus an agent with access only to sandboxed or internal tools [5].\n\nFor vendor agents specifically, the framework directs organisations using third-party solutions to consider the extent to which their visibility and control over the agent is limited, contrasting an internally developed and maintained agent with full visibility against a third-party vendor agent with limited transparency into its operations and data processing [6]. This is the governance rationale for the containment strategy MSD adopted: rather than allowing vendor-embedded agents to act freely across MSD's data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems, containing residual risk while preserving the productivity benefits of approved use cases [1]. The stated risk driver is that while each third-party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross-platform actions which may not have been exhaustively tested, particularly as interoperability frameworks are still nascent and maturing [1].\n\nThe framework's general position is that organisations should adapt their internal structures and processes to account for new risks from agents, with the key first step being to understand the risks posed by the agent's actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent's level of autonomy [4]. To manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems, and could ensure the agent's actions are traceable and controllable through measures such as identity management and access controls for agents [4].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"Whether the agent is exposed to external systems, and who maintains these systems.\"\n        },\n        {\n          \"number\": 2,\n          \"quote\": \"A higher level of exposure makes the agent more vulnerable to prompt injections and cyberattacks.\"\n        },\n        {\n          \"number\": 2,\n          \"quote\": \"Agent who can only access an internal knowledge base which is maintained by trusted internal teams, vs an agent who can access the web containing untrusted data\"\n        },\n        {\n          \"number\": 5,\n          \"quote\": \"Agent that sends data to third- party APIs can leak data to these third parties, or disrupt these systems by making too many requests, vs agent that only has\"\n        },\n        {\n          \"number\": 5,\n          \"quote\": \"access to sandboxed or internal tools\"\n        }\n      ],\n      \"reason\": \"Child 2 supports the risk-factor framing, the higher-exposure vulnerability claim, and the internal-knowledge-base versus web contrast. Child 5 supports the outbound-risk framing, third-party API leakage/disruption, and the sandboxed/internal-tools contrast. The unit's opening causal statement about vulnerability surface and scope of harm is supported by the cited exposure and harm examples.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 6,\n          \"quote\": \"When using third-party solutions, organisations should consider to what extent their visibility and control over the agent is limited.\"\n        },\n        {\n          \"number\": 6,\n          \"quote\": \"Agent developed and maintained internally with full visibility vs agent provided by third-party vendor with limited transparency into its operations and data processing\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"MSD adopted a containment strategy \\u2014 rather than allowing vendor- embedded agents to act freely across MSD\\u2019s data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"This cont ains residual risk while preserving the productivity benefits of approved use cases.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"While each third -party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross platform actions which may not have been exhaustively tested.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"This is particularly the case as interoperability frameworks are still nascent and maturing.\"\n        }\n      ],\n      \"reason\": \"Child 6 supports the third-party visibility/control consideration and the internal-versus-vendor contrast. Child 1 supports MSD's containment strategy, the default restriction of SaaS agentic features, the residual-risk/productivity rationale, and the cross-platform testing and nascent interoperability risk driver.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 4,\n          \"quote\": \"Organisations should adapt their internal structures and processes to account for new risks from agents.\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"Key to this is first understanding the risks posed by the agent\\u2019s actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent\\u2019s level of autonomy.\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"To manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems.\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"They could also ensure that the agent\\u2019s actions are traceable and controllable through measures such as identity management and access controls for agents.\"\n        }\n      ],\n      \"reason\": \"Child 4 supports the general position on adapting structures and processes, the first step of understanding agent-action risks, the listed risk factors, the early boundary-setting recommendation including limiting access to tools and external systems, and traceability/control through identity management and access controls.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 4,\n          \"quote\": \"To manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"MSD adopted a containment strategy \\u2014 rather than allowing vendor- embedded agents to act freely across MSD\\u2019s data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems.\"\n        }\n      ],\n      \"reason\": \"The excerpts support an ex ante bounding/containment reading and the absence of a prescribed methodology, approval gate, or timeline. However, the synthesis's stronger claim that external-system exposure assessment establishes an exposure baseline against which containment, access limits, and traceability controls are calibrated before cross-platform vendor agent actions are permitted is not fully established by the supplied excerpts.\"\n    }\n  ]\n}",
+    "answer": "Assessing external-system exposure matters because the level of exposure determines the agent's vulnerability surface and the scope of harm it can cause. The framework treats \"whether the agent is exposed to external systems, and who maintains these systems\" as a risk factor, noting that a higher level of exposure makes the agent more vulnerable to prompt injections and cyberattacks — contrasting an agent confined to an internal knowledge base maintained by trusted internal teams with one that can access the web containing untrusted data [2]. The same factor is framed in terms of outbound risk: an agent that sends data to third-party APIs can leak data to those third parties, or disrupt those systems by making too many requests, versus an agent with access only to sandboxed or internal tools [5].\n\nFor vendor agents specifically, the framework directs organisations using third-party solutions to consider the extent to which their visibility and control over the agent is limited, contrasting an internally developed and maintained agent with full visibility against a third-party vendor agent with limited transparency into its operations and data processing [6]. This is the governance rationale for the containment strategy MSD adopted: rather than allowing vendor-embedded agents to act freely across MSD's data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems, containing residual risk while preserving the productivity benefits of approved use cases [1]. The stated risk driver is that while each third-party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross-platform actions which may not have been exhaustively tested, particularly as interoperability frameworks are still nascent and maturing [1].\n\nThe framework's general position is that organisations should adapt their internal structures and processes to account for new risks from agents, with the key first step being to understand the risks posed by the agent's actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent's level of autonomy [4]. To manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems, and could ensure the agent's actions are traceable and controllable through measures such as identity management and access controls for agents [4].",
+    "removed_unit_ids": [
+      "u4"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Whether the agent is exposed to external systems, and who maintains these systems."
+            },
+            {
+              "number": 2,
+              "quote": "A higher level of exposure makes the agent more vulnerable to prompt injections and cyberattacks."
+            },
+            {
+              "number": 2,
+              "quote": "Agent who can only access an internal knowledge base which is maintained by trusted internal teams, vs an agent who can access the web containing untrusted data"
+            },
+            {
+              "number": 5,
+              "quote": "Agent that sends data to third- party APIs can leak data to these third parties, or disrupt these systems by making too many requests, vs agent that only has"
+            },
+            {
+              "number": 5,
+              "quote": "access to sandboxed or internal tools"
+            }
+          ],
+          "reason": "Child 2 supports the risk-factor framing, the higher-exposure vulnerability claim, and the internal-knowledge-base versus web contrast. Child 5 supports the outbound-risk framing, third-party API leakage/disruption, and the sandboxed/internal-tools contrast. The unit's opening causal statement about vulnerability surface and scope of harm is supported by the cited exposure and harm examples."
+        },
+        {
+          "id": "u2",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 6,
+              "quote": "When using third-party solutions, organisations should consider to what extent their visibility and control over the agent is limited."
+            },
+            {
+              "number": 6,
+              "quote": "Agent developed and maintained internally with full visibility vs agent provided by third-party vendor with limited transparency into its operations and data processing"
+            },
+            {
+              "number": 1,
+              "quote": "MSD adopted a containment strategy — rather than allowing vendor- embedded agents to act freely across MSD’s data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems."
+            },
+            {
+              "number": 1,
+              "quote": "This cont ains residual risk while preserving the productivity benefits of approved use cases."
+            },
+            {
+              "number": 1,
+              "quote": "While each third -party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross platform actions which may not have been exhaustively tested."
+            },
+            {
+              "number": 1,
+              "quote": "This is particularly the case as interoperability frameworks are still nascent and maturing."
+            }
+          ],
+          "reason": "Child 6 supports the third-party visibility/control consideration and the internal-versus-vendor contrast. Child 1 supports MSD's containment strategy, the default restriction of SaaS agentic features, the residual-risk/productivity rationale, and the cross-platform testing and nascent interoperability risk driver."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Organisations should adapt their internal structures and processes to account for new risks from agents."
+            },
+            {
+              "number": 4,
+              "quote": "Key to this is first understanding the risks posed by the agent’s actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent’s level of autonomy."
+            },
+            {
+              "number": 4,
+              "quote": "To manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems."
+            },
+            {
+              "number": 4,
+              "quote": "They could also ensure that the agent’s actions are traceable and controllable through measures such as identity management and access controls for agents."
+            }
+          ],
+          "reason": "Child 4 supports the general position on adapting structures and processes, the first step of understanding agent-action risks, the listed risk factors, the early boundary-setting recommendation including limiting access to tools and external systems, and traceability/control through identity management and access controls."
+        },
+        {
+          "id": "u4",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "To manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems."
+            },
+            {
+              "number": 1,
+              "quote": "MSD adopted a containment strategy — rather than allowing vendor- embedded agents to act freely across MSD’s data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems."
+            }
+          ],
+          "reason": "The excerpts support an ex ante bounding/containment reading and the absence of a prescribed methodology, approval gate, or timeline. However, the synthesis's stronger claim that external-system exposure assessment establishes an exposure baseline against which containment, access limits, and traceability controls are calibrated before cross-platform vendor agent actions are permitted is not fully established by the supplied excerpts."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "fcd5edea-6250-447f-97d5-c66c9950e79c",
+      "section_id": "5169909e-bbf4-5509-9e8d-0d66e89e82e7",
+      "section_title": "Derisking third-party agent platforms",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 22,
+      "page_end": 23,
+      "quote": "Derisking third-party agent platforms\n\nBeyond agentic autonomy, enterprise AI invariably includes multiple third-party SaaS agentic platforms. While each third -party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross platform actions which may not have been exhaustively tested. This is particularly the case as interoperability frameworks are still nascent and maturing.\n\nTo promote safety and security, MSD adopted a containment strategy — rather than allowing vendor- embedded agents to act freely across MSD’s data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems. This cont ains residual risk while preserving the productivity benefits of approved use cases.\n\n| Assess and bound the risks upfront\n\n23"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "2fd2f9a1-fe62-4658-87a6-fad66c3875a8",
+      "section_id": "07cd09cb-3c24-5957-9804-b1c1595b9c91",
+      "section_title": "Agent’s access to external systems",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 16,
+      "page_end": 17,
+      "quote": "Agent’s access to external systems Whether the agent is exposed to external systems, and who maintains these systems.\n\nA higher level of exposure makes the agent more vulnerable to prompt injections and cyberattacks.\n\nAgent who can only access an internal knowledge base which is maintained by trusted internal teams, vs an agent who can access the web containing untrusted data\n\n| Assess and bound the risks upfront\n\n17"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "26206c20-f5b8-4534-a1c2-1324b11df4bf",
+      "section_id": "2b241f57-942a-5fc0-af40-e03fb17e0235",
+      "section_title": "12  See BCG, What Happens When AI Stops Asking Permission?",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 11,
+      "page_end": 11,
+      "quote": "• Unauthorised actions: Actions taken by the agent outside its permitted scope or authority, such as taking an action without escalating it for human approval based on explicit human instruction, a company policy, or standard operating procedures.\n\n• Biased or unfair actions: Biased or unfair output is a known problem for LLMs and can translate to biased actions in agents. These are actions that lead to unfair outcomes, especially when dealing with groups of different profiles and demographics e.g. biased vendor selection in procurement, disbursements of grants, and/or hiring decisions.\n\n• Data breaches: Actions that lead to the exposure or manipulation of sensitive data. Such data may be personally identifiable or confidential information e.g. customer details, trade secrets, and/or internal communications. This can be due to a security breach, where attackers exploit agents to reveal private information, or an agent disclosing sensitive data due to a failure to recognise it as sensitive. While this is also a known risk for LLMs, agents generally have greater access to data, and can not only leak but also wrongly modify data.\n\n• Disruption to connected systems : As agents interact with other systems, they can cause disruption to connected systems when they are compromised or malfunction e.g. deleting a production codebase, or overwhelming external systems with requests.\n\n1.2.3 Systemic and multi-agent risks\n\nThe speed and complexity of agentic systems can increase the risks above. In particular:"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "dab1c9d4-218b-48aa-b3d8-ae1094bffcee",
+      "section_id": "267ecfc9-24a3-54f6-a906-67d5b205a94e",
+      "section_title": "1. Assess and bound the risks upfront",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 3,
+      "page_end": 3,
+      "quote": "1. Assess and bound the risks upfront\n\nOrganisations should adapt their internal structures and processes to account for new risks from agents. Key to this is first understanding the risks posed by the agent’s actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent’s level of autonomy.\n\nTo manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems. They could also ensure that the agent’s actions are traceable and controllable through measures such as identity management and access controls for agents."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "1d816c82-2dd9-41eb-ab7e-50981904e036",
+      "section_id": "33a65d93-6e4b-5db2-8f77-7e5d53c0095e",
+      "section_title": "Agent’s access to external systems",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 15,
+      "page_end": 16,
+      "quote": "Agent’s access to external systems Whether the agent can access external systems. Agent that sends data to third- party APIs can leak data to these third parties, or disrupt these systems by making too many requests, vs agent that only has\n\n| Assess and bound the risks upfront\n\n16 access to sandboxed or internal tools"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "94a2349c-1e34-486a-adc3-2c6cab77f94f",
+      "section_id": "5eeab226-52f2-551f-93a8-b4dc3d0cbc05",
+      "section_title": "Agent being provided or operated by an external party",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 17,
+      "page_end": 17,
+      "quote": "Agent being provided or operated by an external party Whether the organisation is using agents provided or operated by external parties.\n\nWhen using third-party solutions, organisations should consider to what extent their visibility and control over the agent is limited. Agent developed and maintained internally with full visibility vs agent provided by third-party vendor with limited transparency into its operations and data processing"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "90ae8eb8-6677-4469-9297-13c2fc6e57f0",
+      "section_id": "46cc59e1-4d0f-5a23-9b9e-2b94b5492031",
+      "section_title": "MCP as a governance layer",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 34,
+      "page_end": 35,
+      "quote": "MCP as a governance layer\n\nWhile usually considered as a connectivity protocol, MCP can potentially act as a governance layer as it sits between the agent and the enterprise systems it accesses. Organisations can consider defining controls on the MCP layer, such as filtering sensitive data that passes through the servers, logging all agent-to-system interactions, or whitelisting only trusted servers.\n\n|\n\n35\n\nTerminal 3: Controls for accurate and secure agentic payments at the hardware level\n\nTerminal 3 is a Hong Kong-based data privacy infrastructure provider that provides secure and privacy- preserving data processing without the need for data transfer.\n\nThe company deploys a finance payroll agent to automate its monthly payroll cycle, which involves computing the gross and net salary, government -mandated contributions, validating expense claims and cross-referencing account details before disbursing the overall salary.\n\nThe process is high stakes in nature as it involves handling sensitive personal data and executing financial transactions. To ensure that such actions are securely processed by the agent, Terminal 3 implemented the following technical controls:"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "11e4fce0-d705-43f7-abb5-c84929b763b0",
+      "section_id": "6fae3315-da91-5d9e-86c7-364e26219467",
+      "section_title": "OCBC: Bounding agent autonomy in source of wealth analysis",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 21,
+      "page_end": 21,
+      "quote": "| Assess and bound the risks upfront\n\n21\n\nMSD: Bounding the risks of agentic AI through tiered autonomy and third-party ecosystem boundaries\n\nMSD aims to use the power of leading-edge science to save and improve lives around the world, bringing forward medicines, vaccines and innovative health solutions for the world’s most challenging diseases.\n\nMSD develops and deploys agents in use cases such as streamlining the production of key trial protocols and minimizing labor -intensive tasks like clinical documentation and quality review. For its 75,000 employees, MSD implemented an enterprise agentic AI governance strategy that bounds risk by, among other things, calibrating governance processes to level of agency, and derisking third -party platforms."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整覆盖三个必需点：外部暴露威胁（提示注入/网络攻击、数据泄露与系统扰动）、跨平台测试缺口（各供应商仅在本生态内测试，跨平台行动未充分测试、互操作性框架尚不成熟）、以及MSD案例特定的遏制策略（默认限制在自身生态内，而非普遍禁令）。所有实质主张均有对应Child证据支持，引用编号与内容匹配，未发现虚构政策或义务倒置。",
+      "claims": [
+        {
+          "answer_span": "the level of exposure determines the agent's vulnerability surface and the scope of harm it can cause",
+          "label": "supported",
+          "citation_numbers": [
+            2,
+            5
+          ],
+          "reason_zh": "证据[2]指出暴露程度越高越易受提示注入和网络攻击；[5]指出可向第三方API发送数据的代理会泄露数据或过度请求扰乱系统，支持脆弱面与危害范围。"
+        },
+        {
+          "answer_span": "The framework treats \"whether the agent is exposed to external systems, and who maintains these systems\" as a risk factor",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "证据[2]原文即为该风险因素表述。"
+        },
+        {
+          "answer_span": "a higher level of exposure makes the agent more vulnerable to prompt injections and cyberattacks",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "与证据[2]原文一致。"
+        },
+        {
+          "answer_span": "an agent that sends data to third-party APIs can leak data to those third parties, or disrupt those systems by making too many requests",
+          "label": "supported",
+          "citation_numbers": [
+            5
+          ],
+          "reason_zh": "与证据[5]原文一致。"
+        },
+        {
+          "answer_span": "the framework directs organisations using third-party solutions to consider the extent to which their visibility and control over the agent is limited",
+          "label": "supported",
+          "citation_numbers": [
+            6
+          ],
+          "reason_zh": "证据[6]原文表述一致。"
+        },
+        {
+          "answer_span": "agentic features in SaaS tools are by default restricted to within their own ecosystems, containing residual risk while preserving the productivity benefits of approved use cases",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "与证据[1]MSD遏制策略原文一致。"
+        },
+        {
+          "answer_span": "risks increase when these systems attempt to perform cross-platform actions which may not have been exhaustively tested, particularly as interoperability frameworks are still nascent and maturing",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "与证据[1]原文一致，覆盖跨平台测试缺口。"
+        },
+        {
+          "answer_span": "the key first step being to understand the risks posed by the agent's actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent's level of autonomy",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "与证据[4]原文一致。"
+        },
+        {
+          "answer_span": "organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "与证据[4]原文一致，属建议性措施（could），答案用词一致。"
+        },
+        {
+          "answer_span": "ensure the agent's actions are traceable and controllable through measures such as identity management and access controls for agents",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "与证据[4]原文一致。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖三个必需点：外部暴露威胁（提示注入/网络攻击、数据泄露与系统扰动）、跨平台测试缺口（各供应商仅在本生态内测试，跨平台行动未充分测试、互操作性框架尚不成熟）、以及MSD案例特定的遏制策略（默认限制在自身生态内，而非普遍禁令）。所有实质主张均有对应Child证据支持，引用编号与内容匹配，未发现虚构政策或义务倒置。\",\"claims\":[{\"answer_span\":\"the level of exposure determines the agent's vulnerability surface and the scope of harm it can cause\",\"label\":\"supported\",\"citation_numbers\":[2,5],\"reason_zh\":\"证据[2]指出暴露程度越高越易受提示注入和网络攻击；[5]指出可向第三方API发送数据的代理会泄露数据或过度请求扰乱系统，支持脆弱面与危害范围。\"},{\"answer_span\":\"The framework treats \\\"whether the agent is exposed to external systems, and who maintains these systems\\\" as a risk factor\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"证据[2]原文即为该风险因素表述。\"},{\"answer_span\":\"a higher level of exposure makes the agent more vulnerable to prompt injections and cyberattacks\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"与证据[2]原文一致。\"},{\"answer_span\":\"an agent that sends data to third-party APIs can leak data to those third parties, or disrupt those systems by making too many requests\",\"label\":\"supported\",\"citation_numbers\":[5],\"reason_zh\":\"与证据[5]原文一致。\"},{\"answer_span\":\"the framework directs organisations using third-party solutions to consider the extent to which their visibility and control over the agent is limited\",\"label\":\"supported\",\"citation_numbers\":[6],\"reason_zh\":\"证据[6]原文表述一致。\"},{\"answer_span\":\"agentic features in SaaS tools are by default restricted to within their own ecosystems, containing residual risk while preserving the productivity benefits of approved use cases\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与证据[1]MSD遏制策略原文一致。\"},{\"answer_span\":\"risks increase when these systems attempt to perform cross-platform actions which may not have been exhaustively tested, particularly as interoperability frameworks are still nascent and maturing\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与证据[1]原文一致，覆盖跨平台测试缺口。\"},{\"answer_span\":\"the key first step being to understand the risks posed by the agent's actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent's level of autonomy\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"与证据[4]原文一致。\"},{\"answer_span\":\"organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"与证据[4]原文一致，属建议性措施（could），答案用词一致。\"},{\"answer_span\":\"ensure the agent's actions are traceable and controllable through measures such as identity management and access controls for agents\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"与证据[4]原文一致。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

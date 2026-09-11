@@ -1,0 +1,228 @@
+{
+  "question_id": "DEV-TS01",
+  "question": "Does the transparency standard require agencies to list individual AI use cases publicly?",
+  "inputs_sha256": "266d7cbccacdf41a6d7c3bfb70fc55f3769da37592aec21137b0b6d3b9ed083e",
+  "messages_sha256": "519d8be852121bf753d2da29730a053181b590c35f1d50fedb0e09ad7220f1a8",
+  "raw_artifact_sha256": "7880174b2892d404bd507151924d7063886b11194dfc6315887459d2bbc173f5",
+  "final_artifact_sha256": "1dd999f4d59961017505f62028402df0284b7c8902086c8d7ba7245fe83d86c1",
+  "draft": "The available excerpts do not establish a requirement to list individual AI use cases publicly; they state the opposite. Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent, and agencies are not required to list individual use cases or provide use case level detail [1]. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI [1].\n\nTwo related requirements should be distinguished from use-case listing:\n\n- Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements, per the classification system at Attachment A [2]. This is a classification-level disclosure, not a use-case-level listing.\n- At a minimum, agencies must provide specified information in their transparency statement, including classification of AI use according to usage patterns and domains, and classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review [7].\n\n**Evidence gaps**\n\nThe excerpts do not establish whether any other instrument (e.g., the internal AI use case register or DTA-facing reporting) requires public disclosure of individual use cases. The internal register requirement concerns sharing with the DTA every 6 months, not public listing [4].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The available excerpts do not establish a requirement to list individual AI use cases publicly; they state the opposite. Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent, and agencies are not required to list individual use cases or provide use case level detail [1]. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI [1].\n\nTwo related requirements should be distinguished from use-case listing:\n\n- Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements, per the classification system at Attachment A [2]. This is a classification-level disclosure, not a use-case-level listing.\n\n- At a minimum, agencies must provide specified information in their transparency statement, including classification of AI use according to usage patterns and domains, and classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review [7].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Agencies are not required to list individual use cases or provide use case level detail. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI.\"\n        }\n      ],\n      \"reason\": \"Child 1 states transparency statements provide a high-level overview, agencies are not required to list individual use cases or provide use case level detail, and agencies may choose to provide detail beyond the requirements. This supports the unit's negative requirement, high-level overview, and permissive detail clauses.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a framing/transition sentence, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements.\"\n        }\n      ],\n      \"reason\": \"Child 2 supports the requirement to list usage patterns and domains in transparency statements and attributes the classification system to Attachment A. The unit's characterization as classification-level rather than use-case-level listing is consistent with the cited requirement.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 7,\n          \"quote\": \"classification of AI use according to usage patterns and domains\"\n        },\n        {\n          \"number\": 7,\n          \"quote\": \"classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review\"\n        }\n      ],\n      \"reason\": \"Child 7 states that at a minimum agencies must provide specified information in their transparency statement, including classification of AI use according to usage patterns and domains and classification of use where the public may directly interact with or be significantly impacted by AI or its outputs without human review.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 4,\n          \"quote\": \"Agencies must share the register with the DTA every 6 months\"\n        }\n      ],\n      \"reason\": \"Child 4 supports the internal register sharing requirement with the DTA every 6 months, but the excerpts do not establish whether any other instrument requires public disclosure of individual use cases. The unit's gap statement is broader than the available excerpts can accurately bound.\"\n    }\n  ]\n}",
+    "answer": "The available excerpts do not establish a requirement to list individual AI use cases publicly; they state the opposite. Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent, and agencies are not required to list individual use cases or provide use case level detail [1]. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI [1].\n\nTwo related requirements should be distinguished from use-case listing:\n\n- Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements, per the classification system at Attachment A [2]. This is a classification-level disclosure, not a use-case-level listing.\n\n- At a minimum, agencies must provide specified information in their transparency statement, including classification of AI use according to usage patterns and domains, and classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review [7].",
+    "removed_unit_ids": [
+      "u6"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies are not required to list individual use cases or provide use case level detail. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI."
+            }
+          ],
+          "reason": "Child 1 states transparency statements provide a high-level overview, agencies are not required to list individual use cases or provide use case level detail, and agencies may choose to provide detail beyond the requirements. This supports the unit's negative requirement, high-level overview, and permissive detail clauses."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a framing/transition sentence, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements."
+            }
+          ],
+          "reason": "Child 2 supports the requirement to list usage patterns and domains in transparency statements and attributes the classification system to Attachment A. The unit's characterization as classification-level rather than use-case-level listing is consistent with the cited requirement."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 7,
+              "quote": "classification of AI use according to usage patterns and domains"
+            },
+            {
+              "number": 7,
+              "quote": "classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review"
+            }
+          ],
+          "reason": "Child 7 states that at a minimum agencies must provide specified information in their transparency statement, including classification of AI use according to usage patterns and domains and classification of use where the public may directly interact with or be significantly impacted by AI or its outputs without human review."
+        },
+        {
+          "id": "u5",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u6",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Agencies must share the register with the DTA every 6 months"
+            }
+          ],
+          "reason": "Child 4 supports the internal register sharing requirement with the DTA every 6 months, but the excerpts do not establish whether any other instrument requires public disclosure of individual use cases. The unit's gap statement is broader than the available excerpts can accurately bound."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "90568ed7-e964-4da3-bda5-eddd325e17f1",
+      "section_id": "c84a594d-0737-55f3-bc94-77dacd5fca17",
+      "section_title": "1  A ustralian Government Style Manual, Plain language and word choice",
+      "title": "Standard for AI Transparency Statements",
+      "page": 4,
+      "page_end": 5,
+      "quote": "1 A ustralian Government Style Manual, Plain language and word choice\n\nHow to apply\n\nImplementing the AI transparency statements The policy provides a coordinated approach for the use of AI across the Australian Government. It builds public trust by supporting the Australian Public Service (APS) to engage with AI in a responsible way. Transparency is critical to public trust and is an important aim of the policy and broader APS Reform agenda2. The public should have confidence that agencies monitor the effectiveness of deployed AI systems and have measures to protect against negative impacts. AI transparency statements help agencies meet these aims by providing a foundational level of transparency on their use of AI. They publicly disclose: • how AI is used and managed by the agency • a commitment to safe and responsible use • compliance with the policy. Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent. Agencies are not required to list individual use cases or provide use case level detail. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI. Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "667c931f-91fc-4be3-a202-cdb776a53142",
+      "section_id": "c84a594d-0737-55f3-bc94-77dacd5fca17",
+      "section_title": "1  A ustralian Government Style Manual, Plain language and word choice",
+      "title": "Standard for AI Transparency Statements",
+      "page": 5,
+      "page_end": 7,
+      "quote": "Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au.\n\n2 APS R eform, Priority one: An APS that embodies integrity in everything it does. “The APS acts with integrity and fairness and is accountable and transparent in everything it does. This will build public trust and strengthen standards of integrity in our federal government.” https:/ /www.apsreform.gov.au/about-aps-reform/our-focus- areas\n\nQuestions about implementation Accountable officials can contact the DTA with questions about implementing the transparency statements by emailing ai@dta.gov.au.\n\nAttachment A – Classification system for AI use The following classification system represents how AI is commonly used in government and the domains where they are applied. Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements. Agencies should link to digital.gov.au/ai/resources/use-classification when listing their usage patterns and domains and may expand on their use of AI to provide more details to the public."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "cb93394d-8d3c-4638-a890-477f3b04c629",
+      "section_id": "e169cfea-b1bd-5da7-ae46-101dafdfbf23",
+      "section_title": "Strategy and oversight",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 10,
+      "page_end": 10,
+      "quote": "Strategy and oversight The principles and requirements included in this section are designed to enable a forward- leaning approach to agency AI adoption. These requirements set out AI accountability at the agency level and use case level and seek to build trust through transparency.\n\nPrinciples • Adopt AI to enhance efficiency, decision-making, policy outcomes and government service delivery for the benefit of Australians. • Have clear accountabilities for the adoption of AI and understand its use. • Build public trust through transparency about government AI use.\n\nMandatory requirements\n\nAI transparency statement Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements. The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI. Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au.\n\nStrategic position on AI adoption Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect. This position is to emphasise how AI opportunities can be identified and embraced by the agency. Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption. In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "be9c4bec-5bcc-4235-ad5b-21814b9768a2",
+      "section_id": "e169cfea-b1bd-5da7-ae46-101dafdfbf23",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 10,
+      "page_end": 11,
+      "quote": "In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff.\n\nAccountable officials Agencies must designate accountable official(s) to take accountability for implementing this policy. Agencies must follow the Standard for accountability when designating accountable official(s) and implementing this requirement. The responsibilities of accountable officials are set in the standard. Agencies must notify the DTA when they designate and make any changes to their accountable official(s) by emailing ai@dta.gov.au.\n\nAccountable use case owners Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of this policy taking effect. Accountable official(s) are to maintain a register of accountable use case owners. Agencies must follow the Standard for accountability when implementing this requirement. The responsibilities of accountable use case owners are set in the standard.\n\nInternal AI use case register Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of this policy taking effect. Agencies must share the register with the DTA every 6 months, commencing from when they create the register to meet the above requirement. The Standard for accountability lists the minimum fields agencies must capture in the use case register. Agencies can add additional fields to meet their organisational needs. An existing register may be reused for the purposes of meeting this requirement. The standard also provides the instructions for how to share agency registers with the DTA."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ccbbf2d3-2f3c-493c-8c8c-d8faa15a9a03",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 9,
+      "page_end": 9,
+      "quote": "The level of detail and implementation of each statement will vary across use cases. Practical use case guidance has been provided in the Use case assessment section of the standard.\n\nThe standard is applicable regardless of whether an agency develops an AI system in-house or contracts an external provider to build or supply it. Engaging external providers does not prevent agencies from implementing each of the criteria in the statements. Agencies that adopt the standard are accountable for ensuring it is met in line with the required and recommended criterion. Transparency documents can be utilised to support assessments, including open-source software. For early experimentation, proofs of concept, and pilots of AI products and services, the standard should be used to provide guidance for building responsible and safe AI systems, ensuring a clear pathway to production. The standard helps government: • contribute to the ethical use of AI to ensure public trust • stay compliant with regulatory requirements and alignment with AI strategic frameworks • align with cybersecurity guidelines and the AI assurance framework • support innovation and whole of economy growth • support AI sourcing and adoption processes • provide alignment with international AI best practices across government."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "4efcbf78-884f-4877-842b-b96edf5d10bc",
+      "section_id": "1d92aa7d-5426-5336-b2ef-e6477c9e238b",
+      "section_title": "Standard for AI transparency statements",
+      "title": "Standard for AI Transparency Statements",
+      "page": 2,
+      "page_end": 4,
+      "quote": "Digital Transformation Agency is committed to providing web accessible content wherever possible. If you are having difficulties with accessing this document, please email: ai@dta.gov.au. Version: 2.0 Page ii\n\nY our responsibilities Under the policy, agencies must make a publicly available statement that outlines their approach to AI adoption, as directed by the Digital Transformation Agency (DTA). Agencies must follow this standard, which sets the direction for AI transparency statements including expectations and formatting. It establishes a consistent format and expectation for AI transparency statements in the Australian Government. Clear and consistent transparency statements build public trust and make it easier to understand and compare how government agencies adopt AI. At a minimum, agencies must provide the following information regarding their use of AI in their transparency statement: • the intentions behind why the agency uses AI or is considering its adoption • classification of AI use according to usage patterns and domains, as listed at"
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "4b38ee3d-2e5a-42d2-922a-71f83328677f",
+      "section_id": "1d92aa7d-5426-5336-b2ef-e6477c9e238b",
+      "section_title": "Standard for AI transparency statements",
+      "title": "Standard for AI Transparency Statements",
+      "page": 4,
+      "page_end": 4,
+      "quote": "a minimum, agencies must provide the following information regarding their use of AI in their transparency statement: • the intentions behind why the agency uses AI or is considering its adoption • classification of AI use according to usage patterns and domains, as listed at\n\nAttachment A • classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review • measures to monitor the effectiveness of deployed AI systems and protect the public against negative impacts • overview of compliance with the requirements under the Policy for responsible use of AI in government • compliance with applicable legislation and regulation • when the statement was most recently updated. Statements must use clear, plain language1 that avoids technical jargon and is consistent with the Australian Government Style Manual. They must also provide or direct to a contact email for further public enquiries. Agencies must publish transparency statements on their public facing website. It’s recommended that a link to the statement is placed in a global menu, aligned to the approach often taken for privacy policies. Transparency statements must be reviewed and updated at these junctures: • at least once a year • when making a significant change to the agency’s approach to AI • when any new factor materially impacts the existing statement’s accuracy."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "d9bb0011-e7ae-469e-a7a4-01a821157cc3",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "2  As defined by the Australian Government Protective Security Policy Framework",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 22,
+      "page_end": 22,
+      "quote": "While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment.\n\nExperimentation For the avoidance of doubt, agencies are not required to apply this policy if they are doing early-stage experimentation which does not: • commit to proceeding with a use case or to any design decisions that would affect implementation later • risk harming anyone • introduce or exacerbate any privacy or security risks. If there is a likelihood of proceeding with the AI use case while experimenting in this phase, agencies should apply the policy. Agencies should also apply the Australian Government AI technical standard, which provides relevant information for developing use cases at each stage of the AI lifecycle."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答准确对应问题：明确说明透明度标准不要求公开列出单个AI用例，并引用[1]支持；同时正确区分了分类层面的披露要求（使用模式和领域）[2]及最低披露内容[7]，与参考答案一致，无实质性遗漏或错误。",
+      "claims": [
+        {
+          "answer_span": "The available excerpts do not establish a requirement to list individual AI use cases publicly; they state the opposite.",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]明确说明机构无需列出单个用例或提供用例级细节，回答正确。"
+        },
+        {
+          "answer_span": "Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent, and agencies are not required to list individual use cases or provide use case level detail [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "与[1]原文一致，直接支持否定性结论。"
+        },
+        {
+          "answer_span": "However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]原文允许机构自愿提供超出要求的细节，引用正确。"
+        },
+        {
+          "answer_span": "Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements, per the classification system at Attachment A [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "[2]明确要求列出使用模式和领域，属于分类层面披露，引用准确。"
+        },
+        {
+          "answer_span": "At a minimum, agencies must provide specified information in their transparency statement, including classification of AI use according to usage patterns and domains, and classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review [7].",
+          "label": "supported",
+          "citation_numbers": [
+            7
+          ],
+          "reason_zh": "[7]列出了最低披露要求，包括分类信息，引用正确。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答准确对应问题：明确说明透明度标准不要求公开列出单个AI用例，并引用[1]支持；同时正确区分了分类层面的披露要求（使用模式和领域）[2]及最低披露内容[7]，与参考答案一致，无实质性遗漏或错误。\",\"claims\":[{\"answer_span\":\"The available excerpts do not establish a requirement to list individual AI use cases publicly; they state the opposite.\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]明确说明机构无需列出单个用例或提供用例级细节，回答正确。\"},{\"answer_span\":\"Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent, and agencies are not required to list individual use cases or provide use case level detail [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与[1]原文一致，直接支持否定性结论。\"},{\"answer_span\":\"However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]原文允许机构自愿提供超出要求的细节，引用正确。\"},{\"answer_span\":\"Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements, per the classification system at Attachment A [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"[2]明确要求列出使用模式和领域，属于分类层面披露，引用准确。\"},{\"answer_span\":\"At a minimum, agencies must provide specified information in their transparency statement, including classification of AI use according to usage patterns and domains, and classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review [7].\",\"label\":\"supported\",\"citation_numbers\":[7],\"reason_zh\":\"[7]列出了最低披露要求，包括分类信息，引用正确。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

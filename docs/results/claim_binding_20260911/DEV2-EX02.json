@@ -1,0 +1,189 @@
+{
+  "question_id": "DEV2-EX02",
+  "question": "Can an agency replace the government impact-assessment tool with an internal process without losing any required provisions?",
+  "inputs_sha256": "481290bf78d95842839c43b39411e93c3f39fa4f9378e1fcc175137f9bf88836",
+  "messages_sha256": "5374f0df524dc1e2fb73590c12ba94f6850c17c3e4a1874c0c7f623e6fc54b04",
+  "raw_artifact_sha256": "71b2fc7c015d9e9fb7aaab611665e740d5751ecec44ff3b5d15b7745f2c1bc47",
+  "final_artifact_sha256": "f684281ffefc0ee80b85de990a07b04104e5e0a715aab7e741de839a5fca10f9",
+  "draft": "Yes, but only conditionally. The Policy for the Responsible Use of AI in Government permits agencies to conduct an AI use case impact assessment using either the Australian Government AI impact assessment tool or an internal process that integrates all provisions of the impact assessment tool [1]. Where an agency integrates the tool, it must ensure the internal process is consistent and delivers the same (or a higher) risk outcome for inherent and residual risk [1]. The agency must also be able to revise its internal process in response to any impact assessment tool updates [1].\n\n**Evidence gaps**\nThe available excerpts do not establish any additional conditions, approval requirements, or transition arrangements for substituting an internal process beyond those stated above.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "Yes, but only conditionally. The Policy for the Responsible Use of AI in Government permits agencies to conduct an AI use case impact assessment using either the Australian Government AI impact assessment tool or an internal process that integrates all provisions of the impact assessment tool [1]. Where an agency integrates the tool, it must ensure the internal process is consistent and delivers the same (or a higher) risk outcome for inherent and residual risk [1]. The agency must also be able to revise its internal process in response to any impact assessment tool updates [1].\n\nThe available excerpts do not establish any additional conditions, approval requirements, or transition arrangements for substituting an internal process beyond those stated above.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Agencies may conduct an AI use case impact assessment by using either: • the Australian Government AI impact assessment tool (the impact assessment tool) • an internal process that integrates all provisions of the impact assessment tool.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"Where an agency integrates the tool, they must ensure: • the internal process is consistent • it delivers the same (or a higher) risk outcome for inherent and residual risk.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"Agencies must be able to revise their internal process in response to any impact assessment tool updates.\"\n        }\n      ],\n      \"reason\": \"Child 1 supports the conditional permission, the consistency and same-or-higher risk outcome requirement, and the revision requirement.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish additional conditions, approval requirements, or transition arrangements beyond those stated.\"\n    }\n  ]\n}",
+    "answer": "Yes, but only conditionally. The Policy for the Responsible Use of AI in Government permits agencies to conduct an AI use case impact assessment using either the Australian Government AI impact assessment tool or an internal process that integrates all provisions of the impact assessment tool [1]. Where an agency integrates the tool, it must ensure the internal process is consistent and delivers the same (or a higher) risk outcome for inherent and residual risk [1]. The agency must also be able to revise its internal process in response to any impact assessment tool updates [1].\n\nThe available excerpts do not establish any additional conditions, approval requirements, or transition arrangements for substituting an internal process beyond those stated above.",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies may conduct an AI use case impact assessment by using either: • the Australian Government AI impact assessment tool (the impact assessment tool) • an internal process that integrates all provisions of the impact assessment tool."
+            },
+            {
+              "number": 1,
+              "quote": "Where an agency integrates the tool, they must ensure: • the internal process is consistent • it delivers the same (or a higher) risk outcome for inherent and residual risk."
+            },
+            {
+              "number": 1,
+              "quote": "Agencies must be able to revise their internal process in response to any impact assessment tool updates."
+            }
+          ],
+          "reason": "Child 1 supports the conditional permission, the consistency and same-or-higher risk outcome requirement, and the revision requirement."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish additional conditions, approval requirements, or transition arrangements beyond those stated."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "18b6eae7-cf60-4689-b09f-9b6956f2c7ce",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "In-scope AI use cases",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 14,
+      "page_end": 15,
+      "quote": "Agencies may conduct an AI use case impact assessment by using either: • the Australian Government AI impact assessment tool (the impact assessment tool) • an internal process that integrates all provisions of the impact assessment tool.\n\nWhere an agency integrates the tool, they must ensure: • the internal process is consistent • it delivers the same (or a higher) risk outcome for inherent and residual risk. Agencies must be able to revise their internal process in response to any impact assessment tool updates. Agencies must add each in-scope AI use case to their internal register of AI use cases and update it as required. Include risk rating and accountable use case owner changes. When deploying an in-scope AI use case, agencies must: • regularly monitor and evaluate their use case to ensure it is operating as intended and that risks are being effectively managed. • re-validate the AI use case impact assessment by checking its accuracy and updating it when there is a material change in the use case scope, usage or operation. Agencies should also monitor changes that are not initiated by the agency. For example, vendor changes and changes in the regulatory environment. Agencies could also ask vendors to provide information on updates through contractual mechanisms."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "63317ebb-686d-4081-8a18-bea93b91c9a7",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "AI use case impact assessment",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 14,
+      "page_end": 14,
+      "quote": "AI use case impact assessment The principles and requirements in this section intend to assess potential impacts of AI use cases and ensure additional oversight of higher risk AI.\n\nPrinciples • Ongoing monitoring and evaluation of AI uses. • AI risk mitigation is proportionate and targeted. • AI use is lawful, ethical, responsible, transparent and explainable to the public.\n\nMandatory requirements\n\nAll new AI use cases Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy. The assessment must be documented and take place during the design phase while developing requirements. Agencies must begin AI use case assessments within 12 months of this policy taking effect. For existing use cases not yet assessed, agencies must determine whether they are in scope of this policy and apply all relevant policy actions by 30 April 2027. Where practicable, agencies should implement the requirements ahead of the deadlines listed above.\n\nIn-scope AI use cases For AI use cases that are in-scope, agencies must conduct an AI use case impact assessment. Agencies are to commence an assessment at the design stage. Before the solution is deployed, agencies must finalise the assessment and apply any agreed risk treatments. Agencies may conduct an AI use case impact assessment by using either: • the Australian Government AI impact assessment tool (the impact assessment tool) • an internal process that integrates all provisions of the impact assessment tool."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "c06d1e3b-008e-4c3b-b7e8-8e3f40f47cb3",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 15,
+      "page_end": 16,
+      "quote": "Agencies should also monitor changes that are not initiated by the agency. For example, vendor changes and changes in the regulatory environment. Agencies could also ask vendors to provide information on updates through contractual mechanisms.\n\nMedium-risk AI use cases If an agency determines their in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, they should consider if the use case would benefit from being governed through a designated board or a senior executive. Agencies should choose an approach appropriate for the size and scope of the agency if they apply additional governance.\n\nHigh-risk AI use cases If an agency determines their in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, they must: • report the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks • govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency. Once an agency has decided to deploy the use case, they must: • report the use case to the DTA through the accountable official, see the Standard for accountability • establish a system to regularly review the use case every 12 months at a minimum. The review must report to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed. The review must also consider the AI use case impact assessment and revisions to it, if required."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "5bb2a30b-4f6f-4da5-bf7f-a6bb03b25cb1",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 16,
+      "page_end": 16,
+      "quote": "The review must also consider the AI use case impact assessment and revisions to it, if required.\n\nOut-of-scope AI use cases For use cases assessed as out of scope of this policy, agencies may adopt the use case while ensuring they comply with relevant existing obligations, such as privacy and security. If an agency adopts an out-of-scope AI use case, they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution. If a use case is in scope, agencies must follow any applicable actions in this policy."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "d9bb0011-e7ae-469e-a7a4-01a821157cc3",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "2  As defined by the Australian Government Protective Security Policy Framework",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 22,
+      "page_end": 22,
+      "quote": "While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment.\n\nExperimentation For the avoidance of doubt, agencies are not required to apply this policy if they are doing early-stage experimentation which does not: • commit to proceeding with a use case or to any design decisions that would affect implementation later • risk harming anyone • introduce or exacerbate any privacy or security risks. If there is a likelihood of proceeding with the AI use case while experimenting in this phase, agencies should apply the policy. Agencies should also apply the Australian Government AI technical standard, which provides relevant information for developing use cases at each stage of the AI lifecycle."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "d275385f-58db-4776-a68f-2385712a2a9d",
+      "section_id": "26813548-8b6e-5ad6-802e-77260a8a082a",
+      "section_title": "Scope",
+      "title": "Australian Government AI Technical Standard",
+      "page": 10,
+      "page_end": 10,
+      "quote": "Scope\n\nIn scope The standard applies to: • AI services and products for administrative decision-making in government • AI systems that may produce discriminatory, unfair, or harmful outcomes • platform, data, and software for AI services and products • a product or service with at least one AI model, hosted internally or externally • reuse of AI assets, including applying to new or changed use cases • systems with embedded AI services and products • publicly available AI tools, such as ChatGPT. Examples of the types of AI considered for the standard include machine learning, computer vision, deep learning, artificial neural networks, generative AI (GenAI) or any combinations of these.\n\nOut of scope While the below list is out of scope, agencies can adapt and apply the standard at their own discretion: • automated decision-making | architecture.digital.gov.au • robotic process automation • human-repeatable scripts or processes • artificial general intelligence • incidental use of AI. The standard does not define, but works in conjunction with, the following: • procurement processes and guidance • project management methodologies • risk identification and impact assessment • incident, problem, and change management."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "582b32ae-448b-4f2f-8474-fd43469cdd93",
+      "section_id": "e8ef2906-7538-52aa-be36-5a6abdf721b8",
+      "section_title": "Calibrating governance processes to level of agency",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 21,
+      "page_end": 22,
+      "quote": "Calibrating governance processes to level of agency\n\nMSD created multiple risk-calibrated governance pathways based on five levels of agency, accounting for factors such as action and permission scope, human oversight, data and context scope etc.\n\n• Lower levels move quickly through a lightweight governance pathway; middle levels move through an established AI impact assessment process, and higher levels require escalations to enterprise architecture review and testing where appropriate. • The highest levels of agency require technical measures beyond monitoring. A programmatic runtime policy enforcement layer is being implemented at the AI gateway before higher levels of autonomy are enabled.\n\n| Assess and bound the risks upfront\n\n22"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "68f4190d-eae1-4c84-bf7f-7b84cee8133e",
+      "section_id": "21719a1d-6c81-563f-ac1e-81a427d9749a",
+      "section_title": "Target audience",
+      "title": "Australian Government AI Technical Standard",
+      "page": 11,
+      "page_end": 11,
+      "quote": "Target audience The standard impacts both roles and responsibilities at varying organisational levels across government, and impacts Australians more broadly. The following functions and communities may be impacted or assisted by the standard. Noting individuals may perform multiple roles. Entities external to government agencies includes the following: 1. Civil society can be the owners of the data used by AI systems, or users who are directly or indirectly impacted by AI systems. They can investigate the use of AI in the public sector and publish their findings. Civil society helps shape government’s AI policy, programs and strategy to safeguard human rights. They include the public, academia and research, advocacy and media groups. 2. Oversight bodies review the extent to which agencies have implemented the standard. They enforce laws, assess compliance, and provide stakeholder confidence. They include the regulators, assurance teams, ethics officers and auditors. They can be internal or external to an agency. 3. Industry partners implement the standard for the products or services they provide. They may need to adopt the standard to conform with responsible AI principles and policies for government: They include government suppliers, managed services providers, consultants and contractors."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答准确覆盖了参考要点的四项条件（整合全部条款、一致性、风险等同或更高、可随工具更新修订），并正确限定为有条件允许；引用[1]直接支持全部主张，未发现事实错误或遗漏。",
+      "claims": [
+        {
+          "answer_span": "permits agencies to conduct an AI use case impact assessment using either the Australian Government AI impact assessment tool or an internal process that integrates all provisions of the impact assessment tool [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]原文明确列出两种可选方式，包括整合全部条款的内部流程。"
+        },
+        {
+          "answer_span": "it must ensure the internal process is consistent and delivers the same (or a higher) risk outcome for inherent and residual risk [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]原文要求内部流程一致，并对固有和残余风险给出相同或更高风险结果。"
+        },
+        {
+          "answer_span": "The agency must also be able to revise its internal process in response to any impact assessment tool updates [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]原文明确要求机构能够根据影响评估工具的任何更新修订内部流程。"
+        },
+        {
+          "answer_span": "The available excerpts do not establish any additional conditions, approval requirements, or transition arrangements for substituting an internal process beyond those stated above.",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "这是对检索证据范围的诚实限定，未主张不存在其他条件，属于恰当的证据边界说明。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答准确覆盖了参考要点的四项条件（整合全部条款、一致性、风险等同或更高、可随工具更新修订），并正确限定为有条件允许；引用[1]直接支持全部主张，未发现事实错误或遗漏。\",\"claims\":[{\"answer_span\":\"permits agencies to conduct an AI use case impact assessment using either the Australian Government AI impact assessment tool or an internal process that integrates all provisions of the impact assessment tool [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]原文明确列出两种可选方式，包括整合全部条款的内部流程。\"},{\"answer_span\":\"it must ensure the internal process is consistent and delivers the same (or a higher) risk outcome for inherent and residual risk [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]原文要求内部流程一致，并对固有和残余风险给出相同或更高风险结果。\"},{\"answer_span\":\"The agency must also be able to revise its internal process in response to any impact assessment tool updates [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]原文明确要求机构能够根据影响评估工具的任何更新修订内部流程。\"},{\"answer_span\":\"The available excerpts do not establish any additional conditions, approval requirements, or transition arrangements for substituting an internal process beyond those stated above.\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"这是对检索证据范围的诚实限定，未主张不存在其他条件，属于恰当的证据边界说明。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

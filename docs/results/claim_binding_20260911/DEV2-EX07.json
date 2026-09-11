@@ -1,0 +1,195 @@
+{
+  "question_id": "DEV2-EX07",
+  "question": "In the Dayos case, does having no human engineer in the Tier 1 execution loop mean there is no human oversight at all?",
+  "inputs_sha256": "8f3c106872ee50e0e78663d1d1800f20cb216ef744c1b6cf61b12181c379240c",
+  "messages_sha256": "44db0167e8cb6f3efc35631e4a8b5431a02d3032c7f90e715c87b5536a9b9e8d",
+  "raw_artifact_sha256": "1292a7cc5fddd317893d043f0fdc916a3449ea1fe3aa2e9b7cc9959b89616853",
+  "final_artifact_sha256": "cbdbed757a013993b93d527aba1fc9c42ec1a1efe7fc026146b89eef353999a7",
+  "draft": "No. In the Dayos case, Tier 1 tickets are fully automated by the agent using a propose-confirm loop, with no human engineer in the execution loop [1]. However, human oversight is retained through biweekly audits: every action produces a reasoning chain capturing classification logic and a confidence score, and a designated reviewer audits a cross-section of these biweekly [1]. Because every Tier 1 action is reversible, errors can be corrected without lasting damage [1].\n\n**Evidence gap:** The provided excerpts do not establish any other form of human oversight for Tier 1 beyond the biweekly audit described [1].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "No. In the Dayos case, Tier 1 tickets are fully automated by the agent using a propose-confirm loop, with no human engineer in the execution loop [1]. However, human oversight is retained through biweekly audits: every action produces a reasoning chain capturing classification logic and a confidence score, and a designated reviewer audits a cross-section of these biweekly [1]. Because every Tier 1 action is reversible, errors can be corrected without lasting damage [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"No human engineer is in the loop\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"But with biweekly audits: Every action produces a reasoning chain that captures classification logic and a confidence score. A designated reviewer audits a cross- section of these biweekly.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"As every Tier 1 action is reversible, errors can be corrected without any lasting damage.\"\n        }\n      ],\n      \"reason\": \"Child 1 supports all clauses: Tier 1 fully automated with no human engineer in the loop; human oversight retained via biweekly audits with reasoning chains, confidence scores, and a designated reviewer auditing a cross-section; and every Tier 1 action is reversible so errors can be corrected without lasting damage.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts describe the biweekly audit as the human oversight mechanism for Tier 1 but do not establish whether any other form of human oversight exists for Tier 1.\"\n    }\n  ]\n}",
+    "answer": "No. In the Dayos case, Tier 1 tickets are fully automated by the agent using a propose-confirm loop, with no human engineer in the execution loop [1]. However, human oversight is retained through biweekly audits: every action produces a reasoning chain capturing classification logic and a confidence score, and a designated reviewer audits a cross-section of these biweekly [1]. Because every Tier 1 action is reversible, errors can be corrected without lasting damage [1].",
+    "removed_unit_ids": [
+      "u2"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {
+      "u2": "Gap cannot masquerade as a cited factual claim"
+    },
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "No human engineer is in the loop"
+            },
+            {
+              "number": 1,
+              "quote": "But with biweekly audits: Every action produces a reasoning chain that captures classification logic and a confidence score. A designated reviewer audits a cross- section of these biweekly."
+            },
+            {
+              "number": 1,
+              "quote": "As every Tier 1 action is reversible, errors can be corrected without any lasting damage."
+            }
+          ],
+          "reason": "Child 1 supports all clauses: Tier 1 fully automated with no human engineer in the loop; human oversight retained via biweekly audits with reasoning chains, confidence scores, and a designated reviewer auditing a cross-section; and every Tier 1 action is reversible so errors can be corrected without lasting damage."
+        },
+        {
+          "id": "u2",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts describe the biweekly audit as the human oversight mechanism for Tier 1 but do not establish whether any other form of human oversight exists for Tier 1."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "61d7b901-7912-4795-be67-909e00c8bd92",
+      "section_id": "6ad9c656-213b-59a8-a958-08a943af06a1",
+      "section_title": "What the agent does (and does not do)",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 18,
+      "page_end": 18,
+      "quote": "What the agent does (and does not do) Tier 1 (60% of tickets)\n\nLow severity, fully reversible\n\nPassword resets, access requests, status inquiries • Fully automated by agent using Simple Feedback (a propose-confirm loop). The agent proposes, the user confirms or pushes back, and agent adjusts until the ticket is closed. No human engineer is in the loop. • But with biweekly audits: Every action produces a reasoning chain that captures classification logic and a confidence score. A designated reviewer audits a cross- section of these biweekly. As every Tier 1 action is reversible, errors can be corrected without any lasting damage. Tier 2 (30% of tickets)\n\nModerate severity, partially reversible Chart of accounts updates, integration mapping corrections, diagnosing failed API connections • Agent diagnoses but can only act with a human engineer’s approval. Uses the ReACT strategy (a multi- step diagnostic loop for harder problems): the agent checks logs, queries connected systems, identifies the probable root cause, and writes up a diagnostic summary with a proposed fix. But a qualified engineer has to review and sign off before anything executes. Tier 3 (10% of tickets)"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "94784a1a-860a-46f3-9d32-f6559739ed2a",
+      "section_id": "6ad9c656-213b-59a8-a958-08a943af06a1",
+      "section_title": "What the agent does (and does not do)",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 18,
+      "page_end": 19,
+      "quote": "But a qualified engineer has to review and sign off before anything executes. Tier 3 (10% of tickets)\n\nHigh severity, limited reversibility Production deployments, security changes, permission modifications • Agent does not touch these. Production deployments and security changes carry too much risk for autonomous execution at the current maturity of agentic AI. As safeguards improve and are validated in real environments – e.g. multi-agent verification and real-time anomaly detection – Dayos will reassess whether bounded automation makes sense for specific Tier 3 actions.\n\n| Assess and bound the risks upfront\n\n19"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "4cae9b7e-cb21-411b-b5a8-469c193eaa57",
+      "section_id": "742bf475-ba91-51f9-914f-72564b7db14a",
+      "section_title": "Dayos: Tiering and bounding agentic actions by risk level in IT management",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 18,
+      "page_end": 18,
+      "quote": "Dayos: Tiering and bounding agentic actions by risk level in IT management\n\nDayos is an enterprise AI automation company headquartered in Singapore with operations in the US. The company builds Hero, an agentic platform that sits on top of Oracle, SAP, Workday, NetSuite and Microsoft Dynamics and automates workflows across IT management, accounting, HR and procurement.\n\nDayos replaced its own ServiceNow instance with an AI-powered ticketing agent built on Hero. The full retirement took 45 days and reduced legacy licensing costs by $121,000 annually. The agent now handles every internal IT request that comes in: it reads the ticket, determines how urgent and complex it is, and either resolves it automatically or routes it to a human.\n\nBefore any of this went live, Dayos ran a structured risk assessment. Every type of IT ticket was scored against three questions: • Severity of impact: If the agent gets this wrong, how bad is it? • Reversibility: Can the action be undone? • Feasibility of human oversight: Is it realistic for a human to review this at each step?\n\nThe scores determined which tier each ticket type falls into, and that tier dictated what reasoning strategy the agent uses and how much autonomy the agent gets."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "9adbe26f-7be9-4aba-a56c-182aa20753c4",
+      "section_id": "1cbfa088-cd86-5a89-b094-c8a198798a95",
+      "section_title": "What’s new in this version",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 5,
+      "page_end": 6,
+      "quote": "The four dimensions • Case study from IMDA on how the framework can be applied to OpenClaw deployments\n\nAssess and bound the risks • Risk factors: Added new factors for risk assessment, including system complexity and usage of third-party solutions • Case studies from Dayos, MSD, OCBC\n\nEnable meaningful human accountability • Agentic value chain: Refined the agentic AI value chain to separate platform providers and system providers or app developers • Automation bias: Added more practices to guard against automation bias, such as monitoring human override rates and response times • Case studies from PwC, Tencent, X0PA\n\nImplement technical controls and processes • Types of controls: Added overview of different types of controls and how to select them (e.g. structural, rule-based vs prompt-layer controls) • Change management: Included recommendations for change management processes to avoid outsized impact from small changes, especially as system complexity increases • Case studies from CDL x Knovel, CyberSierra, Google, GovTech, Stability Solutions, Terminal 3\n\nEnable end-user responsibility • Tradecraft and business continuity: Added detail on loss of tradecraft and how it can impact business continuity • Case studies from Ant International, Workday\n\n| Introduction to Agentic AI 6"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "6aa84b08-6eb3-4f1a-974f-31593693f205",
+      "section_id": "5f818da4-7d18-5700-a36d-a86dded7f772",
+      "section_title": "2.2.2  Design for meaningful human oversight — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 30,
+      "page_end": 30,
+      "quote": "• Ensuring that humans possess the domain expertise to evaluate agent actions e.g. users using agents to “vibe code” may not have the software engineering expertise to review the robustness of generated code.\n\nFinally, human oversight should be complemented with automated real -time monitoring to escalate any unexpected or anomalous behaviour. This can be done by: • Implementing alerts for certain logged events (e.g. attempted unauthorised access or multiple failed attempts to call a tool) • Using data science techniques to identify anomalous agent trajectories • Using agents to monitor other agents • Denying action by default when approval infrastructures fail (e.g. when human supervisors are unreachable or agents attempt new actions that do not have any established approval policies in place).\n\nFor more information, see Continuous testing and monitoring below.\n\n27 See Anthropic, Reasoning models don’t always say what they think."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "f693db32-fe19-4a60-a630-fa660e7150ab",
+      "section_id": "5f818da4-7d18-5700-a36d-a86dded7f772",
+      "section_title": "2.2.2  Design for meaningful human oversight — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 30,
+      "page_end": 30,
+      "quote": "| Make humans meaningfully accountable\n\n30 • Regularly auditing the effectiveness of human oversight. Some ways to do so include: o Tracking measurable indicators ▪ Human override rate i.e. the frequency at which humans reject or modify agent actions. A low rate may signal rubber-stamping behaviours. ▪ Human response times during review of agent actions. A shorter time may signal automation bias or review fatigue. o Using data analytics to identify \"outlier\" humans, whose decision patterns deviate significantly from the norm. This may indicate compromised oversight.\n\n• Training human overseers to identify common failure modes or agent limitations e.g. inconsistent agent reasoning, agents referring to outdated policies . It should also be noted that chain-of-thought reasoning, which is sometimes used for explainability, is not analogous to human reasoning and may not be a faithful explanation of the agent’s actions.27\n\n• Ensuring that humans possess the domain expertise to evaluate agent actions e.g. users using agents to “vibe code” may not have the software engineering expertise to review the robustness of generated code."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "68a885d7-6a4e-4845-af52-f81e70f1429e",
+      "section_id": "bb443b95-37ad-59de-bfbb-2eb33dc0db4a",
+      "section_title": "2. Make humans meaningfully accountable",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 3,
+      "page_end": 4,
+      "quote": "2. Make humans meaningfully accountable\n\nOnce the “green light” is given for agentic AI deployment, an organisation should take steps to ensure human accountability.\n\nHowever, the autonomy of agents may complicate traditional responsibility assignments which are tied to static workflows. Multiple actors may also be involved in different parts of the agent lifecycle, diffusing accountability. It is therefore important to clearly define the responsibilities of different stakeholders, both within the organisation and with external vendors, while emphasising adaptive governance, so that the organisation is set up to quickly understand new developments and update its approach as the technology evolves.\n\nSpecifically, “human-in-the-loop” has to be adapted to address automation bias, which has become a bigger concern with increasingly capable agents. This includes\n\ndefining significant checkpoints in the agentic workflow that require human approval, such as high-stakes or irreversible actions, and regularly auditing human oversight to check that it remains effective over time."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "8734c92c-79f2-4743-b4f3-69c4ebbf2269",
+      "section_id": "ee321f99-785b-5497-850b-4ce1384e16d0",
+      "section_title": "Criterion 34: Design AI systems to be inclusive, ethical, and meets accessibility",
+      "title": "Australian Government AI Technical Standard",
+      "page": 49,
+      "page_end": 50,
+      "quote": "Criterion 36: Define human oversight and control mechanisms.\n\nThis includes: o identifying conditions and situations that need to be supervised and monitored by a human, conditions that need to be escalated by the system to a supervisor or operator for further review and approval, and conditions that should trigger transfer of control from the AI system to a supervisor or operator o defining the system states, errors, and other relevant information that should be observable and comprehensible to an informed human o defining the pathway for the timely intervention, decision override, or auditable system takeover by authorised internal users\n\no subsets of inputs and outputs that may result in harm should be recorded for monitoring, auditing, contesting, or validation. This will facilitate reviewing of false positives against inputs that triggered them, and of false negatives that result in harms o identifying situations where a supervising human might become disengaged and designing the system to attract the operator’s attention o map human oversight and control requirements to corresponding risks they mitigate o identifying required personas and defining their roles o adherence to privacy and security need-to-know principles. Agencies should: Criterion 37: Involve users in the design process. The intention is to promote better outcomes for managing inclusion and accessibility by setting expectations at the beginning of the AI system lifecycle. This includes: o considering security guidance and the need-to-know principle o involving users in defining requirements, evaluating, and trialling systems or products."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案正确回答“否”，并完整覆盖三个必需点：Tier 1执行环无人类工程师、指定审查员每两周审计、动作可逆可纠错；所有实质主张均有[1]直接支持，引用准确。",
+      "claims": [
+        {
+          "answer_span": "Tier 1 tickets are fully automated by the agent using a propose-confirm loop, with no human engineer in the execution loop [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]明确记载Tier 1由agent用Simple Feedback（propose-confirm loop）全自动处理，且“No human engineer is in the loop”。"
+        },
+        {
+          "answer_span": "human oversight is retained through biweekly audits",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]记载“But with biweekly audits”，表明执行环之外仍保留人工监督。"
+        },
+        {
+          "answer_span": "every action produces a reasoning chain capturing classification logic and a confidence score",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]原文“Every action produces a reasoning chain that captures classification logic and a confidence score”。"
+        },
+        {
+          "answer_span": "a designated reviewer audits a cross-section of these biweekly [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]原文“A designated reviewer audits a cross-section of these biweekly”。"
+        },
+        {
+          "answer_span": "Because every Tier 1 action is reversible, errors can be corrected without lasting damage [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]原文“As every Tier 1 action is reversible, errors can be corrected without any lasting damage”。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案正确回答“否”，并完整覆盖三个必需点：Tier 1执行环无人类工程师、指定审查员每两周审计、动作可逆可纠错；所有实质主张均有[1]直接支持，引用准确。\", \"claims\":[{\"answer_span\":\"Tier 1 tickets are fully automated by the agent using a propose-confirm loop, with no human engineer in the execution loop [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]明确记载Tier 1由agent用Simple Feedback（propose-confirm loop）全自动处理，且“No human engineer is in the loop”。\"},{\"answer_span\":\"human oversight is retained through biweekly audits\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]记载“But with biweekly audits”，表明执行环之外仍保留人工监督。\"},{\"answer_span\":\"every action produces a reasoning chain capturing classification logic and a confidence score\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]原文“Every action produces a reasoning chain that captures classification logic and a confidence score”。\"},{\"answer_span\":\"a designated reviewer audits a cross-section of these biweekly [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]原文“A designated reviewer audits a cross-section of these biweekly”。\"},{\"answer_span\":\"Because every Tier 1 action is reversible, errors can be corrected without lasting damage [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]原文“As every Tier 1 action is reversible, errors can be corrected without any lasting damage”。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

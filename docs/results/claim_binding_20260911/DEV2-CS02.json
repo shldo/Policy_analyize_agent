@@ -1,0 +1,294 @@
+{
+  "question_id": "DEV2-CS02",
+  "question": "What changes in the policy workflow between initially screening a new AI use case and revisiting a previously out-of-scope use case after a material change?",
+  "inputs_sha256": "7713e6492328367328e4b7cafa8a012779cc877d500c9eaba1ee7370828df332",
+  "messages_sha256": "43b9cff80358fe2079442bfd7a1fd828fe99b44b7ff9a9a326777080aee8fe61",
+  "raw_artifact_sha256": "792fb9cafa4048d6ccee6051b40da18c17539962fc19574da82481306c9e512a",
+  "final_artifact_sha256": "75c61ce082c079af69e22789a43fe4fef26b4464c7504d3ab4e06b094804e970",
+  "draft": "**Direct answer:** The workflow shifts from a one-time, design-phase screening decision to a conditional re-screening trigger. Initially, agencies must assess all new AI use cases against the Appendix C in-scope criteria, with the assessment documented and conducted during the design phase while developing requirements [3]. For a use case already assessed as out of scope, agencies may adopt it while ensuring compliance with relevant existing obligations such as privacy and security, but must assess whether it becomes in-scope if there is a material change in the scope, usage or operation of the solution [1]. If the use case is in scope, agencies must follow any applicable actions in this policy [1].\n\n**Key differences in the workflow**\n\n| Dimension | Initial screening (new use case) | Re-screening (previously out-of-scope use case) |\n|---|---|---|\n| Trigger | All new AI use cases, regardless of characteristics [3] | Material change in scope, usage or operation of the solution [1] |\n| Timing | During the design phase while developing requirements [3] | Not specified in the available excerpts beyond the material-change trigger [1] |\n| Output | Documented determination of whether the use case is in scope of the policy [3] | Determination of whether the use case has become in-scope [1] |\n| Consequence | In-scope use cases proceed to an AI use case impact assessment, commenced at the design stage and finalised before deployment with agreed risk treatments applied [3] | If in scope, all applicable policy actions apply [1] |\n\n**Evidence gaps:** The available excerpts do not establish a specific deadline or procedural step for the re-screening of a previously out-of-scope use case following a material change, beyond the requirement to assess whether it becomes in-scope [1]. They also do not establish whether the re-screening must be documented in the same manner as the initial assessment.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**Key differences in the workflow**\n\n| Output | Documented determination of whether the use case is in scope of the policy [3] | Determination of whether the use case has become in-scope [1] |",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "```json\n{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 3,\n          \"quote\": \"Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy. The assessment must be documented and take place during the design phase while developing requirements.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"For use cases assessed as out of scope of this policy, agencies may adopt the use case while ensuring they comply with relevant existing obligations, such as privacy and security. If an agency adopts an out-of-scope AI use case, they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution. If a use case is in scope, agencies must follow any applicable actions in this policy.\"\n        }\n      ],\n      \"reason\": \"The initial screening and out-of-scope re-screening clauses are supported by Children 3 and 1. However, the unit's characterization of the initial screening as a 'one-time' decision is not established by the excerpts, and the unit omits the 12-month and 30 April 2027 deadlines present in Child 3.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a table header, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is table formatting, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 3,\n          \"quote\": \"Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution.\"\n        }\n      ],\n      \"reason\": \"The trigger for initial screening is supported by Child 3, and the material-change trigger for re-screening is supported by Child 1. However, the phrase 'regardless of characteristics' is not supported by the excerpts.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 3,\n          \"quote\": \"The assessment must be documented and take place during the design phase while developing requirements.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"if there is a material change in the scope, usage or operation of the solution.\"\n        }\n      ],\n      \"reason\": \"The initial timing is supported by Child 3. The re-screening timing is accurately described as not specified beyond the material-change trigger, which is supported by Child 1. However, the unit's statement that timing is 'Not specified in the available excerpts' is a gap claim within a table cell, and the unit as a whole is a comparison that is only partially supported.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 3,\n          \"quote\": \"Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy. The assessment must be documented\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution.\"\n        }\n      ],\n      \"reason\": \"The output for initial screening (documented determination of scope) is supported by Child 3, and the output for re-screening (determination of whether the use case has become in-scope) is supported by Child 1.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 3,\n          \"quote\": \"For AI use cases that are in-scope, agencies must conduct an AI use case impact assessment. Agencies are to commence an assessment at the design stage. Before the solution is deployed, agencies must finalise the assessment and apply any agreed risk treatments.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"If a use case is in scope, agencies must follow any applicable actions in this policy.\"\n        }\n      ],\n      \"reason\": \"The consequence for initial screening is supported by Child 3, and the consequence for re-screening is supported by Child 1. However, the unit's phrasing 'proceed to an AI use case impact assessment' is not directly stated in Child 3, which says agencies 'must conduct' an assessment for in-scope use cases.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish a specific deadline or procedural step for re-screening beyond the material-change trigger, nor whether re-screening must be documented in the same manner as the initial assessment.\"\n    }\n  ]\n}\n```",
+    "answer": "**Key differences in the workflow**\n\n| Output | Documented determination of whether the use case is in scope of the policy [3] | Determination of whether the use case has become in-scope [1] |",
+    "removed_unit_ids": [
+      "u1",
+      "u3",
+      "u4",
+      "u5",
+      "u6",
+      "u8",
+      "u9"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {
+      "u9": "Gap cannot masquerade as a cited factual claim"
+    },
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy. The assessment must be documented and take place during the design phase while developing requirements."
+            },
+            {
+              "number": 1,
+              "quote": "For use cases assessed as out of scope of this policy, agencies may adopt the use case while ensuring they comply with relevant existing obligations, such as privacy and security. If an agency adopts an out-of-scope AI use case, they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution. If a use case is in scope, agencies must follow any applicable actions in this policy."
+            }
+          ],
+          "reason": "The initial screening and out-of-scope re-screening clauses are supported by Children 3 and 1. However, the unit's characterization of the initial screening as a 'one-time' decision is not established by the excerpts, and the unit omits the 12-month and 30 April 2027 deadlines present in Child 3."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a table header, not a policy assertion."
+        },
+        {
+          "id": "u4",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is table formatting, not a policy assertion."
+        },
+        {
+          "id": "u5",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy."
+            },
+            {
+              "number": 1,
+              "quote": "they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution."
+            }
+          ],
+          "reason": "The trigger for initial screening is supported by Child 3, and the material-change trigger for re-screening is supported by Child 1. However, the phrase 'regardless of characteristics' is not supported by the excerpts."
+        },
+        {
+          "id": "u6",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "The assessment must be documented and take place during the design phase while developing requirements."
+            },
+            {
+              "number": 1,
+              "quote": "if there is a material change in the scope, usage or operation of the solution."
+            }
+          ],
+          "reason": "The initial timing is supported by Child 3. The re-screening timing is accurately described as not specified beyond the material-change trigger, which is supported by Child 1. However, the unit's statement that timing is 'Not specified in the available excerpts' is a gap claim within a table cell, and the unit as a whole is a comparison that is only partially supported."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy. The assessment must be documented"
+            },
+            {
+              "number": 1,
+              "quote": "they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution."
+            }
+          ],
+          "reason": "The output for initial screening (documented determination of scope) is supported by Child 3, and the output for re-screening (determination of whether the use case has become in-scope) is supported by Child 1."
+        },
+        {
+          "id": "u8",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "For AI use cases that are in-scope, agencies must conduct an AI use case impact assessment. Agencies are to commence an assessment at the design stage. Before the solution is deployed, agencies must finalise the assessment and apply any agreed risk treatments."
+            },
+            {
+              "number": 1,
+              "quote": "If a use case is in scope, agencies must follow any applicable actions in this policy."
+            }
+          ],
+          "reason": "The consequence for initial screening is supported by Child 3, and the consequence for re-screening is supported by Child 1. However, the unit's phrasing 'proceed to an AI use case impact assessment' is not directly stated in Child 3, which says agencies 'must conduct' an assessment for in-scope use cases."
+        },
+        {
+          "id": "u9",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish a specific deadline or procedural step for re-screening beyond the material-change trigger, nor whether re-screening must be documented in the same manner as the initial assessment."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "5bb2a30b-4f6f-4da5-bf7f-a6bb03b25cb1",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 16,
+      "page_end": 16,
+      "quote": "The review must also consider the AI use case impact assessment and revisions to it, if required.\n\nOut-of-scope AI use cases For use cases assessed as out of scope of this policy, agencies may adopt the use case while ensuring they comply with relevant existing obligations, such as privacy and security. If an agency adopts an out-of-scope AI use case, they must assess whether the use case becomes in-scope of this policy if there is a material change in the scope, usage or operation of the solution. If a use case is in scope, agencies must follow any applicable actions in this policy."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "18b6eae7-cf60-4689-b09f-9b6956f2c7ce",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "In-scope AI use cases",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 14,
+      "page_end": 15,
+      "quote": "Agencies may conduct an AI use case impact assessment by using either: • the Australian Government AI impact assessment tool (the impact assessment tool) • an internal process that integrates all provisions of the impact assessment tool.\n\nWhere an agency integrates the tool, they must ensure: • the internal process is consistent • it delivers the same (or a higher) risk outcome for inherent and residual risk. Agencies must be able to revise their internal process in response to any impact assessment tool updates. Agencies must add each in-scope AI use case to their internal register of AI use cases and update it as required. Include risk rating and accountable use case owner changes. When deploying an in-scope AI use case, agencies must: • regularly monitor and evaluate their use case to ensure it is operating as intended and that risks are being effectively managed. • re-validate the AI use case impact assessment by checking its accuracy and updating it when there is a material change in the use case scope, usage or operation. Agencies should also monitor changes that are not initiated by the agency. For example, vendor changes and changes in the regulatory environment. Agencies could also ask vendors to provide information on updates through contractual mechanisms."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "63317ebb-686d-4081-8a18-bea93b91c9a7",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "AI use case impact assessment",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 14,
+      "page_end": 14,
+      "quote": "AI use case impact assessment The principles and requirements in this section intend to assess potential impacts of AI use cases and ensure additional oversight of higher risk AI.\n\nPrinciples • Ongoing monitoring and evaluation of AI uses. • AI risk mitigation is proportionate and targeted. • AI use is lawful, ethical, responsible, transparent and explainable to the public.\n\nMandatory requirements\n\nAll new AI use cases Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy. The assessment must be documented and take place during the design phase while developing requirements. Agencies must begin AI use case assessments within 12 months of this policy taking effect. For existing use cases not yet assessed, agencies must determine whether they are in scope of this policy and apply all relevant policy actions by 30 April 2027. Where practicable, agencies should implement the requirements ahead of the deadlines listed above.\n\nIn-scope AI use cases For AI use cases that are in-scope, agencies must conduct an AI use case impact assessment. Agencies are to commence an assessment at the design stage. Before the solution is deployed, agencies must finalise the assessment and apply any agreed risk treatments. Agencies may conduct an AI use case impact assessment by using either: • the Australian Government AI impact assessment tool (the impact assessment tool) • an internal process that integrates all provisions of the impact assessment tool."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "ba219966-3549-47f7-b6d6-7cb6f50266a7",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "Appendix C: In-scope AI use cases",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 21,
+      "page_end": 22,
+      "quote": "This policy has been designed to exclude incidental and lower risk uses of AI that do not meet the criteria.\n\nIncidental uses of AI may include off-the-shelf software with AI features such as grammar checks and internet searches with AI functionality. The policy recognises that incidental usage of AI will grow over time and focuses on uses that require additional oversight and governance. 1 As defined by the Privacy Act 1988 (Cth).\n\n2 As defined by the Australian Government Protective Security Policy Framework\n\nIn assessing whether a use case is in scope, agencies should also carefully consider AI use in the following areas: • recruitment and other employment-related decision making • automated decision making of discretionary decisions • administration of justice and democratic processes • law enforcement, profiling individuals, and border control • health • education • critical infrastructure. While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "5df0e4e5-5a61-47fa-bcb8-31f2f665bb25",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "Appendix C: In-scope AI use cases",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 21,
+      "page_end": 21,
+      "quote": "Appendix C: In-scope AI use cases\n\nCriteria and areas of consideration At a minimum, an AI use case is in scope of this policy if any of the following apply: • The use, misuse or failure of AI could lead to more than insignificant harm to individuals, communities, organisations, the environment or the collective rights of cultural groups including First Nations peoples. • The use of AI will materially influence administrative decisions that affect individuals, communities, organisations, the environment or the collective rights of cultural groups including First Nations peoples. • It is possible the public will directly interact with, or be significantly impacted by, the AI or its outputs without human review. • The AI is designed to use personal or sensitive data1 or security classified information2. • It is deemed an elevated risk AI use case as directed by the DTA. Agencies may wish to apply this policy to AI use cases that do not meet the above criteria. This includes use cases with specific characteristics or factors unique to an agency’s operating environment that may benefit from applying an impact assessment and governance actions. This policy has been designed to exclude incidental and lower risk uses of AI that do not meet the criteria."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "d275385f-58db-4776-a68f-2385712a2a9d",
+      "section_id": "26813548-8b6e-5ad6-802e-77260a8a082a",
+      "section_title": "Scope",
+      "title": "Australian Government AI Technical Standard",
+      "page": 10,
+      "page_end": 10,
+      "quote": "Scope\n\nIn scope The standard applies to: • AI services and products for administrative decision-making in government • AI systems that may produce discriminatory, unfair, or harmful outcomes • platform, data, and software for AI services and products • a product or service with at least one AI model, hosted internally or externally • reuse of AI assets, including applying to new or changed use cases • systems with embedded AI services and products • publicly available AI tools, such as ChatGPT. Examples of the types of AI considered for the standard include machine learning, computer vision, deep learning, artificial neural networks, generative AI (GenAI) or any combinations of these.\n\nOut of scope While the below list is out of scope, agencies can adapt and apply the standard at their own discretion: • automated decision-making | architecture.digital.gov.au • robotic process automation • human-repeatable scripts or processes • artificial general intelligence • incidental use of AI. The standard does not define, but works in conjunction with, the following: • procurement processes and guidance • project management methodologies • risk identification and impact assessment • incident, problem, and change management."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "53826ddc-3226-4ca3-98cb-d819aee15baf",
+      "section_id": "2b294a2f-f978-53a9-964c-db65f440069a",
+      "section_title": "Appendix B: Definitions",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 18,
+      "page_end": 19,
+      "quote": "The definition in this policy will be reviewed as the broader, whole-of-economy regulatory environment matures to ensure an aligned approach.\n\nAI use case This policy uses the term ‘AI use case’ in some of its requirements. AI systems can have one or more applications, which can each differ in their intended purpose, functionality and risk level. The policy focuses on conducting assessments and applying actions at the AI use case level. Agencies are to use the following definition of AI use case in applying this policy: An AI use case is a specific application of an AI system or systems to achieve certain objectives or perform certain tasks. Some general-purpose AI solutions, such as Microsoft Copilot, may include a variety of use cases. When applying the policy to these solutions, agencies can choose one of the following approaches: • treat the AI solution as a single complex use case and undertake policy actions appropriate for the highest level of risk • treat each use case separately and undertake policy actions appropriate to each use case’s respective risk, including appointing separate accountable use case owner and registering each in-scope use case on the agency’s internal register."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "90908194-4b0c-4feb-b560-ffb76df7cc7e",
+      "section_id": "c93301c3-fb95-5e16-9fd1-49bbbd321ced",
+      "section_title": "Implementation",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 7,
+      "page_end": 8,
+      "quote": "While agencies may need this time to action requirements, agencies should implement them sooner if practicable. Agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline.\n\nIn-scope AI use cases This policy specifies actions that apply at the use case level. AI use cases in scope of this policy (referred to as in-scope AI use cases) are use cases that meet any criteria in Appendix C. In addition to the criteria, the appendix lists areas of AI use to consider that are not automatically high risk, but are more likely to involve risks that require careful attention through an impact assessment. It also provides information on how to apply the policy for agencies experimenting with AI."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "needs_revision",
+      "summary_zh": "答案仅以表格形式列出两个输出项，未实质回答“初次筛查新用例”与“重大变更后重新评估已采纳的超出范围用例”之间的工作流差异，遗漏了初次筛查须对照附录C、在设计阶段记录，以及重新评估触发条件（范围/使用/运营发生重大变更）和若变为在范围内须遵循适用政策行动等关键要点。",
+      "claims": [
+        {
+          "answer_span": "Documented determination of whether the use case is in scope of the policy [3]",
+          "label": "partial",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]确实说明所有新AI用例必须对照附录C的在范围标准进行评估，且评估须记录并在设计阶段进行，但答案仅给出“记录在范围判定”这一输出，未说明对照附录C、设计阶段等流程要素。"
+        },
+        {
+          "answer_span": "Determination of whether the use case has become in-scope [1]",
+          "label": "partial",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]支持已采纳的超出范围用例在范围、使用或运营发生重大变更时须评估是否变为在范围，但答案未说明“重大变更”这一触发条件，也未说明若在范围内须遵循适用政策行动。"
+        }
+      ],
+      "issues": [
+        {
+          "severity": "major",
+          "dimension": "completeness",
+          "answer_span": "",
+          "reason_zh": "遗漏初次筛查的关键流程：须对照附录C在范围标准评估、评估须记录、须在设计阶段进行（证据[3]）。",
+          "evidence_child_ids": [
+            "63317ebb-686d-4081-8a18-bea93b91c9a7"
+          ]
+        },
+        {
+          "severity": "major",
+          "dimension": "completeness",
+          "answer_span": "",
+          "reason_zh": "遗漏重新评估的触发条件：已采纳的超出范围用例仅在范围、使用或运营发生重大变更时才须评估是否变为在范围（证据[1]）。",
+          "evidence_child_ids": [
+            "5bb2a30b-4f6f-4da5-bf7f-a6bb03b25cb1"
+          ]
+        },
+        {
+          "severity": "major",
+          "dimension": "completeness",
+          "answer_span": "",
+          "reason_zh": "遗漏若重新评估后变为在范围，机构必须遵循本政策中任何适用行动（证据[1]）。",
+          "evidence_child_ids": [
+            "5bb2a30b-4f6f-4da5-bf7f-a6bb03b25cb1"
+          ]
+        },
+        {
+          "severity": "minor",
+          "dimension": "relevance",
+          "answer_span": "Documented determination of whether the use case is in scope of the policy [3]",
+          "reason_zh": "答案以表格输出项形式呈现，未展开说明两个流程之间的差异，回答形式与问题要求不匹配。",
+          "evidence_child_ids": [
+            "63317ebb-686d-4081-8a18-bea93b91c9a7",
+            "5bb2a30b-4f6f-4da5-bf7f-a6bb03b25cb1"
+          ]
+        }
+      ],
+      "missing_required_points": [
+        "初次筛查须对照附录C在范围标准进行评估",
+        "初次筛查评估须记录并在设计阶段进行",
+        "已采纳的超出范围用例在范围、使用或运营发生重大变更时须重新评估是否变为在范围",
+        "若重新评估后变为在范围，须遵循本政策中任何适用行动"
+      ]
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"needs_revision\",\"summary_zh\":\"答案仅以表格形式列出两个输出项，未实质回答“初次筛查新用例”与“重大变更后重新评估已采纳的超出范围用例”之间的工作流差异，遗漏了初次筛查须对照附录C、在设计阶段记录，以及重新评估触发条件（范围/使用/运营发生重大变更）和若变为在范围内须遵循适用政策行动等关键要点。\",\"claims\":[{\"answer_span\":\"Documented determination of whether the use case is in scope of the policy [3]\",\"label\":\"partial\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]确实说明所有新AI用例必须对照附录C的在范围标准进行评估，且评估须记录并在设计阶段进行，但答案仅给出“记录在范围判定”这一输出，未说明对照附录C、设计阶段等流程要素。\"},{\"answer_span\":\"Determination of whether the use case has become in-scope [1]\",\"label\":\"partial\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]支持已采纳的超出范围用例在范围、使用或运营发生重大变更时须评估是否变为在范围，但答案未说明“重大变更”这一触发条件，也未说明若在范围内须遵循适用政策行动。\"}],\"issues\":[{\"severity\":\"major\",\"dimension\":\"completeness\",\"answer_span\":\"\",\"reason_zh\":\"遗漏初次筛查的关键流程：须对照附录C在范围标准评估、评估须记录、须在设计阶段进行（证据[3]）。\",\"evidence_child_ids\":[\"63317ebb-686d-4081-8a18-bea93b91c9a7\"]},{\"severity\":\"major\",\"dimension\":\"completeness\",\"answer_span\":\"\",\"reason_zh\":\"遗漏重新评估的触发条件：已采纳的超出范围用例仅在范围、使用或运营发生重大变更时才须评估是否变为在范围（证据[1]）。\",\"evidence_child_ids\":[\"5bb2a30b-4f6f-4da5-bf7f-a6bb03b25cb1\"]},{\"severity\":\"major\",\"dimension\":\"completeness\",\"answer_span\":\"\",\"reason_zh\":\"遗漏若重新评估后变为在范围，机构必须遵循本政策中任何适用行动（证据[1]）。\",\"evidence_child_ids\":[\"5bb2a30b-4f6f-4da5-bf7f-a6bb03b25cb1\"]},{\"severity\":\"minor\",\"dimension\":\"relevance\",\"answer_span\":\"Documented determination of whether the use case is in scope of the policy [3]\",\"reason_zh\":\"答案以表格输出项形式呈现，未展开说明两个流程之间的差异，回答形式与问题要求不匹配。\",\"evidence_child_ids\":[\"63317ebb-686d-4081-8a18-bea93b91c9a7\",\"5bb2a30b-4f6f-4da5-bf7f-a6bb03b25cb1\"]}],\"missing_required_points\":[\"初次筛查须对照附录C在范围标准进行评估\",\"初次筛查评估须记录并在设计阶段进行\",\"已采纳的超出范围用例在范围、使用或运营发生重大变更时须重新评估是否变为在范围\",\"若重新评估后变为在范围，须遵循本政策中任何适用行动\"]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

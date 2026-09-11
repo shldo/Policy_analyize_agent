@@ -1,0 +1,339 @@
+{
+  "question_id": "DEV2-CS06",
+  "question": "After deciding an agent use case has acceptable benefits and risks, what accountability arrangements should the deployer still establish?",
+  "inputs_sha256": "5364fac1e95a99806017b85b1c633cd5d3a16ae6a6b3bfeaac49e4d446119386",
+  "messages_sha256": "15eeb2decab295b302f0a44c593514d4e68f88a46db6dccdddfc00f7d87875ac",
+  "raw_artifact_sha256": "5a4e8469b25c67b6474a9057eb8fa5907e1c96318f8e5c2449a13e942cdcb819",
+  "final_artifact_sha256": "2708d2c7c1dc647529669f05246d45e6c781d204427ae96b54ef16aa66212633",
+  "draft": "After accepting the residual risk of an agentic deployment, the deployer should still establish accountability arrangements covering (a) clear allocation of responsibilities within and outside the organisation, and (b) measures enabling meaningful human oversight.\n\n**Residual risk acceptance is not the end point**\nResidual risk is the risk remaining after mitigation measures have been applied, and there will always be a level of risk remaining even after identifying appropriate agentic use cases and defining limits on agents; organisations should evaluate and determine whether the residual risk is tolerable and can be accepted [1].\n\n**Clear allocation of responsibilities**\nOrganisations should consider the allocation of responsibility both within their organisation and vis-à-vis other organisations along the value chain [2]. Within the organisation, organisations should allocate responsibilities for different teams across the agent lifecycle [2]. In the PwC Singapore report-drafting illustration, this allocation is described as: the use case owner remains accountable for responsible use of the application and for ensuring appropriate human oversight is in place [2]; the Technology Risk Management Team supports assessment of technology, risk, security and compliance considerations, including any regulatory requirements, and advises on controls relating to tools and models, access rights, and connected knowledge bases or data sources [2]; and AI Factory designs, develops and maintains the application, including prompt design, model selection, tool configuration, integration with approved knowledge bases and appropriate guardrails, and monitors for model changes and manages updates through standard change management processes rather than leaving it to end users [2].\n\n**External parties**\nWhere organisations work with external parties when deploying agents (e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools), they should similarly ensure measures are in place to fulfil their own accountability [3]. Agent-specific considerations include clarifying the distribution of obligations in terms and conditions or contracts — in particular provisions on security arrangements, performance guarantees, or data protection — and, where there are gaps, reassessing whether the agentic deployment meets the organisation's risk tolerance [3]. To address third-party opacity, organisations should take steps to maintain sufficient security and control, such as requiring transparency and accountability from external parties (e.g. disclosures on agent capabilities and data handling practices) and requesting and evaluating technical security and control features (e.g. scoped API keys, per-agent identity tokens, and observability such as logging of tool calls and access history); where such features are lacking, organisations should consider alternative or in-house solutions, or scoping down the agentic use case, such as restricting access to sensitive data [3].\n\n**Meaningful human oversight**\nThe organisations that deploy agents and the humans who oversee them remain accountable for the agents' actions [6]. To address challenges to human accountability — including dynamically emergent agent actions, diffused accountability across multiple stakeholders, and automation bias — organisations should consider clear allocation of responsibilities within and outside the organisation, establishing chains of accountability across the agent value chain and lifecycle while emphasising adaptive governance, and measures to enable meaningful human oversight of agents, such as requiring human approval at significant checkpoints, auditing the effectiveness of human approvals, and complementing these measures with automated monitoring [6].\n\n**Evidence gaps**\nThe provided excerpts do not establish a specific sequencing requirement that these accountability arrangements be established only after a benefits-and-risks determination, nor do they set deadlines or approval gates for doing so. The excerpts also do not establish whether residual-risk acceptance must be documented or approved by a named body.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "After accepting the residual risk of an agentic deployment, the deployer should still establish accountability arrangements covering (a) clear allocation of responsibilities within and outside the organisation, and (b) measures enabling meaningful human oversight. [6]\n\n**Residual risk acceptance is not the end point**\n\nResidual risk is the risk remaining after mitigation measures have been applied, and there will always be a level of risk remaining even after identifying appropriate agentic use cases and defining limits on agents; organisations should evaluate and determine whether the residual risk is tolerable and can be accepted [1].\n\n**Clear allocation of responsibilities**\n\n**External parties**\n\nWhere organisations work with external parties when deploying agents (e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools), they should similarly ensure measures are in place to fulfil their own accountability [3]. Agent-specific considerations include clarifying the distribution of obligations in terms and conditions or contracts — in particular provisions on security arrangements, performance guarantees, or data protection — and, where there are gaps, reassessing whether the agentic deployment meets the organisation's risk tolerance [3]. To address third-party opacity, organisations should take steps to maintain sufficient security and control, such as requiring transparency and accountability from external parties (e.g. disclosures on agent capabilities and data handling practices) and requesting and evaluating technical security and control features (e.g. scoped API keys, per-agent identity tokens, and observability such as logging of tool calls and access history); where such features are lacking, organisations should consider alternative or in-house solutions, or scoping down the agentic use case, such as restricting access to sensitive data [3].\n\n**Meaningful human oversight**\n\nThe organisations that deploy agents and the humans who oversee them remain accountable for the agents' actions [6]. To address challenges to human accountability — including dynamically emergent agent actions, diffused accountability across multiple stakeholders, and automation bias — organisations should consider clear allocation of responsibilities within and outside the organisation, establishing chains of accountability across the agent value chain and lifecycle while emphasising adaptive governance, and measures to enable meaningful human oversight of agents, such as requiring human approval at significant checkpoints, auditing the effectiveness of human approvals, and complementing these measures with automated monitoring [6].\n\nThe provided excerpts do not establish a specific sequencing requirement that these accountability arrangements be established only after a benefits-and-risks determination, nor do they set deadlines or approval gates for doing so. The excerpts also do not establish whether residual-risk acceptance must be documented or approved by a named body.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 6,\n          \"quote\": \"organisations should consider:\\n\\n\\u2022 Clear allocation of responsibilities within and outside the organisation\"\n        },\n        {\n          \"number\": 6,\n          \"quote\": \"Measures to enable meaningful human oversight of agents\"\n        }\n      ],\n      \"reason\": \"Child 6 states that organisations should consider clear allocation of responsibilities within and outside the organisation and measures to enable meaningful human oversight of agents, matching both clauses of the unit.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting statement, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Residual risk is the risk that remains after mitigation measures have been applied.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"organisations should evaluate and determine if the residual risk for their agentic deployment is of a tolerable level and can be accepted.\"\n        }\n      ],\n      \"reason\": \"Child 1 defines residual risk, states there will always be remaining risk even after identifying use cases and defining limits, and says organisations should evaluate whether residual risk is tolerable and can be accepted.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting statement, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"The use case owner remains accountable for the responsible use of the application and for ensuring that appropriate human oversight is in place.\"\n        },\n        {\n          \"number\": 2,\n          \"quote\": \"Technology Risk Management Team \\u2013 Risk assessment and control advice: Supports the assessment of technology, risk, security, and compliance considerations for the use case, including any regulatory requirements .\"\n        },\n        {\n          \"number\": 2,\n          \"quote\": \"AI Factory \\u2013 Design, development, guardrails and monitoring: Designing, developing, and maintaining the application, including prompt design, model selection, tool configuration, integration with approved knowledge bases , and appropriate guardrails .\"\n        }\n      ],\n      \"reason\": \"Child 2 supports the PwC Singapore illustration and the three role allocations, but it does not support the unit's opening clause that organisations should consider allocation of responsibility both within their organisation and vis-\\u00e0-vis other organisations along the value chain, nor the statement that organisations should allocate responsibilities for different teams across the agent lifecycle.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting statement, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 3,\n          \"quote\": \"In these cases, organisations should similarly ensure that there are measures in place to fulfil its own accountability.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"Clarify distribution of obligations in any terms and conditions or contracts between the organisation and the external party.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"In particular, organisations should consider provisions on security arrangements, performance guarantees, or data protection.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"Where there are gaps, the organisation should reassess if the agentic deployment meets its risk tolerance.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"Require transparency and accountability from external parties e.g. through disclosures on agent capabilities and data handling practices\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"Request and evaluate technical security and control features e.g. strong authentication measures such as scoped API keys, per -agent identity tokens, and observability such as the logging of tool calls and access history.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"Where such features are lacking, organisations should consider alternative or in -house solutions, or scoping down the agentic use case, such as restricting access to sensitive data.\"\n        }\n      ],\n      \"reason\": \"Child 3 supports the external-party accountability measures, contract clarification, gap reassessment, transparency and accountability requests, technical security and control features, and alternatives where features are lacking.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting statement, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 6,\n          \"quote\": \"The organisations that deploy agents and the humans who oversee them remain accountable for the agents\\u2019 actions.\"\n        },\n        {\n          \"number\": 6,\n          \"quote\": \"Clear allocation of responsibilities within and outside the organisation , by establishing chains of accountability across the agent value chain and lifecycle, while emphasising adaptive governance\"\n        },\n        {\n          \"number\": 6,\n          \"quote\": \"Measures to enable meaningful human oversight of agents, such as requiring human approval at significant checkpoints, auditing the effectiveness of human approvals, and complementing these measures with automated monitoring.\"\n        }\n      ],\n      \"reason\": \"Child 6 supports accountability of deploying organisations and human overseers, the challenges including dynamically emergent actions, diffused accountability, and automation bias, and the recommended measures for allocation of responsibilities and meaningful human oversight.\"\n    },\n    {\n      \"id\": \"u10\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting statement, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u11\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish a specific sequencing requirement that accountability arrangements be established only after a benefits-and-risks determination, nor deadlines or approval gates for doing so, nor whether residual-risk acceptance must be documented or approved by a named body.\"\n    }\n  ]\n}",
+    "answer": "After accepting the residual risk of an agentic deployment, the deployer should still establish accountability arrangements covering (a) clear allocation of responsibilities within and outside the organisation, and (b) measures enabling meaningful human oversight. [6]\n\n**Residual risk acceptance is not the end point**\n\nResidual risk is the risk remaining after mitigation measures have been applied, and there will always be a level of risk remaining even after identifying appropriate agentic use cases and defining limits on agents; organisations should evaluate and determine whether the residual risk is tolerable and can be accepted [1].\n\n**Clear allocation of responsibilities**\n\n**External parties**\n\nWhere organisations work with external parties when deploying agents (e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools), they should similarly ensure measures are in place to fulfil their own accountability [3]. Agent-specific considerations include clarifying the distribution of obligations in terms and conditions or contracts — in particular provisions on security arrangements, performance guarantees, or data protection — and, where there are gaps, reassessing whether the agentic deployment meets the organisation's risk tolerance [3]. To address third-party opacity, organisations should take steps to maintain sufficient security and control, such as requiring transparency and accountability from external parties (e.g. disclosures on agent capabilities and data handling practices) and requesting and evaluating technical security and control features (e.g. scoped API keys, per-agent identity tokens, and observability such as logging of tool calls and access history); where such features are lacking, organisations should consider alternative or in-house solutions, or scoping down the agentic use case, such as restricting access to sensitive data [3].\n\n**Meaningful human oversight**\n\nThe organisations that deploy agents and the humans who oversee them remain accountable for the agents' actions [6]. To address challenges to human accountability — including dynamically emergent agent actions, diffused accountability across multiple stakeholders, and automation bias — organisations should consider clear allocation of responsibilities within and outside the organisation, establishing chains of accountability across the agent value chain and lifecycle while emphasising adaptive governance, and measures to enable meaningful human oversight of agents, such as requiring human approval at significant checkpoints, auditing the effectiveness of human approvals, and complementing these measures with automated monitoring [6].\n\nThe provided excerpts do not establish a specific sequencing requirement that these accountability arrangements be established only after a benefits-and-risks determination, nor do they set deadlines or approval gates for doing so. The excerpts also do not establish whether residual-risk acceptance must be documented or approved by a named body.",
+    "removed_unit_ids": [
+      "u5"
+    ],
+    "rebound_unit_ids": [
+      "u1"
+    ],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 6,
+              "quote": "organisations should consider:\n\n• Clear allocation of responsibilities within and outside the organisation"
+            },
+            {
+              "number": 6,
+              "quote": "Measures to enable meaningful human oversight of agents"
+            }
+          ],
+          "reason": "Child 6 states that organisations should consider clear allocation of responsibilities within and outside the organisation and measures to enable meaningful human oversight of agents, matching both clauses of the unit."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting statement, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Residual risk is the risk that remains after mitigation measures have been applied."
+            },
+            {
+              "number": 1,
+              "quote": "there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents"
+            },
+            {
+              "number": 1,
+              "quote": "organisations should evaluate and determine if the residual risk for their agentic deployment is of a tolerable level and can be accepted."
+            }
+          ],
+          "reason": "Child 1 defines residual risk, states there will always be remaining risk even after identifying use cases and defining limits, and says organisations should evaluate whether residual risk is tolerable and can be accepted."
+        },
+        {
+          "id": "u4",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting statement, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u5",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "The use case owner remains accountable for the responsible use of the application and for ensuring that appropriate human oversight is in place."
+            },
+            {
+              "number": 2,
+              "quote": "Technology Risk Management Team – Risk assessment and control advice: Supports the assessment of technology, risk, security, and compliance considerations for the use case, including any regulatory requirements ."
+            },
+            {
+              "number": 2,
+              "quote": "AI Factory – Design, development, guardrails and monitoring: Designing, developing, and maintaining the application, including prompt design, model selection, tool configuration, integration with approved knowledge bases , and appropriate guardrails ."
+            }
+          ],
+          "reason": "Child 2 supports the PwC Singapore illustration and the three role allocations, but it does not support the unit's opening clause that organisations should consider allocation of responsibility both within their organisation and vis-à-vis other organisations along the value chain, nor the statement that organisations should allocate responsibilities for different teams across the agent lifecycle."
+        },
+        {
+          "id": "u6",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting statement, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "In these cases, organisations should similarly ensure that there are measures in place to fulfil its own accountability."
+            },
+            {
+              "number": 3,
+              "quote": "Clarify distribution of obligations in any terms and conditions or contracts between the organisation and the external party."
+            },
+            {
+              "number": 3,
+              "quote": "In particular, organisations should consider provisions on security arrangements, performance guarantees, or data protection."
+            },
+            {
+              "number": 3,
+              "quote": "Where there are gaps, the organisation should reassess if the agentic deployment meets its risk tolerance."
+            },
+            {
+              "number": 3,
+              "quote": "Require transparency and accountability from external parties e.g. through disclosures on agent capabilities and data handling practices"
+            },
+            {
+              "number": 3,
+              "quote": "Request and evaluate technical security and control features e.g. strong authentication measures such as scoped API keys, per -agent identity tokens, and observability such as the logging of tool calls and access history."
+            },
+            {
+              "number": 3,
+              "quote": "Where such features are lacking, organisations should consider alternative or in -house solutions, or scoping down the agentic use case, such as restricting access to sensitive data."
+            }
+          ],
+          "reason": "Child 3 supports the external-party accountability measures, contract clarification, gap reassessment, transparency and accountability requests, technical security and control features, and alternatives where features are lacking."
+        },
+        {
+          "id": "u8",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting statement, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u9",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 6,
+              "quote": "The organisations that deploy agents and the humans who oversee them remain accountable for the agents’ actions."
+            },
+            {
+              "number": 6,
+              "quote": "Clear allocation of responsibilities within and outside the organisation , by establishing chains of accountability across the agent value chain and lifecycle, while emphasising adaptive governance"
+            },
+            {
+              "number": 6,
+              "quote": "Measures to enable meaningful human oversight of agents, such as requiring human approval at significant checkpoints, auditing the effectiveness of human approvals, and complementing these measures with automated monitoring."
+            }
+          ],
+          "reason": "Child 6 supports accountability of deploying organisations and human overseers, the challenges including dynamically emergent actions, diffused accountability, and automation bias, and the recommended measures for allocation of responsibilities and meaningful human oversight."
+        },
+        {
+          "id": "u10",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting statement, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u11",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish a specific sequencing requirement that accountability arrangements be established only after a benefits-and-risks determination, nor deadlines or approval gates for doing so, nor whether residual-risk acceptance must be documented or approved by a named body."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "3a404f30-fd07-44a3-84a4-dad78ce8d9e2",
+      "section_id": "e5946e90-f8af-59fc-bb26-eaef0f5bc55f",
+      "section_title": "Evaluating the residual risks",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 24,
+      "page_end": 25,
+      "quote": "Evaluating the residual risks\n\nResidual risk is the risk that remains after mitigation measures have been applied. It is important to note that there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents, especially given how quickly agentic AI is evolving. Ultimately, organisations should evaluate and determine if the residual risk for their agentic deployment is of a tolerable level and can be accepted.\n\n| Make humans meaningfully accountable\n\n25"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "ef7c13ff-a7c9-4f22-8b9f-726f0442ba5f",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "2.2.1 Clear allocation of responsibilities within and outside the organisation",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 27,
+      "page_end": 28,
+      "quote": "The system uses three coordinated agents in a primarily sequential workflow, with feedback loops for additional retrieval or restructuring where needed:\n\nThe responsibilities below describe how operating accountability for this report -drafting use case is allocated, within the context of PwC Singapore’s broader AI governance framework:\n\n1. Use case owner – Use case appropriateness and accountable use: Confirming that the use case serves a legitimate business need, is appropriate for the intended purpose, and is aligned with the organisation’s AI governance framework. The use case owner remains accountable for the responsible use of the application and for ensuring that appropriate human oversight is in place.\n\n2. Technology Risk Management Team – Risk assessment and control advice: Supports the assessment of technology, risk, security, and compliance considerations for the use case, including any regulatory requirements . This includes advising on appropriate controls relating to tools and models, access rights, and connected knowledge bases or data sources.\n\n3. AI Factory – Design, development, guardrails and monitoring: Designing, developing, and maintaining the application, including prompt design, model selection, tool configuration, integration with approved knowledge bases , and appropriate guardrails . AI Factory also monitors for model changes and manages updates through standard change management processes rather than leaving it to the end users.\n\n| Make humans meaningfully accountable\n\n28\n\nOutside the organisation\n\nOrganisations may also need to work with external parties when deploying agents e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "6162aecf-16f2-4281-861e-4660bb84c183",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "2.2.1 Clear allocation of responsibilities within and outside the organisation",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 28,
+      "page_end": 28,
+      "quote": "28\n\nOutside the organisation\n\nOrganisations may also need to work with external parties when deploying agents e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools.\n\nIn these cases, organisations should similarly ensure that there are measures in place to fulfil its own accountability. Some agent-specific considerations are:\n\n• Clarify distribution of obligations in any terms and conditions or contracts between the organisation and the external party. In particular, organisations should consider provisions on security arrangements, performance guarantees, or data protection. Where there are gaps, the organisation should reassess if the agentic deployment meets its risk tolerance.\n\n• Address third-party opacity: Agents provided by external parties can be difficult to observe and control, making it challenging to understand what information they are grounded on, what they infer from conversations, or how data is stored and used . Organisations should take steps to maintain sufficient security and control, such as: o Require transparency and accountability from external parties e.g. through disclosures on agent capabilities and data handling practices o Request and evaluate technical security and control features e.g. strong authentication measures such as scoped API keys, per -agent identity tokens, and observability such as the logging of tool calls and access history. Where such features are lacking, organisations should consider alternative or in -house solutions, or scoping down the agentic use case, such as restricting access to sensitive data.\n\nEnd users"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "ef447984-6ebb-4151-af54-cbf07c0d08e6",
+      "section_id": "59f964bc-cdd0-52b6-baae-39ea9ee656ef",
+      "section_title": "2.1.1 Determine suitable use cases for agent deployment — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 15,
+      "page_end": 15,
+      "quote": "2.1.1 Determine suitable use cases for agent deployment\n\nWhen considering if an agentic use case is suitable for development or deployment , first identify and assess the risk against the benefits. Risk is a function of likelihood (probability of the risk manifesting) and impact (severity of impact if the risk manifests). Not all use cases are suitable for agents, and some may be better served by deterministic workflows.\n\nThe following non-exhaustive factors affect the level of risk of an agentic use case:\n\nFactors affecting impact (severity of impact if the risk manifests) Factor Description Illustration"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "c06d1e3b-008e-4c3b-b7e8-8e3f40f47cb3",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 15,
+      "page_end": 16,
+      "quote": "Agencies should also monitor changes that are not initiated by the agency. For example, vendor changes and changes in the regulatory environment. Agencies could also ask vendors to provide information on updates through contractual mechanisms.\n\nMedium-risk AI use cases If an agency determines their in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, they should consider if the use case would benefit from being governed through a designated board or a senior executive. Agencies should choose an approach appropriate for the size and scope of the agency if they apply additional governance.\n\nHigh-risk AI use cases If an agency determines their in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, they must: • report the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks • govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency. Once an agency has decided to deploy the use case, they must: • report the use case to the DTA through the accountable official, see the Standard for accountability • establish a system to regularly review the use case every 12 months at a minimum. The review must report to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed. The review must also consider the AI use case impact assessment and revisions to it, if required."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "34f91386-22d5-4b7e-941d-c90a49cf5bda",
+      "section_id": "c07866e5-5a28-5111-92a3-d2519035b0d9",
+      "section_title": "2.2 Make humans meaningfully accountable — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 25,
+      "page_end": 25,
+      "quote": "2.2 Make humans meaningfully accountable\n\nThe organisations that deploy agents and the humans who oversee them remain accountable for the agents’ actions. But it can be challenging to fulfil this accountability when agent actions emerge dynamically and adaptively from interactions instead of fixed logic. Multiple stakeholders may also b e involved in different parts of the agent lifecycle, diffusing accountability. Finally, automation bias, or the tendency to over -trust an automated system, especially when it has performed reliably in the past, becomes a bigger concern as humans supervise increasingly capable agents.\n\nTo address these challenges to human accountability, organisations should consider:\n\n• Clear allocation of responsibilities within and outside the organisation , by establishing chains of accountability across the agent value chain and lifecycle, while emphasising adaptive governance, so that the organisation is set up to quickly understand new developments and update their approach as the technology evolves. • Measures to enable meaningful human oversight of agents, such as requiring human approval at significant checkpoints, auditing the effectiveness of human approvals, and complementing these measures with automated monitoring."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "41ec36bb-d5a4-4c9c-a368-939331aea6ff",
+      "section_id": "d3777b2d-6255-5267-a0bc-d51da4d1a8ea",
+      "section_title": "to sensitive data",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 15,
+      "page_end": 15,
+      "quote": "to sensitive data Whether the agent can access sensitive data, such as personal information or confidential data.\n\nIf agent has such access, the risk increases if the agent has persistent memory and can store sensitive data across sessions. Agent that requires access to personal customer data gives rise to the risk of leaking such data, vs agent who only has access to publicly available information"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "2fd2f9a1-fe62-4658-87a6-fad66c3875a8",
+      "section_id": "07cd09cb-3c24-5957-9804-b1c1595b9c91",
+      "section_title": "Agent’s access to external systems",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 16,
+      "page_end": 17,
+      "quote": "Agent’s access to external systems Whether the agent is exposed to external systems, and who maintains these systems.\n\nA higher level of exposure makes the agent more vulnerable to prompt injections and cyberattacks.\n\nAgent who can only access an internal knowledge base which is maintained by trusted internal teams, vs an agent who can access the web containing untrusted data\n\n| Assess and bound the risks upfront\n\n17"
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整覆盖了残余风险接受后仍需建立的问责安排：组织内外责任分配、跨价值链与生命周期的问责链、有意义的人类监督（审批检查点、审批有效性审计、自动化监控），并正确引用[6]及[3]支持外部方责任与合同/透明度措施。对未在证据中确立的时序、期限或审批主体要求作了明确限定，未虚构政策。",
+      "claims": [
+        {
+          "answer_span": "the deployer should still establish accountability arrangements covering (a) clear allocation of responsibilities within and outside the organisation, and (b) measures enabling meaningful human oversight. [6]",
+          "label": "supported",
+          "citation_numbers": [
+            6
+          ],
+          "reason_zh": "[6]明确列出组织应考量的两项：组织内外清晰责任分配，以及实现有意义人类监督的措施。"
+        },
+        {
+          "answer_span": "Residual risk is the risk remaining after mitigation measures have been applied, and there will always be a level of risk remaining even after identifying appropriate agentic use cases and defining limits on agents; organisations should evaluate and determine whether the residual risk is tolerable and can be accepted [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "[1]逐句支持残余风险定义、始终存在剩余风险、以及组织应评估残余风险是否可容忍并可接受。"
+        },
+        {
+          "answer_span": "Where organisations work with external parties when deploying agents (e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools), they should similarly ensure measures are in place to fulfil their own accountability [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "[3]原文支持与外部方合作时应确保有措施履行自身问责。"
+        },
+        {
+          "answer_span": "clarifying the distribution of obligations in terms and conditions or contracts — in particular provisions on security arrangements, performance guarantees, or data protection — and, where there are gaps, reassessing whether the agentic deployment meets the organisation's risk tolerance [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "[3]支持合同/条款中明确义务分配，尤其安全安排、性能保证、数据保护，并在有缺口时重新评估风险容忍度。"
+        },
+        {
+          "answer_span": "requiring transparency and accountability from external parties (e.g. disclosures on agent capabilities and data handling practices) and requesting and evaluating technical security and control features (e.g. scoped API keys, per-agent identity tokens, and observability such as logging of tool calls and access history); where such features are lacking, organisations should consider alternative or in-house solutions, or scoping down the agentic use case, such as restricting access to sensitive data [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "[3]完整支持透明度与问责要求、技术安全控制特征示例，以及缺失时考虑替代/自建方案或缩小用例范围。"
+        },
+        {
+          "answer_span": "The organisations that deploy agents and the humans who oversee them remain accountable for the agents' actions [6].",
+          "label": "supported",
+          "citation_numbers": [
+            6
+          ],
+          "reason_zh": "[6]原文直接支持部署组织与监督人类仍对代理行为负责。"
+        },
+        {
+          "answer_span": "To address challenges to human accountability — including dynamically emergent agent actions, diffused accountability across multiple stakeholders, and automation bias — organisations should consider clear allocation of responsibilities within and outside the organisation, establishing chains of accountability across the agent value chain and lifecycle while emphasising adaptive governance, and measures to enable meaningful human oversight of agents, such as requiring human approval at significant checkpoints, auditing the effectiveness of human approvals, and complementing these measures with automated monitoring [6].",
+          "label": "supported",
+          "citation_numbers": [
+            6
+          ],
+          "reason_zh": "[6]支持三类挑战（动态涌现、责任扩散、自动化偏见）及对应措施：责任分配、跨价值链/生命周期问责链、适应性治理、人类审批检查点、审批有效性审计与自动化监控。"
+        },
+        {
+          "answer_span": "The provided excerpts do not establish a specific sequencing requirement that these accountability arrangements be established only after a benefits-and-risks determination, nor do they set deadlines or approval gates for doing so. The excerpts also do not establish whether residual-risk acceptance must be documented or approved by a named body.",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            3,
+            6
+          ],
+          "reason_zh": "所引证据[1][3][6]确未规定该时序、期限、审批门槛或残余风险接受的记录/批准主体；这是对证据范围的诚实限定，非政策主张。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖了残余风险接受后仍需建立的问责安排：组织内外责任分配、跨价值链与生命周期的问责链、有意义的人类监督（审批检查点、审批有效性审计、自动化监控），并正确引用[6]及[3]支持外部方责任与合同/透明度措施。对未在证据中确立的时序、期限或审批主体要求作了明确限定，未虚构政策。\",\"claims\":[{\"answer_span\":\"the deployer should still establish accountability arrangements covering (a) clear allocation of responsibilities within and outside the organisation, and (b) measures enabling meaningful human oversight. [6]\",\"label\":\"supported\",\"citation_numbers\":[6],\"reason_zh\":\"[6]明确列出组织应考量的两项：组织内外清晰责任分配，以及实现有意义人类监督的措施。\"},{\"answer_span\":\"Residual risk is the risk remaining after mitigation measures have been applied, and there will always be a level of risk remaining even after identifying appropriate agentic use cases and defining limits on agents; organisations should evaluate and determine whether the residual risk is tolerable and can be accepted [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"[1]逐句支持残余风险定义、始终存在剩余风险、以及组织应评估残余风险是否可容忍并可接受。\"},{\"answer_span\":\"Where organisations work with external parties when deploying agents (e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools), they should similarly ensure measures are in place to fulfil their own accountability [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"[3]原文支持与外部方合作时应确保有措施履行自身问责。\"},{\"answer_span\":\"clarifying the distribution of obligations in terms and conditions or contracts — in particular provisions on security arrangements, performance guarantees, or data protection — and, where there are gaps, reassessing whether the agentic deployment meets the organisation's risk tolerance [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"[3]支持合同/条款中明确义务分配，尤其安全安排、性能保证、数据保护，并在有缺口时重新评估风险容忍度。\"},{\"answer_span\":\"requiring transparency and accountability from external parties (e.g. disclosures on agent capabilities and data handling practices) and requesting and evaluating technical security and control features (e.g. scoped API keys, per-agent identity tokens, and observability such as logging of tool calls and access history); where such features are lacking, organisations should consider alternative or in-house solutions, or scoping down the agentic use case, such as restricting access to sensitive data [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"[3]完整支持透明度与问责要求、技术安全控制特征示例，以及缺失时考虑替代/自建方案或缩小用例范围。\"},{\"answer_span\":\"The organisations that deploy agents and the humans who oversee them remain accountable for the agents' actions [6].\",\"label\":\"supported\",\"citation_numbers\":[6],\"reason_zh\":\"[6]原文直接支持部署组织与监督人类仍对代理行为负责。\"},{\"answer_span\":\"To address challenges to human accountability — including dynamically emergent agent actions, diffused accountability across multiple stakeholders, and automation bias — organisations should consider clear allocation of responsibilities within and outside the organisation, establishing chains of accountability across the agent value chain and lifecycle while emphasising adaptive governance, and measures to enable meaningful human oversight of agents, such as requiring human approval at significant checkpoints, auditing the effectiveness of human approvals, and complementing these measures with automated monitoring [6].\",\"label\":\"supported\",\"citation_numbers\":[6],\"reason_zh\":\"[6]支持三类挑战（动态涌现、责任扩散、自动化偏见）及对应措施：责任分配、跨价值链/生命周期问责链、适应性治理、人类审批检查点、审批有效性审计与自动化监控。\"},{\"answer_span\":\"The provided excerpts do not establish a specific sequencing requirement that these accountability arrangements be established only after a benefits-and-risks determination, nor do they set deadlines or approval gates for doing so. The excerpts also do not establish whether residual-risk acceptance must be documented or approved by a named body.\",\"label\":\"supported\",\"citation_numbers\":[1,3,6],\"reason_zh\":\"所引证据[1][3][6]确未规定该时序、期限、审批门槛或残余风险接受的记录/批准主体；这是对证据范围的诚实限定，非政策主张。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

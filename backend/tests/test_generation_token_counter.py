@@ -13,6 +13,8 @@ def test_defaults_require_tokenizer_and_use_d_budget():
     assert settings.rag_max_context_tokens == 6000
     assert settings.parent_context_k == 8
     assert settings.max_parents_per_document == 5
+    assert settings.child_selection_strategy == "reranker_top_k"
+    assert settings.child_selection_pool_k == 20
     assert settings.rag_tokenizer_path == Path("data/tokenizers/deepseek-v4/tokenizer.json")
 
 

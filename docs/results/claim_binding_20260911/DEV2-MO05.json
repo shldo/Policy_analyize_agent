@@ -1,0 +1,181 @@
+{
+  "question_id": "DEV2-MO05",
+  "question": "In Statement 26, are defining test coverage and mitigating testing bias both labelled required?",
+  "inputs_sha256": "ed323e62c4331c1b81a72ef503f22c90775012dc2fcd1e4811c9992ea8073332",
+  "messages_sha256": "1d33986916768ca4f4595381641905153be7d6736b508d506fc05033ee6f10b3",
+  "raw_artifact_sha256": "6b3cf268d44097f7e9bdd3c2471e471d20c8cb1b646bc3c1c0b23bfd3afa163a",
+  "final_artifact_sha256": "c8a4c0061f0df5e4818844c86703c896cb60322808018ff42b3f8934d376a3eb",
+  "draft": "No. In Statement 26, mitigating bias in the testing process (Criterion 91) is labelled **Required**, whereas defining how test coverage will be measured (Criterion 93) is labelled **Recommended** [1].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "No. In Statement 26, mitigating bias in the testing process (Criterion 91) is labelled **Required**, whereas defining how test coverage will be measured (Criterion 93) is labelled **Recommended** [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Criterion 91: Mitigate bias in the testing process.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"Recommended • Criterion 93: Define how test coverage will be measured.\"\n        }\n      ],\n      \"reason\": \"Child 1 shows Statement 26 with Criterion 91 under Required and Criterion 93 under Recommended, supporting the unit's claim that mitigating testing bias is Required while defining test coverage measurement is Recommended.\"\n    }\n  ]\n}",
+    "answer": "No. In Statement 26, mitigating bias in the testing process (Criterion 91) is labelled **Required**, whereas defining how test coverage will be measured (Criterion 93) is labelled **Recommended** [1].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Criterion 91: Mitigate bias in the testing process."
+            },
+            {
+              "number": 1,
+              "quote": "Recommended • Criterion 93: Define how test coverage will be measured."
+            }
+          ],
+          "reason": "Child 1 shows Statement 26 with Criterion 91 under Required and Criterion 93 under Recommended, supporting the unit's claim that mitigating testing bias is Required while defining test coverage measurement is Recommended."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ec40c943-98dc-4add-b28d-965a8036cc87",
+      "section_id": "0ff47716-6d54-5795-ab15-ded6230871bb",
+      "section_title": "Evaluate",
+      "title": "Australian Government AI Technical Standard",
+      "page": 21,
+      "page_end": 22,
+      "quote": "Evaluate\n\nStatement 26: Adapt strategies and practices for AI systems Required • Criterion 91: Mitigate bias in the testing process. • Criterion 92: Define test criteria approaches. Recommended • Criterion 93: Define how test coverage will be measured. • Criterion 94: Define a strategy to ensure test adequacy.\n\nStatement 27: Test for specified behaviour Required • Criterion 95: Undertake human verification of test design and implementation for correctness, consistency, and completeness. • Criterion 96: Conduct functional performance testing to verify the correctness of the AI system Under Test (SUT) as per the pre-defined metrics. • Criterion 97: Perform controllability testing to verify human oversight and control, and system control requirements. • Criterion 98: Perform explainability and transparency testing as per the requirements.\n\n• Criterion 99: Perform calibration testing as per the requirements. • Criterion 100: Perform logging tests as per the requirements.\n\nStatement 28: Test for safety, robustness, and reliability Required • Criterion 101: Test the computational performance of the system. • Criterion 102: Test safety measures through negative testing methods, failure testing, and fault injection. • Criterion 103: Test reliability of the AI output, through stress testing over an extended period, simulating edge cases, and operating under extreme conditions. Recommended • Criterion 104: Undertake adversarial testing (red team testing), attempting to break security and privacy measures to identify weaknesses."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "62e852d7-c67e-4f1a-8dc4-a3a2b0825640",
+      "section_id": "1c1039fd-caae-56c6-a7a3-3215163a8fa6",
+      "section_title": "Statement 26: Adapt test strategies and practices for AI systems",
+      "title": "Australian Government AI Technical Standard",
+      "page": 83,
+      "page_end": 83,
+      "quote": "Statement 26: Adapt test strategies and practices for AI systems Agencies must: Criterion 91: Mitigate bias in the testing process. This includes: o differentiating test data for formal testing from the data used during model development o ensuring test subjects are not involved in the development of the SUT o providing testers and developers a degree of independence from each other o using test-driven development, such as designing test cases based on the requirements, and prior to implementing data, models, and non-AI components o conducting peer reviews, bias awareness training, and documenting test-related decisions and processes. Criterion 92: Define test criteria approaches. The test criteria determines whether a test case has passed or failed. It involves comparing an actual output with an expected output. This includes: o considering statistical techniques – in probabilistic and non-deterministic systems, a single test case run may not be sufficient to determine success or failure. It may involve repeating a test case multiple times, defining thresholds, minimum values, and average efficiency."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "b6e927e6-7fe6-4470-afac-4b5ce7110cc8",
+      "section_id": "1c1039fd-caae-56c6-a7a3-3215163a8fa6",
+      "section_title": "Statement 26: Adapt test strategies and practices for AI systems",
+      "title": "Australian Government AI Technical Standard",
+      "page": 84,
+      "page_end": 84,
+      "quote": "Combinatorial testing involves deriving test data by sampling from an extremely large set of possible inputs, preconditions, and outputs o automating as much as practicable.\n\nWith testing needs required to validate an AI system during development and maintenance phases, performing manual testing with sufficient coverage will not be feasible o performing appropriate virtual and real-world testing. This includes: ◦ using a mix of data sources such as real-world data and synthetic data ◦ understanding limitations when using synthetic data to test AI systems ◦ considering requirements for embedded systems, such as model-in-the-loop, software-in-the-loop, processor-in-the-loop, and hardware-in-the-loop ◦ understanding limitations of the scope and data sampling size for real-world testing ◦ documenting virtual environment assumptions and correlations with the real world ◦ documenting the quantity of real-world testing and the rationale for selecting the real-world test cases ◦ determine the statistical significance of the test results while considering limitations."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "76420b47-aab5-4614-8ab6-3049c3cec097",
+      "section_id": "1c1039fd-caae-56c6-a7a3-3215163a8fa6",
+      "section_title": "Statement 26: Adapt test strategies and practices for AI systems",
+      "title": "Australian Government AI Technical Standard",
+      "page": 83,
+      "page_end": 84,
+      "quote": "Metamorphic testing involves verifying relations, which are rules about how the output should change relative to how the input is changed. Examples include semantic consistency, intended style and tone,\n\nand preservation of facts. This can be done computationally through vectors or user acceptance testing. Agencies should: Criterion 93: Define how test coverage will be measured. This includes: o identifying the limitations of existing static and dynamic coverage measures o ensuring there is a method for measuring code coverage. This may include when code has been added, such as pre-processing, post-processing, prompts, components being integrated, and model-specific coverage. Code coverage tools can surface untested code and reduce defects or harms o tracing test cases against requirements, design, and risks to check for gaps and demonstrate test coverage. Criterion 94: Define a strategy to ensure test adequacy. Achieving full test coverage for AI systems may be challenging and not viable. To maximise test coverage, consider: o performing combinatorial testing where comprehensive testing of inputs, preconditions, and corresponding outputs is not feasible due to the complexity of real-world combinations. Combinatorial testing involves deriving test data by sampling from an extremely large set of possible inputs, preconditions, and outputs o automating as much as practicable."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ac81b9f4-efe4-4161-b2f7-ab73e1715579",
+      "section_id": "1c1039fd-caae-56c6-a7a3-3215163a8fa6",
+      "section_title": "Statement 26: Adapt test strategies and practices for AI systems",
+      "title": "Australian Government AI Technical Standard",
+      "page": 83,
+      "page_end": 83,
+      "quote": "It may involve repeating a test case multiple times, defining thresholds, minimum values, and average efficiency.\n\nAn example of statistical approach in regulatory setting is EU’s General Safety Regulation on driver drowsiness | eur-lex.europa.eu o performing baseline testing against a reference system or operation – this is useful in cases where there are no comprehensive specifications to define expected output. This entails comparing the AI system’s behaviour and performance against a reference system. The reference system may be non-AI, manual processing, robotic process automation, or earlier system versions o considering metamorphic testing – for GenAI or systems where an exact output cannot be specified for a given input. Metamorphic testing involves verifying relations, which are rules about how the output should change relative to how the input is changed. Examples include semantic consistency, intended style and tone,"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "a6af08b7-b0c9-4d2c-8076-08d55ce3ef28",
+      "section_id": "780a2614-43a1-5177-bac6-9fceb16e4ae2",
+      "section_title": "Criterion 61: Define processes for labelling data and managing the quality of",
+      "title": "Australian Government AI Technical Standard",
+      "page": 64,
+      "page_end": 65,
+      "quote": "o applying quality assurance measures to data labels, labelling personnel, and automated data-labelling support tools o implementing bias mitigation practices in labelling:\n\n◦ establishing a review process. Diverse people could independently label the same data so correlation could be analysed. Final labels could go through spot check review by subject matter experts ◦ establishing feedback loops. Labellers should be able to report issues and suggest improvements, and automated systems should be updated to be consistent with corrections made by human labellers ◦ establishing performance management for staff. Data labellers should undergo periodic training, performance reviews, and random audits for quality control ◦ implementing metadata labelling techniques that capture the type of data categories within the system and the relationship between these categories. Metadata labels can be prepared for model bias evaluation by annotating metadata with suitable dimensions. Ensure the metadata labelling aligns to the Guide on Metadata Attributes | datacommissioner.gov.au and Australian Government Recordkeeping Metadata Standard | naa.gov.au. o assessing and monitoring quality of all automated data labelling support tools. Determine the regularity and criteria for these quality checks and report on findings o updating and maintaining the labelling tools and processes to adapt to new data types, and labelling requirements o considering potential harm to data labellers who may need to access sensitive or distressing content. This can occur when training an AI model to prevent responses including violence, hate speech, or sexual abuse."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "f2141e6f-6aa2-4213-aea9-b1cbf27d3b33",
+      "section_id": "780a2614-43a1-5177-bac6-9fceb16e4ae2",
+      "section_title": "acceptable",
+      "title": "Australian Government AI Technical Standard",
+      "page": 64,
+      "page_end": 64,
+      "quote": "o principal component analysis – analyse variables with the most variance o factor analysis – helps reveal hidden patterns.\n\nCriterion 61: Define processes for labelling data and managing the quality of data labels. Data labelling can be done for the purposes of managing and storing data, audit purposes and AI model training purposes. Humans with appropriate skills and knowledge can perform the data labelling or it could be supported by automated labelling tools. Setting data labelling practices can help optimise performance across the AI system by describing the context, categories, and relationships between data types, creating lineage of data through the AI system via versioning, distinguishing between pre- deployment and live data, and identifying what data will be reused, archived, or destroyed. These include: o establishing naming schemes, taxonomy, tagging, and data labelling practices o considering different techniques such as manual or automated labelling, crowdsourcing, and quality checks o defining quality control methods to improve consistency of labelling and assist in reducing bias o considering changes to the raw data and data imputations, and associated impact o providing data labels for AI training approaches or testing the AI models. Labels can provide the ground truth data for AI models and can influence AI validation. Different types of data labelling include: ◦ classification ◦ regression ◦ visual object labels ◦ audio labels ◦ entity tagging.\n\no applying quality assurance measures to data labels, labelling personnel, and automated data-labelling support tools o implementing bias mitigation practices in labelling:"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ecc34f09-3a4d-4d8e-aea9-27fe853f22a7",
+      "section_id": "a91df602-7a5b-57f3-afc7-fb908ad6bd41",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 28,
+      "page_end": 28,
+      "quote": "Whole of AI lifecycle Whole of AI lifecycle includes statements that apply across multiple AI product lifecycle stages, for ease of use and to minimise content duplication. Across the lifecycle stages, agencies should consider: • operational model – to ensure compliance, efficiency, and ethical standards • reference architecture – to provide structured frameworks that guide the design, development, and management of AI systems • people capabilities – having the specialised skills required for successful implementation • auditability – enabling external scrutiny, supporting transparency, and accountability • explainability – identifying what needs to be explained and when, making complex AI processes transparent and trustworthy • system bias – maintaining the role of positive bias in delivering meaningful outcomes, while mitigating the source and impacts of problematic bias • version control – tracking and managing changes to information to inform stakeholder decision-making • watermarking – to embed visual or hidden markers into generated content so that its creation details can be identified. NOTE: Agencies must consider intellectual property rights and ownership derived from procured services or datasets used (including general AI outputs) to comply with copyright law | ag.gov.au. NOTE: Management of bias in an AI system is critical to ensuring compliance with Australia’s anti-discrimination law | ag.gov.au."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_partial",
+      "summary_zh": "答案正确回答了核心问题：Criterion 91（缓解测试偏见）为Required，Criterion 93（定义测试覆盖率衡量方式）为Recommended，与证据[1][2][4]一致。但未提及同样为Required的Criterion 92（定义测试标准方法）以及同样为Recommended的Criterion 94（测试充分性策略），因此未完整覆盖参考要点。",
+      "claims": [
+        {
+          "answer_span": "mitigating bias in the testing process (Criterion 91) is labelled **Required**",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            2
+          ],
+          "reason_zh": "证据[1]在Statement 26的Required下列出Criterion 91: Mitigate bias in the testing process；证据[2]亦确认Criterion 91属于Agencies must。"
+        },
+        {
+          "answer_span": "defining how test coverage will be measured (Criterion 93) is labelled **Recommended**",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            4
+          ],
+          "reason_zh": "证据[1]在Recommended下列出Criterion 93: Define how test coverage will be measured；证据[4]以Agencies should引出Criterion 93，与Recommended一致。"
+        },
+        {
+          "answer_span": "No.",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "由于Criterion 91为Required而Criterion 93为Recommended，二者并非都为Required，故否定回答正确。"
+        }
+      ],
+      "issues": [
+        {
+          "severity": "minor",
+          "dimension": "completeness",
+          "answer_span": "",
+          "reason_zh": "答案仅对比了Criterion 91与Criterion 93，遗漏了同为Required的Criterion 92（Define test criteria approaches）和同为Recommended的Criterion 94（Define a strategy to ensure test adequacy），未完整覆盖参考要点中的四项。",
+          "evidence_child_ids": [
+            "ec40c943-98dc-4add-b28d-965a8036cc87",
+            "76420b47-aab5-4614-8ab6-3049c3cec097"
+          ]
+        }
+      ],
+      "missing_required_points": [
+        "Required test criteria (Criterion 92)",
+        "Recommended adequacy (Criterion 94)"
+      ]
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_partial\",\"summary_zh\":\"答案正确回答了核心问题：Criterion 91（缓解测试偏见）为Required，Criterion 93（定义测试覆盖率衡量方式）为Recommended，与证据[1][2][4]一致。但未提及同样为Required的Criterion 92（定义测试标准方法）以及同样为Recommended的Criterion 94（测试充分性策略），因此未完整覆盖参考要点。\",\"claims\":[{\"answer_span\":\"mitigating bias in the testing process (Criterion 91) is labelled **Required**\",\"label\":\"supported\",\"citation_numbers\":[1,2],\"reason_zh\":\"证据[1]在Statement 26的Required下列出Criterion 91: Mitigate bias in the testing process；证据[2]亦确认Criterion 91属于Agencies must。\"},{\"answer_span\":\"defining how test coverage will be measured (Criterion 93) is labelled **Recommended**\",\"label\":\"supported\",\"citation_numbers\":[1,4],\"reason_zh\":\"证据[1]在Recommended下列出Criterion 93: Define how test coverage will be measured；证据[4]以Agencies should引出Criterion 93，与Recommended一致。\"},{\"answer_span\":\"No.\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"由于Criterion 91为Required而Criterion 93为Recommended，二者并非都为Required，故否定回答正确。\"}],\"issues\":[{\"severity\":\"minor\",\"dimension\":\"completeness\",\"answer_span\":\"\",\"reason_zh\":\"答案仅对比了Criterion 91与Criterion 93，遗漏了同为Required的Criterion 92（Define test criteria approaches）和同为Recommended的Criterion 94（Define a strategy to ensure test adequacy），未完整覆盖参考要点中的四项。\",\"evidence_child_ids\":[\"ec40c943-98dc-4add-b28d-965a8036cc87\",\"76420b47-aab5-4614-8ab6-3049c3cec097\"]}],\"missing_required_points\":[\"Required test criteria (Criterion 92)\",\"Recommended adequacy (Criterion 94)\"]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

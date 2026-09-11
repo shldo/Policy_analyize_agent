@@ -8,7 +8,13 @@ async function request(path, options = {}) {
   const token = localStorage.getItem("authToken");
   const headers = new Headers(options.headers || {});
   if (token) headers.set("Authorization", `Bearer ${token}`);
-  const response = await fetch(apiPath(path), { ...options, headers });
+  let response;
+  try {
+    response = await fetch(apiPath(path), { ...options, headers });
+  } catch (error) {
+    if (error?.name === "AbortError") throw error;
+    throw new Error("Connection interrupted. Please retry.");
+  }
   if (response.ok) {
     if (response.status === 204) return null;
     return response.json();
@@ -187,7 +193,13 @@ export async function openDocumentFile(documentId, page = null) {
   const token = localStorage.getItem("authToken");
   const headers = new Headers();
   if (token) headers.set("Authorization", `Bearer ${token}`);
-  const response = await fetch(getDocumentFileUrl(documentId), { headers });
+  let response;
+  try {
+    response = await fetch(getDocumentFileUrl(documentId), { headers });
+  } catch (error) {
+    if (error?.name === "AbortError") throw error;
+    throw new Error("Connection interrupted. Please retry.");
+  }
   if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
   const blob = await response.blob();
   const pageFragment = Number.isInteger(page) && page > 0 ? `#page=${page}` : "";
@@ -267,15 +279,21 @@ export function askQuestion(
 
 async function postForSSE(path, body, signal) {
   const token = localStorage.getItem("authToken");
-  const response = await fetch(apiPath(path), {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-    body: JSON.stringify(body),
-    signal,
-  });
+  let response;
+  try {
+    response = await fetch(apiPath(path), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify(body),
+      signal,
+    });
+  } catch (error) {
+    if (error?.name === "AbortError") throw error;
+    throw new Error("Connection interrupted. Please retry.");
+  }
 
   if (!response.ok) {
     let message = `Request failed with status ${response.status}`;

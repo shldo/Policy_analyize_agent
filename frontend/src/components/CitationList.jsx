@@ -11,6 +11,10 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import LanguageIcon from "@mui/icons-material/Language";
 
+function explicitCitationNumber(citation, index) {
+  return Number.isInteger(citation?.number) ? citation.number : index + 1;
+}
+
 export default function CitationList({ citations = [], onOpenSource, lowEvidence = false }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -99,7 +103,7 @@ function CitationCard({ citation, index, onOpenSource, lowEvidence = false }) {
         onClick={() => hasQuote && setOpen((v) => !v)}
       >
         <Chip
-          label={`[${index + 1}]`}
+          label={`[${explicitCitationNumber(citation, index)}]`}
           size="small"
           sx={{
             bgcolor: chipBg,

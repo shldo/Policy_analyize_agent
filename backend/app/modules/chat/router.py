@@ -12,11 +12,17 @@ from fastapi.responses import StreamingResponse
 from langchain_core.messages import AIMessage, HumanMessage
 from langgraph.types import Command
 
+from app.core.config import get_settings
 from app.modules.auth.dependencies import get_current_user
 from app.modules.catalog.service import get_catalog
+from app.modules.chat.contracts import status_from_result
 from app.modules.chat.history_repository import chat_history_repository
 from app.modules.chat.rag.agent.graph import get_agent_graph
-from app.modules.chat.rag.generation import generate_answer_streaming, resolve_generation_target
+from app.modules.chat.rag.generation import (
+    generate_answer_streaming,
+    resolve_generation_target,
+    validate_answer_citations,
+)
 from app.modules.chat.rag.graph.nodes import route_after_evidence_check
 from app.modules.chat.rag.graph.state import normalize_answer_mode
 from app.modules.chat.rag.graph.workflow import run_pdf_qa, run_retrieval
@@ -143,14 +149,25 @@ async def chat(
         )
 
         citations = [Citation(**c) for c in result.get("citations", [])]
-        evidence_sufficient = result.get("evidence_sufficient", True)
-        evidence_sources = ["internal"] if evidence_sufficient else []
+        citation_validation = validate_answer_citations(result.get("answer", ""), citations)
+        if not citation_validation["valid_identity"]:
+            logger.warning(
+                "Synchronous answer has unknown citation numbers: %s", citation_validation
+            )
+        status = status_from_result(
+            result,
+            answer_status=result.get("answer_status") or "generated",
+        )
+        evidence_sufficient = status["evidence_sufficient"]
+        # Provenance is not a completeness certificate.  Keep selected
+        # document citations visible even when coverage is partial/unknown.
+        evidence_sources = ["internal"] if citations else []
 
         resolved_model = result.get("resolved_model")
 
         # Follow-up suggestions (Approach A + D), same guard as the streaming path.
         suggestions: list[str] = []
-        if evidence_sufficient and str(result.get("answer", "")).strip():
+        if status["suggestions_allowed"] and str(result.get("answer", "")).strip():
             sug_cfg = await asyncio.to_thread(suggestions_service.active_config)
             if sug_cfg.enabled:
                 try:
@@ -187,6 +204,9 @@ async def chat(
             "direct",
             evidence_sources,
             suggestions,
+            status["generation_allowed"],
+            status["coverage_status"],
+            status["answer_status"],
         )
         await asyncio.to_thread(chat_history_repository.touch_session, session_id)
 
@@ -197,6 +217,10 @@ async def chat(
             evidence_sufficient=evidence_sufficient,
             evidence_reason=result.get("evidence_reason"),
             evidence_sources=evidence_sources,
+            generation_allowed=status["generation_allowed"],
+            coverage_status=status["coverage_status"],
+            answer_status=status["answer_status"],
+            citation_validation=citation_validation,
             response_mode=payload.response_mode,
             answer_mode=effective_answer_mode,
             agent_mode="direct",
@@ -211,7 +235,11 @@ async def chat(
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except Exception as exc:
-        raise HTTPException(status_code=502, detail=f"Model request failed: {exc}") from exc
+        logger.exception("Synchronous chat request failed")
+        raise HTTPException(
+            status_code=502,
+            detail="The answer service is temporarily unavailable. Please retry.",
+        ) from exc
 
 
 def _sse(obj: dict) -> str:
@@ -330,7 +358,7 @@ def _tool_result_event(message: Any) -> dict:
             if len(source_titles) == 5:
                 break
 
-    return {
+    event = {
         "type": "tool_result",
         "tool": getattr(message, "name", None),
         "evidence_sufficient": result.get("evidence_sufficient"),
@@ -340,6 +368,10 @@ def _tool_result_event(message: Any) -> dict:
         "answer_plan": result.get("answer_plan"),
         "citation_numbers": result.get("citation_numbers"),
     }
+    for key in ("generation_allowed", "coverage_status", "coverage_sufficient"):
+        if key in result:
+            event[key] = result[key]
+    return event
 
 
 def _step_from_tool_call(call: dict) -> dict:
@@ -368,6 +400,9 @@ def _apply_tool_result(steps: list[dict], result_event: dict) -> None:
         if step.get("tool") == result_event.get("tool") and step.get("status") == "running":
             step["status"] = "done"
             step["evidenceSufficient"] = result_event.get("evidence_sufficient")
+            step["generationAllowed"] = result_event.get("generation_allowed")
+            step["coverageStatus"] = result_event.get("coverage_status")
+            step["coverageSufficient"] = result_event.get("coverage_sufficient")
             step["evidenceReason"] = result_event.get("evidence_reason")
             step["resultCount"] = result_event.get("result_count")
             step["sourceTitles"] = result_event.get("source_titles") or []
@@ -432,14 +467,26 @@ async def _stream_agent_events(
             async for mode, chunk in stream:
                 if mode == "messages":
                     message, meta = chunk
-                    if meta.get("langgraph_node") == "final_generation" and getattr(
-                        message, "content", None
+                    if (
+                        not (get_settings().rag_claim_binding_enabled and answer_mode == "analysis")
+                        and meta.get("langgraph_node") == "final_generation"
+                        and getattr(message, "content", None)
                     ):
                         full_tokens.append(message.content)
                         yield _sse({"type": "token", "value": message.content})
                     continue
 
                 # mode == "updates"
+                if (
+                    "final_generation" in chunk
+                    and get_settings().rag_claim_binding_enabled
+                    and answer_mode == "analysis"
+                ):
+                    reviewed = chunk["final_generation"].get("messages", [])
+                    if reviewed:
+                        value = str(reviewed[-1].content)
+                        full_tokens.append(value)
+                        yield _sse({"type": "token", "value": value})
                 if "__interrupt__" in chunk:
                     interrupts = chunk["__interrupt__"]
                     value: dict[str, Any] = dict(interrupts[0].value) if interrupts else {}
@@ -496,7 +543,7 @@ async def _stream_agent_events(
         # Stream finished without interrupting: the graph reached END.
         final_state = await graph.aget_state(config)
         values = final_state.values
-        citations = values.get("citations", [])
+        citations = values.get("final_citations", values.get("citations", []))
         resolved_model = values.get("resolved_model")
         messages = values.get("messages", [])
         answer = "".join(full_tokens) or (
@@ -510,8 +557,15 @@ async def _stream_agent_events(
         # fallback and a Document Analysis refusal (insufficient_evidence_node),
         # which are told apart by answer_mode on the frontend.
         evidence_sources = values.get("evidence_sources") or []
-        evidence_sufficient = bool(evidence_sources)
+        status = status_from_result(
+            values,
+            answer_status=values.get("answer_status") or "generated",
+        )
+        evidence_sufficient = status["evidence_sufficient"]
         evidence_reason = None if evidence_sufficient else values.get("last_evidence_reason")
+        citation_validation = validate_answer_citations(answer, citations)
+        if not citation_validation["valid_identity"]:
+            logger.warning("Agent answer has unknown citation numbers: %s", citation_validation)
         # What actually gets reported/shown, though: only the tier(s) whose
         # citations the answer literally cites — see _cited_evidence_sources.
         # evidence_sufficient/evidence_reason above stay based on the
@@ -532,6 +586,9 @@ async def _stream_agent_events(
             resolved_model,
             evidence_sources=reported_evidence_sources,
             token_usage=token_usage,
+            generation_allowed=status["generation_allowed"],
+            coverage_status=status["coverage_status"],
+            answer_status=status["answer_status"],
         )
         await asyncio.to_thread(chat_history_repository.touch_session, session_id)
 
@@ -542,6 +599,11 @@ async def _stream_agent_events(
                 "evidence_sufficient": evidence_sufficient,
                 "evidence_reason": evidence_reason,
                 "evidence_sources": reported_evidence_sources,
+                "generation_allowed": status["generation_allowed"],
+                "coverage_status": status["coverage_status"],
+                "coverage_sufficient": status["coverage_sufficient"],
+                "answer_status": status["answer_status"],
+                "citation_validation": citation_validation,
                 "token_usage": token_usage,
                 "response_mode": response_mode,
                 "answer_mode": answer_mode,
@@ -569,20 +631,30 @@ async def _stream_agent_events(
             include_restricted=bool(values.get("include_restricted", False)),
             model=values.get("model"),
             user_id=values.get("user_id"),
-            evidence_sufficient=evidence_sufficient,
+            generation_allowed=status["generation_allowed"],
+            suggestions_allowed=status["suggestions_allowed"],
             assistant_message_id=assistant_message_id,
         ):
             yield event
 
+    except asyncio.CancelledError:
+        await _finalize_as_error(assistant_message_id, full_tokens)
+        raise
     except TimeoutError:
         await _finalize_as_error(assistant_message_id, full_tokens)
         yield _sse({"type": "error", "message": "Request timed out."})
     except (FileNotFoundError, ValueError) as exc:
         await _finalize_as_error(assistant_message_id, full_tokens)
         yield _sse({"type": "error", "message": str(exc)})
-    except Exception as exc:
+    except Exception:
+        logger.exception("Agent chat stream failed")
         await _finalize_as_error(assistant_message_id, full_tokens)
-        yield _sse({"type": "error", "message": f"Model request failed: {exc}"})
+        yield _sse(
+            {
+                "type": "error",
+                "message": "The answer service is temporarily unavailable. Please retry.",
+            }
+        )
 
 
 async def _finalize_as_error(assistant_message_id: str, full_tokens: list[str]) -> None:
@@ -593,6 +665,8 @@ async def _finalize_as_error(assistant_message_id: str, full_tokens: list[str]) 
         assistant_message_id,
         "".join(full_tokens),
         status="error",
+        answer_status="error",
+        coverage_status="not_assessed",
     )
 
 
@@ -607,7 +681,8 @@ async def _stream_suggestion_events(
     include_restricted: bool,
     model: str | None,
     user_id: str | None,
-    evidence_sufficient: bool,
+    generation_allowed: bool,
+    suggestions_allowed: bool,
     assistant_message_id: str,
 ) -> AsyncGenerator[str, None]:
     """Shared tail for both streaming modes (_stream_agent_events and
@@ -619,7 +694,7 @@ async def _stream_suggestion_events(
     and the same answer_done/suggestions event pair the frontend already
     expects (ported from the pre-ReAct streaming implementation).
     """
-    if not (evidence_sufficient and answer.strip()):
+    if not (suggestions_allowed and answer.strip()):
         yield _sse({"type": "answer_done", "suggestions_pending": False})
         yield _sse({"type": "done"})
         return
@@ -740,22 +815,35 @@ async def _stream_direct_events(
                 yield _sse({"type": "token", "value": chunk})
 
         answer = "".join(full_tokens)
-        evidence_sufficient = state.get("evidence_sufficient", False)
-        # Direct mode has only one evidence tier (the selected documents), so
-        # this is trivially ["internal"] or empty — see EvidenceSource in
-        # agent/state.py for the richer ReAct-mode set.
-        evidence_sources = ["internal"] if evidence_sufficient else []
+        blocked = route_after_evidence_check(state) == "insufficient_evidence"
+        status = status_from_result(
+            state,
+            answer_status="withheld" if blocked else "generated",
+        )
+        if not blocked and get_settings().rag_claim_binding_enabled and answer_mode == "analysis":
+            status.update(
+                coverage_status="not_assessed", coverage_sufficient=False, evidence_sufficient=False
+            )
+        # Provenance remains visible for a partial/not_assessed answer; it is
+        # not used to certify coverage.
+        evidence_sources = ["internal"] if citations else []
+        citation_validation = validate_answer_citations(answer, citations)
+        if not citation_validation["valid_identity"]:
+            logger.warning("Direct answer has unknown citation numbers: %s", citation_validation)
 
         await asyncio.to_thread(
             chat_history_repository.finalize_message,
             assistant_message_id,
             answer,
             citations,
-            evidence_sufficient,
+            status["evidence_sufficient"],
             response_mode,
             answer_mode,
             resolved_model,
             evidence_sources=evidence_sources,
+            generation_allowed=status["generation_allowed"],
+            coverage_status=status["coverage_status"],
+            answer_status=status["answer_status"],
         )
         await asyncio.to_thread(chat_history_repository.touch_session, session_id)
 
@@ -763,9 +851,14 @@ async def _stream_direct_events(
             {
                 "type": "citations",
                 "data": citations,
-                "evidence_sufficient": evidence_sufficient,
+                "evidence_sufficient": status["evidence_sufficient"],
                 "evidence_reason": state.get("evidence_reason"),
                 "evidence_sources": evidence_sources,
+                "generation_allowed": status["generation_allowed"],
+                "coverage_status": status["coverage_status"],
+                "coverage_sufficient": status["coverage_sufficient"],
+                "answer_status": status["answer_status"],
+                "citation_validation": citation_validation,
                 "response_mode": response_mode,
                 "answer_mode": answer_mode,
                 "agent_mode": "direct",
@@ -784,20 +877,30 @@ async def _stream_direct_events(
             include_restricted=include_restricted,
             model=model,
             user_id=user_id,
-            evidence_sufficient=evidence_sufficient,
+            generation_allowed=status["generation_allowed"],
+            suggestions_allowed=status["suggestions_allowed"],
             assistant_message_id=assistant_message_id,
         ):
             yield event
 
+    except asyncio.CancelledError:
+        await _finalize_as_error(assistant_message_id, full_tokens)
+        raise
     except TimeoutError:
         await _finalize_as_error(assistant_message_id, full_tokens)
         yield _sse({"type": "error", "message": "Request timed out."})
     except (FileNotFoundError, ValueError) as exc:
         await _finalize_as_error(assistant_message_id, full_tokens)
         yield _sse({"type": "error", "message": str(exc)})
-    except Exception as exc:
+    except Exception:
+        logger.exception("Direct chat stream failed")
         await _finalize_as_error(assistant_message_id, full_tokens)
-        yield _sse({"type": "error", "message": f"Model request failed: {exc}"})
+        yield _sse(
+            {
+                "type": "error",
+                "message": "The answer service is temporarily unavailable. Please retry.",
+            }
+        )
 
 
 @router.post("/chat/stream")
@@ -921,6 +1024,7 @@ async def chat_stream(
         # Same reset reasoning as evidence_sources above — see
         # agent/state.py::AgentState.turn_citation_keys.
         "turn_citation_keys": [],
+        "final_citations": [],
         "assistant_message_id": assistant_message_id,
     }
 

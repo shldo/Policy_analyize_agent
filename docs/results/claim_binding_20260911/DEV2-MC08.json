@@ -1,0 +1,396 @@
+{
+  "question_id": "DEV2-MC08",
+  "question": "What should an agency's test plan include to reduce testing bias and verify both test design and human control?",
+  "inputs_sha256": "a1186920bb5542326e8ce47adbb1df4e2f048cfe3f3f3eca252bce17107d06b4",
+  "messages_sha256": "b52d2ac0a0e6e06a1497096abc21bf0551762f2a421212cc67d0b4050e25afe0",
+  "raw_artifact_sha256": "205ea8067443f2425b1da8dba8042c74214465e0163fb6f8a51444830534187f",
+  "final_artifact_sha256": "fa5bd059ed2b17f2b63b9d9613f24d4cd8dd44eeafe3ac11dce89b8fece13eee",
+  "draft": "An agency's test plan should address bias mitigation in the testing process, human verification of test design, and controllability testing, drawing on the Australian Government AI Technical Standard's Evaluate section.\n\n**Bias mitigation in testing (Statement 26, Criterion 91)**\nAgencies must mitigate bias in the testing process, which includes differentiating test data for formal testing from data used during model development, ensuring test subjects are not involved in the development of the SUT, providing testers and developers a degree of independence from each other, using test-driven development (designing test cases based on requirements and prior to implementing data, models, and non-AI components), and conducting peer reviews, bias awareness training, and documenting test-related decisions and processes [4].\n\n**Test criteria approaches (Statement 26, Criterion 92)**\nAgencies must define test criteria approaches, which determine whether a test case has passed or failed by comparing actual output with expected output; this includes considering statistical techniques (repeating test cases, defining thresholds, minimum values, and average efficiency in probabilistic and non-deterministic systems) [4].\n\n**Human verification of test design (Statement 27, Criterion 95)**\nAgencies must undertake human verification of test design and implementation for correctness, consistency, and completeness [1].\n\n**Controllability testing (Statement 27, Criterion 97)**\nAgencies must perform controllability testing to verify human oversight and control, and system control requirements [1].\n\n**Related testing elements in Statement 27**\nFunctional performance testing must verify the correctness of the SUT as per pre-defined metrics, including testing for fairness and bias to inform affirmative actions; for off-the-shelf systems, benchmark testing using industry-standard benchmark suites and comparisons with competing AI systems should be considered [1]. Explainability and transparency testing must be performed as per requirements, involving testing that AI outputs are understandable for the target audience (ensuring diversity of test subjects and representativeness of the target population) and that the right information is available for the right user [1].\n\n**Evidence gaps**\nThe provided excerpts do not establish a single consolidated \"test plan\" document or template; the requirements above are drawn from separate criteria within Statements 26 and 27. The excerpts also do not establish specific deadlines, approval authorities, or a prescribed format for documenting the test plan.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**Bias mitigation in testing (Statement 26, Criterion 91)**\n\nAgencies must mitigate bias in the testing process, which includes differentiating test data for formal testing from data used during model development, ensuring test subjects are not involved in the development of the SUT, providing testers and developers a degree of independence from each other, using test-driven development (designing test cases based on requirements and prior to implementing data, models, and non-AI components), and conducting peer reviews, bias awareness training, and documenting test-related decisions and processes [4].\n\n**Test criteria approaches (Statement 26, Criterion 92)**\n\nAgencies must define test criteria approaches, which determine whether a test case has passed or failed by comparing actual output with expected output; this includes considering statistical techniques (repeating test cases, defining thresholds, minimum values, and average efficiency in probabilistic and non-deterministic systems) [4].\n\n**Human verification of test design (Statement 27, Criterion 95)**\n\nAgencies must undertake human verification of test design and implementation for correctness, consistency, and completeness [1].\n\n**Controllability testing (Statement 27, Criterion 97)**\n\nAgencies must perform controllability testing to verify human oversight and control, and system control requirements [1].\n\n**Related testing elements in Statement 27**\n\nFunctional performance testing must verify the correctness of the SUT as per pre-defined metrics, including testing for fairness and bias to inform affirmative actions; for off-the-shelf systems, benchmark testing using industry-standard benchmark suites and comparisons with competing AI systems should be considered [1]. Explainability and transparency testing must be performed as per requirements, involving testing that AI outputs are understandable for the target audience (ensuring diversity of test subjects and representativeness of the target population) and that the right information is available for the right user [1].\n\nThe provided excerpts do not establish a single consolidated \"test plan\" document or template; the requirements above are drawn from separate criteria within Statements 26 and 27. The excerpts also do not establish specific deadlines, approval authorities, or a prescribed format for documenting the test plan.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"Evaluate\"},\n        {\"number\": 2, \"quote\": \"Statement 26: Adapt strategies and practices for AI systems\"},\n        {\"number\": 2, \"quote\": \"Criterion 91: Mitigate bias in the testing process.\"},\n        {\"number\": 2, \"quote\": \"Criterion 95: Undertake human verification of test design and implementation for correctness, consistency, and completeness.\"},\n        {\"number\": 2, \"quote\": \"Criterion 97: Perform controllability testing to verify human oversight and control, and system control requirements.\"}\n      ],\n      \"reason\": \"The three substantive elements (bias mitigation, human verification of test design, controllability testing) are supported by Child 2, but the unit's attribution to the 'Evaluate section' is not verbatim in the excerpts; Child 2 shows 'Evaluate' as a heading and the criteria under Statements 26/27, but does not label them as the 'Evaluate section'.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"Criterion 91: Mitigate bias in the testing process. This includes:\"},\n        {\"number\": 4, \"quote\": \"differentiating test data for formal testing from the data used during model development\"},\n        {\"number\": 4, \"quote\": \"ensuring test subjects are not involved in the development of the SUT\"},\n        {\"number\": 4, \"quote\": \"providing testers and developers a degree of independence from each other\"},\n        {\"number\": 4, \"quote\": \"using test-driven development, such as designing test cases based on the requirements, and prior to implementing data, models, and non-AI components\"},\n        {\"number\": 4, \"quote\": \"conducting peer reviews, bias awareness training, and documenting test-related decisions and processes.\"}\n      ],\n      \"reason\": \"Child 4 supports the requirement to mitigate bias in testing and each listed inclusion: differentiating test data, ensuring test subjects are not involved in development, providing tester/developer independence, using test-driven development, and conducting peer reviews, bias awareness training, and documentation.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"Criterion 92: Define test criteria approaches. The test criteria determines whether a test case has passed or failed. It involves comparing an actual output with an expected output. This includes:\"},\n        {\"number\": 4, \"quote\": \"considering statistical techniques – in probabilistic and non-deterministic systems, a single test case run may not be sufficient to determine success or failure. It may involve repeating a test case multiple times, defining thresholds, minimum values, and average efficiency.\"}\n      ],\n      \"reason\": \"Child 4 supports defining test criteria approaches, pass/fail determination by comparing actual and expected output, and the listed statistical techniques including repeating test cases, thresholds, minimum values, and average efficiency.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Criterion 95: Undertake human verification of test design and implementation for correctness, consistency, and completeness.\"}\n      ],\n      \"reason\": \"Child 1 supports the requirement for human verification of test design and implementation for correctness, consistency, and completeness.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Criterion 97: Perform controllability testing to verify human oversight and control, and system control requirements.\"}\n      ],\n      \"reason\": \"Child 1 supports controllability testing to verify human oversight and control and system control requirements.\"\n    },\n    {\n      \"id\": \"u10\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u11\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Criterion 96: Conduct functional performance testing to verify the correctness of the SUT as per the pre-defined metrics. This includes testing for fairness and bias to inform affirmative actions. For off-the-shelf systems, consider benchmark testing using industry-standard benchmark suites and comparisons with competing AI systems.\"},\n        {\"number\": 1, \"quote\": \"Criterion 98: Perform explainability and transparency testing as per the requirements. This involves: o testing that AI outputs are understandable for the target audience, ensuring diversity of test subjects and representativeness of the target population o testing that the right information is available for the right user.\"}\n      ],\n      \"reason\": \"Child 1 supports functional performance testing for correctness per pre-defined metrics, fairness/bias testing, benchmark testing for off-the-shelf systems, and explainability/transparency testing including understandability for the target audience, diversity/representativeness, and right information for the right user.\"\n    },\n    {\n      \"id\": \"u12\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u13\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish a single consolidated 'test plan' document or template, nor specific deadlines, approval authorities, or a prescribed format for documenting the test plan.\"\n    }\n  ]\n}",
+    "answer": "**Bias mitigation in testing (Statement 26, Criterion 91)**\n\nAgencies must mitigate bias in the testing process, which includes differentiating test data for formal testing from data used during model development, ensuring test subjects are not involved in the development of the SUT, providing testers and developers a degree of independence from each other, using test-driven development (designing test cases based on requirements and prior to implementing data, models, and non-AI components), and conducting peer reviews, bias awareness training, and documenting test-related decisions and processes [4].\n\n**Test criteria approaches (Statement 26, Criterion 92)**\n\nAgencies must define test criteria approaches, which determine whether a test case has passed or failed by comparing actual output with expected output; this includes considering statistical techniques (repeating test cases, defining thresholds, minimum values, and average efficiency in probabilistic and non-deterministic systems) [4].\n\n**Human verification of test design (Statement 27, Criterion 95)**\n\nAgencies must undertake human verification of test design and implementation for correctness, consistency, and completeness [1].\n\n**Controllability testing (Statement 27, Criterion 97)**\n\nAgencies must perform controllability testing to verify human oversight and control, and system control requirements [1].\n\n**Related testing elements in Statement 27**\n\nFunctional performance testing must verify the correctness of the SUT as per pre-defined metrics, including testing for fairness and bias to inform affirmative actions; for off-the-shelf systems, benchmark testing using industry-standard benchmark suites and comparisons with competing AI systems should be considered [1]. Explainability and transparency testing must be performed as per requirements, involving testing that AI outputs are understandable for the target audience (ensuring diversity of test subjects and representativeness of the target population) and that the right information is available for the right user [1].\n\nThe provided excerpts do not establish a single consolidated \"test plan\" document or template; the requirements above are drawn from separate criteria within Statements 26 and 27. The excerpts also do not establish specific deadlines, approval authorities, or a prescribed format for documenting the test plan.",
+    "removed_unit_ids": [
+      "u1"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Evaluate"
+            },
+            {
+              "number": 2,
+              "quote": "Statement 26: Adapt strategies and practices for AI systems"
+            },
+            {
+              "number": 2,
+              "quote": "Criterion 91: Mitigate bias in the testing process."
+            },
+            {
+              "number": 2,
+              "quote": "Criterion 95: Undertake human verification of test design and implementation for correctness, consistency, and completeness."
+            },
+            {
+              "number": 2,
+              "quote": "Criterion 97: Perform controllability testing to verify human oversight and control, and system control requirements."
+            }
+          ],
+          "reason": "The three substantive elements (bias mitigation, human verification of test design, controllability testing) are supported by Child 2, but the unit's attribution to the 'Evaluate section' is not verbatim in the excerpts; Child 2 shows 'Evaluate' as a heading and the criteria under Statements 26/27, but does not label them as the 'Evaluate section'."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Criterion 91: Mitigate bias in the testing process. This includes:"
+            },
+            {
+              "number": 4,
+              "quote": "differentiating test data for formal testing from the data used during model development"
+            },
+            {
+              "number": 4,
+              "quote": "ensuring test subjects are not involved in the development of the SUT"
+            },
+            {
+              "number": 4,
+              "quote": "providing testers and developers a degree of independence from each other"
+            },
+            {
+              "number": 4,
+              "quote": "using test-driven development, such as designing test cases based on the requirements, and prior to implementing data, models, and non-AI components"
+            },
+            {
+              "number": 4,
+              "quote": "conducting peer reviews, bias awareness training, and documenting test-related decisions and processes."
+            }
+          ],
+          "reason": "Child 4 supports the requirement to mitigate bias in testing and each listed inclusion: differentiating test data, ensuring test subjects are not involved in development, providing tester/developer independence, using test-driven development, and conducting peer reviews, bias awareness training, and documentation."
+        },
+        {
+          "id": "u4",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Criterion 92: Define test criteria approaches. The test criteria determines whether a test case has passed or failed. It involves comparing an actual output with an expected output. This includes:"
+            },
+            {
+              "number": 4,
+              "quote": "considering statistical techniques – in probabilistic and non-deterministic systems, a single test case run may not be sufficient to determine success or failure. It may involve repeating a test case multiple times, defining thresholds, minimum values, and average efficiency."
+            }
+          ],
+          "reason": "Child 4 supports defining test criteria approaches, pass/fail determination by comparing actual and expected output, and the listed statistical techniques including repeating test cases, thresholds, minimum values, and average efficiency."
+        },
+        {
+          "id": "u6",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Criterion 95: Undertake human verification of test design and implementation for correctness, consistency, and completeness."
+            }
+          ],
+          "reason": "Child 1 supports the requirement for human verification of test design and implementation for correctness, consistency, and completeness."
+        },
+        {
+          "id": "u8",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u9",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Criterion 97: Perform controllability testing to verify human oversight and control, and system control requirements."
+            }
+          ],
+          "reason": "Child 1 supports controllability testing to verify human oversight and control and system control requirements."
+        },
+        {
+          "id": "u10",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u11",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Criterion 96: Conduct functional performance testing to verify the correctness of the SUT as per the pre-defined metrics. This includes testing for fairness and bias to inform affirmative actions. For off-the-shelf systems, consider benchmark testing using industry-standard benchmark suites and comparisons with competing AI systems."
+            },
+            {
+              "number": 1,
+              "quote": "Criterion 98: Perform explainability and transparency testing as per the requirements. This involves: o testing that AI outputs are understandable for the target audience, ensuring diversity of test subjects and representativeness of the target population o testing that the right information is available for the right user."
+            }
+          ],
+          "reason": "Child 1 supports functional performance testing for correctness per pre-defined metrics, fairness/bias testing, benchmark testing for off-the-shelf systems, and explainability/transparency testing including understandability for the target audience, diversity/representativeness, and right information for the right user."
+        },
+        {
+          "id": "u12",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u13",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish a single consolidated 'test plan' document or template, nor specific deadlines, approval authorities, or a prescribed format for documenting the test plan."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "99ced7e6-ed62-48c7-8d1e-b001e6172197",
+      "section_id": "f9bb6fb9-f2cf-57fd-8457-f470463d86f2",
+      "section_title": "Statement 27: Test for specified behaviour",
+      "title": "Australian Government AI Technical Standard",
+      "page": 85,
+      "page_end": 85,
+      "quote": "Statement 27: Test for specified behaviour Agencies must:\n\nCriterion 95: Undertake human verification of test design and implementation for correctness, consistency, and completeness.\n\nCriterion 96: Conduct functional performance testing to verify the correctness of the SUT as per the pre-defined metrics. This includes testing for fairness and bias to inform affirmative actions. For off-the-shelf systems, consider benchmark testing using industry-standard benchmark suites and comparisons with competing AI systems. Criterion 97: Perform controllability testing to verify human oversight and control, and system control requirements.\n\nCriterion 98: Perform explainability and transparency testing as per the requirements. This involves: o testing that AI outputs are understandable for the target audience, ensuring diversity of test subjects and representativeness of the target population o testing that the right information is available for the right user. Criterion 99: Perform calibration testing as per the requirements. This involves: o measuring functional performance across various operating or installation conditions o testing that changes in calibration parameters are detected o testing that any out-of-range calibration parameters are rejected by the AI system in a transparent and explainable way. Criterion 100: Perform logging tests as per the requirements. This involves verifying that the system records: o system warnings and errors o relevant system changes with corresponding details of who made the change, timestamp, and system version."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ec40c943-98dc-4add-b28d-965a8036cc87",
+      "section_id": "0ff47716-6d54-5795-ab15-ded6230871bb",
+      "section_title": "Evaluate",
+      "title": "Australian Government AI Technical Standard",
+      "page": 21,
+      "page_end": 22,
+      "quote": "Evaluate\n\nStatement 26: Adapt strategies and practices for AI systems Required • Criterion 91: Mitigate bias in the testing process. • Criterion 92: Define test criteria approaches. Recommended • Criterion 93: Define how test coverage will be measured. • Criterion 94: Define a strategy to ensure test adequacy.\n\nStatement 27: Test for specified behaviour Required • Criterion 95: Undertake human verification of test design and implementation for correctness, consistency, and completeness. • Criterion 96: Conduct functional performance testing to verify the correctness of the AI system Under Test (SUT) as per the pre-defined metrics. • Criterion 97: Perform controllability testing to verify human oversight and control, and system control requirements. • Criterion 98: Perform explainability and transparency testing as per the requirements.\n\n• Criterion 99: Perform calibration testing as per the requirements. • Criterion 100: Perform logging tests as per the requirements.\n\nStatement 28: Test for safety, robustness, and reliability Required • Criterion 101: Test the computational performance of the system. • Criterion 102: Test safety measures through negative testing methods, failure testing, and fault injection. • Criterion 103: Test reliability of the AI output, through stress testing over an extended period, simulating edge cases, and operating under extreme conditions. Recommended • Criterion 104: Undertake adversarial testing (red team testing), attempting to break security and privacy measures to identify weaknesses."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "4c6202d5-cd3e-4c2e-9553-22407d84b78f",
+      "section_id": "5f818da4-7d18-5700-a36d-a86dded7f772",
+      "section_title": "2.2.2  Design for meaningful human oversight — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 29,
+      "page_end": 30,
+      "quote": "However, useful additional data, such as the associated risk with the action or a confidence score, should be included.\n\n• Consider the form of human input required. For straightforward actions such as accessing a database, the human user can simply approve or reject. For more complex cases, such as reviewing an agent’s plan before execution, it may be more productive for the human to edit the plan before giving the ag ent the go -ahead. For high -risk actions, human users can be required to provide an additional written justification before approving or rejecting.\n\nOrganisations should implement measures to ensure continued effectiveness of human oversight , particularly as humans remain susceptible to alert fatigue and automation bias and may be influenced by anthropomorphic design. These measures can include:\n\n26 For further examples of where human involvement may be considered, see Partnership on AI, Prioritising real- time failure detection in AI agents. Define significant checkpoints or action boundaries that require human approval Train humans to evaluate these requests for approval effectively, and audit these approvals Complement this with automated monitoring mechanisms and predefined alert thresholds\n\n| Make humans meaningfully accountable"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "62e852d7-c67e-4f1a-8dc4-a3a2b0825640",
+      "section_id": "1c1039fd-caae-56c6-a7a3-3215163a8fa6",
+      "section_title": "Statement 26: Adapt test strategies and practices for AI systems",
+      "title": "Australian Government AI Technical Standard",
+      "page": 83,
+      "page_end": 83,
+      "quote": "Statement 26: Adapt test strategies and practices for AI systems Agencies must: Criterion 91: Mitigate bias in the testing process. This includes: o differentiating test data for formal testing from the data used during model development o ensuring test subjects are not involved in the development of the SUT o providing testers and developers a degree of independence from each other o using test-driven development, such as designing test cases based on the requirements, and prior to implementing data, models, and non-AI components o conducting peer reviews, bias awareness training, and documenting test-related decisions and processes. Criterion 92: Define test criteria approaches. The test criteria determines whether a test case has passed or failed. It involves comparing an actual output with an expected output. This includes: o considering statistical techniques – in probabilistic and non-deterministic systems, a single test case run may not be sufficient to determine success or failure. It may involve repeating a test case multiple times, defining thresholds, minimum values, and average efficiency."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "07c7bb8c-6174-4052-a949-b3eb5d394ea6",
+      "section_id": "184cf544-6e11-52e9-affb-657cad24a76c",
+      "section_title": "Statement 6: Manage system bias",
+      "title": "Australian Government AI Technical Standard",
+      "page": 38,
+      "page_end": 38,
+      "quote": "evaluations becomes especially important when documentation or supporting evidence is limited. Agencies must:\n\nCriterion 15: Identify how bias could affect people, processes, data, and technologies involved in the AI system lifecycle. This includes: o establishing a bias management plan, outlining how bias will be identified, assessed, and managed across the AI system lifecycle o checking for systemic bias, which are rooted in societal and organisational culture, procedures, and practices that disadvantage or benefit specific cohorts. These biases manifest in datasets and in the processes throughout the AI lifecycle o checking for algorithmic bias in decision-making systems, where an output from an AI system might produce incorrect, unfair or unjustified results o checking for human bias, which can be conscious or unconscious biases in design decisions, data collection, labelling, test selection, or any process that requires judgment throughout the AI lifecycle o checking for statistical and computational bias, which can occur when data used to train an AI system is not representative of the population o checking for bias based on the application of AI, such identifying cognitive bias in a computer vision system o considering intended bias, such as identifying specific circumstances for a person or a group o considering inherent bias when reusing pre-trained AI models."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "857914ca-bbeb-4790-8fdd-99a3d30396ff",
+      "section_id": "bafec03b-0360-524e-9da9-61221a34963a",
+      "section_title": "Statement 23: Validate, assess, and update model",
+      "title": "Australian Government AI Technical Standard",
+      "page": 78,
+      "page_end": 79,
+      "quote": "Statement 23: Validate, assess, and update model Agencies must: Criterion 84: Set techniques to validate AI trained models. There are multiple qualitative and quantitative techniques and tools for model validation, informed by the AI system success criteria (see Design section), including: o correct classifications, predictions or forecasts, and factual correctness and relevance o identify between positive and negative instances, and distinguish between classes\n\no benchmarking o consistency in responses, clarity and coherence o source attribution o data-centric validation approaches for GenAI models. Criterion 85: Evaluate the model against training boundaries. Evaluation considerations include: o poor or degraded performance of the model o change of AI context or operational setting o data retention policies o model retention policies. Criterion 86: Evaluate the model for bias, implement and test bias mitigations. This includes: o using suitable tools that test and discover unwarranted associations between an algorithm’s protected input features and its output o evaluating performance across suitable and intersectional dimensions o checking if bias could be managed through updating the training data (see Statement 18) o implementing bias mitigation thresholds that can be configured post-deployment o implementing pre-processing or post-processing techniques such as disparate impact remover, equalised odds post-processing, content filtering, and RAG. Agencies should: Criterion 87: Identify relevant model refinement methods."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "6e0f4c58-6434-4881-9c7a-c856d2e4ec3a",
+      "section_id": "50b575de-90e8-5e88-8b9d-6d81b086369b",
+      "section_title": "3. Implement technical controls and processes",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 14,
+      "page_end": 14,
+      "quote": "3. Implement technical controls and processes\n\n• During design and development, review and tighten OpenClaw configurations which are permissive by default e.g. restrict messaging channel access, using dedicated identities and credentials for the agent • Before deployment, test and verify that safety controls and human -in-the-loop is working as intended e.g. attempt disallowed actions to ensure restrictions work • After deployment, ensure all agent actions are logged and attributable, and avoid leaving the agent unsupervised for extended periods"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "53561ce6-d733-40c0-82e8-be7493e952af",
+      "section_id": "9fc49cc5-b318-5ca2-a11c-fcbd80af6d08",
+      "section_title": "Criterion 68: Separate the model training dataset from the validation and testing",
+      "title": "Australian Government AI Technical Standard",
+      "page": 69,
+      "page_end": 69,
+      "quote": "Criterion 69: Manage bias in the data.\n\nTechniques for agencies to manage and mitigate problematic bias in their model dataset includes: o data collection analysis – examining how data was generated and verified, and checking the methodologies used to ensure the data is diverse and represents the real population o data source analysis – investigating limitations and assumptions around the origin of the data o data diversity – determining various demographics, sources and types of data, inclusion and exclusion considerations o statistical testing – determining the likelihood of the population being accurately represented in the data o class imbalance – analysing data for class imbalance before using it to train classification models, and applying relevant data and algorithm techniques and metrics, such as precision or F1-score, to address this o outlier detection – identifying outliers or unusual data points in the data and ensuring they are handled appropriately o exploratory data analysis – using descriptive statistics and data visualisation tools to identify patterns and discrepancies o removing any irrelevant data from the training data that does not improve the performance of the model o ensuring that any sensitive and protected data are retained in the test datasets for the purpose of evaluating for bias o data augmentation – deploying measures to address the completeness of the model dataset, through supplementary data collection or synthetic data generation o transparency – identifying bias and where it originated from through transparency on data"
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整覆盖了减少测试偏差（区分正式测试数据与开发数据、测试者与开发者独立性等）以及验证测试设计（人工验证正确性/一致性/完整性）和人类控制（可控性测试）等所有必需要点，引用与证据一致，且对未涵盖内容作了恰当限定。",
+      "claims": [
+        {
+          "answer_span": "differentiating test data for formal testing from data used during model development",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Criterion 91原文明确列出该要求。"
+        },
+        {
+          "answer_span": "ensuring test subjects are not involved in the development of the SUT",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Criterion 91原文逐字一致。"
+        },
+        {
+          "answer_span": "providing testers and developers a degree of independence from each other",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Criterion 91原文逐字一致，对应必需点“测试者/开发者独立性”。"
+        },
+        {
+          "answer_span": "using test-driven development (designing test cases based on requirements and prior to implementing data, models, and non-AI components)",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Criterion 91原文一致。"
+        },
+        {
+          "answer_span": "conducting peer reviews, bias awareness training, and documenting test-related decisions and processes",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Criterion 91原文一致。"
+        },
+        {
+          "answer_span": "Agencies must define test criteria approaches, which determine whether a test case has passed or failed by comparing actual output with expected output",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Criterion 92原文一致。"
+        },
+        {
+          "answer_span": "considering statistical techniques (repeating test cases, defining thresholds, minimum values, and average efficiency in probabilistic and non-deterministic systems)",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Criterion 92原文一致。"
+        },
+        {
+          "answer_span": "Agencies must undertake human verification of test design and implementation for correctness, consistency, and completeness",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Criterion 95原文逐字一致，覆盖必需点“人工验证维度”。"
+        },
+        {
+          "answer_span": "Agencies must perform controllability testing to verify human oversight and control, and system control requirements",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Criterion 97原文逐字一致，覆盖必需点“可控性测试”。"
+        },
+        {
+          "answer_span": "Functional performance testing must verify the correctness of the SUT as per pre-defined metrics, including testing for fairness and bias to inform affirmative actions",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Criterion 96原文一致。"
+        },
+        {
+          "answer_span": "for off-the-shelf systems, benchmark testing using industry-standard benchmark suites and comparisons with competing AI systems should be considered",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Criterion 96原文一致，且正确表述为“consider”而非强制。"
+        },
+        {
+          "answer_span": "Explainability and transparency testing must be performed as per requirements, involving testing that AI outputs are understandable for the target audience (ensuring diversity of test subjects and representativeness of the target population) and that the right information is available for the right user",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Criterion 98原文一致。"
+        },
+        {
+          "answer_span": "The provided excerpts do not establish a single consolidated \"test plan\" document or template",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            2,
+            4
+          ],
+          "reason_zh": "证据中确无统一“测试计划”模板，属恰当限定，非虚假政策主张。"
+        },
+        {
+          "answer_span": "The excerpts also do not establish specific deadlines, approval authorities, or a prescribed format for documenting the test plan",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            2,
+            4
+          ],
+          "reason_zh": "证据中无相关截止期限、审批机构或格式规定，属恰当限定。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖了减少测试偏差（区分正式测试数据与开发数据、测试者与开发者独立性等）以及验证测试设计（人工验证正确性/一致性/完整性）和人类控制（可控性测试）等所有必需要点，引用与证据一致，且对未涵盖内容作了恰当限定。\",\"claims\":[{\"answer_span\":\"differentiating test data for formal testing from data used during model development\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Criterion 91原文明确列出该要求。\"},{\"answer_span\":\"ensuring test subjects are not involved in the development of the SUT\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Criterion 91原文逐字一致。\"},{\"answer_span\":\"providing testers and developers a degree of independence from each other\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Criterion 91原文逐字一致，对应必需点“测试者/开发者独立性”。\"},{\"answer_span\":\"using test-driven development (designing test cases based on requirements and prior to implementing data, models, and non-AI components)\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Criterion 91原文一致。\"},{\"answer_span\":\"conducting peer reviews, bias awareness training, and documenting test-related decisions and processes\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Criterion 91原文一致。\"},{\"answer_span\":\"Agencies must define test criteria approaches, which determine whether a test case has passed or failed by comparing actual output with expected output\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Criterion 92原文一致。\"},{\"answer_span\":\"considering statistical techniques (repeating test cases, defining thresholds, minimum values, and average efficiency in probabilistic and non-deterministic systems)\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Criterion 92原文一致。\"},{\"answer_span\":\"Agencies must undertake human verification of test design and implementation for correctness, consistency, and completeness\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Criterion 95原文逐字一致，覆盖必需点“人工验证维度”。\"},{\"answer_span\":\"Agencies must perform controllability testing to verify human oversight and control, and system control requirements\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Criterion 97原文逐字一致，覆盖必需点“可控性测试”。\"},{\"answer_span\":\"Functional performance testing must verify the correctness of the SUT as per pre-defined metrics, including testing for fairness and bias to inform affirmative actions\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Criterion 96原文一致。\"},{\"answer_span\":\"for off-the-shelf systems, benchmark testing using industry-standard benchmark suites and comparisons with competing AI systems should be considered\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Criterion 96原文一致，且正确表述为“consider”而非强制。\"},{\"answer_span\":\"Explainability and transparency testing must be performed as per requirements, involving testing that AI outputs are understandable for the target audience (ensuring diversity of test subjects and representativeness of the target population) and that the right information is available for the right user\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Criterion 98原文一致。\"},{\"answer_span\":\"The provided excerpts do not establish a single consolidated \\\"test plan\\\" document or template\",\"label\":\"supported\",\"citation_numbers\":[1,2,4],\"reason_zh\":\"证据中确无统一“测试计划”模板，属恰当限定，非虚假政策主张。\"},{\"answer_span\":\"The excerpts also do not establish specific deadlines, approval authorities, or a prescribed format for documenting the test plan\",\"label\":\"supported\",\"citation_numbers\":[1,2,4],\"reason_zh\":\"证据中无相关截止期限、审批机构或格式规定，属恰当限定。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

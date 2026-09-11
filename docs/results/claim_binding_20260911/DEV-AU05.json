@@ -1,0 +1,206 @@
+{
+  "question_id": "DEV-AU05",
+  "question": "When must mandatory responsible AI training be implemented, and which staff does it cover?",
+  "inputs_sha256": "9e27cb0149837878995be68220f628936fa64067fc15dff988c4fb1b47c5dbc2",
+  "messages_sha256": "396c071545c92f491706ebd04f9b4a5badb232cc61c107819eb2d49624cb5305",
+  "raw_artifact_sha256": "14cbb7d16ef2db5c9df6b4ab0de47c452d9f5a1e232b929da4b77f8c5cccf9cb",
+  "final_artifact_sha256": "d0cc7059b68cda7c6ee361ed5e66100c225c4c6d54a9bafaa4605af2f4f0cf53",
+  "draft": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect [1]. The requirement covers all staff regardless of their role [3].\n\nAgencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement, using it as provided, modified, or incorporated into an existing training program [1]. Agencies should also consider whether it is appropriate for staff to complete annual refresher training [3].\n\n**Evidence gaps**\nThe available excerpts do not establish any further conditions, exemptions, or extensions to the 12-month implementation deadline beyond those stated above.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect [1]. The requirement covers all staff regardless of their role [3].\n\nAgencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement, using it as provided, modified, or incorporated into an existing training program [1]. Agencies should also consider whether it is appropriate for staff to complete annual refresher training [3].\n\nThe available excerpts do not establish any further conditions, exemptions, or extensions to the 12-month implementation deadline beyond those stated above.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role.\"\n        }\n      ],\n      \"reason\": \"Child 1 supports the 12-month deadline and all-staff mandatory training; Child 3 supports the coverage of all staff regardless of role.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"Agencies should also consider if it is appropriate for staff to complete annual refresher training.\"\n        }\n      ],\n      \"reason\": \"Child 1 supports considering the Guidance, using the AI fundamentals module, and the provided/modified/incorporated options; Child 3 supports considering annual refresher training.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish further conditions, exemptions, or extensions to the 12-month implementation deadline beyond those stated.\"\n    }\n  ]\n}",
+    "answer": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect [1]. The requirement covers all staff regardless of their role [3].\n\nAgencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement, using it as provided, modified, or incorporated into an existing training program [1]. Agencies should also consider whether it is appropriate for staff to complete annual refresher training [3].\n\nThe available excerpts do not establish any further conditions, exemptions, or extensions to the 12-month implementation deadline beyond those stated above.",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect."
+            },
+            {
+              "number": 3,
+              "quote": "The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role."
+            }
+          ],
+          "reason": "Child 1 supports the 12-month deadline and all-staff mandatory training; Child 3 supports the coverage of all staff regardless of role."
+        },
+        {
+          "id": "u2",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements."
+            },
+            {
+              "number": 3,
+              "quote": "Agencies should also consider if it is appropriate for staff to complete annual refresher training."
+            }
+          ],
+          "reason": "Child 1 supports considering the Guidance, using the AI fundamentals module, and the provided/modified/incorporated options; Child 3 supports considering annual refresher training."
+        },
+        {
+          "id": "u3",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u4",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish further conditions, exemptions, or extensions to the 12-month implementation deadline beyond those stated."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "8111121c-9ece-40d1-839c-2803fe4ab492",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 12,
+      "quote": "Mandatory requirements\n\nOperationalise the responsible use of AI Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect. This may vary according to the scale and scope of agency AI use. At a minimum, the approach will provide an agency with: • a process for adopting AI use cases in line with the implemented actions of this policy, as well as the agency’s enterprise risk management and governance approach. • a way to inform staff who are designing and implementing AI use cases about Australia’s AI Ethics Principles. • a pathway for staff to report AI safety concerns, including AI incidents. • pathways for the public to report AI safety concerns, appropriate to the agency’s AI use. • clear processes to address AI incidents aligned to their ICT incident management approach - incident remediation must be overseen by an appropriate governance body or senior executive and should be undertaken in line with any other legal obligations. Agencies may modify existing policies, procedures and frameworks, or create new ones. Smaller agencies with minimal AI adoption could amend existing documentation and/or assign key personnel to guide staff on responsible AI adoption on an ad hoc basis. Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "90971b4b-8c01-4b69-b4c2-c46dc554057d",
+      "section_id": "598c7c87-39ad-5d22-b4eb-856c19f307d0",
+      "section_title": "Guidance for staff training on AI",
+      "title": "Guidance for Staff Training on AI",
+      "page": 1,
+      "page_end": 4,
+      "quote": "Guidance for staff training on AI Supporting the policy for the responsible use of AI in government 2.0 Version 2.0\n\nDigital Transformation Agency © Commonwealth of Australia (Digital Transformation Agency) 2025 | Version 1801 With the exception of the Commonwealth Coat of Arms and where otherwise noted, this product is provided under a Creative Commons Attribution 4.0 International Licence. (http:/ /creativecommons.org/licenses/by/4.0/legalcode) The Digital Transformation Agency has tried to make the information in this product as accurate as possible. However, it does not guarantee that the information is totally accurate or complete. Therefore, you should not solely rely on this information when making a commercial decision. Digital Transformation Agency is committed to providing web accessible content wherever possible. If you are having difficulties with accessing this document, please email: ai@dta.gov.au. Page ii\n\nThe policy recognises that AI is used in many areas of the APS and everyday life. As adoption grows, staff at all levels will interact with AI and its outputs, directly or indirectly. The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role. Agencies should also consider if it is appropriate for staff to complete annual refresher training."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "f7b75008-733a-4959-878d-b4a724921f0c",
+      "section_id": "3ba379c1-0592-50c5-9534-eb9c3cc125f0",
+      "section_title": "Foundational AI training",
+      "title": "Guidance for Staff Training on AI",
+      "page": 4,
+      "page_end": 4,
+      "quote": "Foundational AI training Providing foundational training will help staff become confident in using AI in a responsible way. Foundational training focused on responsible and ethical AI use should address the following learning outcomes: • introduction to AI ○ identify different types of AI and their functions ○ recognise AI in everyday tools and services. • generative AI ○ understand how generative AI works ○ use clear prompts and verify outputs • foundations of safe and responsible AI use ○ recognise the importance of ethical AI use ○ understand how to remain accountable for AI use ○ appropriate management of security classified, personal and sensitive information ○ understand how AI ethics should be applied in practice, including how to manage AI for accuracy, bias, sensitivity and transparency The training must align with the Policy for the responsible use of AI in government, Australia’s AI Ethics Principles and expectations such as Australia’s Public Service Values and Code of Conduct."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "46eb624c-d42a-4af8-8a14-f07b95bf1e4b",
+      "section_id": "a91df602-7a5b-57f3-afc7-fb908ad6bd41",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 28,
+      "page_end": 29,
+      "quote": "NOTE: Agencies must consider data and lineage | naa.gov.au compliance with Australian Government regulations.\n\nNOTE: Agencies should refer to the Policy of responsible use of AI in government to implement AI fundamentals training | digital.gov.au for all staff, regardless of their role. To support agencies with their implementation of the Policy, the DTA provides Guidance for staff training on AI | digital.gov.au. NOTE: Australian Government API guidelines | api.gov.au mandate the use of semantic versioning. NOTE: Agencies should refer to the Australian parliamentary recommendations | aph.gov.au on AI including risk management, people capabilities, and implement measures for algorithmic bias | humanrights.gov.au. NOTE: Any infrastructure, both software and hardware, for AI services and solutions must adhere to Australian Government regulations and should consider security as priority as recommended by the Australian Government guidance on AI system Development | cyber.gov.au, Deploying AI systems Securely | cyber.gov.au and Engaging with AI | cyber.gov.au. The recommendations include secure well-architected environments, whether on-premises, cloud-based, or hybrid, to maintain the confidentiality, integrity, and availability of AI services."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "11345108-61b6-4657-8378-e7af589d61cb",
+      "section_id": "1eb6c856-ec1b-5b36-b61e-0e9c13d66c59",
+      "section_title": "AI fundamentals training",
+      "title": "Guidance for Staff Training on AI",
+      "page": 5,
+      "page_end": 5,
+      "quote": "AI fundamentals training The Digital Transformation Agency (DTA) has developed AI fundamentals training for agency use. This training meets the learning outcomes described above for foundational AI training and can be used to satisfy the policy requirement for staff training. The training will be updated periodically to address changes in the AI landscape, such as evolutions in the technology and its use in government. As staff will likely interact with generative AI now and in the future, it is an area of focus for the training. The training is designed for all staff regardless of their experience using AI. It takes approximately 20 to 30 minutes to complete. It does not cover advanced topics such as model training, system development or instructions for specific technologies or platforms."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "ab945f1c-25f3-475c-ad9b-e0a027516a24",
+      "section_id": "7f70b3ed-f1b3-5595-9f18-62070f98263a",
+      "section_title": "Implement the training",
+      "title": "Guidance for Staff Training on AI",
+      "page": 5,
+      "page_end": 5,
+      "quote": "Implement the training Agencies’ Learning and Development specialists can access the training for download through the APS Learning Bank. The training is provided in a format compatible with most e-learning platforms. Alternatively, agencies can choose to let their staff access the module directly through APSLearn. Agencies can use the training module as provided, or choose to modify it or incorporate it into an existing training program based on their specific context and requirements. Agencies are encouraged to consider additional training for staff in consideration of their roles and responsibilities, such as those responsible for the procurement, development, training and deployment of AI systems."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "be9c4bec-5bcc-4235-ad5b-21814b9768a2",
+      "section_id": "e169cfea-b1bd-5da7-ae46-101dafdfbf23",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 10,
+      "page_end": 11,
+      "quote": "In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff.\n\nAccountable officials Agencies must designate accountable official(s) to take accountability for implementing this policy. Agencies must follow the Standard for accountability when designating accountable official(s) and implementing this requirement. The responsibilities of accountable officials are set in the standard. Agencies must notify the DTA when they designate and make any changes to their accountable official(s) by emailing ai@dta.gov.au.\n\nAccountable use case owners Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of this policy taking effect. Accountable official(s) are to maintain a register of accountable use case owners. Agencies must follow the Standard for accountability when implementing this requirement. The responsibilities of accountable use case owners are set in the standard.\n\nInternal AI use case register Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of this policy taking effect. Agencies must share the register with the DTA every 6 months, commencing from when they create the register to meet the above requirement. The Standard for accountability lists the minimum fields agencies must capture in the use case register. Agencies can add additional fields to meet their organisational needs. An existing register may be reused for the purposes of meeting this requirement. The standard also provides the instructions for how to share agency registers with the DTA."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案准确覆盖了必答点：所有员工及政策生效后12个月内实施强制培训，且引用的证据[1][3]直接支持该结论；附加内容（培训模块使用方式、年度复习、无其他豁免）均有证据支持或为诚实的证据范围说明。",
+      "claims": [
+        {
+          "answer_span": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文明确：Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect，时间与覆盖范围均一致。"
+        },
+        {
+          "answer_span": "The requirement covers all staff regardless of their role [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]原文：The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role，直接支持。"
+        },
+        {
+          "answer_span": "Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement, using it as provided, modified, or incorporated into an existing training program [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文包含Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement，以及可原样使用、修改或并入现有培训项目的表述。"
+        },
+        {
+          "answer_span": "Agencies should also consider whether it is appropriate for staff to complete annual refresher training [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]原文：Agencies should also consider if it is appropriate for staff to complete annual refresher training，措辞一致。"
+        },
+        {
+          "answer_span": "The available excerpts do not establish any further conditions, exemptions, or extensions to the 12-month implementation deadline beyond those stated above.",
+          "label": "supported",
+          "citation_numbers": [],
+          "reason_zh": "这是对已检索证据范围的诚实限定，未声称全语料不存在，属于可接受的证据范围说明，不构成虚假政策主张。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案准确覆盖了必答点：所有员工及政策生效后12个月内实施强制培训，且引用的证据[1][3]直接支持该结论；附加内容（培训模块使用方式、年度复习、无其他豁免）均有证据支持或为诚实的证据范围说明。\",\"claims\":[{\"answer_span\":\"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文明确：Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect，时间与覆盖范围均一致。\"},{\"answer_span\":\"The requirement covers all staff regardless of their role [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]原文：The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role，直接支持。\"},{\"answer_span\":\"Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement, using it as provided, modified, or incorporated into an existing training program [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文包含Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement，以及可原样使用、修改或并入现有培训项目的表述。\"},{\"answer_span\":\"Agencies should also consider whether it is appropriate for staff to complete annual refresher training [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]原文：Agencies should also consider if it is appropriate for staff to complete annual refresher training，措辞一致。\"},{\"answer_span\":\"The available excerpts do not establish any further conditions, exemptions, or extensions to the 12-month implementation deadline beyond those stated above.\",\"label\":\"supported\",\"citation_numbers\":[],\"reason_zh\":\"这是对已检索证据范围的诚实限定，未声称全语料不存在，属于可接受的证据范围说明，不构成虚假政策主张。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

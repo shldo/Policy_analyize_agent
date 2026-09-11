@@ -4,6 +4,8 @@ from uuid import UUID
 
 from pydantic import BaseModel, Field
 
+from app.modules.chat.contracts import AnswerStatus, CoverageStatus
+
 ResponseMode = Literal["researcher", "policymaker", "student"]
 AnswerMode = Literal["analysis", "chat"]
 # "react": multi-step tool-calling agent (web search, escalation, reasoning
@@ -62,6 +64,7 @@ class TokenUsage(BaseModel):
 
 
 class Citation(BaseModel):
+    number: int | None = None
     document_id: UUID | None = None  # None when built from page-level fallback
     title: str
     chunk_id: UUID | None = None
@@ -92,9 +95,16 @@ class ChatResponse(BaseModel):
     answer: str
     citations: list[Citation] = Field(default_factory=list)
     truncated: bool = False
-    evidence_sufficient: bool = True
+    # Legacy compatibility field.  It is nullable because unknown/partial
+    # coverage must never default to a successful answer.
+    evidence_sufficient: bool | None = None
     evidence_reason: str | None = None
     evidence_sources: list[EvidenceSource] = Field(default_factory=list)
+    generation_allowed: bool | None = None
+    coverage_status: CoverageStatus = "not_assessed"
+    coverage_sufficient: bool = False
+    answer_status: AnswerStatus = "unknown"
+    citation_validation: dict = Field(default_factory=dict)
     response_mode: ResponseMode = "researcher"
     answer_mode: AnswerMode = "analysis"
     agent_mode: AgentMode = "direct"
@@ -126,6 +136,10 @@ class SessionMessage(BaseModel):
     citations: list[Citation] = Field(default_factory=list)
     evidence_sufficient: bool | None = None
     evidence_sources: list[EvidenceSource] = Field(default_factory=list)
+    generation_allowed: bool | None = None
+    coverage_status: CoverageStatus = "not_assessed"
+    coverage_sufficient: bool = False
+    answer_status: AnswerStatus = "unknown"
     response_mode: ResponseMode | None = None
     answer_mode: AnswerMode | None = None
     agent_mode: AgentMode | None = None

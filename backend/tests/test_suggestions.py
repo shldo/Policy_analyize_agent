@@ -2,11 +2,13 @@ from __future__ import annotations
 
 import json
 from types import SimpleNamespace
+from unittest.mock import create_autospec
 from uuid import uuid4
 
 import pytest
 
 from app.modules.chat import router as chat_router
+from app.modules.chat.history_repository import ChatHistoryRepository
 from app.modules.chat.schemas import ChatRequest
 from app.modules.chat.suggestions import generator
 from app.modules.chat.suggestions.config import SuggestionConfig
@@ -315,6 +317,9 @@ async def test_stream_marks_answer_done_before_generating_suggestions(monkeypatc
         lambda **_kwargs: {
             "context": "Grounded document context",
             "citations": [{"title": "Policy", "quote": "Evidence"}],
+            "generation_allowed": True,
+            "coverage_status": "complete",
+            "coverage_sufficient": True,
             "evidence_sufficient": True,
             "evidence_reason": None,
             "answer_mode": "analysis",
@@ -366,6 +371,75 @@ async def test_stream_marks_answer_done_before_generating_suggestions(monkeypatc
         "message_id": message_id,
         "items": ["Next grounded question?"],
     }
+
+
+@pytest.mark.asyncio
+async def test_direct_stream_finalizes_with_supported_history_signature(monkeypatch):
+    """The direct stream must persist status without passing UI-only fields."""
+
+    finalize = create_autospec(ChatHistoryRepository.finalize_message, return_value=None)
+    monkeypatch.setattr(chat_router.chat_history_repository, "finalize_message", finalize)
+    monkeypatch.setattr(chat_router.chat_history_repository, "touch_session", lambda *_a: None)
+    monkeypatch.setattr(
+        chat_router.chat_history_repository,
+        "get_history_for_llm",
+        lambda *_a, **_k: [],
+    )
+    monkeypatch.setattr(
+        chat_router.suggestions_service,
+        "active_config",
+        lambda: _cfg(enabled=False),
+    )
+    monkeypatch.setattr(
+        chat_router,
+        "run_retrieval",
+        lambda **_kwargs: {
+            "context": "Grounded context",
+            "citations": [{"title": "Policy", "quote": "Evidence"}],
+            "generation_allowed": True,
+            "coverage_status": "complete",
+            "coverage_sufficient": False,
+            "evidence_sufficient": True,
+            "answer_mode": "analysis",
+        },
+    )
+    monkeypatch.setattr(
+        chat_router,
+        "resolve_generation_target",
+        lambda _model: ("openai", "fast-model", {}),
+    )
+
+    async def fake_answer_stream(**_kwargs):
+        yield "Grounded answer [1]"
+
+    monkeypatch.setattr(chat_router, "generate_answer_streaming", fake_answer_stream)
+
+    frames = [
+        frame
+        async for frame in chat_router._stream_direct_events(
+            question="What does the document say?",
+            document_ids=[str(uuid4())],
+            filenames=[],
+            model=None,
+            response_mode="researcher",
+            answer_mode="analysis",
+            top_k=6,
+            include_restricted=False,
+            history=[],
+            session_id=str(uuid4()),
+            assistant_message_id=str(uuid4()),
+        )
+    ]
+
+    payloads = [json.loads(frame.removeprefix("data: ").strip()) for frame in frames]
+    citation_event = next(payload for payload in payloads if payload["type"] == "citations")
+    assert citation_event["coverage_status"] == "not_assessed"
+    assert citation_event["answer_status"] == "generated"
+    finalize.assert_called_once()
+    assert "suggestions_allowed" not in finalize.call_args.kwargs
+    assert "coverage_sufficient" not in finalize.call_args.kwargs
+    assert finalize.call_args.kwargs["coverage_status"] == "not_assessed"
+    assert finalize.call_args.kwargs["answer_status"] == "generated"
 
 
 # ── _parse_candidates robustness (guards the truncated-JSON regression) ────────

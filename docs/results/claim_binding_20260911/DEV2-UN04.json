@@ -1,0 +1,242 @@
+{
+  "question_id": "DEV2-UN04",
+  "question": "Does the Dayos case disclose a measured post-deployment error rate for automated Tier 1 tickets?",
+  "inputs_sha256": "d64db67b65a6e5c98a89d58aa9418a5c094f65fc066d8ee9a155421a5ff69520",
+  "messages_sha256": "b15e177d2c5b93b9937cf3b7786ab773d919064fd66933760da93106845a2b27",
+  "raw_artifact_sha256": "3303101f58e11e4336dba0bdb58e29c38314f1a0001378b17b691d010b04e54e",
+  "final_artifact_sha256": "b1596bf75ecc3982bcff61344575d3eca40417871d97f6eab0cc8a37b70ae807",
+  "draft": "The available excerpts do not establish a measured post-deployment error rate for automated Tier 1 tickets.\n\n**What the Dayos case does state about Tier 1**\n\nTier 1 tickets (60% of tickets; low severity, fully reversible — e.g. password resets, access requests, status inquiries) are fully automated by the agent using Simple Feedback, a propose-confirm loop, with no human engineer in the loop [4]. Every action produces a reasoning chain capturing classification logic and a confidence score, and a designated reviewer audits a cross-section of these biweekly [4]. The case states that because every Tier 1 action is reversible, errors can be corrected without lasting damage [4].\n\n**Evidence gap**\n\nThe excerpts report a confidence score per action and a biweekly audit of a cross-section of reasoning chains [4], but they do not report any quantified error rate, error frequency, or measured post-deployment performance metric for Tier 1 automation. The only quantified figures in the Dayos excerpt relate to the ServiceNow retirement (45 days) and annual licensing savings ($121,000) [2].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The available excerpts do not establish a measured post-deployment error rate for automated Tier 1 tickets.\n\n**What the Dayos case does state about Tier 1**\n\nTier 1 tickets (60% of tickets; low severity, fully reversible — e.g. password resets, access requests, status inquiries) are fully automated by the agent using Simple Feedback, a propose-confirm loop, with no human engineer in the loop [4]. Every action produces a reasoning chain capturing classification logic and a confidence score, and a designated reviewer audits a cross-section of these biweekly [4]. The case states that because every Tier 1 action is reversible, errors can be corrected without lasting damage [4].\n\n**Evidence gap**\n\nThe excerpts report a confidence score per action and a biweekly audit of a cross-section of reasoning chains [4], but they do not report any quantified error rate, error frequency, or measured post-deployment performance metric for Tier 1 automation. The only quantified figures in the Dayos excerpt relate to the ServiceNow retirement (45 days) and annual licensing savings ($121,000) [2].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish a measured post-deployment error rate for automated Tier 1 tickets; this is an accurately bounded statement about the supplied excerpts.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting element, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 4,\n          \"quote\": \"Tier 1 (60% of tickets)\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"Low severity, fully reversible\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"Password resets, access requests, status inquiries\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"Fully automated by agent using Simple Feedback (a propose-confirm loop).\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"No human engineer is in the loop.\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"Every action produces a reasoning chain that captures classification logic and a confidence score.\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"A designated reviewer audits a cross- section of these biweekly.\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"As every Tier 1 action is reversible, errors can be corrected without any lasting damage.\"\n        }\n      ],\n      \"reason\": \"Child 4 supports all clauses: Tier 1 is 60% of tickets, low severity and fully reversible, examples include password resets, access requests, and status inquiries; it is fully automated using Simple Feedback with no human engineer in the loop; every action produces a reasoning chain with classification logic and confidence score; a designated reviewer audits a cross-section biweekly; and because Tier 1 actions are reversible, errors can be corrected without lasting damage.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading or formatting element, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 4,\n          \"quote\": \"Every action produces a reasoning chain that captures classification logic and a confidence score.\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"A designated reviewer audits a cross- section of these biweekly.\"\n        },\n        {\n          \"number\": 2,\n          \"quote\": \"The full retirement took 45 days and reduced legacy licensing costs by $121,000 annually.\"\n        }\n      ],\n      \"reason\": \"Child 4 supports the confidence score per action and biweekly audit of a cross-section of reasoning chains; Child 2 supports the only quantified figures relating to the ServiceNow retirement (45 days) and annual licensing savings ($121,000). The excerpts do not report any quantified error rate, error frequency, or measured post-deployment performance metric for Tier 1 automation.\"\n    }\n  ]\n}",
+    "answer": "The available excerpts do not establish a measured post-deployment error rate for automated Tier 1 tickets.\n\n**What the Dayos case does state about Tier 1**\n\nTier 1 tickets (60% of tickets; low severity, fully reversible — e.g. password resets, access requests, status inquiries) are fully automated by the agent using Simple Feedback, a propose-confirm loop, with no human engineer in the loop [4]. Every action produces a reasoning chain capturing classification logic and a confidence score, and a designated reviewer audits a cross-section of these biweekly [4]. The case states that because every Tier 1 action is reversible, errors can be corrected without lasting damage [4].\n\n**Evidence gap**\n\nThe excerpts report a confidence score per action and a biweekly audit of a cross-section of reasoning chains [4], but they do not report any quantified error rate, error frequency, or measured post-deployment performance metric for Tier 1 automation. The only quantified figures in the Dayos excerpt relate to the ServiceNow retirement (45 days) and annual licensing savings ($121,000) [2].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish a measured post-deployment error rate for automated Tier 1 tickets; this is an accurately bounded statement about the supplied excerpts."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting element, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Tier 1 (60% of tickets)"
+            },
+            {
+              "number": 4,
+              "quote": "Low severity, fully reversible"
+            },
+            {
+              "number": 4,
+              "quote": "Password resets, access requests, status inquiries"
+            },
+            {
+              "number": 4,
+              "quote": "Fully automated by agent using Simple Feedback (a propose-confirm loop)."
+            },
+            {
+              "number": 4,
+              "quote": "No human engineer is in the loop."
+            },
+            {
+              "number": 4,
+              "quote": "Every action produces a reasoning chain that captures classification logic and a confidence score."
+            },
+            {
+              "number": 4,
+              "quote": "A designated reviewer audits a cross- section of these biweekly."
+            },
+            {
+              "number": 4,
+              "quote": "As every Tier 1 action is reversible, errors can be corrected without any lasting damage."
+            }
+          ],
+          "reason": "Child 4 supports all clauses: Tier 1 is 60% of tickets, low severity and fully reversible, examples include password resets, access requests, and status inquiries; it is fully automated using Simple Feedback with no human engineer in the loop; every action produces a reasoning chain with classification logic and confidence score; a designated reviewer audits a cross-section biweekly; and because Tier 1 actions are reversible, errors can be corrected without lasting damage."
+        },
+        {
+          "id": "u4",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading or formatting element, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Every action produces a reasoning chain that captures classification logic and a confidence score."
+            },
+            {
+              "number": 4,
+              "quote": "A designated reviewer audits a cross- section of these biweekly."
+            },
+            {
+              "number": 2,
+              "quote": "The full retirement took 45 days and reduced legacy licensing costs by $121,000 annually."
+            }
+          ],
+          "reason": "Child 4 supports the confidence score per action and biweekly audit of a cross-section of reasoning chains; Child 2 supports the only quantified figures relating to the ServiceNow retirement (45 days) and annual licensing savings ($121,000). The excerpts do not report any quantified error rate, error frequency, or measured post-deployment performance metric for Tier 1 automation."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "9adbe26f-7be9-4aba-a56c-182aa20753c4",
+      "section_id": "1cbfa088-cd86-5a89-b094-c8a198798a95",
+      "section_title": "What’s new in this version",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 5,
+      "page_end": 6,
+      "quote": "The four dimensions • Case study from IMDA on how the framework can be applied to OpenClaw deployments\n\nAssess and bound the risks • Risk factors: Added new factors for risk assessment, including system complexity and usage of third-party solutions • Case studies from Dayos, MSD, OCBC\n\nEnable meaningful human accountability • Agentic value chain: Refined the agentic AI value chain to separate platform providers and system providers or app developers • Automation bias: Added more practices to guard against automation bias, such as monitoring human override rates and response times • Case studies from PwC, Tencent, X0PA\n\nImplement technical controls and processes • Types of controls: Added overview of different types of controls and how to select them (e.g. structural, rule-based vs prompt-layer controls) • Change management: Included recommendations for change management processes to avoid outsized impact from small changes, especially as system complexity increases • Case studies from CDL x Knovel, CyberSierra, Google, GovTech, Stability Solutions, Terminal 3\n\nEnable end-user responsibility • Tradecraft and business continuity: Added detail on loss of tradecraft and how it can impact business continuity • Case studies from Ant International, Workday\n\n| Introduction to Agentic AI 6"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "4cae9b7e-cb21-411b-b5a8-469c193eaa57",
+      "section_id": "742bf475-ba91-51f9-914f-72564b7db14a",
+      "section_title": "Dayos: Tiering and bounding agentic actions by risk level in IT management",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 18,
+      "page_end": 18,
+      "quote": "Dayos: Tiering and bounding agentic actions by risk level in IT management\n\nDayos is an enterprise AI automation company headquartered in Singapore with operations in the US. The company builds Hero, an agentic platform that sits on top of Oracle, SAP, Workday, NetSuite and Microsoft Dynamics and automates workflows across IT management, accounting, HR and procurement.\n\nDayos replaced its own ServiceNow instance with an AI-powered ticketing agent built on Hero. The full retirement took 45 days and reduced legacy licensing costs by $121,000 annually. The agent now handles every internal IT request that comes in: it reads the ticket, determines how urgent and complex it is, and either resolves it automatically or routes it to a human.\n\nBefore any of this went live, Dayos ran a structured risk assessment. Every type of IT ticket was scored against three questions: • Severity of impact: If the agent gets this wrong, how bad is it? • Reversibility: Can the action be undone? • Feasibility of human oversight: Is it realistic for a human to review this at each step?\n\nThe scores determined which tier each ticket type falls into, and that tier dictated what reasoning strategy the agent uses and how much autonomy the agent gets."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "94784a1a-860a-46f3-9d32-f6559739ed2a",
+      "section_id": "6ad9c656-213b-59a8-a958-08a943af06a1",
+      "section_title": "What the agent does (and does not do)",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 18,
+      "page_end": 19,
+      "quote": "But a qualified engineer has to review and sign off before anything executes. Tier 3 (10% of tickets)\n\nHigh severity, limited reversibility Production deployments, security changes, permission modifications • Agent does not touch these. Production deployments and security changes carry too much risk for autonomous execution at the current maturity of agentic AI. As safeguards improve and are validated in real environments – e.g. multi-agent verification and real-time anomaly detection – Dayos will reassess whether bounded automation makes sense for specific Tier 3 actions.\n\n| Assess and bound the risks upfront\n\n19"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "61d7b901-7912-4795-be67-909e00c8bd92",
+      "section_id": "6ad9c656-213b-59a8-a958-08a943af06a1",
+      "section_title": "What the agent does (and does not do)",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 18,
+      "page_end": 18,
+      "quote": "What the agent does (and does not do) Tier 1 (60% of tickets)\n\nLow severity, fully reversible\n\nPassword resets, access requests, status inquiries • Fully automated by agent using Simple Feedback (a propose-confirm loop). The agent proposes, the user confirms or pushes back, and agent adjusts until the ticket is closed. No human engineer is in the loop. • But with biweekly audits: Every action produces a reasoning chain that captures classification logic and a confidence score. A designated reviewer audits a cross- section of these biweekly. As every Tier 1 action is reversible, errors can be corrected without any lasting damage. Tier 2 (30% of tickets)\n\nModerate severity, partially reversible Chart of accounts updates, integration mapping corrections, diagnosing failed API connections • Agent diagnoses but can only act with a human engineer’s approval. Uses the ReACT strategy (a multi- step diagnostic loop for harder problems): the agent checks logs, queries connected systems, identifies the probable root cause, and writes up a diagnostic summary with a proposed fix. But a qualified engineer has to review and sign off before anything executes. Tier 3 (10% of tickets)"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "7faad90c-c01a-49a5-81df-a08a3207ca02",
+      "section_id": "e45174f1-455e-5a62-a6fb-8e9264e53d5d",
+      "section_title": "Annex B: Call for feedback and case studies",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 53,
+      "page_end": 53,
+      "quote": "|\n\nAcknowledgements\n\n53\n\nAcknowledgements\n\nWe extend our sincere gratitude to the organisations and individuals that supported the development of this document by sharing their feedback and real-world experiences.\n\nIndustry\n\n Advai Limited  Aethryx  AIDX Tech  Aires A.T Private Limited  Airwallex  Alibaba Cloud  Ant International  Artha Solutions Pte Ltd  Amazon Web Services  Baker Tilly Malaysia  CDL  Cleanverse International Pte Ltd  Cyber & Artificial Intelligence for Future Impact  Cyber Sierra (Fort One Technologies Pte. Ltd.)  Dayos Pte. Ltd.  DBS  Dynamo AI  Ernst & Young  Ethics Advisory Services  Ferz.AI  Finiteloop  Flux AI  Gradient Institute  Google  Grab  HM Strategy  IBM  Imagenz Pte Ltd  Interpol Singapore  KASIKORN Business- Technology Group (KBTG)  Knovel  Levy Lens  Mastercard  Microsoft  MSD  NCS  Nobulex  OCBC  OpenSymbolicAI  Protos Labs  PwC  Resaro  Safer Agentic AI Working Group  Salesforce  Singapore Computer Society  Security Awareness Consultants SL  Singapore Fintech Association  Sovaign  SP Group Pte Ltd  Stability Solutions  TomorrowX  Vaara  Verixiom Pte. Ltd.  Workato  Workday  X0PA  ZLAR  Tech Mahindra  Temus  Tencent  Terminal 3  The Box Commons\n\nGovernment agencies"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "cfd803cb-c32c-4c17-8a54-657fe5e302dc",
+      "section_id": "6e0bde98-c6e8-529a-be12-b19431b1f864",
+      "section_title": "Criterion 129: Monitor the system as agreed and specified in its operating",
+      "title": "Australian Government AI Technical Standard",
+      "page": 96,
+      "page_end": 97,
+      "quote": "Criterion 131: Monitor health of the system and infrastructure. This includes: o monitoring logs for errors\n\no services or processes o resources such as compute, memory, storage, and network. Criterion 132: Monitor safety. This includes: o monitoring inputs and outputs for abuse, misuse, sensitive information disclosure, and other forms of harm. Criterion 133: Monitor reliability metrics and mechanisms. This includes: o error rates o fault detection o recovery o redundancy o failover mechanisms. Criterion 134: Monitor human-machine collaboration. This includes: o reviewing the human experience o assessing the effectiveness of the human oversight and control measures o analysing the usage metrics for friction points and finding opportunities for improving the overall outcome from human-machine collaboration o considering different monitoring methods. While surveys could be cost effective, face-to-face interviews and observing users live while interacting with the AI system could provide better insights. Criterion 135: Monitor for unintended consequences. This typically includes: o implementing various channels for people to provide feedback, issues, or contest outcomes o consider if anonymous channels are needed o tracing how the outputs of the AI system are used o analysing quantitative and qualitative data for recurring harms"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "9fe3117b-a792-4fa3-ba60-d4f833b3892c",
+      "section_id": "6e0bde98-c6e8-529a-be12-b19431b1f864",
+      "section_title": "Criterion 129: Monitor the system as agreed and specified in its operating",
+      "title": "Australian Government AI Technical Standard",
+      "page": 97,
+      "page_end": 98,
+      "quote": ": o implementing various channels for people to provide feedback, issues, or contest outcomes o consider if anonymous channels are needed o tracing how the outputs of the AI system are used o analysing quantitative and qualitative data for recurring harms\n\no look for missing data, such as checking if certain demographics are not using the system. Criterion 136: Monitor transparency and explainability. Periodically check that transparency and explainability requirements are met post deployment. Criterion 137: Monitor costs. The cost model for using AI systems may be different and much more costly than traditional software and systems. Criterion 138: Monitor security. This may include logging AI services in use to satisfy security requirements and ensuring appropriate data loss prevention (DLP). Identify the scope of deployment data for the AI system. These include: o data submitted by the user (prompts) o agency data augmented into the prompts o content generated by the service via completions, images, and embedding operations o training and validation data from the department that will be used for fine-tuning a model. DLP includes: o ensuring that the supplier does NOT use agency data for improving the supplier's AI systems or other products o ensuring the system only accesses data that the end user is authorised to access o ensuring that human review is performed by authorised users only o monitoring for sensitive data disclosure o monitoring data access and usage o automating data classification o monitoring for anomalies and suspicious activities o ensuring data encryption is enabled for data-at-rest and data-in-transit"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "062a6a44-5a15-4795-9827-441fb67b9e83",
+      "section_id": "184cf544-6e11-52e9-affb-657cad24a76c",
+      "section_title": "Criterion 15: Identify how bias could affect people, processes, data, and",
+      "title": "Australian Government AI Technical Standard",
+      "page": 40,
+      "page_end": 41,
+      "quote": "Disaggregating performance metrics into suitable attributes can detect whether a system performs fairly across demographics, environmental conditions, and other risk factors ◦ analyse data for bias and fix issues in the data.\n\nSee Model and Context dataset section for more information ◦ test independence strategy, functional performance testing, fairness testing, and user acceptance testing ◦ configure, calibrate, and monitor bias-related metrics during phased roll-out ◦ monitor bias-related metrics and unintended consequences during operations. Provide mechanisms for end users to report and escalate experiences of bias ◦ audit for how risks of bias are identified, assessed, and mitigated throughout the lifecycle ◦ find and use suitable tools that discover and test for unwarranted associations between the AI system outputs and protected input features\n\n◦ implement bias mitigation techniques after harmful bias has been identified ◦ implement bias mitigation thresholds that can be configured post-deployment to ensure equity for cohorts, such as people with lived experience."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案正确指出Dayos案例未披露Tier 1自动化部署后的量化错误率，并准确复述了Tier 1的自动化方式、置信度评分与双周审计等已披露内容，未将未检索到的证据误判为全语料缺失，引用与证据一致。",
+      "claims": [
+        {
+          "answer_span": "The available excerpts do not establish a measured post-deployment error rate for automated Tier 1 tickets.",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "证据[4]仅描述Tier 1的自动化流程、置信度评分和双周审计，未给出任何量化错误率，故该限定性表述有据。"
+        },
+        {
+          "answer_span": "Tier 1 tickets (60% of tickets; low severity, fully reversible — e.g. password resets, access requests, status inquiries) are fully automated by the agent using Simple Feedback, a propose-confirm loop, with no human engineer in the loop [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "与证据[4]中Tier 1占比60%、低严重度、完全可逆、示例工单、Simple Feedback提议-确认循环及无人工工程师在环的描述一致。"
+        },
+        {
+          "answer_span": "Every action produces a reasoning chain capturing classification logic and a confidence score, and a designated reviewer audits a cross-section of these biweekly [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "证据[4]明确记载每个动作产生含分类逻辑与置信度评分的推理链，指定审核人每两周审计其中一部分。"
+        },
+        {
+          "answer_span": "The case states that because every Tier 1 action is reversible, errors can be corrected without lasting damage [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "证据[4]原文称Tier 1动作可逆，错误可被纠正且无持久损害。"
+        },
+        {
+          "answer_span": "The only quantified figures in the Dayos excerpt relate to the ServiceNow retirement (45 days) and annual licensing savings ($121,000) [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "证据[2]确实仅给出45天完成ServiceNow退役和每年节省12.1万美元许可费这两个量化数字，未出现错误率数据。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案正确指出Dayos案例未披露Tier 1自动化部署后的量化错误率，并准确复述了Tier 1的自动化方式、置信度评分与双周审计等已披露内容，未将未检索到的证据误判为全语料缺失，引用与证据一致。\",\"claims\":[{\"answer_span\":\"The available excerpts do not establish a measured post-deployment error rate for automated Tier 1 tickets.\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"证据[4]仅描述Tier 1的自动化流程、置信度评分和双周审计，未给出任何量化错误率，故该限定性表述有据。\"},{\"answer_span\":\"Tier 1 tickets (60% of tickets; low severity, fully reversible — e.g. password resets, access requests, status inquiries) are fully automated by the agent using Simple Feedback, a propose-confirm loop, with no human engineer in the loop [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"与证据[4]中Tier 1占比60%、低严重度、完全可逆、示例工单、Simple Feedback提议-确认循环及无人工工程师在环的描述一致。\"},{\"answer_span\":\"Every action produces a reasoning chain capturing classification logic and a confidence score, and a designated reviewer audits a cross-section of these biweekly [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"证据[4]明确记载每个动作产生含分类逻辑与置信度评分的推理链，指定审核人每两周审计其中一部分。\"},{\"answer_span\":\"The case states that because every Tier 1 action is reversible, errors can be corrected without lasting damage [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"证据[4]原文称Tier 1动作可逆，错误可被纠正且无持久损害。\"},{\"answer_span\":\"The only quantified figures in the Dayos excerpt relate to the ServiceNow retirement (45 days) and annual licensing savings ($121,000) [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"证据[2]确实仅给出45天完成ServiceNow退役和每年节省12.1万美元许可费这两个量化数字，未出现错误率数据。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

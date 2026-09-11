@@ -1,0 +1,240 @@
+{
+  "question_id": "DEV2-MO06",
+  "question": "Does preferring deterministic agent limits mean the Singapore framework guarantees that all residual risk can be eliminated?",
+  "inputs_sha256": "00e77676771ccffbc6cb198be96b2ecb3a93168120a40ccfe1b46b117ec55b18",
+  "messages_sha256": "b23067bfa876c2ed6e049abb0406afff34273e984feb468b5463437bee05a460",
+  "raw_artifact_sha256": "b147c646e6fd017a0b98dd54468707ddef6dcdb1469d241970b599ba6357f083",
+  "final_artifact_sha256": "e80cc4d01a216f9cdc619c0afe3be2b3d2153f05dce63ef43a09cea59a2e6d38",
+  "draft": "No. The framework does not present determinism as a guarantee of residual-risk elimination; the two are treated as distinct concepts in the excerpts.\n\n**Deterministic limits are a design preference, not an assurance of zero risk.** Organisations \"should consider\" defining limits on agents' access to tools and systems, autonomy, and area of impact [2]. In general, the framework states a preference for deterministic rather than non-deterministic limits, and for bounding by design — for example, imposing access controls that prevent a tool from being called at all rather than relying on prompts to instruct the agent against accessing it [1]. Where limits are non-deterministic or less reliable, the framework directs layering on more monitoring measures or incorporating human-in-the-loop review to catch failures [1]. This is framed as a control-selection preference, not as an elimination of risk.\n\n**Residual risk is expressly acknowledged as always present.** Residual risk is defined as the risk remaining after mitigation measures have been applied, and the framework states it is important to note that there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents, especially given how quickly agentic AI is evolving [3]. Organisations \"should\" evaluate and determine whether the residual risk for their agentic deployment is of a tolerable level and can be accepted [3].\n\n**Synthesis.** Read together, the excerpts support a position of *bounding and accepting* residual risk rather than eliminating it: deterministic, system-level controls are preferred for higher-risk actions [8], but the framework's own residual-risk section contemplates that mitigation leaves a remainder that must be judged tolerable [3]. The excerpts do not establish any guarantee of complete risk elimination, and the framework's language (\"should consider,\" \"prefer,\" \"tolerable level\") is not framed as an assurance.\n\n**Evidence gaps.** The available excerpts do not establish whether the framework elsewhere asserts any absolute guarantee of risk elimination, nor do they quantify acceptable residual-risk thresholds.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**Deterministic limits are a design preference, not an assurance of zero risk.** Organisations \"should consider\" defining limits on agents' access to tools and systems, autonomy, and area of impact [2]. In general, the framework states a preference for deterministic rather than non-deterministic limits, and for bounding by design — for example, imposing access controls that prevent a tool from being called at all rather than relying on prompts to instruct the agent against accessing it [1]. Where limits are non-deterministic or less reliable, the framework directs layering on more monitoring measures or incorporating human-in-the-loop review to catch failures [1]. This is framed as a control-selection preference, not as an elimination of risk.\n\n**Residual risk is expressly acknowledged as always present.** Residual risk is defined as the risk remaining after mitigation measures have been applied, and the framework states it is important to note that there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents, especially given how quickly agentic AI is evolving [3]. Organisations \"should\" evaluate and determine whether the residual risk for their agentic deployment is of a tolerable level and can be accepted [3].\n\n**Evidence gaps.** The available excerpts do not establish whether the framework elsewhere asserts any absolute guarantee of risk elimination, nor do they quantify acceptable residual-risk thresholds.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"partial\",\n      \"bindings\": [],\n      \"reason\": \"The excerpts support that determinism and residual-risk elimination are distinct concepts, but the categorical 'No' and the claim that the framework does not present determinism as a guarantee are not fully established by the available excerpts.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"Organisations should consider defining limits on:\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"In general, prefer deterministic rather than non-deterministic limits, and bound by design.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"Where limits are non -deterministic or less reliable, layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures.\"\n        }\n      ],\n      \"reason\": \"All clauses are supported: the 'should consider' limits, the preference for deterministic limits and bounding by design, the access-control example, and the monitoring/human-in-the-loop direction for less reliable limits.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 3,\n          \"quote\": \"Residual risk is the risk that remains after mitigation measures have been applied.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"It is important to note that there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents, especially given how quickly agentic AI is evolving.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"Ultimately, organisations should evaluate and determine if the residual risk for their agentic deployment is of a tolerable level and can be accepted.\"\n        }\n      ],\n      \"reason\": \"The definition, the always-present residual risk statement, and the 'should' evaluation for tolerable acceptance are all directly supported by Child 3.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 8,\n          \"quote\": \"consider i mplementing deterministic safeguards that operate at a system-level through predefined logic, especially for higher-risk actions.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"Ultimately, organisations should evaluate and determine if the residual risk for their agentic deployment is of a tolerable level and can be accepted.\"\n        }\n      ],\n      \"reason\": \"The synthesis that deterministic system-level controls are preferred for higher-risk actions and that residual risk must be judged tolerable is supported, but the broader claim that the excerpts do not establish any guarantee of complete risk elimination is a corpus-level absence statement not fully established by the supplied excerpts.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish whether the framework elsewhere asserts an absolute guarantee of risk elimination or quantifies acceptable residual-risk thresholds.\"\n    }\n  ]\n}",
+    "answer": "**Deterministic limits are a design preference, not an assurance of zero risk.** Organisations \"should consider\" defining limits on agents' access to tools and systems, autonomy, and area of impact [2]. In general, the framework states a preference for deterministic rather than non-deterministic limits, and for bounding by design — for example, imposing access controls that prevent a tool from being called at all rather than relying on prompts to instruct the agent against accessing it [1]. Where limits are non-deterministic or less reliable, the framework directs layering on more monitoring measures or incorporating human-in-the-loop review to catch failures [1]. This is framed as a control-selection preference, not as an elimination of risk.\n\n**Residual risk is expressly acknowledged as always present.** Residual risk is defined as the risk remaining after mitigation measures have been applied, and the framework states it is important to note that there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents, especially given how quickly agentic AI is evolving [3]. Organisations \"should\" evaluate and determine whether the residual risk for their agentic deployment is of a tolerable level and can be accepted [3].\n\n**Evidence gaps.** The available excerpts do not establish whether the framework elsewhere asserts any absolute guarantee of risk elimination, nor do they quantify acceptable residual-risk thresholds.",
+    "removed_unit_ids": [
+      "u1",
+      "u4"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "partial",
+          "bindings": [],
+          "reason": "The excerpts support that determinism and residual-risk elimination are distinct concepts, but the categorical 'No' and the claim that the framework does not present determinism as a guarantee are not fully established by the available excerpts."
+        },
+        {
+          "id": "u2",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Organisations should consider defining limits on:"
+            },
+            {
+              "number": 1,
+              "quote": "In general, prefer deterministic rather than non-deterministic limits, and bound by design."
+            },
+            {
+              "number": 1,
+              "quote": "Where limits are non -deterministic or less reliable, layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures."
+            }
+          ],
+          "reason": "All clauses are supported: the 'should consider' limits, the preference for deterministic limits and bounding by design, the access-control example, and the monitoring/human-in-the-loop direction for less reliable limits."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Residual risk is the risk that remains after mitigation measures have been applied."
+            },
+            {
+              "number": 3,
+              "quote": "It is important to note that there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents, especially given how quickly agentic AI is evolving."
+            },
+            {
+              "number": 3,
+              "quote": "Ultimately, organisations should evaluate and determine if the residual risk for their agentic deployment is of a tolerable level and can be accepted."
+            }
+          ],
+          "reason": "The definition, the always-present residual risk statement, and the 'should' evaluation for tolerable acceptance are all directly supported by Child 3."
+        },
+        {
+          "id": "u4",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 8,
+              "quote": "consider i mplementing deterministic safeguards that operate at a system-level through predefined logic, especially for higher-risk actions."
+            },
+            {
+              "number": 3,
+              "quote": "Ultimately, organisations should evaluate and determine if the residual risk for their agentic deployment is of a tolerable level and can be accepted."
+            }
+          ],
+          "reason": "The synthesis that deterministic system-level controls are preferred for higher-risk actions and that residual risk must be judged tolerable is supported, but the broader claim that the excerpts do not establish any guarantee of complete risk elimination is a corpus-level absence statement not fully established by the supplied excerpts."
+        },
+        {
+          "id": "u5",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish whether the framework elsewhere asserts an absolute guarantee of risk elimination or quantifies acceptable residual-risk thresholds."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "1962ebb2-aa76-43ee-819a-30170ed0e532",
+      "section_id": "902cf6a9-9824-5759-8fe1-a14f2347eeac",
+      "section_title": "Agent limits",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 19,
+      "page_end": 20,
+      "quote": "This can include running agents in self-contained environments with limited network and data access, particularly when they are carrying out high - risk tasks such as code execution.20\n\nIn general, prefer deterministic rather than non-deterministic limits, and bound by design. For example, rather than relying on prompts to instruct the agent against accessing certain tools, impose access controls that prevent the tool from being called by the agent at all. This is elaborated in 2.3.1 Implement technical controls and processes . Where limits are non -deterministic or less reliable, layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures.\n\n18 See PwC, The rise – and risks – of agentic AI. 19 Grab introduced an LLM agent framework leveraging on Standard Operating Procedures (SOPs) to guide AI - driven execution (see Introducing the SOP-driven LLM agent frameworks). 20 See McKinsey, Deploying agentic AI with safety and security: A playbook for technology leaders .\n\n| Assess and bound the risks upfront\n\n20"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "f8241a5c-37d2-4f44-9dde-ab2be9e52889",
+      "section_id": "902cf6a9-9824-5759-8fe1-a14f2347eeac",
+      "section_title": "Agent limits",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 19,
+      "page_end": 19,
+      "quote": "Agent limits\n\nOrganisations should consider defining limits on:\n\n• Agent’s access to tools and systems: Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task.18 For example, a coding assistant may not require access to a broad web search tool, especially if it already has curated access to the latest software documentation. Structuring agents around functional boundaries (e.g. separating IT helpdesk from HR self-service) can act as a natural constraint.\n\n• Agent’s autonomy: For process-driven tasks, SOPs and protocols are frequently used to improve consistency and reduce unpredictability.19 Define similar SOPs for agentic workflows that an agent is constrained to follow, rather than giving the agent the freedom to define every step of the workflow.\n\n• Agent’s area of impact: Design mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction. This can include running agents in self-contained environments with limited network and data access, particularly when they are carrying out high - risk tasks such as code execution.20"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "3a404f30-fd07-44a3-84a4-dad78ce8d9e2",
+      "section_id": "e5946e90-f8af-59fc-bb26-eaef0f5bc55f",
+      "section_title": "Evaluating the residual risks",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 24,
+      "page_end": 25,
+      "quote": "Evaluating the residual risks\n\nResidual risk is the risk that remains after mitigation measures have been applied. It is important to note that there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents, especially given how quickly agentic AI is evolving. Ultimately, organisations should evaluate and determine if the residual risk for their agentic deployment is of a tolerable level and can be accepted.\n\n| Make humans meaningfully accountable\n\n25"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "1745ed68-bc68-4d0f-9710-c0fc8ef58e4b",
+      "section_id": "46cc59e1-4d0f-5a23-9b9e-2b94b5492031",
+      "section_title": "MCP as a governance layer",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 35,
+      "page_end": 36,
+      "quote": "This architectural separation means there is no sensitive data in the agent's context to be leaked or extracted through adversarial inputs – the risk is eliminated by design.\n\n3. Enforcing the boundaries of this authority through hardware: Every agent action is routed through the TEE and verified against the credentialed parameters at hardware speed. Out -of- scope actions (whether from erroneous reasoning or adversarial prompts) are blocked before execution and logged. All sensitive computat ion happens exclusively within this secure boundary.\n\n4. Recording a tamper -proof audit trail: Each step of the agent's execution, including any blocked actions, is recorded on the T3N Immutable Ledger, a hardware -attested, cryptographically verifiable log, to provide the evidence chain for any post -incident investigation.\n\n|\n\n36\n\nCyber Sierra: Technical controls to improve accuracy and reliability in filling up due diligence questionnaires\n\nCyber Sierra is a Singapore-based company that is a Governance, Risk and Compliance (GRC) Agent Factory, building multi-agentic infrastructure for cyber operations, security compliance and audit tasks."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "0dce8c44-0b04-4af8-a22f-212132b35297",
+      "section_id": "46cc59e1-4d0f-5a23-9b9e-2b94b5492031",
+      "section_title": "MCP as a governance layer",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 35,
+      "page_end": 35,
+      "quote": "The process is high stakes in nature as it involves handling sensitive personal data and executing financial transactions. To ensure that such actions are securely processed by the agent, Terminal 3 implemented the following technical controls:\n\n1. Defining the scope of the agent’s authority within its credentials: Before the monthly payroll cycle begins, the Human Resources director issues a Verifiable Credential of Intent to the agent - a mathematically binding, cycle-scoped authorization defining: a. which employee records the agent can access, b. the applicable government-mandated contribution rates, c. expense claim thresholds, eligible categories, and per-diem caps, and d. the ceiling amount for the consolidated bank transfer, set as base salary plus a buffer margin and explicitly declared before each run.\n\n2. Structurally separating sensitive data from the agent's context: All sensitive personal data (e.g. employee id numbers, salary figures, and bank account details) is held exclusively within Terminal 3's Trusted Execution Environment (TEE) and never transmitted to the agent at any point. The agent operates solely on non -sensitive inputs and receives only opaque employee reference identifiers and categorical flag reasons as outputs. This architectural separation means there is no sensitive data in the agent's context to be leaked or extracted through adversarial inputs – the risk is eliminated by design."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "fcd5edea-6250-447f-97d5-c66c9950e79c",
+      "section_id": "5169909e-bbf4-5509-9e8d-0d66e89e82e7",
+      "section_title": "Derisking third-party agent platforms",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 22,
+      "page_end": 23,
+      "quote": "Derisking third-party agent platforms\n\nBeyond agentic autonomy, enterprise AI invariably includes multiple third-party SaaS agentic platforms. While each third -party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross platform actions which may not have been exhaustively tested. This is particularly the case as interoperability frameworks are still nascent and maturing.\n\nTo promote safety and security, MSD adopted a containment strategy — rather than allowing vendor- embedded agents to act freely across MSD’s data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems. This cont ains residual risk while preserving the productivity benefits of approved use cases.\n\n| Assess and bound the risks upfront\n\n23"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "2c6df4b6-a204-475a-a9a7-54eb92027150",
+      "section_id": "6fae3315-da91-5d9e-86c7-364e26219467",
+      "section_title": "OCBC: Bounding agent autonomy in source of wealth analysis",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 20,
+      "page_end": 21,
+      "quote": "OCBC: Bounding agent autonomy in source of wealth analysis\n\nOCBC is the longest established Singapore bank and the second largest financial services group in Southeast Asia by assets, operating in 19 countries and regions. Bank of Singapore is a wholly owned private banking subsidiary of OCBC.\n\nBank of Singapore Relationship Manager and compliance team synthesise customer-provided financial documents into a structured Source of Wealth memo. The bank developed an agentic AI system to support this work with the objectives of:\n\n• Improving consistency and completeness of the analysis • Reducing manual effort in document review and drafting\n\nThe agentic AI system parses income-related documents (e.g. tax submissions, corporate annual reports, property documents, dividend statements) and generates a draft Source of Wealth memo based on internal guidelines and benchmarks. The system provides decision support only and does not make credit, onboarding or risk decisions autonomously – final validation and approval remain with designated human reviewers.\n\nThe agentic workflow bounds risk through design by defining limits on the agents’ autonomy: • Task-level autonomy only: Agents perform narrowly scoped tasks (extraction, drafting, checking), not end-to-end decisions • No self-initiation of actions: Agents operate only when triggered by predefined workflows • No decision authority: There is human review at critical decision points, including after the income and financial documents have been assessed to ensure accuracy. Ultimately, outputs are advisory and subject to human validation.\n\n| Assess and bound the risks upfront"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "d84e5a05-e6e7-483b-931c-db50ba31f073",
+      "section_id": "574ca00d-039a-5023-a0ef-0c762b821518",
+      "section_title": "When selecting suitable controls, consider the following:",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 33,
+      "page_end": 34,
+      "quote": "When selecting suitable controls, consider the following:\n\n• Structural, rule-based vs model-based or prompt-layer controls: o Rather than prompt -layer safeguards, consider i mplementing deterministic safeguards that operate at a system-level through predefined logic, especially for higher-risk actions. ▪ For example, rather than instructing an agent not to use specific tools, access controls can be implemented at the tool layer to prevent those tools from being called in the first place, or only allowing them to be called in a certain way (e.g. read access only). Similarly, if an agent needs to follow a set procedure, building that sequence into the workflow is more robust than prompting the agent to adhere to it through instructions alone. o Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced.\n\n|\n\n34 o However, in certain cases where risks are harder to define through fixed rules , model- based safeguards can be most effective e.g. to detect harmful content, which can manifest in different ways.\n\n• Runtime controls : As agents interact with users and systems in real time, static safeguards configured at design time may not be sufficient to catch every risk. Runtime controls address this by monitoring and intervening during execution, such as rate limits to prevent excessive tool use or input validation to catch harmful responses before they are acted upon."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案正确回答“否”，并完整覆盖三个必需点：偏好确定性限制、残余风险始终存在、组织应评估风险容忍度；所有实质主张均有对应Child证据支持，引用编号正确，且明确说明证据缺口而非虚构保证。",
+      "claims": [
+        {
+          "answer_span": "Organisations \"should consider\" defining limits on agents' access to tools and systems, autonomy, and area of impact [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "Child证据[2]原文列出组织应考虑对工具/系统访问、自主性和影响范围设定限制。"
+        },
+        {
+          "answer_span": "the framework states a preference for deterministic rather than non-deterministic limits, and for bounding by design — for example, imposing access controls that prevent a tool from being called at all rather than relying on prompts to instruct the agent against accessing it [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Child证据[1]原文明确“prefer deterministic rather than non-deterministic limits, and bound by design”，并给出访问控制示例。"
+        },
+        {
+          "answer_span": "Where limits are non-deterministic or less reliable, the framework directs layering on more monitoring measures or incorporating human-in-the-loop review to catch failures [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Child证据[1]原文直接对应此句。"
+        },
+        {
+          "answer_span": "Residual risk is defined as the risk remaining after mitigation measures have been applied, and the framework states it is important to note that there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents, especially given how quickly agentic AI is evolving [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "Child证据[3]原文逐字支持残余风险定义及“始终存在一定风险”的表述。"
+        },
+        {
+          "answer_span": "Organisations \"should\" evaluate and determine whether the residual risk for their agentic deployment is of a tolerable level and can be accepted [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "Child证据[3]原文明确组织应评估并确定残余风险是否可容忍、可接受。"
+        },
+        {
+          "answer_span": "The available excerpts do not establish whether the framework elsewhere asserts any absolute guarantee of risk elimination, nor do they quantify acceptable residual-risk thresholds.",
+          "label": "supported",
+          "citation_numbers": [],
+          "reason_zh": "这是对证据范围的诚实限定，未虚构政策主张；所引证据中确无零风险保证或量化阈值。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案正确回答“否”，并完整覆盖三个必需点：偏好确定性限制、残余风险始终存在、组织应评估风险容忍度；所有实质主张均有对应Child证据支持，引用编号正确，且明确说明证据缺口而非虚构保证。\",\"claims\":[{\"answer_span\":\"Organisations \\\"should consider\\\" defining limits on agents' access to tools and systems, autonomy, and area of impact [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"Child证据[2]原文列出组织应考虑对工具/系统访问、自主性和影响范围设定限制。\"},{\"answer_span\":\"the framework states a preference for deterministic rather than non-deterministic limits, and for bounding by design — for example, imposing access controls that prevent a tool from being called at all rather than relying on prompts to instruct the agent against accessing it [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Child证据[1]原文明确“prefer deterministic rather than non-deterministic limits, and bound by design”，并给出访问控制示例。\"},{\"answer_span\":\"Where limits are non-deterministic or less reliable, the framework directs layering on more monitoring measures or incorporating human-in-the-loop review to catch failures [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Child证据[1]原文直接对应此句。\"},{\"answer_span\":\"Residual risk is defined as the risk remaining after mitigation measures have been applied, and the framework states it is important to note that there will always be a level of risk remaining, even after efforts are taken to identify appropriate agentic use cases and define limits on any agents, especially given how quickly agentic AI is evolving [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"Child证据[3]原文逐字支持残余风险定义及“始终存在一定风险”的表述。\"},{\"answer_span\":\"Organisations \\\"should\\\" evaluate and determine whether the residual risk for their agentic deployment is of a tolerable level and can be accepted [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"Child证据[3]原文明确组织应评估并确定残余风险是否可容忍、可接受。\"},{\"answer_span\":\"The available excerpts do not establish whether the framework elsewhere asserts any absolute guarantee of risk elimination, nor do they quantify acceptable residual-risk thresholds.\",\"label\":\"supported\",\"citation_numbers\":[],\"reason_zh\":\"这是对证据范围的诚实限定，未虚构政策主张；所引证据中确无零风险保证或量化阈值。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

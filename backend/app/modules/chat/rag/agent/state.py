@@ -44,6 +44,20 @@ def add_citations(existing: list[dict] | None, new: list[dict] | None) -> list[d
     return merged
 
 
+def final_packed_citations(citations: list[dict], packed_child_ids: set[str]) -> list[dict]:
+    """Keep only citations usable from the final packed context.
+
+    Live web citations have no Child ID and remain available; document
+    citations are retained only when their Child survived the final pack.
+    """
+
+    return [
+        citation
+        for citation in citations
+        if not citation.get("chunk_id") or citation.get("chunk_id") in packed_child_ids
+    ]
+
+
 def add_evidence_sources(
     existing: list[EvidenceSource] | None, new: list[EvidenceSource] | None
 ) -> list[EvidenceSource]:
@@ -113,6 +127,11 @@ class AgentState(TypedDict):
     tool_call_counts: NotRequired[dict[str, int]]
     last_tool_call: NotRequired[dict]
     citations: Annotated[list[dict], add_citations]
+    # Final citations after the last document context pack.  This is a
+    # replacement-style channel rather than the historical accumulation above:
+    # citations from an earlier tool call may have been dropped by packing and
+    # must not remain clickable in the final answer.
+    final_citations: NotRequired[list[dict]]
     # Plain LastValue list (see add_evidence_sources for why this is not a
     # reducer channel), merged into by a search tool only when it returns
     # evidence_sufficient=True AND at least one of its citations is not
@@ -138,6 +157,10 @@ class AgentState(TypedDict):
     # though no citations were ever recorded for it.
     last_evidence_reason: NotRequired[str | None]
     resolved_model: NotRequired[str | None]
+    generation_allowed: NotRequired[bool | None]
+    coverage_sufficient: NotRequired[bool]
+    coverage_status: NotRequired[str]
+    answer_status: NotRequired[str]
     # The chat_messages row created up front for this turn (see
     # history_repository.create_pending_message) — carried in state so a
     # resumed turn (after an ask_user/confirm_import interrupt) keeps

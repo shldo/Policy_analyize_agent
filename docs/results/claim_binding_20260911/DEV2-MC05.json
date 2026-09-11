@@ -1,0 +1,297 @@
+{
+  "question_id": "DEV2-MC05",
+  "question": "What identity and authorisation controls does the Singapore framework suggest for an agent acting on behalf of an employee?",
+  "inputs_sha256": "76a2cf43bb75c33e757563fbac798aa6e64d58a15a2dfeeb055151558bba546b",
+  "messages_sha256": "107f57aa315c68454c2a7a39b3af5d47770bd17eff7d1fb7beb666dfa6c1fbc2",
+  "raw_artifact_sha256": "fb04015df985b195f55a4fbce41a9e4c947466d957ad6041c358875abb35ca90",
+  "final_artifact_sha256": "8612ba9f81260eaa012a62527ae2b9c29aa991e9ec542c4300f7152fd407fbf7",
+  "draft": "For an agent acting on behalf of an employee, the framework's agent-identity provisions address both identification and authorisation.\n\n**Identification (agent identity)**\nAn agent's identity should be unique, i.e. it should have its own cryptographically verifiable identity such that it can identify itself to the organisation, its human user, or other agents [3]. It should be accounted for, meaning the identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking [3]. The different capacities in which an agent acts (e.g. independently or on behalf of a specified human user) should be recorded for auditability [3]. All agent identities and their attendant permissions should be issued from and tracked by a centralised system, to prevent agent sprawl and enable tracking of deployed agents, identification of anomalies, and removal of identities no longer required [3].\n\n**Authorisation**\nAn agent's authority should be scoped, least-privilege, and non-transferable: authorisations should generally be scoped, time- or session-bound, non-transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions [5]. It should be bounded by the authorising human's permissions: an agent may have pre-defined permissions based on its role or task, or permissions dynamically set by its authorising human user, or a combination of both; as a rule of thumb, the human user should not be able to set permissions for the agent greater than what the human user is himself authorised to do, such as accessing data outside the human's permissions, and such delegations of authority should be clearly recorded [5].\n\n**Related tool-layer control**\nThe principle of least privilege should also be applied to limit the tools available to each agent, enforced through robust authentication and authorisation [8].\n\n**Evidence gaps**\nThe excerpts do not establish a specific requirement that the agent's identity be bound to the individual employee's own enterprise identity credential, nor do they specify particular authentication protocols (e.g. OAuth 2.1 in MCP) as mandatory controls — the framework notes such standards as solutions being developed rather than as required measures [4].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "For an agent acting on behalf of an employee, the framework's agent-identity provisions address both identification and authorisation. [3][5]\n\n**Identification (agent identity)**\n\nAn agent's identity should be unique, i.e. it should have its own cryptographically verifiable identity such that it can identify itself to the organisation, its human user, or other agents [3]. It should be accounted for, meaning the identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking [3]. The different capacities in which an agent acts (e.g. independently or on behalf of a specified human user) should be recorded for auditability [3]. All agent identities and their attendant permissions should be issued from and tracked by a centralised system, to prevent agent sprawl and enable tracking of deployed agents, identification of anomalies, and removal of identities no longer required [3].\n\n**Authorisation**\n\nAn agent's authority should be scoped, least-privilege, and non-transferable: authorisations should generally be scoped, time- or session-bound, non-transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions [5]. It should be bounded by the authorising human's permissions: an agent may have pre-defined permissions based on its role or task, or permissions dynamically set by its authorising human user, or a combination of both; as a rule of thumb, the human user should not be able to set permissions for the agent greater than what the human user is himself authorised to do, such as accessing data outside the human's permissions, and such delegations of authority should be clearly recorded [5].\n\n**Related tool-layer control**\n\nThe principle of least privilege should also be applied to limit the tools available to each agent, enforced through robust authentication and authorisation [8].\n\n**Evidence gaps**\n\nThe excerpts do not establish a specific requirement that the agent's identity be bound to the individual employee's own enterprise identity credential, nor do they specify particular authentication protocols (e.g. OAuth 2.1 in MCP) as mandatory controls — the framework notes such standards as solutions being developed rather than as required measures [4].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 3, \"quote\": \"Identification: An agent’s identity should be:\"},\n        {\"number\": 5, \"quote\": \"Authorisation: An agent’s authority should be:\"}\n      ],\n      \"reason\": \"Child 3 provides the identification provisions for an agent's identity, and Child 5 provides the authorisation provisions for an agent's authority, together supporting the unit's claim that the framework addresses both identification and authorisation for an agent acting on behalf of an employee.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label ('Identification (agent identity)') rather than a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 3, \"quote\": \"Unique: An agent should have its own unique , cryptographically verifiable identity, such that it can identify itself to the organisation, its human user, or other agents.\"},\n        {\"number\": 3, \"quote\": \"Accounted for : This identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking.\"},\n        {\"number\": 3, \"quote\": \"Differentiated according to the capacity in which it acts: The different capacities in which an agent acts (e.g. independently or on behalf of a specified human user) should be recorded for auditability.\"},\n        {\"number\": 3, \"quote\": \"Catalogued and centrally managed: To prevent agent sprawl, all agent identities (and their attendant permissions) should be issued from and tracked by a centralised system. This enables an organisation to track its deployed agents, identify any anomalies, and remove identities that are no longer required.\"}\n      ],\n      \"reason\": \"Child 3 supports each clause: unique cryptographically verifiable identity; accountability/tracking tie to supervising agent, human user, or department; recording of capacities for auditability; and centralised issuance/tracking to prevent sprawl, identify anomalies, and remove unneeded identities.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label ('Authorisation') rather than a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 5, \"quote\": \"Scoped, least -privilege, non-transferable: Authorisations should generally be scoped, time- or session -bound, non -transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions.\"},\n        {\"number\": 5, \"quote\": \"Bounded by authorising human’s permissions : An agent can have pre -defined permissions based on its role or the task, or its permissions may be dynamically set by its authorising human user, or a combination of both. As a rule of thumb, the human user should not be able to set permissions for the age nt greater than what the human user is himself authorised to do, such as accessing data outside the human’s permissions . Such delegations of authority should be clearly recorded.\"}\n      ],\n      \"reason\": \"Child 5 supports the scoping, least-privilege, non-transferability, time/session-bound nature, escalation paths, and the bounding of agent permissions by the authorising human's permissions, including recording of delegations.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label ('Related tool-layer control') rather than a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 8, \"quote\": \"Apply the principle of least privilege to limit tools available to each agent, enforced through robust authentication and authorisation\"}\n      ],\n      \"reason\": \"Child 8 directly supports applying least privilege to limit tools available to each agent, enforced through robust authentication and authorisation.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label ('Evidence gaps') rather than a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"Solutions are being developed to address these issues, such as intra-organisation identity systems being extended to agents, 22 or integrating well-established standards like OAuth 2. 1 into MCP.23\"}\n      ],\n      \"reason\": \"Child 4 supports the gap statement: it does not require binding to an individual employee's enterprise identity credential, and it describes OAuth 2.1 in MCP as a solution being developed rather than a mandatory control.\"\n    }\n  ]\n}",
+    "answer": "For an agent acting on behalf of an employee, the framework's agent-identity provisions address both identification and authorisation. [3][5]\n\n**Identification (agent identity)**\n\nAn agent's identity should be unique, i.e. it should have its own cryptographically verifiable identity such that it can identify itself to the organisation, its human user, or other agents [3]. It should be accounted for, meaning the identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking [3]. The different capacities in which an agent acts (e.g. independently or on behalf of a specified human user) should be recorded for auditability [3]. All agent identities and their attendant permissions should be issued from and tracked by a centralised system, to prevent agent sprawl and enable tracking of deployed agents, identification of anomalies, and removal of identities no longer required [3].\n\n**Authorisation**\n\nAn agent's authority should be scoped, least-privilege, and non-transferable: authorisations should generally be scoped, time- or session-bound, non-transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions [5]. It should be bounded by the authorising human's permissions: an agent may have pre-defined permissions based on its role or task, or permissions dynamically set by its authorising human user, or a combination of both; as a rule of thumb, the human user should not be able to set permissions for the agent greater than what the human user is himself authorised to do, such as accessing data outside the human's permissions, and such delegations of authority should be clearly recorded [5].\n\n**Related tool-layer control**\n\nThe principle of least privilege should also be applied to limit the tools available to each agent, enforced through robust authentication and authorisation [8].\n\n**Evidence gaps**\n\nThe excerpts do not establish a specific requirement that the agent's identity be bound to the individual employee's own enterprise identity credential, nor do they specify particular authentication protocols (e.g. OAuth 2.1 in MCP) as mandatory controls — the framework notes such standards as solutions being developed rather than as required measures [4].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [
+      "u1"
+    ],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Identification: An agent’s identity should be:"
+            },
+            {
+              "number": 5,
+              "quote": "Authorisation: An agent’s authority should be:"
+            }
+          ],
+          "reason": "Child 3 provides the identification provisions for an agent's identity, and Child 5 provides the authorisation provisions for an agent's authority, together supporting the unit's claim that the framework addresses both identification and authorisation for an agent acting on behalf of an employee."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label ('Identification (agent identity)') rather than a policy assertion or recommendation."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Unique: An agent should have its own unique , cryptographically verifiable identity, such that it can identify itself to the organisation, its human user, or other agents."
+            },
+            {
+              "number": 3,
+              "quote": "Accounted for : This identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking."
+            },
+            {
+              "number": 3,
+              "quote": "Differentiated according to the capacity in which it acts: The different capacities in which an agent acts (e.g. independently or on behalf of a specified human user) should be recorded for auditability."
+            },
+            {
+              "number": 3,
+              "quote": "Catalogued and centrally managed: To prevent agent sprawl, all agent identities (and their attendant permissions) should be issued from and tracked by a centralised system. This enables an organisation to track its deployed agents, identify any anomalies, and remove identities that are no longer required."
+            }
+          ],
+          "reason": "Child 3 supports each clause: unique cryptographically verifiable identity; accountability/tracking tie to supervising agent, human user, or department; recording of capacities for auditability; and centralised issuance/tracking to prevent sprawl, identify anomalies, and remove unneeded identities."
+        },
+        {
+          "id": "u4",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label ('Authorisation') rather than a policy assertion or recommendation."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 5,
+              "quote": "Scoped, least -privilege, non-transferable: Authorisations should generally be scoped, time- or session -bound, non -transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions."
+            },
+            {
+              "number": 5,
+              "quote": "Bounded by authorising human’s permissions : An agent can have pre -defined permissions based on its role or the task, or its permissions may be dynamically set by its authorising human user, or a combination of both. As a rule of thumb, the human user should not be able to set permissions for the age nt greater than what the human user is himself authorised to do, such as accessing data outside the human’s permissions . Such delegations of authority should be clearly recorded."
+            }
+          ],
+          "reason": "Child 5 supports the scoping, least-privilege, non-transferability, time/session-bound nature, escalation paths, and the bounding of agent permissions by the authorising human's permissions, including recording of delegations."
+        },
+        {
+          "id": "u6",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label ('Related tool-layer control') rather than a policy assertion or recommendation."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 8,
+              "quote": "Apply the principle of least privilege to limit tools available to each agent, enforced through robust authentication and authorisation"
+            }
+          ],
+          "reason": "Child 8 directly supports applying least privilege to limit tools available to each agent, enforced through robust authentication and authorisation."
+        },
+        {
+          "id": "u8",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label ('Evidence gaps') rather than a policy assertion or recommendation."
+        },
+        {
+          "id": "u9",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Solutions are being developed to address these issues, such as intra-organisation identity systems being extended to agents, 22 or integrating well-established standards like OAuth 2. 1 into MCP.23"
+            }
+          ],
+          "reason": "Child 4 supports the gap statement: it does not require binding to an individual employee's enterprise identity credential, and it describes OAuth 2.1 in MCP as a solution being developed rather than a mandatory control."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "a7a8ccf2-ba06-4496-a93b-39cdbc38508a",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "Users",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 26,
+      "page_end": 27,
+      "quote": "Chief Security Officer, Cyber Security Specialist, Penetration Tester\n\nKey responsibilities can include: • Defining baseline security guardrails and secure-by-design templates that technical teams should implement or adapt to the agentic system being deployed • Conducting regular red teaming and threat modelling Who: Any individual who utilises the output of the agents to contribute to an organisational goal e.g. company employees making decisions or automating workflows and practices.\n\nKey responsibilities can include: • Ethical and responsible usage of agents • Attending required training, complying with usage policies, timely reporting of bugs or issues with agents\n\n| Make humans meaningfully accountable\n\n27\n\nPwC Singapore: Allocating human accountability across different internal teams for agentic system for report drafting\n\nPwC is a network of professional services firms in 137 territories, across audit and assurance, tax and legal, deals and consulting.\n\nTo accelerate internal productivity, PwC Singapore’s AI Factory developed an agentic application that automates the drafting of research and analysis sections for internal reports, a process that has been traditionally manual and research-intensive. Users define the sections required, then the system draws from standardised templates maintained and updated (for regulatory and market developments) by PwC, retrieves and synthesises information from source materials, and generates draft content in seconds.\n\nThe system uses three coordinated agents in a primarily sequential workflow, with feedback loops for additional retrieval or restructuring where needed:"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "ef7c13ff-a7c9-4f22-8b9f-726f0442ba5f",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "2.2.1 Clear allocation of responsibilities within and outside the organisation",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 27,
+      "page_end": 28,
+      "quote": "The system uses three coordinated agents in a primarily sequential workflow, with feedback loops for additional retrieval or restructuring where needed:\n\nThe responsibilities below describe how operating accountability for this report -drafting use case is allocated, within the context of PwC Singapore’s broader AI governance framework:\n\n1. Use case owner – Use case appropriateness and accountable use: Confirming that the use case serves a legitimate business need, is appropriate for the intended purpose, and is aligned with the organisation’s AI governance framework. The use case owner remains accountable for the responsible use of the application and for ensuring that appropriate human oversight is in place.\n\n2. Technology Risk Management Team – Risk assessment and control advice: Supports the assessment of technology, risk, security, and compliance considerations for the use case, including any regulatory requirements . This includes advising on appropriate controls relating to tools and models, access rights, and connected knowledge bases or data sources.\n\n3. AI Factory – Design, development, guardrails and monitoring: Designing, developing, and maintaining the application, including prompt design, model selection, tool configuration, integration with approved knowledge bases , and appropriate guardrails . AI Factory also monitors for model changes and manages updates through standard change management processes rather than leaving it to the end users.\n\n| Make humans meaningfully accountable\n\n28\n\nOutside the organisation\n\nOrganisations may also need to work with external parties when deploying agents e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "2c9308d0-5b13-43e7-a815-31980c1dd5be",
+      "section_id": "ab2b7d37-47c1-563f-9daf-c1dead626da5",
+      "section_title": "Agent identity",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 23,
+      "page_end": 23,
+      "quote": "In the interim, organisations should consider these best practices:\n\n• Identification: An agent’s identity should be:\n\no Unique: An agent should have its own unique , cryptographically verifiable identity, such that it can identify itself to the organisation, its human user, or other agents. o Accounted for : This identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking. o Differentiated according to the capacity in which it acts: The different capacities in which an agent acts (e.g. independently or on behalf of a specified human user) should be recorded for auditability. o Catalogued and centrally managed: To prevent agent sprawl, all agent identities (and their attendant permissions) should be issued from and tracked by a centralised system. This enables an organisation to track its deployed agents, identify any anomalies, and remove identities that are no longer required.\n\n21 For a more comprehensive treatment of how current identity systems may face challenges when catering to agentic AI, see OpenID, Identity Management for Agentic AI. 22 For examples, see Microsoft, What is Microsoft Entra Agent ID, and Alibaba Cloud, Agent ID Guard overview. 23 See MCP, Authorisation support."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "d67c2365-8fc9-4c06-8448-53e7f27bd4b5",
+      "section_id": "ab2b7d37-47c1-563f-9daf-c1dead626da5",
+      "section_title": "Agent identity",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 23,
+      "page_end": 23,
+      "quote": "Agent identity\n\nIdentity management and access control is one of the key means in which organisations enable traceability and accountability today for humans. As organisations deploy more agents, including agents which interact across organisation boundaries , identity management needs to be extended to agents to track individual agent behaviour and establish who holds accountability for each agent.\n\nThis is an evolving space, and gaps exist today in terms of handling agent identity robustly. For example, current authorisation systems typically have pre-defined, static scopes. However, to operate safely in more complex scenarios, agents require fine-grained permissions that may change dynamically depending on the context, risk levels, and task objectives. Current authentication systems are also typically based on a single, unique individual. Such systems face difficulty in handling complex agent setups, such as when agents act for multiple human users with different permissions, or recursive delegation scenarios where agents spin up multiple sub-agents.21\n\nSolutions are being developed to address these issues, such as intra-organisation identity systems being extended to agents, 22 or integrating well-established standards like OAuth 2. 1 into MCP.23 The industry is also developing new standards and solutions for agents, such as decentralised identity management and dynamic access control.24\n\nIn the interim, organisations should consider these best practices:\n\n• Identification: An agent’s identity should be:"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "8356d09f-290e-429f-a428-584db8fab8f7",
+      "section_id": "b10574a8-ecfa-58a1-ab25-7deae844297a",
+      "section_title": "24  See proposed framework for agentic identity by Cloud Security Alliance,  Agentic AI Identity & Access — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 23,
+      "page_end": 24,
+      "quote": "24 See proposed framework for agentic identity by Cloud Security Alliance, Agentic AI Identity & Access Management: A New Approach.\n\n| Assess and bound the risks upfront\n\n24 • Authorisation: An agent’s authority should be:\n\no Scoped, least -privilege, non-transferable: Authorisations should generally be scoped, time- or session -bound, non -transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions. o Bounded by authorising human’s permissions : An agent can have pre -defined permissions based on its role or the task, or its permissions may be dynamically set by its authorising human user, or a combination of both. As a rule of thumb, the human user should not be able to set permissions for the age nt greater than what the human user is himself authorised to do, such as accessing data outside the human’s permissions . Such delegations of authority should be clearly recorded."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "36869b60-b414-4a0a-8ff0-4ca138460b0f",
+      "section_id": "5f818da4-7d18-5700-a36d-a86dded7f772",
+      "section_title": "2.2.2  Design for meaningful human oversight — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 29,
+      "page_end": 29,
+      "quote": "2.2.2 Design for meaningful human oversight\n\nSetting up a system for effective human supervision\n\nOrganisations should define significant checkpoints or action boundaries that require human approval, especially before sensitive actions are executed. This can include:26\n\n• High-stakes actions and decisions e.g. editing of sensitive data, final decisions in high -risk domains (such as healthcare or legal), actions that may trigger liability • Irreversible actions e.g. permanently deleting data, sending communications, making payments • Outlier or atypical behaviour e.g. when agent accesses a system or database outside of its work scope, when agent selects a delivery route that is twice as long as the median distance. • User-defined e.g. agents may act on behalf of users who have different risk appetites. Beyond organisation-defined boundaries, users may be given the option to define their own boundaries e.g. requiring approval for purchases above a certain amount.\n\nApart from considering when approvals are required, organisations should also consider what form approvals should take. These considerations include:\n\n• Keep approval requests contextual and digestible , while making the risk clear . When asking humans for approval, keep the request short and clear, instead of providing long logs or raw data that may be challenging to decipher. However, useful additional data, such as the associated risk with the action or a confidence score, should be included."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "1c96fa01-667f-4af4-b661-200f0d31baa4",
+      "section_id": "35fc3f2d-b57b-512a-9457-78bf23fb58f3",
+      "section_title": "2.4.3 Users who integrate agents into their work processes — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 47,
+      "page_end": 47,
+      "quote": "2.4.3 Users who integrate agents into their work processes\n\nSuch users typically utilise agents as part of their internal workflows e.g. coding assistants, automation of enterprise processes. The agent acts for and on behalf of the user.\n\nFor these users, in addition to the information above, layer on education and training so that users can use the agents responsibly. Key aspects include education and training on:\n\n• Foundational knowledge on agents o Relevant use cases , so that the user s understand how to best integrate the agents into their day-to-day work, and the scenarios under which the use of agents should be restricted (e.g. do not use an agent for confidential data) o Instructing the agents e.g. general best practices in prompting o Agents’ range of actions, so the user is aware of their capabilities and potential impact\n\n• Effective oversight of agents o Common agent failure modes, such as hallucinations, getting stuck in loops after errors, so that the user can identify and flag out issues. o Ongoing support, such as refreshers to update on latest features and common mistakes o Feedback loops e.g. when users override agent actions or identify wrong actions, enable them to report this such that it can be used to improve the agent processes if needed."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "eefe7366-7561-48e5-ae5e-00b20ab0c012",
+      "section_id": "574ca00d-039a-5023-a0ef-0c762b821518",
+      "section_title": "When selecting suitable controls, consider the following:",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 34,
+      "page_end": 34,
+      "quote": "Runtime controls address this by monitoring and intervening during execution, such as rate limits to prevent excessive tool use or input validation to catch harmful responses before they are acted upon.\n\nFor illustration, these are some sample controls for agents. For a more comprehensive list, organisations can refer to CSA’s Draft Addendum on Securing Agentic AI and GovTech’s Agentic Risk and Capability Framework.\n\nPlanning • Prompt agent to reflect on whether its plan adheres to user instructions • Prompt the agent to summarise its understanding and request clarification from the user before proceeding • Log the agent’s plan and reasoning for the user to evaluate and verify Tools • Configure tools to require strict input formats • Apply the principle of least privilege to limit tools available to each agent, enforced through robust authentication and authorisation • For data-related tools: o Do not grant agent write access to tables in sensitive databases unless strictly required o Configure agent to let user take over control when keying in sensitive data (e.g. passwords, API keys) Protocols • Use standardised protocols where applicable (e.g. agentic commerce protocols when agent is handling a financial transaction) • For MCP servers: o Whitelist trusted servers and only allow agent to interact with servers on that whitelist o Sandbox any code execution"
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整覆盖了参考要点：唯一可验证身份、问责关联、集中身份管理、受限授权、人类权限上限，并正确引用[3][5]，附加的工具层最小权限控制[8]也准确。证据缺口说明诚实且与[4]一致，未虚构政策。",
+      "claims": [
+        {
+          "answer_span": "An agent's identity should be unique, i.e. it should have its own cryptographically verifiable identity such that it can identify itself to the organisation, its human user, or other agents [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "[3]原文明确要求身份唯一且可加密验证，可向组织、人类用户或其他代理标识自身。"
+        },
+        {
+          "answer_span": "It should be accounted for, meaning the identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "[3]原文'Accounted for'条款完全对应。"
+        },
+        {
+          "answer_span": "The different capacities in which an agent acts (e.g. independently or on behalf of a specified human user) should be recorded for auditability [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "[3]'Differentiated according to the capacity in which it acts'条款一致。"
+        },
+        {
+          "answer_span": "All agent identities and their attendant permissions should be issued from and tracked by a centralised system, to prevent agent sprawl and enable tracking of deployed agents, identification of anomalies, and removal of identities no longer required [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "[3]'Catalogued and centrally managed'条款逐项对应。"
+        },
+        {
+          "answer_span": "authorisations should generally be scoped, time- or session-bound, non-transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions [5].",
+          "label": "supported",
+          "citation_numbers": [
+            5
+          ],
+          "reason_zh": "[5]授权条款原文一致。"
+        },
+        {
+          "answer_span": "an agent may have pre-defined permissions based on its role or task, or permissions dynamically set by its authorising human user, or a combination of both; as a rule of thumb, the human user should not be able to set permissions for the agent greater than what the human user is himself authorised to do, such as accessing data outside the human's permissions, and such delegations of authority should be clearly recorded [5].",
+          "label": "supported",
+          "citation_numbers": [
+            5
+          ],
+          "reason_zh": "[5]'Bounded by authorising human's permissions'条款逐句对应，含人类权限上限与记录要求。"
+        },
+        {
+          "answer_span": "The principle of least privilege should also be applied to limit the tools available to each agent, enforced through robust authentication and authorisation [8].",
+          "label": "supported",
+          "citation_numbers": [
+            8
+          ],
+          "reason_zh": "[8]Tools条款原文一致，属相关补充控制。"
+        },
+        {
+          "answer_span": "the framework notes such standards as solutions being developed rather than as required measures [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "[4]明确称OAuth 2.1等为'being developed'的解决方案，非强制要求，属诚实限定。"
+        },
+        {
+          "answer_span": "The excerpts do not establish a specific requirement that the agent's identity be bound to the individual employee's own enterprise identity credential",
+          "label": "not_verifiable",
+          "citation_numbers": [],
+          "reason_zh": "属对检索证据范围的诚实限定，未作虚假政策主张，无法从现有证据证伪。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖了参考要点：唯一可验证身份、问责关联、集中身份管理、受限授权、人类权限上限，并正确引用[3][5]，附加的工具层最小权限控制[8]也准确。证据缺口说明诚实且与[4]一致，未虚构政策。\",\"claims\":[{\"answer_span\":\"An agent's identity should be unique, i.e. it should have its own cryptographically verifiable identity such that it can identify itself to the organisation, its human user, or other agents [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"[3]原文明确要求身份唯一且可加密验证，可向组织、人类用户或其他代理标识自身。\"},{\"answer_span\":\"It should be accounted for, meaning the identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"[3]原文'Accounted for'条款完全对应。\"},{\"answer_span\":\"The different capacities in which an agent acts (e.g. independently or on behalf of a specified human user) should be recorded for auditability [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"[3]'Differentiated according to the capacity in which it acts'条款一致。\"},{\"answer_span\":\"All agent identities and their attendant permissions should be issued from and tracked by a centralised system, to prevent agent sprawl and enable tracking of deployed agents, identification of anomalies, and removal of identities no longer required [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"[3]'Catalogued and centrally managed'条款逐项对应。\"},{\"answer_span\":\"authorisations should generally be scoped, time- or session-bound, non-transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions [5].\",\"label\":\"supported\",\"citation_numbers\":[5],\"reason_zh\":\"[5]授权条款原文一致。\"},{\"answer_span\":\"an agent may have pre-defined permissions based on its role or task, or permissions dynamically set by its authorising human user, or a combination of both; as a rule of thumb, the human user should not be able to set permissions for the agent greater than what the human user is himself authorised to do, such as accessing data outside the human's permissions, and such delegations of authority should be clearly recorded [5].\",\"label\":\"supported\",\"citation_numbers\":[5],\"reason_zh\":\"[5]'Bounded by authorising human's permissions'条款逐句对应，含人类权限上限与记录要求。\"},{\"answer_span\":\"The principle of least privilege should also be applied to limit the tools available to each agent, enforced through robust authentication and authorisation [8].\",\"label\":\"supported\",\"citation_numbers\":[8],\"reason_zh\":\"[8]Tools条款原文一致，属相关补充控制。\"},{\"answer_span\":\"the framework notes such standards as solutions being developed rather than as required measures [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"[4]明确称OAuth 2.1等为'being developed'的解决方案，非强制要求，属诚实限定。\"},{\"answer_span\":\"The excerpts do not establish a specific requirement that the agent's identity be bound to the individual employee's own enterprise identity credential\",\"label\":\"not_verifiable\",\"citation_numbers\":[],\"reason_zh\":\"属对检索证据范围的诚实限定，未作虚假政策主张，无法从现有证据证伪。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

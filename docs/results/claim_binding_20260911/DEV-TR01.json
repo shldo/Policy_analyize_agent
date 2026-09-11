@@ -1,0 +1,145 @@
+{
+  "question_id": "DEV-TR01",
+  "question": "According to the staff training guidance, how long does the AI fundamentals module take?",
+  "inputs_sha256": "0bb8662be8a760e1b52fa78d5b5fc5388f33665b605b2339a197f870d07a9d0a",
+  "messages_sha256": "b4a6f6c0fbca8b4a8d322694d654af1d7c2d32b93573b85cf3a36887c0c48a80",
+  "raw_artifact_sha256": "b2aea1aada8777cbd5745ee1ab54151478e1511f1fb7cf42bb9edd55da2cdcfe",
+  "final_artifact_sha256": "55261114a77bfdba775808b7eacb5498249aa9c697a894a3ccb484e61c7aa7ad",
+  "draft": "The AI fundamentals training module takes approximately 20 to 30 minutes to complete [1].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The AI fundamentals training module takes approximately 20 to 30 minutes to complete [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"It takes approximately 20 to 30 minutes to complete.\"\n        }\n      ],\n      \"reason\": \"Child 1 states that the AI fundamentals training takes approximately 20 to 30 minutes to complete, which fully supports the unit's claim about the module duration.\"\n    }\n  ]\n}",
+    "answer": "The AI fundamentals training module takes approximately 20 to 30 minutes to complete [1].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "It takes approximately 20 to 30 minutes to complete."
+            }
+          ],
+          "reason": "Child 1 states that the AI fundamentals training takes approximately 20 to 30 minutes to complete, which fully supports the unit's claim about the module duration."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "11345108-61b6-4657-8378-e7af589d61cb",
+      "section_id": "1eb6c856-ec1b-5b36-b61e-0e9c13d66c59",
+      "section_title": "AI fundamentals training",
+      "title": "Guidance for Staff Training on AI",
+      "page": 5,
+      "page_end": 5,
+      "quote": "AI fundamentals training The Digital Transformation Agency (DTA) has developed AI fundamentals training for agency use. This training meets the learning outcomes described above for foundational AI training and can be used to satisfy the policy requirement for staff training. The training will be updated periodically to address changes in the AI landscape, such as evolutions in the technology and its use in government. As staff will likely interact with generative AI now and in the future, it is an area of focus for the training. The training is designed for all staff regardless of their experience using AI. It takes approximately 20 to 30 minutes to complete. It does not cover advanced topics such as model training, system development or instructions for specific technologies or platforms."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "8111121c-9ece-40d1-839c-2803fe4ab492",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 12,
+      "quote": "Mandatory requirements\n\nOperationalise the responsible use of AI Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect. This may vary according to the scale and scope of agency AI use. At a minimum, the approach will provide an agency with: • a process for adopting AI use cases in line with the implemented actions of this policy, as well as the agency’s enterprise risk management and governance approach. • a way to inform staff who are designing and implementing AI use cases about Australia’s AI Ethics Principles. • a pathway for staff to report AI safety concerns, including AI incidents. • pathways for the public to report AI safety concerns, appropriate to the agency’s AI use. • clear processes to address AI incidents aligned to their ICT incident management approach - incident remediation must be overseen by an appropriate governance body or senior executive and should be undertaken in line with any other legal obligations. Agencies may modify existing policies, procedures and frameworks, or create new ones. Smaller agencies with minimal AI adoption could amend existing documentation and/or assign key personnel to guide staff on responsible AI adoption on an ad hoc basis. Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "90971b4b-8c01-4b69-b4c2-c46dc554057d",
+      "section_id": "598c7c87-39ad-5d22-b4eb-856c19f307d0",
+      "section_title": "Guidance for staff training on AI",
+      "title": "Guidance for Staff Training on AI",
+      "page": 1,
+      "page_end": 4,
+      "quote": "Guidance for staff training on AI Supporting the policy for the responsible use of AI in government 2.0 Version 2.0\n\nDigital Transformation Agency © Commonwealth of Australia (Digital Transformation Agency) 2025 | Version 1801 With the exception of the Commonwealth Coat of Arms and where otherwise noted, this product is provided under a Creative Commons Attribution 4.0 International Licence. (http:/ /creativecommons.org/licenses/by/4.0/legalcode) The Digital Transformation Agency has tried to make the information in this product as accurate as possible. However, it does not guarantee that the information is totally accurate or complete. Therefore, you should not solely rely on this information when making a commercial decision. Digital Transformation Agency is committed to providing web accessible content wherever possible. If you are having difficulties with accessing this document, please email: ai@dta.gov.au. Page ii\n\nThe policy recognises that AI is used in many areas of the APS and everyday life. As adoption grows, staff at all levels will interact with AI and its outputs, directly or indirectly. The policy requires agencies to implement mandatory training for all staff on responsible and ethical AI use, regardless of their role. Agencies should also consider if it is appropriate for staff to complete annual refresher training."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "46eb624c-d42a-4af8-8a14-f07b95bf1e4b",
+      "section_id": "a91df602-7a5b-57f3-afc7-fb908ad6bd41",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 28,
+      "page_end": 29,
+      "quote": "NOTE: Agencies must consider data and lineage | naa.gov.au compliance with Australian Government regulations.\n\nNOTE: Agencies should refer to the Policy of responsible use of AI in government to implement AI fundamentals training | digital.gov.au for all staff, regardless of their role. To support agencies with their implementation of the Policy, the DTA provides Guidance for staff training on AI | digital.gov.au. NOTE: Australian Government API guidelines | api.gov.au mandate the use of semantic versioning. NOTE: Agencies should refer to the Australian parliamentary recommendations | aph.gov.au on AI including risk management, people capabilities, and implement measures for algorithmic bias | humanrights.gov.au. NOTE: Any infrastructure, both software and hardware, for AI services and solutions must adhere to Australian Government regulations and should consider security as priority as recommended by the Australian Government guidance on AI system Development | cyber.gov.au, Deploying AI systems Securely | cyber.gov.au and Engaging with AI | cyber.gov.au. The recommendations include secure well-architected environments, whether on-premises, cloud-based, or hybrid, to maintain the confidentiality, integrity, and availability of AI services."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "ab945f1c-25f3-475c-ad9b-e0a027516a24",
+      "section_id": "7f70b3ed-f1b3-5595-9f18-62070f98263a",
+      "section_title": "Implement the training",
+      "title": "Guidance for Staff Training on AI",
+      "page": 5,
+      "page_end": 5,
+      "quote": "Implement the training Agencies’ Learning and Development specialists can access the training for download through the APS Learning Bank. The training is provided in a format compatible with most e-learning platforms. Alternatively, agencies can choose to let their staff access the module directly through APSLearn. Agencies can use the training module as provided, or choose to modify it or incorporate it into an existing training program based on their specific context and requirements. Agencies are encouraged to consider additional training for staff in consideration of their roles and responsibilities, such as those responsible for the procurement, development, training and deployment of AI systems."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "8af72feb-d9f8-4176-af78-096ff0838241",
+      "section_id": "0d832625-d96d-5d56-8b19-4a87da1a3343",
+      "section_title": "Train",
+      "title": "Australian Government AI Technical Standard",
+      "page": 71,
+      "page_end": 71,
+      "quote": "Train The train stage covers the creation and selection of models and algorithms. The key activities in this stage include modelling, pre- and post-processing, model refinements, and fine-tuning. It also considers the use of pre-trained models and associated fine-tuning for the operational context. AI training involves processing large amounts of data to enable AI models to recognise patterns, make predictions, draw inferences, and generate content. This process creates a mathematical model with parameters that can range from a few to trillions. Training an AI model might require adjustment of these parameters, entailing increased processing power and storage. Training a model can be compute-heavy, relying on infrastructure that may be significantly expensive. The model architecture, including choice of the AI algorithm and learning strategy, together with the size of the model dataset, will influence the infrastructure requirements for the training environment. The AI Model encapsulates a complex mathematical relationship between input and output data that it derives from patterns in a modelling dataset. AI models can be chained together to provide more complex capabilities. Pre-processing and post-processing augment the capabilities of the AI model."
+    },
+    {
+      "document_id": "6538fe2e-5be7-4af5-8f06-dca5136409dc",
+      "chunk_id": "f7b75008-733a-4959-878d-b4a724921f0c",
+      "section_id": "3ba379c1-0592-50c5-9534-eb9c3cc125f0",
+      "section_title": "Foundational AI training",
+      "title": "Guidance for Staff Training on AI",
+      "page": 4,
+      "page_end": 4,
+      "quote": "Foundational AI training Providing foundational training will help staff become confident in using AI in a responsible way. Foundational training focused on responsible and ethical AI use should address the following learning outcomes: • introduction to AI ○ identify different types of AI and their functions ○ recognise AI in everyday tools and services. • generative AI ○ understand how generative AI works ○ use clear prompts and verify outputs • foundations of safe and responsible AI use ○ recognise the importance of ethical AI use ○ understand how to remain accountable for AI use ○ appropriate management of security classified, personal and sensitive information ○ understand how AI ethics should be applied in practice, including how to manage AI for accuracy, bias, sensitivity and transparency The training must align with the Policy for the responsible use of AI in government, Australia’s AI Ethics Principles and expectations such as Australia’s Public Service Values and Code of Conduct."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案准确引用[1]中“approximately 20 to 30 minutes to complete”，与参考答案一致，无事实或引用问题。",
+      "claims": [
+        {
+          "answer_span": "The AI fundamentals training module takes approximately 20 to 30 minutes to complete [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]原文明确写明“It takes approximately 20 to 30 minutes to complete”，直接支持该时长陈述。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案准确引用[1]中“approximately 20 to 30 minutes to complete”，与参考答案一致，无事实或引用问题。\",\"claims\":[{\"answer_span\":\"The AI fundamentals training module takes approximately 20 to 30 minutes to complete [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]原文明确写明“It takes approximately 20 to 30 minutes to complete”，直接支持该时长陈述。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

@@ -1,0 +1,434 @@
+{
+  "question_id": "DEV2-MC02",
+  "question": "Which strategic-position, ownership/register, operational-practice and training deliverables are expected within six or twelve months under Australia's policy?",
+  "inputs_sha256": "2baf56d79aac174261f2bb0a605e64e51eae2cc6bbf3054f9b8b5db9a090d3b7",
+  "messages_sha256": "62069d7d2539cfdb04c77ae1f32c5021733bd66c0f3c27daefbf9059b8ce7672",
+  "raw_artifact_sha256": "cd245ee754aaffb3ee0c1160bf807d94e4c67f580b48c4da3a02bf9336a58c15",
+  "final_artifact_sha256": "3e06caaa8413d9eb4fe43ea5735cea3e5791ccf6f4e043b719ccad2174f57d1e",
+  "draft": "**Direct answer:** Under the policy, the six-month deliverable is the agency strategic position on AI adoption; the twelve-month deliverables are designation of accountable use case owners, creation of the internal AI use case register, establishment of the approach to embed responsible AI practices, and mandatory staff training on responsible AI use. The accountable official designation and the AI transparency statement carry no six- or twelve-month deadline in the excerpts.\n\n**Six months**\n\n- **Strategic position on AI adoption** — Agencies must develop a strategic position on AI adoption within 6 months of the policy taking effect, emphasising how AI opportunities can be identified and embraced by the agency [1]. Agencies must communicate this strategic position to give staff clear direction on AI adoption; they can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff [1][2].\n\n**Twelve months**\n\n- **Accountable use case owners** — Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of the policy taking effect; accountable official(s) are to maintain a register of accountable use case owners [2]. Agencies must follow the Standard for accountability when implementing this requirement [2].\n- **Internal AI use case register** — Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of the policy taking effect [2]. Agencies must share the register with the DTA every 6 months, commencing from when they create the register to meet the above requirement [2]. The Standard for accountability lists the minimum fields agencies must capture; agencies can add additional fields, and an existing register may be reused [2].\n- **Operationalise the responsible use of AI** — Agencies must establish an approach to embed responsible AI practices within 12 months of the policy taking effect, which may vary according to the scale and scope of agency AI use [4]. At a minimum the approach must provide: a process for adopting AI use cases consistent with the implemented actions of the policy and the agency's enterprise risk management and governance approach; a way to inform staff designing and implementing AI use cases about Australia's AI Ethics Principles; a pathway for staff to report AI safety concerns, including AI incidents; pathways for the public to report AI safety concerns appropriate to the agency's AI use; and clear processes to address AI incidents aligned to the agency's ICT incident management approach, with incident remediation overseen by an appropriate governance body or senior executive and undertaken in line with any other legal obligations [4]. Agencies may modify existing policies, procedures and frameworks or create new ones; accountable officials are responsible for deciding the appropriate approach for their agency [4][3].\n- **Staff training on AI** — Agencies must implement mandatory training for all staff on responsible AI use within 12 months of the policy taking effect [3]. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement — as provided, modified, or incorporated into an existing training program — or allow staff to access the module directly through APSLearn [3]. Agencies should implement additional training as required in consideration of roles and responsibilities, for example for those responsible for procurement, development, training and deployment of AI systems [3].\n\n**Related but not on a six- or twelve-month clock in the excerpts**\n\n- **Accountable officials** — Agencies must designate accountable official(s) to take accountability for implementing the policy and must follow the Standard for accountability when doing so; the excerpts state no six- or twelve-month deadline for this designation [2].\n- **AI transparency statement** — Agencies must make a publicly available statement on their approach to AI adoption and use as prescribed under the Standard for transparency statements, reviewed and updated annually or sooner on significant changes, with notification to the DTA on publication and changes [1]. The excerpts state no six- or twelve-month deadline for initial publication.\n\n**Evidence gaps**\n\n- The excerpts do not establish a six- or twelve-month deadline for the accountable official designation or for the AI transparency statement; only the annual review/update cycle for the statement is stated [1].\n- The excerpts do not establish any six-month deliverable other than the strategic position on AI adoption.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**Six months**\n\n- **Strategic position on AI adoption** — Agencies must develop a strategic position on AI adoption within 6 months of the policy taking effect, emphasising how AI opportunities can be identified and embraced by the agency [1]. Agencies must communicate this strategic position to give staff clear direction on AI adoption; they can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff [1][2].\n\n**Twelve months**\n\n- **Accountable use case owners** — Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of the policy taking effect; accountable official(s) are to maintain a register of accountable use case owners [2]. Agencies must follow the Standard for accountability when implementing this requirement [2].\n\n- **Internal AI use case register** — Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of the policy taking effect [2]. Agencies must share the register with the DTA every 6 months, commencing from when they create the register to meet the above requirement [2]. The Standard for accountability lists the minimum fields agencies must capture; agencies can add additional fields, and an existing register may be reused [2].\n\n- **Operationalise the responsible use of AI** — Agencies must establish an approach to embed responsible AI practices within 12 months of the policy taking effect, which may vary according to the scale and scope of agency AI use . At a minimum the approach must provide: a process for adopting AI use cases consistent with the implemented actions of the policy and the agency's enterprise risk management and governance approach; a way to inform staff designing and implementing AI use cases about Australia's AI Ethics Principles; a pathway for staff to report AI safety concerns, including AI incidents; pathways for the public to report AI safety concerns appropriate to the agency's AI use; and clear processes to address AI incidents aligned to the agency's ICT incident management approach, with incident remediation overseen by an appropriate governance body or senior executive and undertaken in line with any other legal obligations . Agencies may modify existing policies, procedures and frameworks or create new ones; accountable officials are responsible for deciding the appropriate approach for their agency . [4]\n\n- **Staff training on AI** — Agencies must implement mandatory training for all staff on responsible AI use within 12 months of the policy taking effect [3]. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement — as provided, modified, or incorporated into an existing training program — or allow staff to access the module directly through APSLearn [3]. Agencies should implement additional training as required in consideration of roles and responsibilities, for example for those responsible for procurement, development, training and deployment of AI systems [3].\n\n- The excerpts do not establish any six-month deliverable other than the strategic position on AI adoption.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "```json\n{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect.\"},\n        {\"number\": 2, \"quote\": \"Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of this policy taking effect.\"},\n        {\"number\": 2, \"quote\": \"Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of this policy taking effect.\"},\n        {\"number\": 4, \"quote\": \"Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect.\"},\n        {\"number\": 3, \"quote\": \"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect.\"}\n      ],\n      \"reason\": \"The six- and twelve-month deliverables are supported by the cited Children. However, the final clause asserting that the accountable official designation and AI transparency statement carry no six- or twelve-month deadline is not established by the excerpts; absence of a deadline is not stated in the supplied text.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading only, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect.\"},\n        {\"number\": 1, \"quote\": \"This position is to emphasise how AI opportunities can be identified and embraced by the agency.\"},\n        {\"number\": 1, \"quote\": \"Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption.\"},\n        {\"number\": 2, \"quote\": \"agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff.\"}\n      ],\n      \"reason\": \"All clauses are supported: the six-month deadline, the emphasis on identifying and embracing AI opportunities, the communication requirement, and the options for standalone strategy, augmenting an existing strategy, or other materials.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading only, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of this policy taking effect.\"},\n        {\"number\": 2, \"quote\": \"Accountable official(s) are to maintain a register of accountable use case owners.\"},\n        {\"number\": 2, \"quote\": \"Agencies must follow the Standard for accountability when implementing this requirement.\"}\n      ],\n      \"reason\": \"All clauses are supported: the twelve-month deadline for designating accountable use case owners, the register maintenance by accountable officials, and the requirement to follow the Standard for accountability.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of this policy taking effect.\"},\n        {\"number\": 2, \"quote\": \"Agencies must share the register with the DTA every 6 months, commencing from when they create the register to meet the above requirement.\"},\n        {\"number\": 2, \"quote\": \"The Standard for accountability lists the minimum fields agencies must capture in the use case register.\"},\n        {\"number\": 2, \"quote\": \"Agencies can add additional fields to meet their organisational needs.\"},\n        {\"number\": 2, \"quote\": \"An existing register may be reused for the purposes of meeting this requirement.\"}\n      ],\n      \"reason\": \"All clauses are supported: the twelve-month deadline for creating the register, the six-month sharing requirement with the DTA, the Standard for accountability listing minimum fields, the ability to add fields, and the reuse of an existing register.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect.\"},\n        {\"number\": 4, \"quote\": \"This may vary according to the scale and scope of agency AI use.\"},\n        {\"number\": 4, \"quote\": \"a process for adopting AI use cases in line with the implemented actions of this policy, as well as the agency’s enterprise risk management and governance approach.\"},\n        {\"number\": 4, \"quote\": \"a way to inform staff who are designing and implementing AI use cases about Australia’s AI Ethics Principles.\"},\n        {\"number\": 4, \"quote\": \"a pathway for staff to report AI safety concerns, including AI incidents.\"},\n        {\"number\": 4, \"quote\": \"pathways for the public to report AI safety concerns, appropriate to the agency’s AI use.\"},\n        {\"number\": 4, \"quote\": \"clear processes to address AI incidents aligned to their ICT incident management approach - incident remediation must be overseen by an appropriate governance body or senior executive and should be undertaken in line with any other legal obligations.\"},\n        {\"number\": 4, \"quote\": \"Agencies may modify existing policies, procedures and frameworks, or create new ones.\"},\n        {\"number\": 4, \"quote\": \"Accountable officials are responsible for deciding the appropriate approach for their agency.\"}\n      ],\n      \"reason\": \"All clauses are supported: the twelve-month deadline, variation by scale and scope, the five minimum elements, the flexibility to modify or create new policies, and the accountable officials' responsibility for deciding the approach.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 3, \"quote\": \"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect.\"},\n        {\"number\": 3, \"quote\": \"Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement.\"},\n        {\"number\": 3, \"quote\": \"They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements.\"},\n        {\"number\": 3, \"quote\": \"Alternatively, agencies can allow their staff to access the module directly through APSLearn.\"},\n        {\"number\": 3, \"quote\": \"Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities.\"},\n        {\"number\": 3, \"quote\": \"For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\"}\n      ],\n      \"reason\": \"All clauses are supported: the twelve-month deadline for mandatory training, the guidance and module options, the flexibility to modify or incorporate the module, the APSLearn access option, and the additional training recommendation with examples.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading only, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u10\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"Agencies must designate accountable official(s) to take accountability for implementing this policy.\"},\n        {\"number\": 2, \"quote\": \"Agencies must follow the Standard for accountability when designating accountable official(s) and implementing this requirement.\"}\n      ],\n      \"reason\": \"The designation requirement and Standard for accountability are supported. However, the claim that the excerpts state no six- or twelve-month deadline for this designation is not established by the excerpts; absence of a deadline is not stated in the supplied text.\"\n    },\n    {\n      \"id\": \"u11\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements.\"},\n        {\"number\": 1, \"quote\": \"The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI.\"},\n        {\"number\": 1, \"quote\": \"Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au.\"}\n      ],\n      \"reason\": \"The transparency statement requirement, annual review/update cycle, and DTA notification are supported. However, the claim that the excerpts state no six- or twelve-month deadline for initial publication is not established by the excerpts; absence of a deadline is not stated in the supplied text.\"\n    },\n    {\n      \"id\": \"u12\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading only, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u13\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The excerpts do not establish a six- or twelve-month deadline for the accountable official designation or for the AI transparency statement; only the annual review/update cycle for the statement is stated. This is an accurately bounded statement about what the available excerpts do not establish.\"\n    },\n    {\n      \"id\": \"u14\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The excerpts do not establish any six-month deliverable other than the strategic position on AI adoption. This is an accurately bounded statement about what the available excerpts do not establish.\"\n    }\n  ]\n}\n```",
+    "answer": "**Six months**\n\n- **Strategic position on AI adoption** — Agencies must develop a strategic position on AI adoption within 6 months of the policy taking effect, emphasising how AI opportunities can be identified and embraced by the agency [1]. Agencies must communicate this strategic position to give staff clear direction on AI adoption; they can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff [1][2].\n\n**Twelve months**\n\n- **Accountable use case owners** — Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of the policy taking effect; accountable official(s) are to maintain a register of accountable use case owners [2]. Agencies must follow the Standard for accountability when implementing this requirement [2].\n\n- **Internal AI use case register** — Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of the policy taking effect [2]. Agencies must share the register with the DTA every 6 months, commencing from when they create the register to meet the above requirement [2]. The Standard for accountability lists the minimum fields agencies must capture; agencies can add additional fields, and an existing register may be reused [2].\n\n- **Operationalise the responsible use of AI** — Agencies must establish an approach to embed responsible AI practices within 12 months of the policy taking effect, which may vary according to the scale and scope of agency AI use . At a minimum the approach must provide: a process for adopting AI use cases consistent with the implemented actions of the policy and the agency's enterprise risk management and governance approach; a way to inform staff designing and implementing AI use cases about Australia's AI Ethics Principles; a pathway for staff to report AI safety concerns, including AI incidents; pathways for the public to report AI safety concerns appropriate to the agency's AI use; and clear processes to address AI incidents aligned to the agency's ICT incident management approach, with incident remediation overseen by an appropriate governance body or senior executive and undertaken in line with any other legal obligations . Agencies may modify existing policies, procedures and frameworks or create new ones; accountable officials are responsible for deciding the appropriate approach for their agency . [4]\n\n- **Staff training on AI** — Agencies must implement mandatory training for all staff on responsible AI use within 12 months of the policy taking effect [3]. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement — as provided, modified, or incorporated into an existing training program — or allow staff to access the module directly through APSLearn [3]. Agencies should implement additional training as required in consideration of roles and responsibilities, for example for those responsible for procurement, development, training and deployment of AI systems [3].\n\n- The excerpts do not establish any six-month deliverable other than the strategic position on AI adoption.",
+    "removed_unit_ids": [
+      "u1",
+      "u10",
+      "u11",
+      "u13"
+    ],
+    "rebound_unit_ids": [
+      "u7"
+    ],
+    "binding_errors": {
+      "u13": "Gap cannot masquerade as a cited factual claim"
+    },
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect."
+            },
+            {
+              "number": 2,
+              "quote": "Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of this policy taking effect."
+            },
+            {
+              "number": 2,
+              "quote": "Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of this policy taking effect."
+            },
+            {
+              "number": 4,
+              "quote": "Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect."
+            },
+            {
+              "number": 3,
+              "quote": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect."
+            }
+          ],
+          "reason": "The six- and twelve-month deliverables are supported by the cited Children. However, the final clause asserting that the accountable official designation and AI transparency statement carry no six- or twelve-month deadline is not established by the excerpts; absence of a deadline is not stated in the supplied text."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading only, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect."
+            },
+            {
+              "number": 1,
+              "quote": "This position is to emphasise how AI opportunities can be identified and embraced by the agency."
+            },
+            {
+              "number": 1,
+              "quote": "Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption."
+            },
+            {
+              "number": 2,
+              "quote": "agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff."
+            }
+          ],
+          "reason": "All clauses are supported: the six-month deadline, the emphasis on identifying and embracing AI opportunities, the communication requirement, and the options for standalone strategy, augmenting an existing strategy, or other materials."
+        },
+        {
+          "id": "u4",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading only, not a policy assertion."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of this policy taking effect."
+            },
+            {
+              "number": 2,
+              "quote": "Accountable official(s) are to maintain a register of accountable use case owners."
+            },
+            {
+              "number": 2,
+              "quote": "Agencies must follow the Standard for accountability when implementing this requirement."
+            }
+          ],
+          "reason": "All clauses are supported: the twelve-month deadline for designating accountable use case owners, the register maintenance by accountable officials, and the requirement to follow the Standard for accountability."
+        },
+        {
+          "id": "u6",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of this policy taking effect."
+            },
+            {
+              "number": 2,
+              "quote": "Agencies must share the register with the DTA every 6 months, commencing from when they create the register to meet the above requirement."
+            },
+            {
+              "number": 2,
+              "quote": "The Standard for accountability lists the minimum fields agencies must capture in the use case register."
+            },
+            {
+              "number": 2,
+              "quote": "Agencies can add additional fields to meet their organisational needs."
+            },
+            {
+              "number": 2,
+              "quote": "An existing register may be reused for the purposes of meeting this requirement."
+            }
+          ],
+          "reason": "All clauses are supported: the twelve-month deadline for creating the register, the six-month sharing requirement with the DTA, the Standard for accountability listing minimum fields, the ability to add fields, and the reuse of an existing register."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect."
+            },
+            {
+              "number": 4,
+              "quote": "This may vary according to the scale and scope of agency AI use."
+            },
+            {
+              "number": 4,
+              "quote": "a process for adopting AI use cases in line with the implemented actions of this policy, as well as the agency’s enterprise risk management and governance approach."
+            },
+            {
+              "number": 4,
+              "quote": "a way to inform staff who are designing and implementing AI use cases about Australia’s AI Ethics Principles."
+            },
+            {
+              "number": 4,
+              "quote": "a pathway for staff to report AI safety concerns, including AI incidents."
+            },
+            {
+              "number": 4,
+              "quote": "pathways for the public to report AI safety concerns, appropriate to the agency’s AI use."
+            },
+            {
+              "number": 4,
+              "quote": "clear processes to address AI incidents aligned to their ICT incident management approach - incident remediation must be overseen by an appropriate governance body or senior executive and should be undertaken in line with any other legal obligations."
+            },
+            {
+              "number": 4,
+              "quote": "Agencies may modify existing policies, procedures and frameworks, or create new ones."
+            },
+            {
+              "number": 4,
+              "quote": "Accountable officials are responsible for deciding the appropriate approach for their agency."
+            }
+          ],
+          "reason": "All clauses are supported: the twelve-month deadline, variation by scale and scope, the five minimum elements, the flexibility to modify or create new policies, and the accountable officials' responsibility for deciding the approach."
+        },
+        {
+          "id": "u8",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect."
+            },
+            {
+              "number": 3,
+              "quote": "Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement."
+            },
+            {
+              "number": 3,
+              "quote": "They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements."
+            },
+            {
+              "number": 3,
+              "quote": "Alternatively, agencies can allow their staff to access the module directly through APSLearn."
+            },
+            {
+              "number": 3,
+              "quote": "Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities."
+            },
+            {
+              "number": 3,
+              "quote": "For example, additional training for those responsible for the procurement, development, training and deployment of AI systems."
+            }
+          ],
+          "reason": "All clauses are supported: the twelve-month deadline for mandatory training, the guidance and module options, the flexibility to modify or incorporate the module, the APSLearn access option, and the additional training recommendation with examples."
+        },
+        {
+          "id": "u9",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading only, not a policy assertion."
+        },
+        {
+          "id": "u10",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Agencies must designate accountable official(s) to take accountability for implementing this policy."
+            },
+            {
+              "number": 2,
+              "quote": "Agencies must follow the Standard for accountability when designating accountable official(s) and implementing this requirement."
+            }
+          ],
+          "reason": "The designation requirement and Standard for accountability are supported. However, the claim that the excerpts state no six- or twelve-month deadline for this designation is not established by the excerpts; absence of a deadline is not stated in the supplied text."
+        },
+        {
+          "id": "u11",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements."
+            },
+            {
+              "number": 1,
+              "quote": "The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI."
+            },
+            {
+              "number": 1,
+              "quote": "Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au."
+            }
+          ],
+          "reason": "The transparency statement requirement, annual review/update cycle, and DTA notification are supported. However, the claim that the excerpts state no six- or twelve-month deadline for initial publication is not established by the excerpts; absence of a deadline is not stated in the supplied text."
+        },
+        {
+          "id": "u12",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading only, not a policy assertion."
+        },
+        {
+          "id": "u13",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The excerpts do not establish a six- or twelve-month deadline for the accountable official designation or for the AI transparency statement; only the annual review/update cycle for the statement is stated. This is an accurately bounded statement about what the available excerpts do not establish."
+        },
+        {
+          "id": "u14",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The excerpts do not establish any six-month deliverable other than the strategic position on AI adoption. This is an accurately bounded statement about what the available excerpts do not establish."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "cb93394d-8d3c-4638-a890-477f3b04c629",
+      "section_id": "e169cfea-b1bd-5da7-ae46-101dafdfbf23",
+      "section_title": "Strategy and oversight",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 10,
+      "page_end": 10,
+      "quote": "Strategy and oversight The principles and requirements included in this section are designed to enable a forward- leaning approach to agency AI adoption. These requirements set out AI accountability at the agency level and use case level and seek to build trust through transparency.\n\nPrinciples • Adopt AI to enhance efficiency, decision-making, policy outcomes and government service delivery for the benefit of Australians. • Have clear accountabilities for the adoption of AI and understand its use. • Build public trust through transparency about government AI use.\n\nMandatory requirements\n\nAI transparency statement Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements. The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI. Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au.\n\nStrategic position on AI adoption Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect. This position is to emphasise how AI opportunities can be identified and embraced by the agency. Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption. In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "be9c4bec-5bcc-4235-ad5b-21814b9768a2",
+      "section_id": "e169cfea-b1bd-5da7-ae46-101dafdfbf23",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 10,
+      "page_end": 11,
+      "quote": "In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff.\n\nAccountable officials Agencies must designate accountable official(s) to take accountability for implementing this policy. Agencies must follow the Standard for accountability when designating accountable official(s) and implementing this requirement. The responsibilities of accountable officials are set in the standard. Agencies must notify the DTA when they designate and make any changes to their accountable official(s) by emailing ai@dta.gov.au.\n\nAccountable use case owners Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of this policy taking effect. Accountable official(s) are to maintain a register of accountable use case owners. Agencies must follow the Standard for accountability when implementing this requirement. The responsibilities of accountable use case owners are set in the standard.\n\nInternal AI use case register Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of this policy taking effect. Agencies must share the register with the DTA every 6 months, commencing from when they create the register to meet the above requirement. The Standard for accountability lists the minimum fields agencies must capture in the use case register. Agencies can add additional fields to meet their organisational needs. An existing register may be reused for the purposes of meeting this requirement. The standard also provides the instructions for how to share agency registers with the DTA."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "8111121c-9ece-40d1-839c-2803fe4ab492",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 12,
+      "quote": "Mandatory requirements\n\nOperationalise the responsible use of AI Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect. This may vary according to the scale and scope of agency AI use. At a minimum, the approach will provide an agency with: • a process for adopting AI use cases in line with the implemented actions of this policy, as well as the agency’s enterprise risk management and governance approach. • a way to inform staff who are designing and implementing AI use cases about Australia’s AI Ethics Principles. • a pathway for staff to report AI safety concerns, including AI incidents. • pathways for the public to report AI safety concerns, appropriate to the agency’s AI use. • clear processes to address AI incidents aligned to their ICT incident management approach - incident remediation must be overseen by an appropriate governance body or senior executive and should be undertaken in line with any other legal obligations. Agencies may modify existing policies, procedures and frameworks, or create new ones. Smaller agencies with minimal AI adoption could amend existing documentation and/or assign key personnel to guide staff on responsible AI adoption on an ad hoc basis. Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "63317ebb-686d-4081-8a18-bea93b91c9a7",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "AI use case impact assessment",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 14,
+      "page_end": 14,
+      "quote": "AI use case impact assessment The principles and requirements in this section intend to assess potential impacts of AI use cases and ensure additional oversight of higher risk AI.\n\nPrinciples • Ongoing monitoring and evaluation of AI uses. • AI risk mitigation is proportionate and targeted. • AI use is lawful, ethical, responsible, transparent and explainable to the public.\n\nMandatory requirements\n\nAll new AI use cases Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy. The assessment must be documented and take place during the design phase while developing requirements. Agencies must begin AI use case assessments within 12 months of this policy taking effect. For existing use cases not yet assessed, agencies must determine whether they are in scope of this policy and apply all relevant policy actions by 30 April 2027. Where practicable, agencies should implement the requirements ahead of the deadlines listed above.\n\nIn-scope AI use cases For AI use cases that are in-scope, agencies must conduct an AI use case impact assessment. Agencies are to commence an assessment at the design stage. Before the solution is deployed, agencies must finalise the assessment and apply any agreed risk treatments. Agencies may conduct an AI use case impact assessment by using either: • the Australian Government AI impact assessment tool (the impact assessment tool) • an internal process that integrates all provisions of the impact assessment tool."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "1760d0fd-4145-41d7-b8bd-d0948ccf1c7f",
+      "section_id": "78c2eeb3-2fa0-514f-a01e-24077b1e7a9e",
+      "section_title": "Policy introduction",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 4,
+      "page_end": 4,
+      "quote": "Policy introduction The increasing adoption of artificial intelligence (AI) is reshaping the economy, society and government. Government agencies are embracing the AI opportunity to boost efficiency, enable better data analysis and evidence-based decisions, and improve service delivery for people and business. The Australian Government is committed to capturing the opportunities of AI in a way that facilitates innovation while mitigating harms. Government has an elevated responsibility to adopt AI safely and should be held to a high ethical standard of use. The December 2025 update to the policy strengthens government’s approach to safe and responsible AI through new measures on AI governance. It introduces requirements for agencies to develop a strategic approach to adopting AI, establish an approach to operationalise the responsible use of AI, ensure designated accountability for AI use cases, and undertake risk-based use case-level actions. In recognition of the speed and scale of change in this area, the policy will evolve over time as the technology changes, leading practices emerge, the broader regulatory environment develops, and government’s AI maturity improves."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "d69887a0-db6b-4314-81fb-283d36d9b2f7",
+      "section_id": "78c2eeb3-2fa0-514f-a01e-24077b1e7a9e",
+      "section_title": "Policy introduction",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 4,
+      "page_end": 4,
+      "quote": "In recognition of the speed and scale of change in this area, the policy will evolve over time as the technology changes, leading practices emerge, the broader regulatory environment develops, and government’s AI maturity improves.\n\nPolicy overview This policy provides a framework to enable the accelerated and sustainable adoption of AI by agencies. It allows them to embrace AI while continuing to position government as an exemplar in responsible AI use, in line with the Australian community’s expectations. The policy aims to create a coordinated approach to government’s use of AI and has been designed to complement and strengthen – not duplicate – existing frameworks in use by the APS. The policy outlines principles and requirements under the following sections: strategy and oversight, preparedness and operations, and AI use case impact assessment. Each section of the policy is underpinned by principles and outlines the mandatory requirements agencies must follow. Recommended actions and considerations are also included where relevant."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "b71fed00-1f32-4187-aed2-891c5074dd2e",
+      "section_id": "935a39a7-8cb8-57b5-9cf3-4dafe356f6c1",
+      "section_title": "Policy aims",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 5,
+      "page_end": 5,
+      "quote": "Policy aims\n\nThis policy aims to ensure that government plays a leadership role in embracing AI for the benefit of Australians while ensuring its safe, ethical and responsible use, in line with community expectations.\n\nEmbrace the opportunity This policy aims to provide a unified approach to enable government to accelerate AI adoption and embrace the AI opportunity. It is designed to reduce barriers to government adoption by helping agencies confidently approach AI governance and implementation. It aims to ensure agencies have the right settings in place to take advantage of the opportunities presented by AI and fully realise benefits such as increased and improved efficiency, accuracy and service delivery.\n\nStrengthen public trust This policy aims to strengthen public trust in government adoption of AI by positioning the Australian Government as an exemplar in safe and responsible AI use. It is designed to enable the responsible use of AI across government, through setting consistent requirements for transparency and accountability, and by requiring risk-based oversight of AI use cases.\n\nAdapt to change This policy aims to embed a forward-leaning, adaptive approach for government’s use of AI that evolves as the technological and policy environment changes. It supports agencies at different stages of their AI adoption journey and sets requirements that scale with the agency’s use of AI."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整覆盖六个月内战略定位、十二个月内责任用例所有者、内部用例登记册、负责任AI运营方法及全员强制培训五项要求，且均与所引Child证据一致，无实质性错误。",
+      "claims": [
+        {
+          "answer_span": "Agencies must develop a strategic position on AI adoption within 6 months of the policy taking effect",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Child证据[1]明确载明战略定位须在政策生效后6个月内制定。"
+        },
+        {
+          "answer_span": "Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of the policy taking effect",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "Child证据[2]明确载明须在12个月内为每个范围内AI用例指定责任所有者。"
+        },
+        {
+          "answer_span": "Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of the policy taking effect",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "Child证据[2]明确载明须在12个月内创建内部AI用例登记册。"
+        },
+        {
+          "answer_span": "Agencies must share the register with the DTA every 6 months, commencing from when they create the register",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "Child证据[2]明确载明自创建登记册起每6个月与DTA共享。"
+        },
+        {
+          "answer_span": "Agencies must establish an approach to embed responsible AI practices within 12 months of the policy taking effect",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Child证据[4]明确载明须在12个月内建立嵌入负责任AI实践的方法。"
+        },
+        {
+          "answer_span": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of the policy taking effect",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "Child证据[3]明确载明须在12个月内为所有员工实施强制性负责任AI培训。"
+        },
+        {
+          "answer_span": "The excerpts do not establish any six-month deliverable other than the strategic position on AI adoption",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reason_zh": "所引Child证据中仅战略定位明确为6个月期限，其余均为12个月或未指定，该限定性表述与证据一致。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖六个月内战略定位、十二个月内责任用例所有者、内部用例登记册、负责任AI运营方法及全员强制培训五项要求，且均与所引Child证据一致，无实质性错误。\",\"claims\":[{\"answer_span\":\"Agencies must develop a strategic position on AI adoption within 6 months of the policy taking effect\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Child证据[1]明确载明战略定位须在政策生效后6个月内制定。\"},{\"answer_span\":\"Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of the policy taking effect\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"Child证据[2]明确载明须在12个月内为每个范围内AI用例指定责任所有者。\"},{\"answer_span\":\"Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of the policy taking effect\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"Child证据[2]明确载明须在12个月内创建内部AI用例登记册。\"},{\"answer_span\":\"Agencies must share the register with the DTA every 6 months, commencing from when they create the register\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"Child证据[2]明确载明自创建登记册起每6个月与DTA共享。\"},{\"answer_span\":\"Agencies must establish an approach to embed responsible AI practices within 12 months of the policy taking effect\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Child证据[4]明确载明须在12个月内建立嵌入负责任AI实践的方法。\"},{\"answer_span\":\"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of the policy taking effect\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"Child证据[3]明确载明须在12个月内为所有员工实施强制性负责任AI培训。\"},{\"answer_span\":\"The excerpts do not establish any six-month deliverable other than the strategic position on AI adoption\",\"label\":\"supported\",\"citation_numbers\":[1,2,3,4],\"reason_zh\":\"所引Child证据中仅战略定位明确为6个月期限，其余均为12个月或未指定，该限定性表述与证据一致。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

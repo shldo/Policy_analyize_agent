@@ -3,12 +3,12 @@ from __future__ import annotations
 from app.modules.chat.rag.graph.state import AnswerMode, ResponseMode
 from app.modules.chat.rag.prompts import (
     ANALYSIS_BOUNDARY_PROMPT,
+    ANSWER_WRITING_RULES,
     BASE_SYSTEM_PROMPT,
     CHAT_BOUNDARY_PROMPT,
     POLICYMAKER_BASE_SYSTEM_PROMPT,
     POLICYMAKER_BOUNDARY_PROMPT,
     POLICYMAKER_STYLE_PROMPT,
-    RESEARCHER_STRUCTURE_PROMPT,
     RESEARCHER_STYLE_PROMPT,
     STUDENT_STRUCTURE_PROMPT,
     STUDENT_STYLE_PROMPT,
@@ -54,12 +54,13 @@ ANALYSIS_STRATEGY_PROMPT = (
 You must act through tools; never write the user-facing answer directly.
 1. Call search_internal_documents once for the user's question.
 2. Then call prepare_final_answer:
-   - If evidence_sufficient=true, give it a concise plan for an answer using
-     only the returned sources and their exact citation numbers.
-   - If evidence_sufficient=false, give it a plan to explain plainly that the
-     selected documents do not contain enough information. Do not guess,
-     offer web/full-library search (not available in this mode), or fall back
-     on general knowledge.
+   - If generation_allowed=true, give it a concise plan for the supported parts
+     using only the returned sources and their exact citation numbers. If
+     coverage is partial or unverified, name the specific gap instead of
+     refusing the supported parts.
+   - If generation_allowed=false, explain plainly that no usable selected-
+     document context is available. Do not guess or fall back on general
+     knowledge in this mode.
 prepare_final_answer is only a hand-off. Do not put the answer itself in its
 arguments; the final writer will generate and stream it.
 
@@ -86,11 +87,11 @@ script — use judgement about what the question actually needs, subject to
 one hard rule: never call search_web on your own initiative without either
 the user's explicit request or their confirmation via ask_user.
 
-Trust the evidence_sufficient field: assess_evidence_sufficiency() (see
-evidence.py) already decides whether the retrieved excerpts cover the
-question, so once a search tool reports evidence_sufficient=true, call
-prepare_final_answer next with a concise plan and the exact citation
-numbers. Do not keep re-searching or reformulating just to hunt for a more
+Treat generation_allowed as permission to write from usable context;
+evidence_sufficient/coverage_sufficient describe completeness, not permission.
+Once a search tool reports generation_allowed=true, call prepare_final_answer
+with a concise plan and the exact citation numbers, naming any specific gap.
+Do not keep re-searching or reformulating just to hunt for a more
 official-sounding source, more granular detail, extra corroboration, or a
 "safer" answer — cite the best evidence you already have.
 
@@ -137,10 +138,10 @@ option you offered, so read it for intent rather than an exact string match.
   documents say against what the web search found — citing both sides — not
   silently pick one and drop the other.
 - Otherwise, start with search_internal_documents.
-  - If evidence_sufficient=true, you very likely have what you need: call
-    prepare_final_answer with a concise writing plan and the exact citation
-    numbers. Do not search further just because more sources might exist.
-  - If evidence_sufficient=false, you have one more search_internal_documents
+  - If generation_allowed=true, call prepare_final_answer with a concise
+    writing plan and the exact citation numbers. Do not search further just
+    because more sources might exist; the final writer must disclose gaps.
+  - If generation_allowed=false, you have one more search_internal_documents
     call available — before escalating, use it to retry with a materially
     different query (especially if your first query bundled multiple
     sub-topics into one string, per above). A combined query can make
@@ -150,7 +151,7 @@ option you offered, so read it for intent rather than an exact string match.
   - Once search_internal_documents is no longer offered and evidence is
     still insufficient, call search_full_corpus (the rest of the shared
     library, not just this conversation's selected documents).
-    - If that returns evidence_sufficient=true, call prepare_final_answer
+    - If that returns generation_allowed=true, call prepare_final_answer
       with a plan grounded in those sources and their exact citation
       numbers.
     - You may use search_full_corpus at most twice to materially reformulate
@@ -160,7 +161,7 @@ option you offered, so read it for intent rather than an exact string match.
   - If still insufficient, call the ask_user TOOL to confirm whether to
     search the web.
 - Once confirmed (or already requested): call search_web.
-  - If evidence_sufficient=true, call prepare_final_answer with a plan that
+  - If generation_allowed=true, call prepare_final_answer with a plan that
     uses those results as web sources. As above, do not keep calling
     search_web again just because the results are general-purpose sources
     rather than the exact named law/decree you were hoping to cite.
@@ -194,7 +195,8 @@ full prose answer.
     + CITATION_NUMBERING_RULE
 )
 
-FINAL_ANSWER_WRITER_PROMPT = """Final answer phase:
+FINAL_ANSWER_WRITER_PROMPT = (
+    """Final answer phase:
 The ReAct research loop is complete. The conversation contains the search
 tool results and ends with a prepare_final_answer tool result containing the
 approved answer plan and citation numbers.
@@ -207,7 +209,12 @@ Return only the answer body. Do not call or describe tools, expose the
 research trace, ask whether to search the web, or offer an action that would
 require another user confirmation. Those decisions belong to the completed
 ReAct phase.
+
 """
+    + ANSWER_WRITING_RULES
+    + """
+"""
+)
 
 
 def get_agent_system_prompt(
@@ -248,12 +255,10 @@ def get_agent_system_prompt(
     is_chat_mode = answer_mode == "chat"
     boundary = CHAT_BOUNDARY_PROMPT if is_chat_mode else ANALYSIS_BOUNDARY_PROMPT
     strategy = AGENT_STRATEGY_PROMPT if is_chat_mode else ANALYSIS_STRATEGY_PROMPT
-    parts = [BASE_SYSTEM_PROMPT, style]
+    parts = [BASE_SYSTEM_PROMPT, style, ANSWER_WRITING_RULES]
     if not is_chat_mode:
-        structure = (
-            STUDENT_STRUCTURE_PROMPT if response_mode == "student" else RESEARCHER_STRUCTURE_PROMPT
-        )
-        parts.append(structure)
+        if response_mode == "student":
+            parts.append(STUDENT_STRUCTURE_PROMPT)
     parts.extend([boundary, strategy, coverage_strategy])
 
     if is_chat_mode and not is_admin:
@@ -283,11 +288,9 @@ def get_final_answer_system_prompt(
     style = STUDENT_STYLE_PROMPT if response_mode == "student" else RESEARCHER_STYLE_PROMPT
     is_chat_mode = answer_mode == "chat"
     boundary = CHAT_BOUNDARY_PROMPT if is_chat_mode else ANALYSIS_BOUNDARY_PROMPT
-    parts = [BASE_SYSTEM_PROMPT, style]
+    parts = [BASE_SYSTEM_PROMPT, style, ANSWER_WRITING_RULES]
     if not is_chat_mode:
-        structure = (
-            STUDENT_STRUCTURE_PROMPT if response_mode == "student" else RESEARCHER_STRUCTURE_PROMPT
-        )
-        parts.append(structure)
+        if response_mode == "student":
+            parts.append(STUDENT_STRUCTURE_PROMPT)
     parts.extend([boundary, FINAL_ANSWER_WRITER_PROMPT, CITATION_NUMBERING_RULE])
     return "\n".join(part.strip() for part in parts if part.strip())

@@ -13,6 +13,7 @@ if sys.platform == "win32":
 from app.api.router import api_router
 from app.core.config import get_settings
 from app.core.database import database
+from app.modules.chat.history_repository import chat_history_repository
 from app.modules.chat.rag.checkpointer import close_checkpointer, init_checkpointer
 from app.modules.crawling.repositories.job import crawl_job_repository
 
@@ -20,6 +21,8 @@ from app.modules.crawling.repositories.job import crawl_job_repository
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     await database.connect()
+    if settings.database_enabled:
+        await asyncio.to_thread(chat_history_repository.ensure_status_contract)
     await crawl_job_repository.fail_interrupted_running_jobs()
     await init_checkpointer()
     yield

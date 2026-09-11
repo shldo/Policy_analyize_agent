@@ -59,6 +59,25 @@ import DocumentDrawer from "../components/DocumentDrawer";
 // Splits text on citation markers [1], [1-3], [1, 2] and wraps in clickable <sup>
 const CITATION_RE = /(\[\d+(?:[-,]\s*\d+)*\])/;
 
+function explicitCitationNumber(citation, index) {
+  return Number.isInteger(citation?.number) ? citation.number : index + 1;
+}
+
+function citationIndexForNumber(citations, number) {
+  const list = citations || [];
+  const explicitIndex = list.findIndex(
+    (citation) => Number.isInteger(citation?.number) && citation.number === number,
+  );
+  if (explicitIndex >= 0) return explicitIndex;
+
+  // Once a response uses explicit numbers, an unknown number must remain
+  // non-clickable. Only legacy all-un-numbered arrays use positional lookup.
+  if (list.some((citation) => Number.isInteger(citation?.number))) return -1;
+
+  const legacyIndex = number - 1;
+  return legacyIndex >= 0 && legacyIndex < list.length ? legacyIndex : -1;
+}
+
 function renderWithCitations(children, citations, onOpen, lowEvidence = false) {
   return (Array.isArray(children) ? children : [children]).map((child, outerIdx) => {
     if (typeof child !== "string") return child;
@@ -68,8 +87,14 @@ function renderWithCitations(children, citations, onOpen, lowEvidence = false) {
       if (!CITATION_RE.test(part)) return part;
       const nums = [...part.matchAll(/\d+/g)].map((m) => parseInt(m[0], 10));
       if (!nums.length) return part;
-      const primaryIdx = nums[0] - 1;
-      if (primaryIdx < 0 || primaryIdx >= (citations || []).length) return part;
+      const primaryIdx = citationIndexForNumber(citations, nums[0]);
+      if (primaryIdx < 0) {
+        return (
+          <span key={`${outerIdx}-${i}`} title="Source number is unavailable">
+            {part}
+          </span>
+        );
+      }
       return (
         <sup key={`${outerIdx}-${i}`}>
           <button
@@ -569,6 +594,7 @@ export default function ChatPage({
     focusIndex: 0,
     evidenceSufficient: true,
     evidenceReason: null,
+    coverageStatus: "not_assessed",
   });
 
   // Document detail drawer (Sources module) — same drawer used in the Library page
@@ -757,6 +783,10 @@ export default function ChatPage({
         content: m.content,
         citations: Array.isArray(m.citations) ? m.citations : [],
         evidenceSufficient: m.evidence_sufficient,
+        generationAllowed: m.generation_allowed,
+        coverageStatus: m.coverage_status || "not_assessed",
+        coverageSufficient: m.coverage_sufficient === true,
+        answerStatus: m.answer_status || "unknown",
         evidenceReason: null,
         evidenceSources: Array.isArray(m.evidence_sources) ? m.evidence_sources : [],
         tokenUsage: m.token_usage && Number.isInteger(m.token_usage.total_tokens) ? m.token_usage : null,
@@ -883,7 +913,11 @@ export default function ChatPage({
 
   function drawerCitations(citations) {
     if (!citations || citations.length === 0) return [];
-    return citations.map((c, i) => ({ ...c, _displayIndex: i + 1 }));
+    return citations.map((c, i) => ({
+      ...c,
+      _displayIndex: i + 1,
+      _displayNumber: explicitCitationNumber(c, i),
+    }));
   }
 
   const sourceDocs = documents.filter((doc) => contextSourceIds.includes(doc.id));
@@ -896,8 +930,8 @@ export default function ChatPage({
     );
   }
 
-  function openCitationDrawer(citations, focusIndex = 0, evidenceSufficient = true, evidenceReason = null) {
-    setCitationDrawer({ open: true, citations: citations || [], focusIndex, evidenceSufficient: evidenceSufficient !== false, evidenceReason: evidenceReason || null });
+  function openCitationDrawer(citations, focusIndex = 0, evidenceSufficient = null, evidenceReason = null, coverageStatus = "not_assessed") {
+    setCitationDrawer({ open: true, citations: citations || [], focusIndex, evidenceSufficient, evidenceReason: evidenceReason || null, coverageStatus });
   }
 
   async function handleShowDocumentDetail(document) {
@@ -961,7 +995,7 @@ export default function ChatPage({
     if (last?.role === "assistant" && last.streaming) return [...current];
     return [
       ...current,
-      { role: "assistant", content: "", streaming: true, responseMode, answerMode, agentMode, steps: [], showSteps: true },
+      { role: "assistant", content: "", streaming: true, responseMode, answerMode, agentMode, steps: [], showSteps: true, answerStatus: "streaming", coverageStatus: "not_assessed", coverageSufficient: false, generationAllowed: null },
     ];
   }
 
@@ -1012,6 +1046,9 @@ export default function ChatPage({
                 ...steps[i],
                 status: "done",
                 evidenceSufficient: evt.evidence_sufficient,
+                generationAllowed: evt.generation_allowed,
+                coverageStatus: evt.coverage_status || "not_assessed",
+                coverageSufficient: evt.coverage_sufficient === true,
                 evidenceReason: evt.evidence_reason || null,
                 resultCount: Number.isInteger(evt.result_count) ? evt.result_count : null,
                 sourceTitles: Array.isArray(evt.source_titles) ? evt.source_titles : [],
@@ -1053,6 +1090,10 @@ export default function ChatPage({
             evidenceSufficient: evt.evidence_sufficient,
             evidenceReason: evt.evidence_reason || null,
             evidenceSources: Array.isArray(evt.evidence_sources) ? evt.evidence_sources : [],
+            generationAllowed: evt.generation_allowed,
+            coverageStatus: evt.coverage_status || "not_assessed",
+            coverageSufficient: evt.coverage_sufficient === true,
+            answerStatus: evt.answer_status || "unknown",
             tokenUsage: evt.token_usage && Number.isInteger(evt.token_usage.total_tokens) ? evt.token_usage : null,
             responseMode: evt.response_mode || responseMode,
             answerMode: evt.answer_mode || answerMode,
@@ -1475,7 +1516,8 @@ export default function ChatPage({
               </Typography>
             )}
             {messages.map((message, index) => {
-              const isLowEvidence = message.evidenceSufficient === false;
+              const isLowEvidence =
+                message.role === "assistant" && message.coverageStatus !== "complete";
               const isChatMode = message.answerMode === "chat";
               return (
                 <Box
@@ -1510,7 +1552,7 @@ export default function ChatPage({
                           <Button
                             size="small"
                             variant="text"
-                            onClick={() => openCitationDrawer(message.citations, 0, message.evidenceSufficient, message.evidenceReason)}
+                            onClick={() => openCitationDrawer(message.citations, 0, message.evidenceSufficient, message.evidenceReason, message.coverageStatus)}
                             sx={{
                               fontSize: "0.72em",
                               color: isLowEvidence ? "#d84315" : "#214f42",
@@ -1550,10 +1592,10 @@ export default function ChatPage({
                     )}
                   </Box>
 
-                  {/* Low evidence banner — analysis mode: error (answer was withheld) */}
+                  {/* Legacy sufficiency does not indicate whether generation was withheld. */}
                   {message.role === "assistant" && isLowEvidence && !isChatMode && (
-                    <Alert severity="error" sx={{ mb: 1.5, py: 0.75, fontSize: 13 }}>
-                      <strong>Insufficient Evidence</strong> — The selected documents do not contain passages closely related to this question. The answer has been withheld to avoid hallucination.
+                    <Alert severity="warning" sx={{ mb: 1.5, py: 0.75, fontSize: 13 }}>
+                      <strong>Evidence coverage not confirmed</strong> — This response may answer only the supported parts of your question. Check the cited passages and stated evidence gaps; do not treat it as fully supported.
                     </Alert>
                   )}
 
@@ -1623,7 +1665,7 @@ export default function ChatPage({
                         remarkPlugins={[remarkGfm]}
                         components={makeMarkdownComponents(
                           message.citations || [],
-                          (cits, idx) => openCitationDrawer(cits, idx, message.evidenceSufficient, message.evidenceReason),
+                          (cits, idx) => openCitationDrawer(cits, idx, message.evidenceSufficient, message.evidenceReason, message.coverageStatus),
                           isLowEvidence,
                         )}
                       >
@@ -2028,9 +2070,9 @@ export default function ChatPage({
           sx={{
             px: 3,
             py: 2,
-            bgcolor: citationDrawer.evidenceSufficient === false ? "#fff3e0" : "#fff",
+            bgcolor: citationDrawer.coverageStatus !== "complete" ? "#fff3e0" : "#fff",
             borderBottom: "1px solid",
-            borderColor: citationDrawer.evidenceSufficient === false ? "#ffe0b2" : "#e2e5df",
+            borderColor: citationDrawer.coverageStatus !== "complete" ? "#ffe0b2" : "#e2e5df",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -2044,10 +2086,10 @@ export default function ChatPage({
                 fontFamily: "Georgia, serif",
                 fontSize: 18,
                 lineHeight: 1.2,
-                color: citationDrawer.evidenceSufficient === false ? "#bf360c" : "inherit",
+                color: citationDrawer.coverageStatus !== "complete" ? "#bf360c" : "inherit",
               }}
             >
-              {citationDrawer.evidenceSufficient === false ? "⚠ Sources (Low Confidence)" : "Sources"}
+              {citationDrawer.coverageStatus !== "complete" ? "⚠ Sources (Coverage Unconfirmed)" : "Sources"}
             </Typography>
             {citationDrawer.citations.length > 0 && (
               <Typography variant="caption" sx={{ color: "text.secondary" }}>
@@ -2065,7 +2107,7 @@ export default function ChatPage({
         </Box>
 
         {/* Low-evidence warning banner in drawer */}
-        {citationDrawer.evidenceSufficient === false && (
+        {citationDrawer.coverageStatus !== "complete" && (
           <Box
             sx={{
               px: 2.5,
@@ -2076,7 +2118,7 @@ export default function ChatPage({
             }}
           >
             <Typography variant="body2" sx={{ fontSize: 12.5, color: "#bf360c", lineHeight: 1.6 }}>
-              <strong>Evidence quality is low.</strong> The passages below were the closest matches found, but they may not be directly relevant to the question. Treat this answer with caution.
+              <strong>Complete evidence coverage is not confirmed.</strong> Check which claims each passage supports. A relevant source does not necessarily support every part of the answer.
             </Typography>
           </Box>
         )}
@@ -2092,7 +2134,7 @@ export default function ChatPage({
           ) : (
             drawerCitations(citationDrawer.citations, citationDrawer.focusIndex).map((c, i) => {
               const isFocused = c._displayIndex === citationDrawer.focusIndex + 1;
-              const isLow = citationDrawer.evidenceSufficient === false;
+              const isLow = citationDrawer.coverageStatus !== "complete";
               const accentColor = isLow ? "#d84315" : "#214f42";
               const accentLight = isLow ? "#fbe9e7" : "#f0f7f4";
               const borderFocused = isLow ? "#d84315" : "#214f42";
@@ -2141,7 +2183,7 @@ export default function ChatPage({
                         mt: 0.1,
                       }}
                     >
-                      {c._displayIndex}
+                      {c._displayNumber}
                     </Box>
                     <Typography
                       variant="body2"

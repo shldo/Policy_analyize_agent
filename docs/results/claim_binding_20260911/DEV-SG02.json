@@ -1,0 +1,340 @@
+{
+  "question_id": "DEV-SG02",
+  "question": "Why should organisations prefer deterministic limits over prompt-only limits for agents?",
+  "inputs_sha256": "dea847885821fb3e4a851753e56e9e4a7b92397cf47b64cef1d2fb87e842c10f",
+  "messages_sha256": "68b449ba5770d372d7029bb220a8f02e2a30d4f71e537f629b56c4213a374954",
+  "raw_artifact_sha256": "16ba711a468bfe5f9476d8e321c9f7b72cc42b894e1befa5e4fd9996aa3462c8",
+  "final_artifact_sha256": "17832e45f8826c74968f1b3b5173757d18405b84e9bd5600715a18bccc57b4c6",
+  "draft": "Organisations should prefer deterministic limits because prompt-layer safeguards are less reliable and less consistently applied than system-level controls.\n\n**Core rationale**\n\n- The framework states that organisations should, in general, prefer deterministic rather than non-deterministic limits, and bound by design — for example, rather than relying on prompts to instruct the agent against accessing certain tools, impose access controls that prevent the tool from being called by the agent at all [1].\n- Where limits are non-deterministic or less reliable, organisations should layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures [1].\n\n**Why prompt-layer safeguards are weaker**\n\n- Rather than prompt-layer safeguards, organisations should consider implementing deterministic safeguards that operate at a system level through predefined logic, especially for higher-risk actions [5].\n- Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced [5].\n- In the same vein, human approval should be enforced through system-level controls where possible, rather than prompt-layer guardrails, which may be bypassed or \"forgotten\" [8].\n\n**Illustrative design choices**\n\n- Rather than instructing an agent not to use specific tools, access controls can be implemented at the tool layer to prevent those tools from being called in the first place, or only allowing them to be called in a certain way (e.g. read access only) [5].\n- Similarly, if an agent needs to follow a set procedure, building that sequence into the workflow is more robust than prompting the agent to adhere to it through instructions alone [5].\n\n**Stated exception**\n\n- In certain cases where risks are harder to define through fixed rules, model-based safeguards can be most effective, e.g. to detect harmful content, which can manifest in different ways [5].\n\n**Evidence gaps**\n\nThe available excerpts do not establish a quantified comparison of failure rates between deterministic and prompt-layer controls, nor do they specify a general requirement that all limits be deterministic in every context.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**Core rationale**\n\n- The framework states that organisations should, in general, prefer deterministic rather than non-deterministic limits, and bound by design — for example, rather than relying on prompts to instruct the agent against accessing certain tools, impose access controls that prevent the tool from being called by the agent at all [1].\n\n- Where limits are non-deterministic or less reliable, organisations should layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures [1].\n\n**Why prompt-layer safeguards are weaker**\n\n- Rather than prompt-layer safeguards, organisations should consider implementing deterministic safeguards that operate at a system level through predefined logic, especially for higher-risk actions [5].\n\n- Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced [5].\n\n- In the same vein, human approval should be enforced through system-level controls where possible, rather than prompt-layer guardrails, which may be bypassed or \"forgotten\" [8].\n\n**Illustrative design choices**\n\n- Rather than instructing an agent not to use specific tools, access controls can be implemented at the tool layer to prevent those tools from being called in the first place, or only allowing them to be called in a certain way (e.g. read access only) [5].\n\n- Similarly, if an agent needs to follow a set procedure, building that sequence into the workflow is more robust than prompting the agent to adhere to it through instructions alone [5].\n\n**Stated exception**\n\n- In certain cases where risks are harder to define through fixed rules, model-based safeguards can be most effective, e.g. to detect harmful content, which can manifest in different ways [5].\n\nThe available excerpts do not establish a quantified comparison of failure rates between deterministic and prompt-layer controls, nor do they specify a general requirement that all limits be deterministic in every context.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"In general, prefer deterministic rather than non-deterministic limits, and bound by design.\"\n        },\n        {\n          \"number\": 5,\n          \"quote\": \"Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced.\"\n        }\n      ],\n      \"reason\": \"The excerpts support preferring deterministic limits and that prompt-layer safeguards are inconsistently defined, but they do not establish that prompt-layer safeguards are less reliable than system-level controls.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"In general, prefer deterministic rather than non-deterministic limits, and bound by design. For example, rather than relying on prompts to instruct the agent against accessing certain tools, impose access controls that prevent the tool from being called by the agent at all.\"\n        }\n      ],\n      \"reason\": \"Child 1 supports the preference for deterministic limits and the example of imposing access controls instead of relying on prompts.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Where limits are non -deterministic or less reliable, layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures.\"\n        }\n      ],\n      \"reason\": \"Child 1 directly supports layering monitoring or human-in-the-loop review where limits are non-deterministic or less reliable.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 5,\n          \"quote\": \"Rather than prompt -layer safeguards, consider i mplementing deterministic safeguards that operate at a system-level through predefined logic, especially for higher-risk actions.\"\n        }\n      ],\n      \"reason\": \"Child 5 supports considering deterministic system-level safeguards rather than prompt-layer safeguards, especially for higher-risk actions.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 5,\n          \"quote\": \"Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced.\"\n        }\n      ],\n      \"reason\": \"Child 5 directly supports that prompt-layer safeguards tend to be inconsistently defined across users, unlike system-level safeguards.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 8,\n          \"quote\": \"Enforce human approval through system -level controls where possible, vs prompt -layer guardrails, which may be bypassed or \\u201cforgotten\\u201d\"\n        }\n      ],\n      \"reason\": \"Child 8 supports enforcing human approval through system-level controls where possible rather than prompt-layer guardrails that may be bypassed or forgotten.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u10\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 5,\n          \"quote\": \"For example, rather than instructing an agent not to use specific tools, access controls can be implemented at the tool layer to prevent those tools from being called in the first place, or only allowing them to be called in a certain way (e.g. read access only).\"\n        }\n      ],\n      \"reason\": \"Child 5 supports implementing tool-layer access controls instead of instructing agents not to use specific tools, including read-only access.\"\n    },\n    {\n      \"id\": \"u11\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 5,\n          \"quote\": \"Similarly, if an agent needs to follow a set procedure, building that sequence into the workflow is more robust than prompting the agent to adhere to it through instructions alone.\"\n        }\n      ],\n      \"reason\": \"Child 5 supports building required procedures into the workflow as more robust than prompting alone.\"\n    },\n    {\n      \"id\": \"u12\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u13\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 5,\n          \"quote\": \"However, in certain cases where risks are harder to define through fixed rules , model- based safeguards can be most effective e.g. to detect harmful content, which can manifest in different ways.\"\n        }\n      ],\n      \"reason\": \"Child 5 supports the exception that model-based safeguards can be most effective where risks are harder to define through fixed rules, such as detecting harmful content.\"\n    },\n    {\n      \"id\": \"u14\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u15\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish a quantified comparison of failure rates between deterministic and prompt-layer controls, nor do they specify a general requirement that all limits be deterministic in every context.\"\n    }\n  ]\n}",
+    "answer": "**Core rationale**\n\n- The framework states that organisations should, in general, prefer deterministic rather than non-deterministic limits, and bound by design — for example, rather than relying on prompts to instruct the agent against accessing certain tools, impose access controls that prevent the tool from being called by the agent at all [1].\n\n- Where limits are non-deterministic or less reliable, organisations should layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures [1].\n\n**Why prompt-layer safeguards are weaker**\n\n- Rather than prompt-layer safeguards, organisations should consider implementing deterministic safeguards that operate at a system level through predefined logic, especially for higher-risk actions [5].\n\n- Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced [5].\n\n- In the same vein, human approval should be enforced through system-level controls where possible, rather than prompt-layer guardrails, which may be bypassed or \"forgotten\" [8].\n\n**Illustrative design choices**\n\n- Rather than instructing an agent not to use specific tools, access controls can be implemented at the tool layer to prevent those tools from being called in the first place, or only allowing them to be called in a certain way (e.g. read access only) [5].\n\n- Similarly, if an agent needs to follow a set procedure, building that sequence into the workflow is more robust than prompting the agent to adhere to it through instructions alone [5].\n\n**Stated exception**\n\n- In certain cases where risks are harder to define through fixed rules, model-based safeguards can be most effective, e.g. to detect harmful content, which can manifest in different ways [5].\n\nThe available excerpts do not establish a quantified comparison of failure rates between deterministic and prompt-layer controls, nor do they specify a general requirement that all limits be deterministic in every context.",
+    "removed_unit_ids": [
+      "u1"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "In general, prefer deterministic rather than non-deterministic limits, and bound by design."
+            },
+            {
+              "number": 5,
+              "quote": "Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced."
+            }
+          ],
+          "reason": "The excerpts support preferring deterministic limits and that prompt-layer safeguards are inconsistently defined, but they do not establish that prompt-layer safeguards are less reliable than system-level controls."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "In general, prefer deterministic rather than non-deterministic limits, and bound by design. For example, rather than relying on prompts to instruct the agent against accessing certain tools, impose access controls that prevent the tool from being called by the agent at all."
+            }
+          ],
+          "reason": "Child 1 supports the preference for deterministic limits and the example of imposing access controls instead of relying on prompts."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Where limits are non -deterministic or less reliable, layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures."
+            }
+          ],
+          "reason": "Child 1 directly supports layering monitoring or human-in-the-loop review where limits are non-deterministic or less reliable."
+        },
+        {
+          "id": "u5",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion."
+        },
+        {
+          "id": "u6",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 5,
+              "quote": "Rather than prompt -layer safeguards, consider i mplementing deterministic safeguards that operate at a system-level through predefined logic, especially for higher-risk actions."
+            }
+          ],
+          "reason": "Child 5 supports considering deterministic system-level safeguards rather than prompt-layer safeguards, especially for higher-risk actions."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 5,
+              "quote": "Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced."
+            }
+          ],
+          "reason": "Child 5 directly supports that prompt-layer safeguards tend to be inconsistently defined across users, unlike system-level safeguards."
+        },
+        {
+          "id": "u8",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 8,
+              "quote": "Enforce human approval through system -level controls where possible, vs prompt -layer guardrails, which may be bypassed or “forgotten”"
+            }
+          ],
+          "reason": "Child 8 supports enforcing human approval through system-level controls where possible rather than prompt-layer guardrails that may be bypassed or forgotten."
+        },
+        {
+          "id": "u9",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion."
+        },
+        {
+          "id": "u10",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 5,
+              "quote": "For example, rather than instructing an agent not to use specific tools, access controls can be implemented at the tool layer to prevent those tools from being called in the first place, or only allowing them to be called in a certain way (e.g. read access only)."
+            }
+          ],
+          "reason": "Child 5 supports implementing tool-layer access controls instead of instructing agents not to use specific tools, including read-only access."
+        },
+        {
+          "id": "u11",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 5,
+              "quote": "Similarly, if an agent needs to follow a set procedure, building that sequence into the workflow is more robust than prompting the agent to adhere to it through instructions alone."
+            }
+          ],
+          "reason": "Child 5 supports building required procedures into the workflow as more robust than prompting alone."
+        },
+        {
+          "id": "u12",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion."
+        },
+        {
+          "id": "u13",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 5,
+              "quote": "However, in certain cases where risks are harder to define through fixed rules , model- based safeguards can be most effective e.g. to detect harmful content, which can manifest in different ways."
+            }
+          ],
+          "reason": "Child 5 supports the exception that model-based safeguards can be most effective where risks are harder to define through fixed rules, such as detecting harmful content."
+        },
+        {
+          "id": "u14",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion."
+        },
+        {
+          "id": "u15",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish a quantified comparison of failure rates between deterministic and prompt-layer controls, nor do they specify a general requirement that all limits be deterministic in every context."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "1962ebb2-aa76-43ee-819a-30170ed0e532",
+      "section_id": "902cf6a9-9824-5759-8fe1-a14f2347eeac",
+      "section_title": "Agent limits",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 19,
+      "page_end": 20,
+      "quote": "This can include running agents in self-contained environments with limited network and data access, particularly when they are carrying out high - risk tasks such as code execution.20\n\nIn general, prefer deterministic rather than non-deterministic limits, and bound by design. For example, rather than relying on prompts to instruct the agent against accessing certain tools, impose access controls that prevent the tool from being called by the agent at all. This is elaborated in 2.3.1 Implement technical controls and processes . Where limits are non -deterministic or less reliable, layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures.\n\n18 See PwC, The rise – and risks – of agentic AI. 19 Grab introduced an LLM agent framework leveraging on Standard Operating Procedures (SOPs) to guide AI - driven execution (see Introducing the SOP-driven LLM agent frameworks). 20 See McKinsey, Deploying agentic AI with safety and security: A playbook for technology leaders .\n\n| Assess and bound the risks upfront\n\n20"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "f8241a5c-37d2-4f44-9dde-ab2be9e52889",
+      "section_id": "902cf6a9-9824-5759-8fe1-a14f2347eeac",
+      "section_title": "Agent limits",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 19,
+      "page_end": 19,
+      "quote": "Agent limits\n\nOrganisations should consider defining limits on:\n\n• Agent’s access to tools and systems: Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task.18 For example, a coding assistant may not require access to a broad web search tool, especially if it already has curated access to the latest software documentation. Structuring agents around functional boundaries (e.g. separating IT helpdesk from HR self-service) can act as a natural constraint.\n\n• Agent’s autonomy: For process-driven tasks, SOPs and protocols are frequently used to improve consistency and reduce unpredictability.19 Define similar SOPs for agentic workflows that an agent is constrained to follow, rather than giving the agent the freedom to define every step of the workflow.\n\n• Agent’s area of impact: Design mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction. This can include running agents in self-contained environments with limited network and data access, particularly when they are carrying out high - risk tasks such as code execution.20"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "dab1c9d4-218b-48aa-b3d8-ae1094bffcee",
+      "section_id": "267ecfc9-24a3-54f6-a906-67d5b205a94e",
+      "section_title": "1. Assess and bound the risks upfront",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 3,
+      "page_end": 3,
+      "quote": "1. Assess and bound the risks upfront\n\nOrganisations should adapt their internal structures and processes to account for new risks from agents. Key to this is first understanding the risks posed by the agent’s actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent’s level of autonomy.\n\nTo manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems. They could also ensure that the agent’s actions are traceable and controllable through measures such as identity management and access controls for agents."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "94a2349c-1e34-486a-adc3-2c6cab77f94f",
+      "section_id": "5eeab226-52f2-551f-93a8-b4dc3d0cbc05",
+      "section_title": "Agent being provided or operated by an external party",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 17,
+      "page_end": 17,
+      "quote": "Agent being provided or operated by an external party Whether the organisation is using agents provided or operated by external parties.\n\nWhen using third-party solutions, organisations should consider to what extent their visibility and control over the agent is limited. Agent developed and maintained internally with full visibility vs agent provided by third-party vendor with limited transparency into its operations and data processing"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "d84e5a05-e6e7-483b-931c-db50ba31f073",
+      "section_id": "574ca00d-039a-5023-a0ef-0c762b821518",
+      "section_title": "When selecting suitable controls, consider the following:",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 33,
+      "page_end": 34,
+      "quote": "When selecting suitable controls, consider the following:\n\n• Structural, rule-based vs model-based or prompt-layer controls: o Rather than prompt -layer safeguards, consider i mplementing deterministic safeguards that operate at a system-level through predefined logic, especially for higher-risk actions. ▪ For example, rather than instructing an agent not to use specific tools, access controls can be implemented at the tool layer to prevent those tools from being called in the first place, or only allowing them to be called in a certain way (e.g. read access only). Similarly, if an agent needs to follow a set procedure, building that sequence into the workflow is more robust than prompting the agent to adhere to it through instructions alone. o Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced.\n\n|\n\n34 o However, in certain cases where risks are harder to define through fixed rules , model- based safeguards can be most effective e.g. to detect harmful content, which can manifest in different ways.\n\n• Runtime controls : As agents interact with users and systems in real time, static safeguards configured at design time may not be sufficient to catch every risk. Runtime controls address this by monitoring and intervening during execution, such as rate limits to prevent excessive tool use or input validation to catch harmful responses before they are acted upon."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "eefe7366-7561-48e5-ae5e-00b20ab0c012",
+      "section_id": "574ca00d-039a-5023-a0ef-0c762b821518",
+      "section_title": "When selecting suitable controls, consider the following:",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 34,
+      "page_end": 34,
+      "quote": "Runtime controls address this by monitoring and intervening during execution, such as rate limits to prevent excessive tool use or input validation to catch harmful responses before they are acted upon.\n\nFor illustration, these are some sample controls for agents. For a more comprehensive list, organisations can refer to CSA’s Draft Addendum on Securing Agentic AI and GovTech’s Agentic Risk and Capability Framework.\n\nPlanning • Prompt agent to reflect on whether its plan adheres to user instructions • Prompt the agent to summarise its understanding and request clarification from the user before proceeding • Log the agent’s plan and reasoning for the user to evaluate and verify Tools • Configure tools to require strict input formats • Apply the principle of least privilege to limit tools available to each agent, enforced through robust authentication and authorisation • For data-related tools: o Do not grant agent write access to tables in sensitive databases unless strictly required o Configure agent to let user take over control when keying in sensitive data (e.g. passwords, API keys) Protocols • Use standardised protocols where applicable (e.g. agentic commerce protocols when agent is handling a financial transaction) • For MCP servers: o Whitelist trusted servers and only allow agent to interact with servers on that whitelist o Sandbox any code execution"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "b37ef421-a8b2-4bb1-9a14-6e8dce8ae05c",
+      "section_id": "007b18f3-2212-509e-a5f7-54e950a027bf",
+      "section_title": "2.1.2 Bound risks through design by defining agents limits and permissions — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 19,
+      "page_end": 19,
+      "quote": "2.1.2 Bound risks through design by defining agents limits and permissions\n\nHaving selected an appropriate agent use case, organisations can further bound the risks by defining appropriate limits and permission policies for each agent."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "1bc8e81f-cdea-459e-a127-bdd0c8050b9c",
+      "section_id": "b2d3e447-5314-53c6-8852-59c6b0d30817",
+      "section_title": "2. Make humans meaningfully accountable",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 14,
+      "page_end": 14,
+      "quote": "2. Make humans meaningfully accountable\n\n• Adopt a risk-based approach to determine the appropriate level of agent autonomy based on data sensitivity and task criticality • Enforce human approval through system -level controls where possible, vs prompt -layer guardrails, which may be bypassed or “forgotten”"
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整覆盖了参考要点：确定性限制通过设计强制约束（如访问控制阻止工具调用）而非依赖提示，以及非确定性限制需叠加监控或人工介入。所有实质主张均有对应子证据支持，引用编号正确，并恰当说明了例外情形与证据边界。",
+      "claims": [
+        {
+          "answer_span": "The framework states that organisations should, in general, prefer deterministic rather than non-deterministic limits, and bound by design — for example, rather than relying on prompts to instruct the agent against accessing certain tools, impose access controls that prevent the tool from being called by the agent at all [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "与子证据[1]原文一致：偏好确定性限制、按设计约束，并以访问控制替代提示指令。"
+        },
+        {
+          "answer_span": "Where limits are non-deterministic or less reliable, organisations should layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "直接对应子证据[1]中关于非确定性限制需叠加监控或人工介入的表述。"
+        },
+        {
+          "answer_span": "Rather than prompt-layer safeguards, organisations should consider implementing deterministic safeguards that operate at a system level through predefined logic, especially for higher-risk actions [5].",
+          "label": "supported",
+          "citation_numbers": [
+            5
+          ],
+          "reason_zh": "与子证据[5]原文一致，含高风险场景的限定。"
+        },
+        {
+          "answer_span": "Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced [5].",
+          "label": "supported",
+          "citation_numbers": [
+            5
+          ],
+          "reason_zh": "逐字对应子证据[5]的表述。"
+        },
+        {
+          "answer_span": "In the same vein, human approval should be enforced through system-level controls where possible, rather than prompt-layer guardrails, which may be bypassed or \"forgotten\" [8].",
+          "label": "supported",
+          "citation_numbers": [
+            8
+          ],
+          "reason_zh": "与子证据[8]一致，含'where possible'限定。"
+        },
+        {
+          "answer_span": "Rather than instructing an agent not to use specific tools, access controls can be implemented at the tool layer to prevent those tools from being called in the first place, or only allowing them to be called in a certain way (e.g. read access only) [5].",
+          "label": "supported",
+          "citation_numbers": [
+            5
+          ],
+          "reason_zh": "对应子证据[5]中的工具层访问控制示例。"
+        },
+        {
+          "answer_span": "Similarly, if an agent needs to follow a set procedure, building that sequence into the workflow is more robust than prompting the agent to adhere to it through instructions alone [5].",
+          "label": "supported",
+          "citation_numbers": [
+            5
+          ],
+          "reason_zh": "逐字对应子证据[5]的流程内建示例。"
+        },
+        {
+          "answer_span": "In certain cases where risks are harder to define through fixed rules, model-based safeguards can be most effective, e.g. to detect harmful content, which can manifest in different ways [5].",
+          "label": "supported",
+          "citation_numbers": [
+            5
+          ],
+          "reason_zh": "对应子证据[5]中的例外情形表述。"
+        },
+        {
+          "answer_span": "The available excerpts do not establish a quantified comparison of failure rates between deterministic and prompt-layer controls, nor do they specify a general requirement that all limits be deterministic in every context.",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            5
+          ],
+          "reason_zh": "属对证据范围的诚实限定，子证据[1]用'in general'、[5]给出例外，均未提供量化失败率比较。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖了参考要点：确定性限制通过设计强制约束（如访问控制阻止工具调用）而非依赖提示，以及非确定性限制需叠加监控或人工介入。所有实质主张均有对应子证据支持，引用编号正确，并恰当说明了例外情形与证据边界。\",\"claims\":[{\"answer_span\":\"The framework states that organisations should, in general, prefer deterministic rather than non-deterministic limits, and bound by design — for example, rather than relying on prompts to instruct the agent against accessing certain tools, impose access controls that prevent the tool from being called by the agent at all [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与子证据[1]原文一致：偏好确定性限制、按设计约束，并以访问控制替代提示指令。\"},{\"answer_span\":\"Where limits are non-deterministic or less reliable, organisations should layer on more monitoring measures or incorporate human-in-the-loop review to catch any failures [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"直接对应子证据[1]中关于非确定性限制需叠加监控或人工介入的表述。\"},{\"answer_span\":\"Rather than prompt-layer safeguards, organisations should consider implementing deterministic safeguards that operate at a system level through predefined logic, especially for higher-risk actions [5].\",\"label\":\"supported\",\"citation_numbers\":[5],\"reason_zh\":\"与子证据[5]原文一致，含高风险场景的限定。\"},{\"answer_span\":\"Prompt-layer safeguards also tend to be inconsistently defined across users, as opposed to system-level safeguards that can be consistently defined and enforced [5].\",\"label\":\"supported\",\"citation_numbers\":[5],\"reason_zh\":\"逐字对应子证据[5]的表述。\"},{\"answer_span\":\"In the same vein, human approval should be enforced through system-level controls where possible, rather than prompt-layer guardrails, which may be bypassed or \\\"forgotten\\\" [8].\",\"label\":\"supported\",\"citation_numbers\":[8],\"reason_zh\":\"与子证据[8]一致，含'where possible'限定。\"},{\"answer_span\":\"Rather than instructing an agent not to use specific tools, access controls can be implemented at the tool layer to prevent those tools from being called in the first place, or only allowing them to be called in a certain way (e.g. read access only) [5].\",\"label\":\"supported\",\"citation_numbers\":[5],\"reason_zh\":\"对应子证据[5]中的工具层访问控制示例。\"},{\"answer_span\":\"Similarly, if an agent needs to follow a set procedure, building that sequence into the workflow is more robust than prompting the agent to adhere to it through instructions alone [5].\",\"label\":\"supported\",\"citation_numbers\":[5],\"reason_zh\":\"逐字对应子证据[5]的流程内建示例。\"},{\"answer_span\":\"In certain cases where risks are harder to define through fixed rules, model-based safeguards can be most effective, e.g. to detect harmful content, which can manifest in different ways [5].\",\"label\":\"supported\",\"citation_numbers\":[5],\"reason_zh\":\"对应子证据[5]中的例外情形表述。\"},{\"answer_span\":\"The available excerpts do not establish a quantified comparison of failure rates between deterministic and prompt-layer controls, nor do they specify a general requirement that all limits be deterministic in every context.\",\"label\":\"supported\",\"citation_numbers\":[1,5],\"reason_zh\":\"属对证据范围的诚实限定，子证据[1]用'in general'、[5]给出例外，均未提供量化失败率比较。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

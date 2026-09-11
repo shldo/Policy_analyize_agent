@@ -1,0 +1,295 @@
+{
+  "question_id": "DEV2-CS04",
+  "question": "How do least-privilege agent design and centrally managed agent identities complement each other in the Singapore framework?",
+  "inputs_sha256": "3aa361e217e0c1d037c4c0ee0fc11c8863ee9429c6610862bd87a6d7bc588ae8",
+  "messages_sha256": "0ad0843185409514611c85c7df7eca8ed529eed6a76a4e00262734ffb7155c87",
+  "raw_artifact_sha256": "3166b065a797dca4133a66f4f7e9b02e2bd17ef9e1c7d10198b019202403b98c",
+  "final_artifact_sha256": "1fa458a1b45dd7d807bb4cb0208ed94ae07ec986c569c170c331d3eb5de752e3",
+  "draft": "The available excerpts support the following complementarity, drawn from two distinct sections of the framework.\n\n**Least-privilege design as a bounding mechanism**\n\nOrganisations should consider defining limits on an agent's access to tools and systems by defining least-privilege policies that give agents only the minimum tools and data access needed to complete their task [1]. The framework also directs that, during design and development, organisations should implement controls such as access controls and limit the agent's impact on the external environment by enforcing least-privilege access to tools and data [3]. Authorisation for an agent should generally be scoped, time- or session-bound, non-transferable, and follow least privilege by default, with explicit escalation paths for elevated permissions [4].\n\n**Centrally managed identity as the tracking and accountability layer**\n\nAn agent's identity should be unique, with its own cryptographically verifiable identity, and accounted for by being tied to a supervising agent, a human user, or an organisational department for accountability and tracking [2]. It should also be catalogued and centrally managed: all agent identities and their attendant permissions should be issued from and tracked by a centralised system, which enables an organisation to track its deployed agents, identify anomalies, and remove identities no longer required [2].\n\n**Synthesis of the complementarity**\n\nRead together, the two mechanisms operate on different objects: least-privilege design constrains *what an agent may do* (tool and data access, scope and duration of authority) [1][3][4], while centralised identity management governs *who the agent is and under whose accountability it acts*, including the issuance and tracking of its attendant permissions [2]. The identity provisions explicitly link the two by treating permissions as attached to the centrally issued identity record [2], and the authorisation provisions require that delegations of authority be clearly recorded [4]. The framework also notes that current authorisation systems typically have pre-defined, static scopes, whereas agents require fine-grained permissions that may change dynamically depending on context, risk levels, and task objectives — a gap the identity and authorisation provisions are framed as addressing in the interim [2].\n\n**Evidence gaps**\n\nThe available excerpts do not establish a single integrated control architecture that formally binds least-privilege enforcement to the centralised identity registry, nor do they specify how permission changes are synchronised between the two. The excerpts also do not state which organisational role owns the centralised identity system.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**Least-privilege design as a bounding mechanism**\n\nOrganisations should consider defining limits on an agent's access to tools and systems by defining least-privilege policies that give agents only the minimum tools and data access needed to complete their task [1]. The framework also directs that, during design and development, organisations should implement controls such as access controls and limit the agent's impact on the external environment by enforcing least-privilege access to tools and data [3]. Authorisation for an agent should generally be scoped, time- or session-bound, non-transferable, and follow least privilege by default, with explicit escalation paths for elevated permissions [4].\n\n**Centrally managed identity as the tracking and accountability layer**\n\nAn agent's identity should be unique, with its own cryptographically verifiable identity, and accounted for by being tied to a supervising agent, a human user, or an organisational department for accountability and tracking [2]. It should also be catalogued and centrally managed: all agent identities and their attendant permissions should be issued from and tracked by a centralised system, which enables an organisation to track its deployed agents, identify anomalies, and remove identities no longer required [2].\n\nThe available excerpts do not establish a single integrated control architecture that formally binds least-privilege enforcement to the centralised identity registry, nor do they specify how permission changes are synchronised between the two. The excerpts also do not state which organisational role owns the centralised identity system.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a framing/heading sentence about the structure of the answer, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a bold heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"limit the agent\\u2019s impact on the external environment by enforcing least-privilege access to tools and data\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"Authorisations should generally be scoped, time- or session -bound, non -transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions.\"\n        }\n      ],\n      \"reason\": \"Child 1 supports the least-privilege policy for minimum tools/data access; Child 3 supports design/development controls and least-privilege access to tools and data; Child 4 supports scoped, time/session-bound, non-transferable least-privilege authorisation with escalation paths.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a bold heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 2,\n          \"quote\": \"Unique: An agent should have its own unique , cryptographically verifiable identity\"\n        },\n        {\n          \"number\": 2,\n          \"quote\": \"Accounted for : This identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking.\"\n        },\n        {\n          \"number\": 2,\n          \"quote\": \"Catalogued and centrally managed: To prevent agent sprawl, all agent identities (and their attendant permissions) should be issued from and tracked by a centralised system.\"\n        },\n        {\n          \"number\": 2,\n          \"quote\": \"This enables an organisation to track its deployed agents, identify any anomalies, and remove identities that are no longer required.\"\n        }\n      ],\n      \"reason\": \"Child 2 supports unique cryptographically verifiable identity, accountability/tracking tie to supervising agent/human/department, centralised issuance and tracking of identities and permissions, and tracking/anomaly removal purposes.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a bold heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"limit the agent\\u2019s impact on the external environment by enforcing least-privilege access to tools and data\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"Authorisations should generally be scoped, time- or session -bound, non -transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions.\"\n        },\n        {\n          \"number\": 2,\n          \"quote\": \"all agent identities (and their attendant permissions) should be issued from and tracked by a centralised system\"\n        },\n        {\n          \"number\": 4,\n          \"quote\": \"Such delegations of authority should be clearly recorded.\"\n        }\n      ],\n      \"reason\": \"The least-privilege and centralised identity/permissions clauses are supported, and Child 4 supports recording delegations. However, the final clause about current authorisation systems having pre-defined static scopes and agents requiring dynamic fine-grained permissions is not supported by the supplied excerpts.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a bold heading, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The supplied excerpts do not establish a single integrated control architecture formally binding least-privilege enforcement to the centralised identity registry, do not specify permission-change synchronisation, and do not state which organisational role owns the centralised identity system.\"\n    }\n  ]\n}",
+    "answer": "**Least-privilege design as a bounding mechanism**\n\nOrganisations should consider defining limits on an agent's access to tools and systems by defining least-privilege policies that give agents only the minimum tools and data access needed to complete their task [1]. The framework also directs that, during design and development, organisations should implement controls such as access controls and limit the agent's impact on the external environment by enforcing least-privilege access to tools and data [3]. Authorisation for an agent should generally be scoped, time- or session-bound, non-transferable, and follow least privilege by default, with explicit escalation paths for elevated permissions [4].\n\n**Centrally managed identity as the tracking and accountability layer**\n\nAn agent's identity should be unique, with its own cryptographically verifiable identity, and accounted for by being tied to a supervising agent, a human user, or an organisational department for accountability and tracking [2]. It should also be catalogued and centrally managed: all agent identities and their attendant permissions should be issued from and tracked by a centralised system, which enables an organisation to track its deployed agents, identify anomalies, and remove identities no longer required [2].\n\nThe available excerpts do not establish a single integrated control architecture that formally binds least-privilege enforcement to the centralised identity registry, nor do they specify how permission changes are synchronised between the two. The excerpts also do not state which organisational role owns the centralised identity system.",
+    "removed_unit_ids": [
+      "u1",
+      "u7"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a framing/heading sentence about the structure of the answer, not a policy assertion."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a bold heading, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task."
+            },
+            {
+              "number": 3,
+              "quote": "limit the agent’s impact on the external environment by enforcing least-privilege access to tools and data"
+            },
+            {
+              "number": 4,
+              "quote": "Authorisations should generally be scoped, time- or session -bound, non -transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions."
+            }
+          ],
+          "reason": "Child 1 supports the least-privilege policy for minimum tools/data access; Child 3 supports design/development controls and least-privilege access to tools and data; Child 4 supports scoped, time/session-bound, non-transferable least-privilege authorisation with escalation paths."
+        },
+        {
+          "id": "u4",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a bold heading, not a policy assertion."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Unique: An agent should have its own unique , cryptographically verifiable identity"
+            },
+            {
+              "number": 2,
+              "quote": "Accounted for : This identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking."
+            },
+            {
+              "number": 2,
+              "quote": "Catalogued and centrally managed: To prevent agent sprawl, all agent identities (and their attendant permissions) should be issued from and tracked by a centralised system."
+            },
+            {
+              "number": 2,
+              "quote": "This enables an organisation to track its deployed agents, identify any anomalies, and remove identities that are no longer required."
+            }
+          ],
+          "reason": "Child 2 supports unique cryptographically verifiable identity, accountability/tracking tie to supervising agent/human/department, centralised issuance and tracking of identities and permissions, and tracking/anomaly removal purposes."
+        },
+        {
+          "id": "u6",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a bold heading, not a policy assertion."
+        },
+        {
+          "id": "u7",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task."
+            },
+            {
+              "number": 3,
+              "quote": "limit the agent’s impact on the external environment by enforcing least-privilege access to tools and data"
+            },
+            {
+              "number": 4,
+              "quote": "Authorisations should generally be scoped, time- or session -bound, non -transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions."
+            },
+            {
+              "number": 2,
+              "quote": "all agent identities (and their attendant permissions) should be issued from and tracked by a centralised system"
+            },
+            {
+              "number": 4,
+              "quote": "Such delegations of authority should be clearly recorded."
+            }
+          ],
+          "reason": "The least-privilege and centralised identity/permissions clauses are supported, and Child 4 supports recording delegations. However, the final clause about current authorisation systems having pre-defined static scopes and agents requiring dynamic fine-grained permissions is not supported by the supplied excerpts."
+        },
+        {
+          "id": "u8",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a bold heading, not a policy assertion."
+        },
+        {
+          "id": "u9",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The supplied excerpts do not establish a single integrated control architecture formally binding least-privilege enforcement to the centralised identity registry, do not specify permission-change synchronisation, and do not state which organisational role owns the centralised identity system."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "f8241a5c-37d2-4f44-9dde-ab2be9e52889",
+      "section_id": "902cf6a9-9824-5759-8fe1-a14f2347eeac",
+      "section_title": "Agent limits",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 19,
+      "page_end": 19,
+      "quote": "Agent limits\n\nOrganisations should consider defining limits on:\n\n• Agent’s access to tools and systems: Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task.18 For example, a coding assistant may not require access to a broad web search tool, especially if it already has curated access to the latest software documentation. Structuring agents around functional boundaries (e.g. separating IT helpdesk from HR self-service) can act as a natural constraint.\n\n• Agent’s autonomy: For process-driven tasks, SOPs and protocols are frequently used to improve consistency and reduce unpredictability.19 Define similar SOPs for agentic workflows that an agent is constrained to follow, rather than giving the agent the freedom to define every step of the workflow.\n\n• Agent’s area of impact: Design mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction. This can include running agents in self-contained environments with limited network and data access, particularly when they are carrying out high - risk tasks such as code execution.20"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "2c9308d0-5b13-43e7-a815-31980c1dd5be",
+      "section_id": "ab2b7d37-47c1-563f-9daf-c1dead626da5",
+      "section_title": "Agent identity",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 23,
+      "page_end": 23,
+      "quote": "In the interim, organisations should consider these best practices:\n\n• Identification: An agent’s identity should be:\n\no Unique: An agent should have its own unique , cryptographically verifiable identity, such that it can identify itself to the organisation, its human user, or other agents. o Accounted for : This identity should be tied to a supervising agent, a human user, or an organisational department for accountability and tracking. o Differentiated according to the capacity in which it acts: The different capacities in which an agent acts (e.g. independently or on behalf of a specified human user) should be recorded for auditability. o Catalogued and centrally managed: To prevent agent sprawl, all agent identities (and their attendant permissions) should be issued from and tracked by a centralised system. This enables an organisation to track its deployed agents, identify any anomalies, and remove identities that are no longer required.\n\n21 For a more comprehensive treatment of how current identity systems may face challenges when catering to agentic AI, see OpenID, Identity Management for Agentic AI. 22 For examples, see Microsoft, What is Microsoft Entra Agent ID, and Alibaba Cloud, Agent ID Guard overview. 23 See MCP, Authorisation support."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "bbffc6f1-ddd4-4b6a-a590-35eec0696a7b",
+      "section_id": "0f5ed2c6-0b67-5e38-9979-08259535e5fd",
+      "section_title": "2.3 Implement technical controls and processes — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 33,
+      "page_end": 33,
+      "quote": "2.3 Implement technical controls and processes\n\nThe agentic components that differentiate agents from simple LLM -based applications necessitate additional controls during the key stages of the implementation lifecycle.\n\nOrganisations should consider:\n\n• During design and development, design and implement technical controls . The new components and capabilities of agents necessitate new and tailored controls. Depending on the agent design, implement controls such as access controls. Further, limit the agent’s impact on the external environment by enforcing least-privilege access to tools and data. • Pre-deployment, test agents for safety and security. As with all software, testing before deployment ensures that the system behaves as expected. Specifically for agents, test for new dimensions such as overall task execution, policy adherence and tool use accuracy, and test across varied datasets to capture the full spectrum of agent behaviour. • When deploying, gradually roll out agents and continuously monitor them in production. The autonomous nature of agents and the changing environment makes it challenging to account for and test all possible outcomes before deployment. Roll out agents gradually, supported with real- time monitoring post-deployment to ensure that agents function safely. • Throughout the lifecycle, implement change management and version control processes. In complex agent ecosystems, changes to one agent can have cascading effects across interconnected workflows. As such, organisations should define clear triggers that initiate a change review process and categorise the needed changes accordingly."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "8356d09f-290e-429f-a428-584db8fab8f7",
+      "section_id": "b10574a8-ecfa-58a1-ab25-7deae844297a",
+      "section_title": "24  See proposed framework for agentic identity by Cloud Security Alliance,  Agentic AI Identity & Access — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 23,
+      "page_end": 24,
+      "quote": "24 See proposed framework for agentic identity by Cloud Security Alliance, Agentic AI Identity & Access Management: A New Approach.\n\n| Assess and bound the risks upfront\n\n24 • Authorisation: An agent’s authority should be:\n\no Scoped, least -privilege, non-transferable: Authorisations should generally be scoped, time- or session -bound, non -transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions. o Bounded by authorising human’s permissions : An agent can have pre -defined permissions based on its role or the task, or its permissions may be dynamically set by its authorising human user, or a combination of both. As a rule of thumb, the human user should not be able to set permissions for the age nt greater than what the human user is himself authorised to do, such as accessing data outside the human’s permissions . Such delegations of authority should be clearly recorded."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "a7a8ccf2-ba06-4496-a93b-39cdbc38508a",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "Users",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 26,
+      "page_end": 27,
+      "quote": "Chief Security Officer, Cyber Security Specialist, Penetration Tester\n\nKey responsibilities can include: • Defining baseline security guardrails and secure-by-design templates that technical teams should implement or adapt to the agentic system being deployed • Conducting regular red teaming and threat modelling Who: Any individual who utilises the output of the agents to contribute to an organisational goal e.g. company employees making decisions or automating workflows and practices.\n\nKey responsibilities can include: • Ethical and responsible usage of agents • Attending required training, complying with usage policies, timely reporting of bugs or issues with agents\n\n| Make humans meaningfully accountable\n\n27\n\nPwC Singapore: Allocating human accountability across different internal teams for agentic system for report drafting\n\nPwC is a network of professional services firms in 137 territories, across audit and assurance, tax and legal, deals and consulting.\n\nTo accelerate internal productivity, PwC Singapore’s AI Factory developed an agentic application that automates the drafting of research and analysis sections for internal reports, a process that has been traditionally manual and research-intensive. Users define the sections required, then the system draws from standardised templates maintained and updated (for regulatory and market developments) by PwC, retrieves and synthesises information from source materials, and generates draft content in seconds.\n\nThe system uses three coordinated agents in a primarily sequential workflow, with feedback loops for additional retrieval or restructuring where needed:"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "ef7c13ff-a7c9-4f22-8b9f-726f0442ba5f",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "2.2.1 Clear allocation of responsibilities within and outside the organisation",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 27,
+      "page_end": 28,
+      "quote": "The system uses three coordinated agents in a primarily sequential workflow, with feedback loops for additional retrieval or restructuring where needed:\n\nThe responsibilities below describe how operating accountability for this report -drafting use case is allocated, within the context of PwC Singapore’s broader AI governance framework:\n\n1. Use case owner – Use case appropriateness and accountable use: Confirming that the use case serves a legitimate business need, is appropriate for the intended purpose, and is aligned with the organisation’s AI governance framework. The use case owner remains accountable for the responsible use of the application and for ensuring that appropriate human oversight is in place.\n\n2. Technology Risk Management Team – Risk assessment and control advice: Supports the assessment of technology, risk, security, and compliance considerations for the use case, including any regulatory requirements . This includes advising on appropriate controls relating to tools and models, access rights, and connected knowledge bases or data sources.\n\n3. AI Factory – Design, development, guardrails and monitoring: Designing, developing, and maintaining the application, including prompt design, model selection, tool configuration, integration with approved knowledge bases , and appropriate guardrails . AI Factory also monitors for model changes and manages updates through standard change management processes rather than leaving it to the end users.\n\n| Make humans meaningfully accountable\n\n28\n\nOutside the organisation\n\nOrganisations may also need to work with external parties when deploying agents e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "b158857b-85a4-4cca-ba53-861a7dcacb8d",
+      "section_id": "fd3c25d2-6b8c-5667-93ed-a68201339548",
+      "section_title": "Complementing with automated monitoring mechanisms",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 31,
+      "page_end": 31,
+      "quote": "Complementing with automated monitoring mechanisms"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "6aa84b08-6eb3-4f1a-974f-31593693f205",
+      "section_id": "5f818da4-7d18-5700-a36d-a86dded7f772",
+      "section_title": "2.2.2  Design for meaningful human oversight — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 30,
+      "page_end": 30,
+      "quote": "• Ensuring that humans possess the domain expertise to evaluate agent actions e.g. users using agents to “vibe code” may not have the software engineering expertise to review the robustness of generated code.\n\nFinally, human oversight should be complemented with automated real -time monitoring to escalate any unexpected or anomalous behaviour. This can be done by: • Implementing alerts for certain logged events (e.g. attempted unauthorised access or multiple failed attempts to call a tool) • Using data science techniques to identify anomalous agent trajectories • Using agents to monitor other agents • Denying action by default when approval infrastructures fail (e.g. when human supervisors are unreachable or agents attempt new actions that do not have any established approval policies in place).\n\nFor more information, see Continuous testing and monitoring below.\n\n27 See Anthropic, Reasoning models don’t always say what they think."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整覆盖四个必需点：最小工具/数据权限、集中管理身份与权限、异常与生命周期管理、显式升级路径，且所有实质主张均有对应Child证据支持，引用编号正确，并诚实说明未建立两者正式绑定架构。",
+      "claims": [
+        {
+          "answer_span": "Organisations should consider defining limits on an agent's access to tools and systems by defining least-privilege policies that give agents only the minimum tools and data access needed to complete their task [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "与Child[1]中'Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task'一致。"
+        },
+        {
+          "answer_span": "during design and development, organisations should implement controls such as access controls and limit the agent's impact on the external environment by enforcing least-privilege access to tools and data [3]",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "Child[3]明确要求在设计与开发阶段实施访问控制并通过对工具和数据的最小权限访问限制外部环境影响。"
+        },
+        {
+          "answer_span": "Authorisation for an agent should generally be scoped, time- or session-bound, non-transferable, and follow least privilege by default, with explicit escalation paths for elevated permissions [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Child[4]原文即为'scoped, time- or session-bound, non-transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions'。"
+        },
+        {
+          "answer_span": "An agent's identity should be unique, with its own cryptographically verifiable identity, and accounted for by being tied to a supervising agent, a human user, or an organisational department for accountability and tracking [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "Child[2]中Unique与Accounted for两项要点均被准确转述。"
+        },
+        {
+          "answer_span": "all agent identities and their attendant permissions should be issued from and tracked by a centralised system, which enables an organisation to track its deployed agents, identify anomalies, and remove identities no longer required [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "Child[2]原文包含集中签发与追踪、追踪已部署代理、识别异常、移除不再需要的身份。"
+        },
+        {
+          "answer_span": "The available excerpts do not establish a single integrated control architecture that formally binds least-privilege enforcement to the centralised identity registry, nor do they specify how permission changes are synchronised between the two.",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reason_zh": "所引Child证据分别讨论最小权限与集中身份管理，未描述两者间的正式绑定或同步机制，该限定性陈述属诚实说明而非虚假政策主张。"
+        },
+        {
+          "answer_span": "The excerpts also do not state which organisational role owns the centralised identity system.",
+          "label": "supported",
+          "citation_numbers": [
+            2,
+            5,
+            6
+          ],
+          "reason_zh": "Child[2]未指明集中身份系统的归属角色；Child[5][6]涉及责任分配但未指定该系统的所有者，属合理限定。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖四个必需点：最小工具/数据权限、集中管理身份与权限、异常与生命周期管理、显式升级路径，且所有实质主张均有对应Child证据支持，引用编号正确，并诚实说明未建立两者正式绑定架构。\",\"claims\":[{\"answer_span\":\"Organisations should consider defining limits on an agent's access to tools and systems by defining least-privilege policies that give agents only the minimum tools and data access needed to complete their task [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与Child[1]中'Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task'一致。\"},{\"answer_span\":\"during design and development, organisations should implement controls such as access controls and limit the agent's impact on the external environment by enforcing least-privilege access to tools and data [3]\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"Child[3]明确要求在设计与开发阶段实施访问控制并通过对工具和数据的最小权限访问限制外部环境影响。\"},{\"answer_span\":\"Authorisation for an agent should generally be scoped, time- or session-bound, non-transferable, and follow least privilege by default, with explicit escalation paths for elevated permissions [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Child[4]原文即为'scoped, time- or session-bound, non-transferable, and follow the principle of least privilege by default, with explicit escalation paths for elevated permissions'。\"},{\"answer_span\":\"An agent's identity should be unique, with its own cryptographically verifiable identity, and accounted for by being tied to a supervising agent, a human user, or an organisational department for accountability and tracking [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"Child[2]中Unique与Accounted for两项要点均被准确转述。\"},{\"answer_span\":\"all agent identities and their attendant permissions should be issued from and tracked by a centralised system, which enables an organisation to track its deployed agents, identify anomalies, and remove identities no longer required [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"Child[2]原文包含集中签发与追踪、追踪已部署代理、识别异常、移除不再需要的身份。\"},{\"answer_span\":\"The available excerpts do not establish a single integrated control architecture that formally binds least-privilege enforcement to the centralised identity registry, nor do they specify how permission changes are synchronised between the two.\",\"label\":\"supported\",\"citation_numbers\":[1,2,3,4],\"reason_zh\":\"所引Child证据分别讨论最小权限与集中身份管理，未描述两者间的正式绑定或同步机制，该限定性陈述属诚实说明而非虚假政策主张。\"},{\"answer_span\":\"The excerpts also do not state which organisational role owns the centralised identity system.\",\"label\":\"supported\",\"citation_numbers\":[2,5,6],\"reason_zh\":\"Child[2]未指明集中身份系统的归属角色；Child[5][6]涉及责任分配但未指定该系统的所有者，属合理限定。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

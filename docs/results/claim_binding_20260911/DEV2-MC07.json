@@ -1,0 +1,221 @@
+{
+  "question_id": "DEV2-MC07",
+  "question": "How does MSD combine controls for high levels of agent autonomy with containment of third-party SaaS agents?",
+  "inputs_sha256": "78e7ea5a4d92989a864c15519826f4de285663aa73502695e30f960567c20fd3",
+  "messages_sha256": "feabb1059ed7ba425510f1a10ea4f3d000c2c5fe1cf01227a0d13171e436bc09",
+  "raw_artifact_sha256": "5ee2c534336026ff4037bd54ca8257cd2c659a0e25a07dc119f02a7a23078555",
+  "final_artifact_sha256": "e8e9cc7d74c51596da19ab7730ea0183f004e994942b0a0ba276795c36bd1754",
+  "draft": "MSD combines two distinct control layers: risk-calibrated governance pathways keyed to five levels of agency, and a containment strategy for third-party SaaS agents.\n\n**Tiered governance calibrated to level of agency**\n\nMSD created multiple risk-calibrated governance pathways based on five levels of agency, accounting for factors such as action and permission scope, human oversight, and data and context scope [3]. Lower levels move quickly through a lightweight governance pathway; middle levels move through an established AI impact assessment process; and higher levels require escalations to enterprise architecture review and testing where appropriate [3]. The highest levels of agency require technical measures beyond monitoring: a programmatic runtime policy enforcement layer is being implemented at the AI gateway before higher levels of autonomy are enabled [3].\n\n**Containment of third-party SaaS agents**\n\nMSD adopted a containment strategy under which, rather than allowing vendor-embedded agents to act freely across MSD's data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems [1]. The stated rationale is that while each third-party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross-platform actions that may not have been exhaustively tested, particularly as interoperability frameworks are still nascent and maturing [1]. The containment approach is described as containing residual risk while preserving the productivity benefits of approved use cases [1].\n\n**Relationship between the two**\n\nThe excerpts present these as parallel elements of MSD's enterprise agentic AI governance strategy, which bounds risk by, among other things, calibrating governance processes to level of agency and derisking third-party platforms [2]. The available excerpts do not establish how the tiered autonomy pathways and the third-party containment boundary are formally linked — for example, whether SaaS-embedded agents are assigned a specific agency level or routed through a particular governance pathway.\n\n**Evidence gaps**\n\nThe excerpts do not specify the criteria that define each of the five agency levels, the thresholds at which escalation to enterprise architecture review is triggered, or the technical design of the runtime policy enforcement layer at the AI gateway.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**Tiered governance calibrated to level of agency**\n\nMSD created multiple risk-calibrated governance pathways based on five levels of agency, accounting for factors such as action and permission scope, human oversight, and data and context scope [3]. Lower levels move quickly through a lightweight governance pathway; middle levels move through an established AI impact assessment process; and higher levels require escalations to enterprise architecture review and testing where appropriate [3]. The highest levels of agency require technical measures beyond monitoring: a programmatic runtime policy enforcement layer is being implemented at the AI gateway before higher levels of autonomy are enabled [3].\n\n**Containment of third-party SaaS agents**\n\nMSD adopted a containment strategy under which, rather than allowing vendor-embedded agents to act freely across MSD's data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems [1]. The stated rationale is that while each third-party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross-platform actions that may not have been exhaustively tested, particularly as interoperability frameworks are still nascent and maturing [1]. The containment approach is described as containing residual risk while preserving the productivity benefits of approved use cases [1].\n\nThe excerpts do not specify the criteria that define each of the five agency levels, the thresholds at which escalation to enterprise architecture review is triggered, or the technical design of the runtime policy enforcement layer at the AI gateway.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"calibrating governance processes to level of agency, and derisking third-party platforms\"},\n        {\"number\": 3, \"quote\": \"based on five levels of agency\"},\n        {\"number\": 1, \"quote\": \"MSD adopted a containment strategy\"}\n      ],\n      \"reason\": \"Child 2 states MSD's strategy bounds risk by calibrating governance to level of agency and derisking third-party platforms; Child 3 confirms five levels of agency; Child 1 confirms a containment strategy for third-party SaaS agents.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 3, \"quote\": \"MSD created multiple risk-calibrated governance pathways based on five levels of agency, accounting for factors such as action and permission scope, human oversight, data and context scope etc.\"},\n        {\"number\": 3, \"quote\": \"Lower levels move quickly through a lightweight governance pathway; middle levels move through an established AI impact assessment process, and higher levels require escalations to enterprise architecture review and testing where appropriate.\"},\n        {\"number\": 3, \"quote\": \"The highest levels of agency require technical measures beyond monitoring. A programmatic runtime policy enforcement layer is being implemented at the AI gateway before higher levels of autonomy are enabled.\"}\n      ],\n      \"reason\": \"Child 3 supports all clauses: five-level risk-calibrated pathways, factors, lower/middle/higher pathway handling, and runtime policy enforcement at the AI gateway before higher autonomy.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"MSD adopted a containment strategy \\u2014 rather than allowing vendor- embedded agents to act freely across MSD\\u2019s data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems.\"},\n        {\"number\": 1, \"quote\": \"While each third -party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross platform actions which may not have been exhaustively tested. This is particularly the case as interoperability frameworks are still nascent and maturing.\"},\n        {\"number\": 1, \"quote\": \"This cont ains residual risk while preserving the productivity benefits of approved use cases.\"}\n      ],\n      \"reason\": \"Child 1 supports the containment strategy, default ecosystem restriction, rationale about cross-platform testing and nascent interoperability, and residual-risk/productivity-benefit framing.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"calibrating governance processes to level of agency, and derisking third -party platforms\"}\n      ],\n      \"reason\": \"Child 2 supports the parallel-elements framing, but the gap clause that excerpts do not establish formal linkage is not supported by the supplied excerpts as a bounded absence; it is an absence claim beyond what the excerpts establish.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not specify criteria defining each of the five agency levels, escalation thresholds for enterprise architecture review, or the technical design of the runtime policy enforcement layer.\"\n    }\n  ]\n}",
+    "answer": "**Tiered governance calibrated to level of agency**\n\nMSD created multiple risk-calibrated governance pathways based on five levels of agency, accounting for factors such as action and permission scope, human oversight, and data and context scope [3]. Lower levels move quickly through a lightweight governance pathway; middle levels move through an established AI impact assessment process; and higher levels require escalations to enterprise architecture review and testing where appropriate [3]. The highest levels of agency require technical measures beyond monitoring: a programmatic runtime policy enforcement layer is being implemented at the AI gateway before higher levels of autonomy are enabled [3].\n\n**Containment of third-party SaaS agents**\n\nMSD adopted a containment strategy under which, rather than allowing vendor-embedded agents to act freely across MSD's data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems [1]. The stated rationale is that while each third-party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross-platform actions that may not have been exhaustively tested, particularly as interoperability frameworks are still nascent and maturing [1]. The containment approach is described as containing residual risk while preserving the productivity benefits of approved use cases [1].\n\nThe excerpts do not specify the criteria that define each of the five agency levels, the thresholds at which escalation to enterprise architecture review is triggered, or the technical design of the runtime policy enforcement layer at the AI gateway.",
+    "removed_unit_ids": [
+      "u1",
+      "u7"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {
+      "u1": "Evidence quote is not an exact Child span"
+    },
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "calibrating governance processes to level of agency, and derisking third-party platforms"
+            },
+            {
+              "number": 3,
+              "quote": "based on five levels of agency"
+            },
+            {
+              "number": 1,
+              "quote": "MSD adopted a containment strategy"
+            }
+          ],
+          "reason": "Child 2 states MSD's strategy bounds risk by calibrating governance to level of agency and derisking third-party platforms; Child 3 confirms five levels of agency; Child 1 confirms a containment strategy for third-party SaaS agents."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "MSD created multiple risk-calibrated governance pathways based on five levels of agency, accounting for factors such as action and permission scope, human oversight, data and context scope etc."
+            },
+            {
+              "number": 3,
+              "quote": "Lower levels move quickly through a lightweight governance pathway; middle levels move through an established AI impact assessment process, and higher levels require escalations to enterprise architecture review and testing where appropriate."
+            },
+            {
+              "number": 3,
+              "quote": "The highest levels of agency require technical measures beyond monitoring. A programmatic runtime policy enforcement layer is being implemented at the AI gateway before higher levels of autonomy are enabled."
+            }
+          ],
+          "reason": "Child 3 supports all clauses: five-level risk-calibrated pathways, factors, lower/middle/higher pathway handling, and runtime policy enforcement at the AI gateway before higher autonomy."
+        },
+        {
+          "id": "u4",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "MSD adopted a containment strategy — rather than allowing vendor- embedded agents to act freely across MSD’s data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems."
+            },
+            {
+              "number": 1,
+              "quote": "While each third -party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross platform actions which may not have been exhaustively tested. This is particularly the case as interoperability frameworks are still nascent and maturing."
+            },
+            {
+              "number": 1,
+              "quote": "This cont ains residual risk while preserving the productivity benefits of approved use cases."
+            }
+          ],
+          "reason": "Child 1 supports the containment strategy, default ecosystem restriction, rationale about cross-platform testing and nascent interoperability, and residual-risk/productivity-benefit framing."
+        },
+        {
+          "id": "u6",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u7",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "calibrating governance processes to level of agency, and derisking third -party platforms"
+            }
+          ],
+          "reason": "Child 2 supports the parallel-elements framing, but the gap clause that excerpts do not establish formal linkage is not supported by the supplied excerpts as a bounded absence; it is an absence claim beyond what the excerpts establish."
+        },
+        {
+          "id": "u8",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u9",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not specify criteria defining each of the five agency levels, escalation thresholds for enterprise architecture review, or the technical design of the runtime policy enforcement layer."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "fcd5edea-6250-447f-97d5-c66c9950e79c",
+      "section_id": "5169909e-bbf4-5509-9e8d-0d66e89e82e7",
+      "section_title": "Derisking third-party agent platforms",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 22,
+      "page_end": 23,
+      "quote": "Derisking third-party agent platforms\n\nBeyond agentic autonomy, enterprise AI invariably includes multiple third-party SaaS agentic platforms. While each third -party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross platform actions which may not have been exhaustively tested. This is particularly the case as interoperability frameworks are still nascent and maturing.\n\nTo promote safety and security, MSD adopted a containment strategy — rather than allowing vendor- embedded agents to act freely across MSD’s data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems. This cont ains residual risk while preserving the productivity benefits of approved use cases.\n\n| Assess and bound the risks upfront\n\n23"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "11e4fce0-d705-43f7-abb5-c84929b763b0",
+      "section_id": "6fae3315-da91-5d9e-86c7-364e26219467",
+      "section_title": "OCBC: Bounding agent autonomy in source of wealth analysis",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 21,
+      "page_end": 21,
+      "quote": "| Assess and bound the risks upfront\n\n21\n\nMSD: Bounding the risks of agentic AI through tiered autonomy and third-party ecosystem boundaries\n\nMSD aims to use the power of leading-edge science to save and improve lives around the world, bringing forward medicines, vaccines and innovative health solutions for the world’s most challenging diseases.\n\nMSD develops and deploys agents in use cases such as streamlining the production of key trial protocols and minimizing labor -intensive tasks like clinical documentation and quality review. For its 75,000 employees, MSD implemented an enterprise agentic AI governance strategy that bounds risk by, among other things, calibrating governance processes to level of agency, and derisking third -party platforms."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "582b32ae-448b-4f2f-8474-fd43469cdd93",
+      "section_id": "e8ef2906-7538-52aa-be36-5a6abdf721b8",
+      "section_title": "Calibrating governance processes to level of agency",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 21,
+      "page_end": 22,
+      "quote": "Calibrating governance processes to level of agency\n\nMSD created multiple risk-calibrated governance pathways based on five levels of agency, accounting for factors such as action and permission scope, human oversight, data and context scope etc.\n\n• Lower levels move quickly through a lightweight governance pathway; middle levels move through an established AI impact assessment process, and higher levels require escalations to enterprise architecture review and testing where appropriate. • The highest levels of agency require technical measures beyond monitoring. A programmatic runtime policy enforcement layer is being implemented at the AI gateway before higher levels of autonomy are enabled.\n\n| Assess and bound the risks upfront\n\n22"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "9adbe26f-7be9-4aba-a56c-182aa20753c4",
+      "section_id": "1cbfa088-cd86-5a89-b094-c8a198798a95",
+      "section_title": "What’s new in this version",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 5,
+      "page_end": 6,
+      "quote": "The four dimensions • Case study from IMDA on how the framework can be applied to OpenClaw deployments\n\nAssess and bound the risks • Risk factors: Added new factors for risk assessment, including system complexity and usage of third-party solutions • Case studies from Dayos, MSD, OCBC\n\nEnable meaningful human accountability • Agentic value chain: Refined the agentic AI value chain to separate platform providers and system providers or app developers • Automation bias: Added more practices to guard against automation bias, such as monitoring human override rates and response times • Case studies from PwC, Tencent, X0PA\n\nImplement technical controls and processes • Types of controls: Added overview of different types of controls and how to select them (e.g. structural, rule-based vs prompt-layer controls) • Change management: Included recommendations for change management processes to avoid outsized impact from small changes, especially as system complexity increases • Case studies from CDL x Knovel, CyberSierra, Google, GovTech, Stability Solutions, Terminal 3\n\nEnable end-user responsibility • Tradecraft and business continuity: Added detail on loss of tradecraft and how it can impact business continuity • Case studies from Ant International, Workday\n\n| Introduction to Agentic AI 6"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "3e9d3112-5aa0-4427-bc87-f37f543ce6f1",
+      "section_id": "bdd8fa83-12cf-5f80-9ef0-305da7c8453e",
+      "section_title": "Agent’s level of autonomy",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 16,
+      "page_end": 16,
+      "quote": "Agent’s level of autonomy Whether the agent can define the entire workflow or must follow a well-defined procedure.\n\nA higher level of autonomy can result in higher unpredictability, increasing likelihood of error. Agent is provided with a SOP and instructed to follow it when carrying out a task, vs agent is instructed to use its best judgment to select and execute every step Task complexity How complex the task is, in relation to the number of steps required to complete it and the level of analysis required at each step.\n\nA higher level of task complexity similarly increases unpredictability and the likelihood of error. Agent is required to extract key action points from a meeting transcript, vs agent is tasked to follow a nuanced data sharing policy when handling external requests for information"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "1bc8e81f-cdea-459e-a127-bdd0c8050b9c",
+      "section_id": "b2d3e447-5314-53c6-8852-59c6b0d30817",
+      "section_title": "2. Make humans meaningfully accountable",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 14,
+      "page_end": 14,
+      "quote": "2. Make humans meaningfully accountable\n\n• Adopt a risk-based approach to determine the appropriate level of agent autonomy based on data sensitivity and task criticality • Enforce human approval through system -level controls where possible, vs prompt -layer guardrails, which may be bypassed or “forgotten”"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "dab1c9d4-218b-48aa-b3d8-ae1094bffcee",
+      "section_id": "267ecfc9-24a3-54f6-a906-67d5b205a94e",
+      "section_title": "1. Assess and bound the risks upfront",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 3,
+      "page_end": 3,
+      "quote": "1. Assess and bound the risks upfront\n\nOrganisations should adapt their internal structures and processes to account for new risks from agents. Key to this is first understanding the risks posed by the agent’s actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent’s level of autonomy.\n\nTo manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems. They could also ensure that the agent’s actions are traceable and controllable through measures such as identity management and access controls for agents."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "abb94cbb-ce0c-466d-9b89-6aeb2db93a4b",
+      "section_id": "59b54976-cc20-57de-9025-52d9a9bdbe0e",
+      "section_title": "8  For examples, see AWS, Inside AWS Security Agent: A multi -agent architecture for automated penetration",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 9,
+      "page_end": 9,
+      "quote": "• Actions it can take in relation to the system it can access: o Read vs write: An agent may only be able to read and retrieve information from a system, rather than write to and modify data within the system.\n\nAn emerging modality of agentic AI is a computer use agent, whose primary tool is access to a computer and browser. This means that it can take any action that a human can take with a computer and browser (e.g. scrolling, clicking, typing) without having to rely on specifically defined tools and APIs. This significantly increases what the agent can access and do.10\n\nAutonomy\n\nAn agent’s autonomy mainly depends on its instructions and the level of human involvement in the agentic system. In enterprise deployments, most agentic implementations are hybrid systems combining deterministic rules with some autonomy.\n\nIn terms of instructions, an agent can be given differing level of instructions:\n\n• Detailed instructions and SOP: An agent instructed to follow a detailed SOP to complete a task would be limited in the decisions it can make at each stage. • Using its own judgment: An agent instructed to use its own judgment to complete a task would have more freedom to define its plan and workflow.\n\nAnother relevant factor is the level of human involvement. When interacting with an agent, a human can be involved to different levels:11"
+    }
+  ],
+  "audit": {
+    "status": "error",
+    "error_type": "JSONDecodeError",
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖两个必答点：高自主性层级下的运行时策略执行层（AI网关，先于更高自主性启用）以及第三方SaaS代理默认限制在自身生态内的遏制策略；所有实质事实主张均有[1][3]等子证据直接支持，引用编号正确，且明确标注了未涵盖的细节，无捏造或义务倒置。\",\"claims\":[{\"answer_span\":\"MSD created multiple risk-calibrated governance pathways based on five levels of agency, accounting for factors such as action and permission scope, human oversight, and data and context scope [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"与[3]原文逐项对应，五个自主性层级及考量因素均一致。\"},{\"answer_span\":\"Lower levels move quickly through a lightweight governance pathway; middle levels move through an established AI impact assessment process; and higher levels require escalations to enterprise architecture review and testing where appropriate [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"与[3]原文表述一致，仅作无害的标点/连词改写。\"},{\"answer_span\":\"The highest levels of agency require technical measures beyond monitoring: a programmatic runtime policy enforcement layer is being implemented at the AI gateway before higher levels of autonomy are enabled [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"直接对应[3]中最高自主性层级需技术措施、AI网关运行时策略执行层先于更高自主性启用的表述。\"},{\"answer_span\":\"MSD adopted a containment strategy under which, rather than allowing vendor-embedded agents to act freely across MSD's data and systems, agentic features in SaaS tools are by default restricted to within their own ecosystems [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与[1]遏制策略原文一致，包括默认限制在自身生态内。\"},{\"answer_span\":\"The stated rationale is that while each third-party agent platform would have performed validation and testing within its own ecosystem, risks increase when these systems attempt to perform cross-platform actions that may not have been exhaustively tested, particularly as interoperability frameworks are still nascent and maturing [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与[1]关于跨平台动作风险及互操作性框架尚不成熟的原因表述一致。\"},{\"answer_span\":\"The containment approach is described as containing residual risk while preserving the productivity benefits of approved use cases [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"直接对应[1]中遏制残余风险并保留已批准用例生产力收益的表述。\"},{\"answer_span\":\"The excerpts do not specify the criteria that define each of the five agency levels, the thresholds at which escalation to enterprise architecture review is triggered, or the technical design of the runtime policy enforcement layer at the AI gateway.\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"所引[3]确实未给出五级具体标准、升级阈值或执行层技术设计，属诚实的证据范围限定，非虚假政策主张。\"}]},\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

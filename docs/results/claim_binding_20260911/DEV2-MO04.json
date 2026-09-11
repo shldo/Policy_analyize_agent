@@ -1,0 +1,292 @@
+{
+  "question_id": "DEV2-MO04",
+  "question": "Does Statement 8 give hidden-watermark tooling and watermark-risk assessment the same required status as visual watermarks and metadata?",
+  "inputs_sha256": "07615069736178ea5a95d51444cd70d451f9dc38bafc76e53038f032c49ffc37",
+  "messages_sha256": "d75eb998a8a0790de98bf765822f38963b117ed0c54e1e0921ee108e36c53d79",
+  "raw_artifact_sha256": "163c5aa5416cf355b13806aed2156666730eed58ab4a29c9f1e6ec0872b686c2",
+  "final_artifact_sha256": "5d037c2d8c96e8a832523977595cc2b216a63249bc5c5472aad4a71366d1729b",
+  "draft": "No. Under Statement 8, visual watermarks/metadata and AI-interaction disclosures are **Required**, while hidden-watermark tooling and watermark-risk assessment are **Recommended**.\n\n**Required (Agencies must):**\n- Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship — applicable only where AI-generated content may directly impact a user (e.g., a generated team logo would not need watermarking) [1].\n- Criterion 23: Apply watermarks and metadata that are WCAG compatible where relevant [1].\n- Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system (e.g., text in a GenAI interface) [2].\n\n**Recommended (Agencies should):**\n- Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk — including provenance/authorship information, encrypting watermarks for high-risk content, using an existing tool or technique when practicable, embedding watermarks at the AI training stage, verifying the watermark does not impact content generation quality or efficiency, and including data sources and product/versioning details [2].\n- Criterion 26: Assess watermarking risks and limitations — including user understanding of third-party replication risk and avoiding over-reliance, preventing third-party use of watermarking algorithms, considering situations where watermarking is not beneficial, considering malicious removal or replication, and managing copyright/trademark risks from externally sourced data [3].\n\nThis Required/Recommended split is corroborated by the lifecycle summary listing Statement 8's criteria 22–24 as Required and criteria 25–26 as Recommended [4].\n\n**Evidence gaps:** The available excerpts do not establish any additional conditions, exceptions, or deadlines attaching specifically to criteria 25–26 beyond those quoted.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "No. Under Statement 8, visual watermarks/metadata and AI-interaction disclosures are **Required**, while hidden-watermark tooling and watermark-risk assessment are **Recommended**. [4]\n\n**Required (Agencies must):**\n\n- Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship — applicable only where AI-generated content may directly impact a user (e.g., a generated team logo would not need watermarking) [1].\n\n- Criterion 23: Apply watermarks and metadata that are WCAG compatible where relevant . [1][2]\n\n- Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system (e.g., text in a GenAI interface) [2].\n\n**Recommended (Agencies should):**\n\n- Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk — including provenance/authorship information, encrypting watermarks for high-risk content, using an existing tool or technique when practicable, embedding watermarks at the AI training stage, verifying the watermark does not impact content generation quality or efficiency, and including data sources and product/versioning details [2].\n\nThis Required/Recommended split is corroborated by the lifecycle summary listing Statement 8's criteria 22–24 as Required and criteria 25–26 as Recommended [4].\n\n**Evidence gaps:** The available excerpts do not establish any additional conditions, exceptions, or deadlines attaching specifically to criteria 25–26 beyond those quoted.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"Statement 8: Apply watermarking techniques Required • Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. • Criterion 23: Apply watermarks that are WCAG compatible where relevant. • Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. Recommended • Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. • Criterion 26: Assess watermarking risks and limitations.\"}\n      ],\n      \"reason\": \"Child 4's lifecycle summary lists Statement 8 criteria 22–24 (visual watermarks/metadata and AI-interaction disclosures) as Required and criteria 25–26 (hidden-watermark tooling and watermark-risk assessment) as Recommended, directly supporting the Required/Recommended split.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user. For instance, using AI to generate a team logo would not need to be watermarked.\"}\n      ],\n      \"reason\": \"Child 1 contains Criterion 22 with the required watermarking/metadata language, the direct-impact condition, and the team-logo example.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Criterion 23: Apply watermarks and metadata that are WCAG compatible where\"},\n        {\"number\": 2, \"quote\": \"relevant\"}\n      ],\n      \"reason\": \"Child 1 begins Criterion 23 and Child 2 supplies the continuation 'relevant', together supporting the WCAG-compatible watermark/metadata requirement.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. For example, this may include adding text to a GenAI interface so that users are aware they are interacting with an AI system rather than a human.\"}\n      ],\n      \"reason\": \"Child 2 contains Criterion 24 and the GenAI interface text example.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/label, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. This includes: o including provenance and authorship information o encrypting watermarks for high-risk content o using an existing tool or technique when practicable o embedding watermarks at the AI training stage to improve their effectiveness and allows additional information such as content modification to be included o verifying that the watermark does not impact the quality or efficiency of content generation, such as image degradation or text readability o including data sources, such as publicly available content used for AI training to manage copyright risks, and product details such as versioning information.\"}\n      ],\n      \"reason\": \"Child 2 contains Criterion 25 and all listed sub-elements: provenance/authorship, encryption for high-risk content, existing tool/technique when practicable, training-stage embedding, quality/efficiency verification, and data sources/product/versioning details.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 3, \"quote\": \"Criterion 26: Assess watermarking risks and limitations. This includes: o ensuring users understand there is a risk of third parties replicating a visual watermark and to not over-rely on watermarks, such as sourcing content from external sources o preventing third-party use of watermarking algorithms to create their own content and act as the original content creator o consider situations where watermarking is not beneficial. For example, watermarking can be visually distracting for decision makers, or when it’s overused in low-risk applications o consider situations where malicious actors might remove or replicate the watermark to reproduce content generated by AI o managing copyright or trademark risks related to externally sourced data.\"}\n      ],\n      \"reason\": \"Child 3 contains Criterion 26 and all listed sub-elements: third-party replication/over-reliance, preventing third-party algorithm use, situations where watermarking is not beneficial, malicious removal/replication, and copyright/trademark risk management.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"Statement 8: Apply watermarking techniques Required • Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. • Criterion 23: Apply watermarks that are WCAG compatible where relevant. • Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. Recommended • Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. • Criterion 26: Assess watermarking risks and limitations.\"}\n      ],\n      \"reason\": \"Child 4 is the lifecycle summary listing Statement 8 criteria 22–24 as Required and criteria 25–26 as Recommended, corroborating the split.\"\n    },\n    {\n      \"id\": \"u10\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish any additional conditions, exceptions, or deadlines attaching specifically to criteria 25–26 beyond those quoted.\"\n    }\n  ]\n}",
+    "answer": "No. Under Statement 8, visual watermarks/metadata and AI-interaction disclosures are **Required**, while hidden-watermark tooling and watermark-risk assessment are **Recommended**. [4]\n\n**Required (Agencies must):**\n\n- Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship — applicable only where AI-generated content may directly impact a user (e.g., a generated team logo would not need watermarking) [1].\n\n- Criterion 23: Apply watermarks and metadata that are WCAG compatible where relevant . [1][2]\n\n- Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system (e.g., text in a GenAI interface) [2].\n\n**Recommended (Agencies should):**\n\n- Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk — including provenance/authorship information, encrypting watermarks for high-risk content, using an existing tool or technique when practicable, embedding watermarks at the AI training stage, verifying the watermark does not impact content generation quality or efficiency, and including data sources and product/versioning details [2].\n\nThis Required/Recommended split is corroborated by the lifecycle summary listing Statement 8's criteria 22–24 as Required and criteria 25–26 as Recommended [4].\n\n**Evidence gaps:** The available excerpts do not establish any additional conditions, exceptions, or deadlines attaching specifically to criteria 25–26 beyond those quoted.",
+    "removed_unit_ids": [
+      "u8"
+    ],
+    "rebound_unit_ids": [
+      "u1",
+      "u4"
+    ],
+    "binding_errors": {
+      "u8": "Evidence quote is not an exact Child span"
+    },
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Statement 8: Apply watermarking techniques Required • Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. • Criterion 23: Apply watermarks that are WCAG compatible where relevant. • Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. Recommended • Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. • Criterion 26: Assess watermarking risks and limitations."
+            }
+          ],
+          "reason": "Child 4's lifecycle summary lists Statement 8 criteria 22–24 (visual watermarks/metadata and AI-interaction disclosures) as Required and criteria 25–26 (hidden-watermark tooling and watermark-risk assessment) as Recommended, directly supporting the Required/Recommended split."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user. For instance, using AI to generate a team logo would not need to be watermarked."
+            }
+          ],
+          "reason": "Child 1 contains Criterion 22 with the required watermarking/metadata language, the direct-impact condition, and the team-logo example."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Criterion 23: Apply watermarks and metadata that are WCAG compatible where"
+            },
+            {
+              "number": 2,
+              "quote": "relevant"
+            }
+          ],
+          "reason": "Child 1 begins Criterion 23 and Child 2 supplies the continuation 'relevant', together supporting the WCAG-compatible watermark/metadata requirement."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. For example, this may include adding text to a GenAI interface so that users are aware they are interacting with an AI system rather than a human."
+            }
+          ],
+          "reason": "Child 2 contains Criterion 24 and the GenAI interface text example."
+        },
+        {
+          "id": "u6",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/label, not a policy assertion."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. This includes: o including provenance and authorship information o encrypting watermarks for high-risk content o using an existing tool or technique when practicable o embedding watermarks at the AI training stage to improve their effectiveness and allows additional information such as content modification to be included o verifying that the watermark does not impact the quality or efficiency of content generation, such as image degradation or text readability o including data sources, such as publicly available content used for AI training to manage copyright risks, and product details such as versioning information."
+            }
+          ],
+          "reason": "Child 2 contains Criterion 25 and all listed sub-elements: provenance/authorship, encryption for high-risk content, existing tool/technique when practicable, training-stage embedding, quality/efficiency verification, and data sources/product/versioning details."
+        },
+        {
+          "id": "u8",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Criterion 26: Assess watermarking risks and limitations. This includes: o ensuring users understand there is a risk of third parties replicating a visual watermark and to not over-rely on watermarks, such as sourcing content from external sources o preventing third-party use of watermarking algorithms to create their own content and act as the original content creator o consider situations where watermarking is not beneficial. For example, watermarking can be visually distracting for decision makers, or when it’s overused in low-risk applications o consider situations where malicious actors might remove or replicate the watermark to reproduce content generated by AI o managing copyright or trademark risks related to externally sourced data."
+            }
+          ],
+          "reason": "Child 3 contains Criterion 26 and all listed sub-elements: third-party replication/over-reliance, preventing third-party algorithm use, situations where watermarking is not beneficial, malicious removal/replication, and copyright/trademark risk management."
+        },
+        {
+          "id": "u9",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Statement 8: Apply watermarking techniques Required • Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. • Criterion 23: Apply watermarks that are WCAG compatible where relevant. • Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. Recommended • Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. • Criterion 26: Assess watermarking risks and limitations."
+            }
+          ],
+          "reason": "Child 4 is the lifecycle summary listing Statement 8 criteria 22–24 as Required and criteria 25–26 as Recommended, corroborating the split."
+        },
+        {
+          "id": "u10",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish any additional conditions, exceptions, or deadlines attaching specifically to criteria 25–26 beyond those quoted."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "120cdfa5-b097-46ce-88e5-b7e1e1deeb7a",
+      "section_id": "04cb8ca8-fbef-5e18-a0ac-971676cddd00",
+      "section_title": "Statement 8: Apply watermarking techniques",
+      "title": "Australian Government AI Technical Standard",
+      "page": 43,
+      "page_end": 43,
+      "quote": "Statement 8: Apply watermarking techniques AI watermarking can be used to embed visual or hidden markers into generated content, so that its creation details can be identified. It provides transparency, authenticity, and trust to content consumers. Visual watermarks or disclosures provide a simple way for someone to know they are viewing content created by, or interacting with, an AI system. This may include generated media content or GenAI systems. The Coalition for Content Provenance and Authenticity (C2PA) | c2pa.org is developing an open technical standard for publishers, creators, and consumers to establish the origin and edits of digital content. Advice on the use of C2PA is out of scope for the standard. Agencies must:\n\nCriterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. This will only apply where AI generated content may directly impact a user. For instance, using AI to generate a team logo would not need to be watermarked. Criterion 23: Apply watermarks and metadata that are WCAG compatible where\n\nrelevant"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "a95e23ad-4119-4562-b8c7-1867540dab4a",
+      "section_id": "04cb8ca8-fbef-5e18-a0ac-971676cddd00",
+      "section_title": "relevant",
+      "title": "Australian Government AI Technical Standard",
+      "page": 43,
+      "page_end": 44,
+      "quote": "relevant\n\nCriterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. For example, this may include adding text to a GenAI interface so that users are aware they are interacting with an AI system rather than a human. Agencies should: Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. This includes: o including provenance and authorship information o encrypting watermarks for high-risk content o using an existing tool or technique when practicable o embedding watermarks at the AI training stage to improve their effectiveness and allows additional information such as content modification to be included o verifying that the watermark does not impact the quality or efficiency of content generation, such as image degradation or text readability o including data sources, such as publicly available content used for AI training to manage copyright risks, and product details such as versioning information. Criterion 26: Assess watermarking risks and limitations."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "87452a19-8a9e-4a1c-b21d-7b1e60c954fe",
+      "section_id": "04cb8ca8-fbef-5e18-a0ac-971676cddd00",
+      "section_title": "relevant",
+      "title": "Australian Government AI Technical Standard",
+      "page": 44,
+      "page_end": 44,
+      "quote": "Criterion 26: Assess watermarking risks and limitations.\n\nThis includes: o ensuring users understand there is a risk of third parties replicating a visual watermark and to not over-rely on watermarks, such as sourcing content from external sources o preventing third-party use of watermarking algorithms to create their own content and act as the original content creator o consider situations where watermarking is not beneficial. For example, watermarking can be visually distracting for decision makers, or when it’s overused in low-risk applications o consider situations where malicious actors might remove or replicate the watermark to reproduce content generated by AI o managing copyright or trademark risks related to externally sourced data."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "7c944960-40e4-43cd-8182-98e5b97a1687",
+      "section_id": "1aa97e8e-023d-5d5d-af1f-af47a748d5b5",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 15,
+      "page_end": 16,
+      "quote": "Recommended • Criterion 13: Explain outputs made by the AI system to end users. • Criterion 14: Explain how data is used and shared by the AI system.\n\nStatement 6: Manage system bias Required • Criterion 15: Identify how bias could affect people, processes, data, and technologies involved in the AI system lifecycle. • Criterion 16: Assess the impact of bias on your use case. • Criterion 17: Manage identified bias across the AI system lifecycle.\n\nStatement 7: Apply version control practices Required • Criterion 18: Apply version management practices to the end-to-end development lifecycle. Recommended • Criterion 19: Use metadata in version control to distinguish between production and non-production data, models, and code. • Criterion 20: Use a version control toolset to improve useability for users. • Criterion 21: Record version control information in audit logs.\n\nStatement 8: Apply watermarking techniques Required • Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship. • Criterion 23: Apply watermarks that are WCAG compatible where relevant. • Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system. Recommended • Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk. • Criterion 26: Assess watermarking risks and limitations."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "90003987-ae76-4213-a13c-2f60acd7ef01",
+      "section_id": "ee321f99-785b-5497-850b-4ce1384e16d0",
+      "section_title": "Statement 10: Adopt a human-centred approach",
+      "title": "Australian Government AI Technical Standard",
+      "page": 48,
+      "page_end": 48,
+      "quote": "Statement 10: Adopt a human-centred approach Agencies must: Criterion 32: Identify human values requirements. Human values represent what people deem important in life such as autonomy, simplicity, tradition, achievement, and social recognition. Refer to human value requirements for AI systems paper. This includes: o using traditional requirement elicitation techniques such as surveys, interviews, group discussions and workshops to capture relevant human values for the AI use case o translating human values into technical requirements, which may vary depending on the risk level and AI use case o reviewing feedback to identify ignored human-values in the AI system o understanding the hierarchy of human values and emphasising those with higher relevance o considering social, economic, political, ethical, and legal values when designing AI systems o considering human values that are domain specific and based on the context of the AI system. Criterion 33: Establish a mechanism to inform users of AI interactions and output, as part of transparency.\n\nDepending on use case this may include: o incorporating visual cues on the AI product when applicable o informing users when text, audio or visual messages addressed to them are generated by AI o including visual watermarks to identify content generated by AI o providing transparency on whether a user is interacting with a person, or system o including a disclaimer on the limitations of the system o displaying the relevance and currency of the information being provided o persona level transparency adhering to need-to-know principles"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ecc34f09-3a4d-4d8e-aea9-27fe853f22a7",
+      "section_id": "a91df602-7a5b-57f3-afc7-fb908ad6bd41",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 28,
+      "page_end": 28,
+      "quote": "Whole of AI lifecycle Whole of AI lifecycle includes statements that apply across multiple AI product lifecycle stages, for ease of use and to minimise content duplication. Across the lifecycle stages, agencies should consider: • operational model – to ensure compliance, efficiency, and ethical standards • reference architecture – to provide structured frameworks that guide the design, development, and management of AI systems • people capabilities – having the specialised skills required for successful implementation • auditability – enabling external scrutiny, supporting transparency, and accountability • explainability – identifying what needs to be explained and when, making complex AI processes transparent and trustworthy • system bias – maintaining the role of positive bias in delivering meaningful outcomes, while mitigating the source and impacts of problematic bias • version control – tracking and managing changes to information to inform stakeholder decision-making • watermarking – to embed visual or hidden markers into generated content so that its creation details can be identified. NOTE: Agencies must consider intellectual property rights and ownership derived from procured services or datasets used (including general AI outputs) to comply with copyright law | ag.gov.au. NOTE: Management of bias in an AI system is critical to ensuring compliance with Australia’s anti-discrimination law | ag.gov.au."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "e6a4c3ef-b5ec-48be-9490-0c09f318a352",
+      "section_id": "bc3953f0-c661-56af-af75-d5b4ce6b1fa5",
+      "section_title": "Statement 7: Apply version control practices",
+      "title": "Australian Government AI Technical Standard",
+      "page": 42,
+      "page_end": 42,
+      "quote": "This does not apply to: o third-party software products, which are subject to existing controls. Agencies should:\n\nCriterion 19: Use metadata in version control to distinguish between production and non-production data, models, and code. This includes: o a simple and transparent way for all users of the system to understand the version of each component at the time a decision was made o the use of tags in the version number to provide a visual representation of non- production versions without needing direct access to data or source control toolsets o the use of metadata can also distinguish between different control states where outputs can vary, and core system functionality of the system has not changed. Criterion 20: Use a version control toolset to improve useability for users. Version toolsets improve the usability for service delivery and business users, addressing activities such as appeals, Ministerial correspondence, executive briefs, court cases, audit, assurance, privacy, and legislative reviews. This includes: o using purpose built in-house or commercial version management products o storing sufficient information to allow rollback to a previous system state o considering archival requirements of training data used in a test environment."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "2e03b7d3-f88d-4166-917c-c153558d0325",
+      "section_id": "ac555b14-3c95-5bc8-ba22-f255d5dacf19",
+      "section_title": "Statement 3: Identify and build people capabilities",
+      "title": "Australian Government AI Technical Standard",
+      "page": 33,
+      "page_end": 34,
+      "quote": "delines, mitigating risks associated with AI systems o Domain experts: Individuals with specialised knowledge in specific fields, such as healthcare or finance, who provide context and insights to ensure that AI systems are relevant and effective within their respective domain.\n\nCriterion 7: Build and maintain AI capabilities by undertaking regular training and education of end users, staff, and stakeholders. This may involve: o agencies should provide regular training programs keep staff updated on the latest tools, methodologies, ethical guidelines and regulatory requirements o consider how to tailor training to the knowledge requirements of each role and provide staff involved in procurement, design, development, testing, and deployment of AI systems with specialised training. For example, individuals responsible for managing and operating AI decision-making systems should undergo specific AI ethics training o consider tailoring training for people with disability o consider interactive workshops, simulations, case study walk-throughs and computing sandpit environments to provide more immersive and real-world-like experiences especially for more complex aspects of AI. Agencies should: Criterion 8: Mitigate staff over-reliance, under-reliance, and aversion of AI. This may involve: o perform periodic technology-specific training, performance assessments, peer reviews, or random audits o implement a regular feedback loop for incorrect AI outcomes."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答正确指出 Statement 8 中视觉水印/元数据为 Required，而隐藏水印工具与风险评估为 Recommended，并完整覆盖四个必需点，引用与证据一致。",
+      "claims": [
+        {
+          "answer_span": "No. Under Statement 8, visual watermarks/metadata and AI-interaction disclosures are **Required**, while hidden-watermark tooling and watermark-risk assessment are **Recommended**. [4]",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "证据[4]的生命周期摘要明确列出 Statement 8 的 Criterion 22–24 为 Required，Criterion 25–26 为 Recommended。"
+        },
+        {
+          "answer_span": "Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship — applicable only where AI-generated content may directly impact a user (e.g., a generated team logo would not need watermarking) [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文包含 Criterion 22 及其适用范围限定和团队 logo 示例。"
+        },
+        {
+          "answer_span": "Criterion 23: Apply watermarks and metadata that are WCAG compatible where relevant . [1][2]",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            2
+          ],
+          "reason_zh": "证据[1]末尾和证据[2]开头均包含 Criterion 23 的 WCAG 兼容要求。"
+        },
+        {
+          "answer_span": "Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system (e.g., text in a GenAI interface) [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "证据[2]原文包含 Criterion 24 及 GenAI 界面文本示例。"
+        },
+        {
+          "answer_span": "Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk — including provenance/authorship information, encrypting watermarks for high-risk content, using an existing tool or technique when practicable, embedding watermarks at the AI training stage, verifying the watermark does not impact content generation quality or efficiency, and including data sources and product/versioning details [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "证据[2]完整列出 Criterion 25 及其各项子要求，与回答一致。"
+        },
+        {
+          "answer_span": "This Required/Recommended split is corroborated by the lifecycle summary listing Statement 8's criteria 22–24 as Required and criteria 25–26 as Recommended [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "证据[4]明确将 Criterion 22–24 列于 Required 下，Criterion 25–26 列于 Recommended 下。"
+        },
+        {
+          "answer_span": "The available excerpts do not establish any additional conditions, exceptions, or deadlines attaching specifically to criteria 25–26 beyond those quoted.",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "reason_zh": "所引证据中未出现针对 Criterion 25–26 的额外条件、例外或截止期限，该限定性表述诚实且与证据范围一致。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答正确指出 Statement 8 中视觉水印/元数据为 Required，而隐藏水印工具与风险评估为 Recommended，并完整覆盖四个必需点，引用与证据一致。\", \"claims\":[{\"answer_span\":\"No. Under Statement 8, visual watermarks/metadata and AI-interaction disclosures are **Required**, while hidden-watermark tooling and watermark-risk assessment are **Recommended**. [4]\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"证据[4]的生命周期摘要明确列出 Statement 8 的 Criterion 22–24 为 Required，Criterion 25–26 为 Recommended。\"},{\"answer_span\":\"Criterion 22: Apply visual watermarks and metadata to generated media content to provide transparency and provenance, including authorship — applicable only where AI-generated content may directly impact a user (e.g., a generated team logo would not need watermarking) [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文包含 Criterion 22 及其适用范围限定和团队 logo 示例。\"},{\"answer_span\":\"Criterion 23: Apply watermarks and metadata that are WCAG compatible where relevant . [1][2]\",\"label\":\"supported\",\"citation_numbers\":[1,2],\"reason_zh\":\"证据[1]末尾和证据[2]开头均包含 Criterion 23 的 WCAG 兼容要求。\"},{\"answer_span\":\"Criterion 24: Apply visual and accessible content to indicate when a user is interacting with an AI system (e.g., text in a GenAI interface) [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"证据[2]原文包含 Criterion 24 及 GenAI 界面文本示例。\"},{\"answer_span\":\"Criterion 25: For hidden watermarks, use watermarking tools based on the use case and content risk — including provenance/authorship information, encrypting watermarks for high-risk content, using an existing tool or technique when practicable, embedding watermarks at the AI training stage, verifying the watermark does not impact content generation quality or efficiency, and including data sources and product/versioning details [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"证据[2]完整列出 Criterion 25 及其各项子要求，与回答一致。\"},{\"answer_span\":\"This Required/Recommended split is corroborated by the lifecycle summary listing Statement 8's criteria 22–24 as Required and criteria 25–26 as Recommended [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"证据[4]明确将 Criterion 22–24 列于 Required 下，Criterion 25–26 列于 Recommended 下。\"},{\"answer_span\":\"The available excerpts do not establish any additional conditions, exceptions, or deadlines attaching specifically to criteria 25–26 beyond those quoted.\",\"label\":\"supported\",\"citation_numbers\":[1,2,3,4],\"reason_zh\":\"所引证据中未出现针对 Criterion 25–26 的额外条件、例外或截止期限，该限定性表述诚实且与证据范围一致。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

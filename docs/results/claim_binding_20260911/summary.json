@@ -1,0 +1,280 @@
+{
+  "counts": {
+    "drafts": 50,
+    "final_answers": 48,
+    "audit_reviewed": 43,
+    "audit_needs_adjudication": 4,
+    "audit_error": 1,
+    "audit_no_reviewable_answer": 2
+  },
+  "structurally_valid_model_verdicts": {
+    "pass_complete": 36,
+    "needs_revision": 2,
+    "pass_partial": 5
+  },
+  "structurally_valid_model_claim_labels": {
+    "supported": 254,
+    "not_verifiable": 6,
+    "partial": 6,
+    "contradicted": 1
+  },
+  "warning": "Model candidate counts, not certified accuracy or faithfulness; see adjudication notes.",
+  "model": "deepseek/deepseek-v4-flash",
+  "retrieval_calls": 0,
+  "database_snapshot": "not_checked",
+  "generation_and_binding_calls": 100,
+  "independent_judge_attempts": 48,
+  "human_signoff": false,
+  "entries": [
+    {
+      "id": "DEV-AU01",
+      "sha256": "d7a3f4490481513957353984c5fdbc560a279f2aa14ae2a89d9294831f100fa8",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-AU02",
+      "sha256": "288b12c795217e0531a9e16d0c44cb61ad86232875cc72b0307936a1b71f9cef",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-AU03",
+      "sha256": "a4b8790dcfa4aa1bbac249e1d2cf84d75d4c82aaae4899b7c1fae34d34a96c1a",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-AU04",
+      "sha256": "7f89c88efebc11a6a88a99e2d6bfe3d1c8c7bb611cb884d29df2c79b325611e8",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-AU05",
+      "sha256": "8931af424e15f2cf27be8d494cb777aa2bab487b237ba07935b78b8ff39bc31f",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-TR01",
+      "sha256": "267debee39c233949a047eb7769a036ebad51b0cb4bac2e5f3cef247b42f50df",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-TS01",
+      "sha256": "6227c83c29952285c5a8a78f540f2a92d06c733bbc8c252c91e66badf0d7fc8a",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-TS02",
+      "sha256": "2d0c7a04dd8c2234844987bcf95330d1064fe7d6a0f35decfe7873b60f340765",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-TECH01",
+      "sha256": "eed3134a52011ab49ab1e712b44ba5db0f531d4406569dbb6455fa390a6a15e7",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-TECH02",
+      "sha256": "77e3cd9289fe41278b01dd829c6ceae61a181ec0bdd8ff4eb7eb0af1b1466ccf",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-SG01",
+      "sha256": "d64b70f3beb5d422b72007d01b1a80752722061ca54d9befcb2a456c0cb91de7",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-SG02",
+      "sha256": "9b13d6cd834c9d85e8d947f1121441a37bc33f35f9321a5f45bb4a3502904679",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV-SG03",
+      "sha256": "e5722f2e9eb76ae827ef172ec3e90652bdc13b83bab7b0e9c14a1b09ce1e1fb8",
+      "audit_status": "needs_adjudication"
+    },
+    {
+      "id": "DEV2-MC01",
+      "sha256": "4763523cb61a503c5dfa2099805e8a27b9cf7bb29a5f3089107683edca86205c",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MC02",
+      "sha256": "0f50c18b80a2b2a62bc77ecc019dd4436895296b8d0bd0e3bfa8482bf97e44eb",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MC03",
+      "sha256": "bb1b92a890ae8d30a19e6fa52a987d4e7b2fff9abc8db9d4475e49cc924aeaf6",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MC04",
+      "sha256": "15463a119d2420389a48ba606cd4293e95fee582e09bd80175576d3cae656b8a",
+      "audit_status": "needs_adjudication"
+    },
+    {
+      "id": "DEV2-MC05",
+      "sha256": "dc70626181b9694c4a2b7a115275d9225fff191f5e7f13652fb3cfb5d7c6713a",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MC06",
+      "sha256": "fdfc29bd9bd741c457aca7133dbc04fd81bbca636c5180d3d57019585ad375d7",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MC07",
+      "sha256": "70b3e4b5310efa1e955ab06d89b60079465422923c6cf6dac37eb608eacc536b",
+      "audit_status": "error"
+    },
+    {
+      "id": "DEV2-MC08",
+      "sha256": "0a0cef03726a4341ab10d8430d663f791d064cff54fde7459ff7f72385226acf",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MC09",
+      "sha256": "7cd401c02c4e3ef736b6d12d7b60fceb52bf73cc364944966d984e2fbb1dbf3c",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MC10",
+      "sha256": "11251dee64248631af3037bf1d3ccff5276c62de2ba57bc692bdc1c8a09baaaf",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-CS01",
+      "sha256": "d05db066738eef279b606ed46d4dd09435401fce566a242eb64298b8b11b5af8",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-CS02",
+      "sha256": "68093666ebbf8de84da1bbd63cf6a6e12b85e94c0a7a1e3db7ea3305426ba28f",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-CS03",
+      "sha256": "03f8d97ccc5cf4146790797563663d233bab9757b88923ac9a26a887e8418ad1",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-CS04",
+      "sha256": "09e85c337793656210546b70517f97bab5a8de63a51fd61db840a9bbfb1c0908",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-CS05",
+      "sha256": "e88e9460d0c60e0285f60c69b8bf54f2fc8c1177fb0c3a4d060c5109a40fa458",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-CS06",
+      "sha256": "cbada1c8630191b0c6448b518173f40069f17366dc716d3de86d0f4a5c873a1f",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-CS07",
+      "sha256": "113bf4a1ed858d7736f1c7246c43d2c1934ad8f2d76f289ed52a995b05ed9c15",
+      "audit_status": "needs_adjudication"
+    },
+    {
+      "id": "DEV2-CS08",
+      "sha256": "acbeb013674e19be04626e35b71f1fa0f3a1590ff9fec86d1319308f89104d23",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-EX01",
+      "sha256": "041c08eef9a5c5c38aff8de0f19c375db7953c43fef9039c85295685e5410860",
+      "audit_status": "no_reviewable_answer"
+    },
+    {
+      "id": "DEV2-EX02",
+      "sha256": "ec7a91c2d8ff35a83d6d2c8882d0af62807b68fc70b70a25a7ebb02aad98fbb2",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-EX03",
+      "sha256": "2c31366f940e09ffe3fe99cbd64694204229cb562a37aa5c754eb8aef25b38cc",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-EX04",
+      "sha256": "9c1e0640d5d204b6449a7c5dbfa9020d3a6db832bf3d8a3eb089ca6b1dfdb978",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-EX05",
+      "sha256": "66a30bdcde3e6dc06916e0f535b386af614ecec6f250e1e6865a2336ad88a667",
+      "audit_status": "no_reviewable_answer"
+    },
+    {
+      "id": "DEV2-EX06",
+      "sha256": "234c79395ca4ae44590ea5dcf9e9a460313d6d4758d00458bb4a16395c0b4e34",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-EX07",
+      "sha256": "ce37fc908cd7e862f31c4b66f7a989393a8d5934a589191e0eb44e3786c04045",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MO01",
+      "sha256": "4c6b55fe35e9ad8095c2cdf05935b659e7ff64ee675caf69e6bee6e8270f328f",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MO02",
+      "sha256": "09666b5db8e3a21b845f43acf97fc74d3a4d5eee0f44457cc02e78503cddc217",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MO03",
+      "sha256": "8915cc0a0d174a5a419207386cff1201f04ce85882209428cb2657f600f57f7c",
+      "audit_status": "needs_adjudication"
+    },
+    {
+      "id": "DEV2-MO04",
+      "sha256": "c85fcbf1caa086e43425aba744bb65f91ac542f1a6113258b034920506cefb59",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MO05",
+      "sha256": "5f2fc27aa32b0b1460637307680cad2f94785524bddaccda62f38dc3b93563d2",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-MO06",
+      "sha256": "e06db5d5d9d92b92c1f44b5843218ed4880a2ac74c8fe67bd222a9248b5082c5",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-UN01",
+      "sha256": "9a1894c1c88c6d14175ffc2d90db041337e952fbb628637e0cad18f12c597547",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-UN02",
+      "sha256": "c165c13fbb11ecacbd42383ce446bcff51281d66f05fdf5264751528f623d77a",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-UN03",
+      "sha256": "de3fb3b0118f36985471f9df5f80cb5a31c1c47cfeea6e55223cfeb28d425b89",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-UN04",
+      "sha256": "f5f5778028c811aee19ec4b6550675b50ba379f5a2bbef014396c382866266e9",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-UN05",
+      "sha256": "059b14b5ff240b5ef36dbe5ab580dfc65615495032b61cfb619bf1bd1c276a4d",
+      "audit_status": "reviewed"
+    },
+    {
+      "id": "DEV2-UN06",
+      "sha256": "76ee2ef3929c4a050fb058fc41878db9f284b595bacb581a07c0963ebecb8ac4",
+      "audit_status": "reviewed"
+    }
+  ]
+}

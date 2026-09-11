@@ -1,0 +1,165 @@
+{
+  "question_id": "DEV-SG01",
+  "question": "Which protocols does the framework name for agent-to-tool and agent-to-agent communication?",
+  "inputs_sha256": "7af2eb6910dc2090cfeb650a9e48c313246bb2702c3ce04e2986631d9746aba1",
+  "messages_sha256": "20c34637c77ca5b1c75d8785ea6831a8591248fda71a066c13e21407391bc16f",
+  "raw_artifact_sha256": "81ab27c6a78d78f2814b8d654f4ca6b6e1a63685d2cf5306326d323b431a2737",
+  "final_artifact_sha256": "25feb9c7858102661daa159a7e2152a7a96d6b2b3718deee84d88e176237b3b0",
+  "draft": "The framework names two protocols for agent communication: the Model Context Protocol (MCP), which has been developed for agents to communicate with tools, and the Agent2Agent Protocol (A2A), which defines a standard for agents to communicate with each other [1]. It notes that this is a fast-developing space and that more protocols are being developed to standardise agent interactions, especially in agentic commerce [1].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "The framework names two protocols for agent communication: the Model Context Protocol (MCP), which has been developed for agents to communicate with tools, and the Agent2Agent Protocol (A2A), which defines a standard for agents to communicate with each other [1]. It notes that this is a fast-developing space and that more protocols are being developed to standardise agent interactions, especially in agentic commerce [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\"units\":[{\"id\":\"u1\",\"status\":\"supported\",\"bindings\":[{\"number\":1,\"quote\":\"the Model Context Protocol (MCP) has been developed for agents to communicate with tools, whereas the Agent2Agent Protocol (A2A) defines a standard for agents to communicate with each other\"},{\"number\":1,\"quote\":\"This is a fast -developing space and more protocols are being developed to standardise agent interactions, especially in agentic commerce\"}],\"reason\":\"Child 1 names MCP for agent-to-tool communication and A2A for agent-to-agent communication, and states the space is fast-developing with more protocols being developed to standardise agent interactions, especially in agentic commerce. All clauses of the unit are supported by the cited Child.\"}]}",
+    "answer": "The framework names two protocols for agent communication: the Model Context Protocol (MCP), which has been developed for agents to communicate with tools, and the Agent2Agent Protocol (A2A), which defines a standard for agents to communicate with each other [1]. It notes that this is a fast-developing space and that more protocols are being developed to standardise agent interactions, especially in agentic commerce [1].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "the Model Context Protocol (MCP) has been developed for agents to communicate with tools, whereas the Agent2Agent Protocol (A2A) defines a standard for agents to communicate with each other"
+            },
+            {
+              "number": 1,
+              "quote": "This is a fast -developing space and more protocols are being developed to standardise agent interactions, especially in agentic commerce"
+            }
+          ],
+          "reason": "Child 1 names MCP for agent-to-tool communication and A2A for agent-to-agent communication, and states the space is fast-developing with more protocols being developed to standardise agent interactions, especially in agentic commerce. All clauses of the unit are supported by the cited Child."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "8fdab0f1-5487-403f-8cec-2c8ad882508a",
+      "section_id": "ad01ed37-b61d-5db6-b897-f3300c6c16bd",
+      "section_title": "1.1.1 Core components of an agent",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 7,
+      "page_end": 7,
+      "quote": "2. Instructions: Natural language commands that define an agent's role, capabilities, and behavioural constraints e.g. a system prompt for an LLM.\n\n3. Memory: Information that is stored and accessible to the LLM, either in short or long-term storage. Sometimes added to allow the model to obtain information from previous user interactions or external knowledge sources.\n\nIn addition, an agent has other components that enable it to complete more complex tasks:\n\n4. Planning and reasoning: The model is usually trained to reason and plan, meaning that it can output a series of steps needed for a task.\n\n5. Tools: Tools enable the agent to take actions and interact with other systems, such as writing to files and databases, controlling devices, or performing transactions. The model calls tools to complete a task. Agents themselves can also be called as tools, e.g. one supervisor agent invokes another specialist agent for a certain task.\n\n6. Protocols: Standardised ways for agents to communicate with tools and other agents. For example, the Model Context Protocol (MCP) has been developed for agents to communicate with tools, whereas the Agent2Agent Protocol (A2A) defines a standard for agents to communicate with each other.4 This is a fast -developing space and more protocols are being developed to standardise agent interactions, especially in agentic commerce.5\n\nApart from these enabling components, an agent usually also has components for safe and reliable\n\nperformance:6"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "1d1a0fcf-6874-408e-9e83-f8a6ef3d32e8",
+      "section_id": "ad01ed37-b61d-5db6-b897-f3300c6c16bd",
+      "section_title": "1.1.1 Core components of an agent",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 7,
+      "page_end": 7,
+      "quote": "Apart from these enabling components, an agent usually also has components for safe and reliable\n\nperformance:6\n\n7. Controls: Controls limit the agent’s action -space and autonomy. While there are many types of controls, the ones most relevant to agents are: a. Access controls: These limit what an agent is allowed to see, use or change, including restricting access to sensitive data, tools and systems. b. Guardrails: Guardrails monitor and constrain an agent’s behaviour before, during or after it acts. It can help detect unsafe instructions, policy violations, or actions that appear inconsistent with user intent. c. Human approvals: Requirements for a human to review or approve agent actions.\n\n8.\n\nLog\n\nging\n\nand monitoring\n\n: R ecords agent actions, decisions, and interactions across all components to enable monitoring, debugging, and accountability.\n\n4 See Anthropic, Model Context Protocol and Google, Agent2Agent Protocol."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "99e58e28-70ff-4f4b-b1db-ea6548453de8",
+      "section_id": "59b54976-cc20-57de-9025-52d9a9bdbe0e",
+      "section_title": "8  For examples, see AWS, Inside AWS Security Agent: A multi -agent architecture for automated penetration",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 10,
+      "page_end": 10,
+      "quote": "Illustration of differing action-spaces and autonomy for a software engineering agent\n\n1.2 Risks of Agentic AI\n\n1.2.1 Sources of risk\n\nThe new components of an agent constitute new sources of risks.12 The risks themselves are familiar – fundamentally, agents are software systems built on LLMs. They inherit traditional software vulnerabilities (such as SQL injection) and LLM -specific risks (such as hallucination, bias, data leakage and adversarial prompt injections).13\n\nHowever, the risks can manifest differently through the different components. For example:\n\n• Planning and reasoning: An agent can, due to hallucination or semantic misalignment (incorrect interpretation of the user’s intent ), create a plan that cannot achieve the requested task , or that contradicts the user’s intent, or drifts from an earlier plan.\n\n• Tools: An agent can hallucinate and call non-existent tools, make errors by calling the wrong tools, calling the right tools with the wrong input , or call tools in a biased manner. As tools connect the agent to external systems, prompt or code injections can also manipulate the agent to exfiltrate or otherwise manipulate the data it has access to.\n\n• Protocols: As new protocols emerge to handle agent communication, they can be poorly deployed or compromised e.g. deploying an untrusted MCP server that contains code to exfiltrate the user’s data."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "a0353bcf-2dfb-40fb-99a6-5fa08ac9a3b0",
+      "section_id": "a1aabfdf-e197-55fd-a5b9-49405d84d270",
+      "section_title": "ing",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 43,
+      "page_end": 43,
+      "quote": "ing\n\nOrganisations should continuously monitor and log agent behaviour post-deployment, and establish reporting and failsafe mechanisms for agent failures or unexpected behaviours . This allows the organisation to:\n\n• Intervene in real-time: When potential failures are detected, stop agent workflow and escalate to a human supervisor e.g. if agent attempts unauthorised access. • Debug when incidents happen: Logging and tracing each step of an agent workflow and agent-to- agent interactions help to identify points of failure. • Audit at regular intervals: This ensures that the system is performing as expected.\n\nMonitoring and observability are not new concepts, but agents introduce some challenges. As agents execute multiple actions at machine speed, organisations face the issue of extracting meaningful insights from the voluminous logs generated by monitoring systems. This becomes more difficult when high-risk anomalies are expected to be detected in real-time and surfaced as early as possible.\n\nWhile the first phase was ongoing, GovTech started to put in place the necessary controls and infrastructure to support broader agent capabilities in the second phase, such as central logging and monitoring, and trialing its 1st iteration of MCP Governance Framework – a path for developers to connect to whitelisted MCP servers from a containerized sandbox. Red teaming was conducted to validate the effectiveness of these guardrails against external threats."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "eefe7366-7561-48e5-ae5e-00b20ab0c012",
+      "section_id": "574ca00d-039a-5023-a0ef-0c762b821518",
+      "section_title": "When selecting suitable controls, consider the following:",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 34,
+      "page_end": 34,
+      "quote": "Runtime controls address this by monitoring and intervening during execution, such as rate limits to prevent excessive tool use or input validation to catch harmful responses before they are acted upon.\n\nFor illustration, these are some sample controls for agents. For a more comprehensive list, organisations can refer to CSA’s Draft Addendum on Securing Agentic AI and GovTech’s Agentic Risk and Capability Framework.\n\nPlanning • Prompt agent to reflect on whether its plan adheres to user instructions • Prompt the agent to summarise its understanding and request clarification from the user before proceeding • Log the agent’s plan and reasoning for the user to evaluate and verify Tools • Configure tools to require strict input formats • Apply the principle of least privilege to limit tools available to each agent, enforced through robust authentication and authorisation • For data-related tools: o Do not grant agent write access to tables in sensitive databases unless strictly required o Configure agent to let user take over control when keying in sensitive data (e.g. passwords, API keys) Protocols • Use standardised protocols where applicable (e.g. agentic commerce protocols when agent is handling a financial transaction) • For MCP servers: o Whitelist trusted servers and only allow agent to interact with servers on that whitelist o Sandbox any code execution"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "342fb03e-f030-487d-b666-0e9069adaf8c",
+      "section_id": "1cbfa088-cd86-5a89-b094-c8a198798a95",
+      "section_title": "4. Enable end-user responsibility",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 4,
+      "page_end": 5,
+      "quote": "4. Enable end-user responsibility\n\nTrustworthy deployment of agents does not rely solely on developers, but also on end- users using them responsibly. To enable responsible use, as a baseline, users should be informed of the agent’s range of actions, access to data, and the user’s own responsibilities. Organisations should consider layering on training to equip employees with the knowledge required to manage human-agent interactions and exercise effective oversight, while maintaining their tradecraft and foundational skills.\n\nThis is a living document. We have worked with government agencies and leading companies to collate current best practices and contribute real- world case studies, but this is a fast-developing space. This framework will need to be continuously updated to keep pace with new developments. We invite feedback to refine the framework, and more case studies demonstrating how the framework can be applied for responsible agentic deployment.\n\nWhat’s new in this version\n\nThis version incorporates feedback received from 60+ companies since v1.0. The main changes include:\n\nIntroduction to Agentic AI What is Agentic\n\nAI? • Agentic components: Added safety and reliability components (controls, logging and monitoring) as part of agent’s core components • Protocols: Updated for newer protocols, especially for agentic commerce Risks of Agentic AI • Systemic and multi-agent risks: Added systemic and multi-agent risks\n\nThe four dimensions • Case study from IMDA on how the framework can be applied to OpenClaw deployments"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "9474af10-10b2-4cfd-85ab-d73dd2df3967",
+      "section_id": "dda4e3d9-4719-5560-b3c8-8445a04b5c65",
+      "section_title": "5  See OpenAI, Agentic Commerce Protocol, Alipay, Agentic Mobile Protocol, and Google, Universal Commerce",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 7,
+      "page_end": 8,
+      "quote": "5 See OpenAI, Agentic Commerce Protocol, Alipay, Agentic Mobile Protocol, and Google, Universal Commerce Protocol. 6 More information on this can be found in 2.3 Implement technical controls and processes.\n\n| Introduction to Agentic AI 8\n\n1.1.2 Multi-agent setups\n\nIn an agentic system, it is common for multiple agents to be set up to work together. This allows each agent to specialise in a certain function or ta sk and/or work in parallel. Having multiple agents specialising in different tasks also means that each agent’s tools and permissions can be separately scoped and defined, compared to a single agent with access to many tools.\n\nThree simple design patterns for multi-agent systems are:7\n\n• Sequential: Agents work one after another in a linear or otherwise structured workflow e.g. a graph. Each agent’s output becomes the next agent’s input. • Supervisor: One supervising agent coordinates specialised agents under it, calling specific agents as tools when required. • Swarm: Agents work at the same time, handing off to another agent when needed.\n\nThere is no universally correct architecture for a multi-agent setup, and the task at hand can require different or hybrid patterns . 8 A well-defined task with a step -by-step workflow can lend itself to a sequential architecture, whereas a more open -ended task that requires brainstorming or pursuing different lines of inquiry may benefit from a swarm architecture."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "433168da-ce32-439c-81ac-df0c8aabfc9e",
+      "section_id": "de96fa13-c14a-5e84-ad39-8ab692857659",
+      "section_title": "Gradual deployment of agents",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 42,
+      "page_end": 42,
+      "quote": "Gradual deployment of agents\n\nOrganisations should consider gradually rolling out agents into production to control the amount of risk exposure. Such rollouts can be controlled based on:\n\n• Users of agents e.g. rolling out to trained or experienced users first • Tools and protocols available to agent e.g. restricting agents to more secure, whitelisted MCP servers first • Systems exposed to agent e.g. using agents in lower-risk internal systems first\n\nGovTech: Phased rollouts of coding assistants to incrementally monitor risks while preparing controls for new features\n\nThe Government Technology Agency of Singapore, or GovTech, is a statutory board in Singapore that develops digital government services and drives public sector transformation.\n\nIn Oct 2025, GovTech rolled out two agentic coding assistants within the organisation, namely Windsurf and GitHub Copilot (Agent Mode), before rolling out Claude Code in Apr 2026. After extensive tests on common vectors for failures and threats (such as agentic AI manipulation, hallucination, and compromise of MCP servers) and implementation of corresponding technical controls, GovTech adopted a phased approach for rolling out these agentic capabilities. This enabled it to empower development teams with enhanced productivity early, while monitoring risks and incrementally developing further controls for new AI features as the technology evolves."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案准确指出框架命名的两个协议：MCP用于智能体与工具通信，A2A用于智能体之间通信，并附有关于该领域快速发展的补充说明，均与引用的第7页证据一致，完整覆盖两个必需要点。",
+      "claims": [
+        {
+          "answer_span": "the Model Context Protocol (MCP), which has been developed for agents to communicate with tools",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文明确写明MCP是为智能体与工具通信而开发。"
+        },
+        {
+          "answer_span": "the Agent2Agent Protocol (A2A), which defines a standard for agents to communicate with each other",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文明确写明A2A定义了智能体之间通信的标准。"
+        },
+        {
+          "answer_span": "It notes that this is a fast-developing space and that more protocols are being developed to standardise agent interactions, especially in agentic commerce",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文包含该表述，属框架原文的补充说明。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案准确指出框架命名的两个协议：MCP用于智能体与工具通信，A2A用于智能体之间通信，并附有关于该领域快速发展的补充说明，均与引用的第7页证据一致，完整覆盖两个必需要点。\",\"claims\":[{\"answer_span\":\"the Model Context Protocol (MCP), which has been developed for agents to communicate with tools\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文明确写明MCP是为智能体与工具通信而开发。\"},{\"answer_span\":\"the Agent2Agent Protocol (A2A), which defines a standard for agents to communicate with each other\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文明确写明A2A定义了智能体之间通信的标准。\"},{\"answer_span\":\"It notes that this is a fast-developing space and that more protocols are being developed to standardise agent interactions, especially in agentic commerce\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文包含该表述，属框架原文的补充说明。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

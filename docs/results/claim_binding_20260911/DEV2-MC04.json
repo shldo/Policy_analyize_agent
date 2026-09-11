@@ -1,0 +1,443 @@
+{
+  "question_id": "DEV2-MC04",
+  "question": "How should an organisation assess an agent that accesses sensitive customer data, has high autonomy, and is supplied by an external vendor?",
+  "inputs_sha256": "0d199db1820734c1461e7d52a075b89e1cc2e785a60e4608ad29cf522e93ee7a",
+  "messages_sha256": "5d03d9e85670512e18f66783a63824f3bda4e298810c997e89cc44ea5b4251ab",
+  "raw_artifact_sha256": "847aaa6f49d00db68a42890ffec8fdc7c7b07a5d0639abe172ec9e62f0fee257",
+  "final_artifact_sha256": "573f901f4abb93e152e286bcd83dae64cf58a574aa687e645ea31dfa8b19aa5a",
+  "draft": "**Direct answer.** The excerpts support a three-part treatment: (a) risk assessment keyed to the agent's access to sensitive data and its level of autonomy; (b) bounding measures — least-privilege access, SOP-constrained autonomy, and impact-limiting mechanisms; and (c) third-party-specific measures — clarifying contractual allocation of obligations and addressing third-party opacity, including considering alternative or in-house solutions or scoping down the use case where technical security and control features are lacking.\n\n**1. Risk assessment dimensions**\n\nRisk from an agent's actions depends on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent's level of autonomy [1]. Agents bring new risks especially in their access to sensitive data and ability to change their environment through action-taking, and their adaptive, autonomous and multi-step nature increases the potential for unexpected actions, emergent risks and cascading impacts [4]. Organisations should consider these new dimensions through determining suitable use cases by considering agent-specific factors that affect the likelihood and impact of risk, and through design choices that bound risks upfront by applying limits on the agent's access to tools and systems and defining a robust identity and permissions framework [4].\n\nOn the sensitive-data dimension specifically: whether the agent can access sensitive data such as personal information or confidential data is a relevant factor, and if the agent has such access, the risk increases if the agent has persistent memory and can store sensitive data across sessions; an agent requiring access to personal customer data gives rise to the risk of leaking such data, versus an agent with access only to publicly available information [8].\n\n**2. Bounding measures**\n\nOrganisations should consider defining limits on the agent's access to tools and systems — least-privilege policies giving agents only the minimum tools and data access needed to complete the task, with structuring around functional boundaries acting as a natural constraint [7]. They should consider limits on the agent's autonomy — defining SOPs for agentic workflows that the agent is constrained to follow, rather than giving the agent freedom to define every step [7]. They should consider limits on the agent's area of impact — designing mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction, which can include running agents in self-contained environments with limited network and data access, particularly for high-risk tasks such as code execution [7].\n\nOrganisations could also limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems, and could ensure the agent's actions are traceable and controllable through measures such as identity management and access controls for agents [1].\n\n**3. External-vendor-specific measures**\n\nWhen using third-party solutions, organisations should consider to what extent their visibility and control over the agent is limited — contrasting an agent developed and maintained internally with full visibility against an agent provided by a third-party vendor with limited transparency into its operations and data processing [2].\n\nWhere organisations work with external parties when deploying agents, they should ensure measures are in place to fulfil their own accountability, with agent-specific considerations including: clarifying the distribution of obligations in terms and conditions or contracts with the external party, in particular provisions on security arrangements, performance guarantees, or data protection, and where there are gaps, reassessing whether the agentic deployment meets the organisation's risk tolerance [3]. They should also address third-party opacity — agents provided by external parties can be difficult to observe and control, making it challenging to understand what information they are grounded on, what they infer from conversations, or how data is stored and used — by taking steps to maintain sufficient security and control, such as requiring transparency and accountability from external parties (e.g. disclosures on agent capabilities and data handling practices) and requesting and evaluating technical security and control features (e.g. strong authentication measures such as scoped API keys, per-agent identity tokens, and observability such as logging of tool calls and access history); where such features are lacking, organisations should consider alternative or in-house solutions, or scoping down the agentic use case, such as restricting access to sensitive data [3].\n\n**Evidence gaps.** The excerpts do not establish a specific assessment methodology, scoring rubric, approval gate, or documentation requirement for this combination of attributes; nor do they specify a required contractual clause set, audit frequency, or deadline. The framework language above is largely \"should consider\" / \"could,\" and the excerpts do not establish that any particular measure is mandatory for this scenario.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**1. Risk assessment dimensions**\n\nRisk from an agent's actions depends on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent's level of autonomy [1]. Agents bring new risks especially in their access to sensitive data and ability to change their environment through action-taking, and their adaptive, autonomous and multi-step nature increases the potential for unexpected actions, emergent risks and cascading impacts [4]. Organisations should consider these new dimensions through determining suitable use cases by considering agent-specific factors that affect the likelihood and impact of risk, and through design choices that bound risks upfront by applying limits on the agent's access to tools and systems and defining a robust identity and permissions framework [4].\n\nOn the sensitive-data dimension specifically: whether the agent can access sensitive data such as personal information or confidential data is a relevant factor, and if the agent has such access, the risk increases if the agent has persistent memory and can store sensitive data across sessions; an agent requiring access to personal customer data gives rise to the risk of leaking such data, versus an agent with access only to publicly available information [8].\n\n**2. Bounding measures**\n\nOrganisations should consider defining limits on the agent's access to tools and systems — least-privilege policies giving agents only the minimum tools and data access needed to complete the task, with structuring around functional boundaries acting as a natural constraint [7]. They should consider limits on the agent's autonomy — defining SOPs for agentic workflows that the agent is constrained to follow, rather than giving the agent freedom to define every step [7]. They should consider limits on the agent's area of impact — designing mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction, which can include running agents in self-contained environments with limited network and data access, particularly for high-risk tasks such as code execution [7].\n\nOrganisations could also limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems, and could ensure the agent's actions are traceable and controllable through measures such as identity management and access controls for agents [1].\n\n**3. External-vendor-specific measures**\n\nWhen using third-party solutions, organisations should consider to what extent their visibility and control over the agent is limited — contrasting an agent developed and maintained internally with full visibility against an agent provided by a third-party vendor with limited transparency into its operations and data processing [2].\n\nWhere organisations work with external parties when deploying agents, they should ensure measures are in place to fulfil their own accountability, with agent-specific considerations including: clarifying the distribution of obligations in terms and conditions or contracts with the external party, in particular provisions on security arrangements, performance guarantees, or data protection, and where there are gaps, reassessing whether the agentic deployment meets the organisation's risk tolerance [3]. They should also address third-party opacity — agents provided by external parties can be difficult to observe and control, making it challenging to understand what information they are grounded on, what they infer from conversations, or how data is stored and used — by taking steps to maintain sufficient security and control, such as requiring transparency and accountability from external parties (e.g. disclosures on agent capabilities and data handling practices) and requesting and evaluating technical security and control features (e.g. strong authentication measures such as scoped API keys, per-agent identity tokens, and observability such as logging of tool calls and access history); where such features are lacking, organisations should consider alternative or in-house solutions, or scoping down the agentic use case, such as restricting access to sensitive data [3].\n\n**Evidence gaps.** The excerpts do not establish a specific assessment methodology, scoring rubric, approval gate, or documentation requirement for this combination of attributes; nor do they specify a required contractual clause set, audit frequency, or deadline. The framework language above is largely \"should consider\" / \"could,\" and the excerpts do not establish that any particular measure is mandatory for this scenario.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"understanding the risks posed by the agent’s actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent’s level of autonomy\"},\n        {\"number\": 4, \"quote\": \"Agents bring new risks, especially in their access to sensitive data and ability to change their environment through action-taking.\"},\n        {\"number\": 7, \"quote\": \"Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task.\"},\n        {\"number\": 7, \"quote\": \"Define similar SOPs for agentic workflows that an agent is constrained to follow\"},\n        {\"number\": 7, \"quote\": \"Design mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction.\"},\n        {\"number\": 3, \"quote\": \"Clarify distribution of obligations in any terms and conditions or contracts between the organisation and the external party.\"},\n        {\"number\": 3, \"quote\": \"Address third-party opacity: Agents provided by external parties can be difficult to observe and control\"},\n        {\"number\": 3, \"quote\": \"Where such features are lacking, organisations should consider alternative or in -house solutions, or scoping down the agentic use case, such as restricting access to sensitive data.\"}\n      ],\n      \"reason\": \"The three-part treatment is largely supported by the excerpts, but the unit's phrase 'impact-limiting mechanisms' is not verbatim and the excerpts do not use that exact term; the underlying concept is supported by Child 7's area-of-impact limits, so the unit is partial rather than fully supported.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading only, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"understanding the risks posed by the agent’s actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent’s level of autonomy\"},\n        {\"number\": 4, \"quote\": \"Agents bring new risks, especially in their access to sensitive data and ability to change their environment through action-taking.\"},\n        {\"number\": 4, \"quote\": \"Their adaptive, autonomous and multi -step nature also increases the potential for unexpected actions, emergent risks and cas cading impacts.\"},\n        {\"number\": 4, \"quote\": \"Determining suitable use cases for agent deployment by considering agent-specific factors that can affect the likelihood and impact of the risk.\"},\n        {\"number\": 4, \"quote\": \"Design choices to bound the risks upfront by applying limits on agent’s access to tools and systems and defining a robust identity and permissions framework.\"}\n      ],\n      \"reason\": \"All clauses are supported by Children 1 and 4, including the risk factors, sensitive-data/action-taking risks, adaptive/autonomous/multi-step nature, use-case determination, and upfront bounding through access limits and identity/permissions framework.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 8, \"quote\": \"Whether the agent can access sensitive data, such as personal information or confidential data.\"},\n        {\"number\": 8, \"quote\": \"If agent has such access, the risk increases if the agent has persistent memory and can store sensitive data across sessions.\"},\n        {\"number\": 8, \"quote\": \"Agent that requires access to personal customer data gives rise to the risk of leaking such data, vs agent who only has access to publicly available information\"}\n      ],\n      \"reason\": \"Child 8 directly supports the sensitive-data factor, increased risk with persistent memory, and the contrast between personal customer data access and publicly available information.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading only, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 7, \"quote\": \"Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task.\"},\n        {\"number\": 7, \"quote\": \"Structuring agents around functional boundaries (e.g. separating IT helpdesk from HR self-service) can act as a natural constraint.\"},\n        {\"number\": 7, \"quote\": \"Define similar SOPs for agentic workflows that an agent is constrained to follow\"},\n        {\"number\": 7, \"quote\": \"Design mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction.\"},\n        {\"number\": 7, \"quote\": \"running agents in self-contained environments with limited network and data access, particularly when they are carrying out high - risk tasks such as code execution.\"}\n      ],\n      \"reason\": \"Child 7 supports all three bounding measures: least-privilege access, SOP-constrained autonomy, and area-of-impact limits including self-contained environments for high-risk tasks.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems.\"},\n        {\"number\": 1, \"quote\": \"They could also ensure that the agent’s actions are traceable and controllable through measures such as identity management and access controls for agents.\"}\n      ],\n      \"reason\": \"Child 1 supports both clauses: limiting scope of impact through planning-stage boundaries and ensuring traceability/control through identity management and access controls.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading only, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"When using third-party solutions, organisations should consider to what extent their visibility and control over the agent is limited.\"},\n        {\"number\": 2, \"quote\": \"Agent developed and maintained internally with full visibility vs agent provided by third-party vendor with limited transparency into its operations and data processing\"}\n      ],\n      \"reason\": \"Child 2 directly supports the third-party visibility/control consideration and the internal-versus-third-party contrast.\"\n    },\n    {\n      \"id\": \"u10\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 3, \"quote\": \"organisations should similarly ensure that there are measures in place to fulfil its own accountability.\"},\n        {\"number\": 3, \"quote\": \"Clarify distribution of obligations in any terms and conditions or contracts between the organisation and the external party.\"},\n        {\"number\": 3, \"quote\": \"provisions on security arrangements, performance guarantees, or data protection.\"},\n        {\"number\": 3, \"quote\": \"Where there are gaps, the organisation should reassess if the agentic deployment meets its risk tolerance.\"},\n        {\"number\": 3, \"quote\": \"Address third-party opacity: Agents provided by external parties can be difficult to observe and control\"},\n        {\"number\": 3, \"quote\": \"Require transparency and accountability from external parties e.g. through disclosures on agent capabilities and data handling practices\"},\n        {\"number\": 3, \"quote\": \"Request and evaluate technical security and control features e.g. strong authentication measures such as scoped API keys, per -agent identity tokens, and observability such as the logging of tool calls and access history.\"},\n        {\"number\": 3, \"quote\": \"Where such features are lacking, organisations should consider alternative or in -house solutions, or scoping down the agentic use case, such as restricting access to sensitive data.\"}\n      ],\n      \"reason\": \"Child 3 supports the accountability measures, contractual obligation clarification, gap reassessment, third-party opacity, transparency/accountability requirements, technical security/control features, and alternatives or scoping down where features are lacking.\"\n    },\n    {\n      \"id\": \"u11\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish a specific assessment methodology, scoring rubric, approval gate, documentation requirement, required contractual clause set, audit frequency, or deadline for this scenario; they also do not establish that any particular measure is mandatory.\"\n    }\n  ]\n}",
+    "answer": "**1. Risk assessment dimensions**\n\nRisk from an agent's actions depends on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent's level of autonomy [1]. Agents bring new risks especially in their access to sensitive data and ability to change their environment through action-taking, and their adaptive, autonomous and multi-step nature increases the potential for unexpected actions, emergent risks and cascading impacts [4]. Organisations should consider these new dimensions through determining suitable use cases by considering agent-specific factors that affect the likelihood and impact of risk, and through design choices that bound risks upfront by applying limits on the agent's access to tools and systems and defining a robust identity and permissions framework [4].\n\nOn the sensitive-data dimension specifically: whether the agent can access sensitive data such as personal information or confidential data is a relevant factor, and if the agent has such access, the risk increases if the agent has persistent memory and can store sensitive data across sessions; an agent requiring access to personal customer data gives rise to the risk of leaking such data, versus an agent with access only to publicly available information [8].\n\n**2. Bounding measures**\n\nOrganisations should consider defining limits on the agent's access to tools and systems — least-privilege policies giving agents only the minimum tools and data access needed to complete the task, with structuring around functional boundaries acting as a natural constraint [7]. They should consider limits on the agent's autonomy — defining SOPs for agentic workflows that the agent is constrained to follow, rather than giving the agent freedom to define every step [7]. They should consider limits on the agent's area of impact — designing mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction, which can include running agents in self-contained environments with limited network and data access, particularly for high-risk tasks such as code execution [7].\n\nOrganisations could also limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems, and could ensure the agent's actions are traceable and controllable through measures such as identity management and access controls for agents [1].\n\n**3. External-vendor-specific measures**\n\nWhen using third-party solutions, organisations should consider to what extent their visibility and control over the agent is limited — contrasting an agent developed and maintained internally with full visibility against an agent provided by a third-party vendor with limited transparency into its operations and data processing [2].\n\nWhere organisations work with external parties when deploying agents, they should ensure measures are in place to fulfil their own accountability, with agent-specific considerations including: clarifying the distribution of obligations in terms and conditions or contracts with the external party, in particular provisions on security arrangements, performance guarantees, or data protection, and where there are gaps, reassessing whether the agentic deployment meets the organisation's risk tolerance [3]. They should also address third-party opacity — agents provided by external parties can be difficult to observe and control, making it challenging to understand what information they are grounded on, what they infer from conversations, or how data is stored and used — by taking steps to maintain sufficient security and control, such as requiring transparency and accountability from external parties (e.g. disclosures on agent capabilities and data handling practices) and requesting and evaluating technical security and control features (e.g. strong authentication measures such as scoped API keys, per-agent identity tokens, and observability such as logging of tool calls and access history); where such features are lacking, organisations should consider alternative or in-house solutions, or scoping down the agentic use case, such as restricting access to sensitive data [3].\n\n**Evidence gaps.** The excerpts do not establish a specific assessment methodology, scoring rubric, approval gate, or documentation requirement for this combination of attributes; nor do they specify a required contractual clause set, audit frequency, or deadline. The framework language above is largely \"should consider\" / \"could,\" and the excerpts do not establish that any particular measure is mandatory for this scenario.",
+    "removed_unit_ids": [
+      "u1"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "understanding the risks posed by the agent’s actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent’s level of autonomy"
+            },
+            {
+              "number": 4,
+              "quote": "Agents bring new risks, especially in their access to sensitive data and ability to change their environment through action-taking."
+            },
+            {
+              "number": 7,
+              "quote": "Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task."
+            },
+            {
+              "number": 7,
+              "quote": "Define similar SOPs for agentic workflows that an agent is constrained to follow"
+            },
+            {
+              "number": 7,
+              "quote": "Design mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction."
+            },
+            {
+              "number": 3,
+              "quote": "Clarify distribution of obligations in any terms and conditions or contracts between the organisation and the external party."
+            },
+            {
+              "number": 3,
+              "quote": "Address third-party opacity: Agents provided by external parties can be difficult to observe and control"
+            },
+            {
+              "number": 3,
+              "quote": "Where such features are lacking, organisations should consider alternative or in -house solutions, or scoping down the agentic use case, such as restricting access to sensitive data."
+            }
+          ],
+          "reason": "The three-part treatment is largely supported by the excerpts, but the unit's phrase 'impact-limiting mechanisms' is not verbatim and the excerpts do not use that exact term; the underlying concept is supported by Child 7's area-of-impact limits, so the unit is partial rather than fully supported."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading only, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "understanding the risks posed by the agent’s actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent’s level of autonomy"
+            },
+            {
+              "number": 4,
+              "quote": "Agents bring new risks, especially in their access to sensitive data and ability to change their environment through action-taking."
+            },
+            {
+              "number": 4,
+              "quote": "Their adaptive, autonomous and multi -step nature also increases the potential for unexpected actions, emergent risks and cas cading impacts."
+            },
+            {
+              "number": 4,
+              "quote": "Determining suitable use cases for agent deployment by considering agent-specific factors that can affect the likelihood and impact of the risk."
+            },
+            {
+              "number": 4,
+              "quote": "Design choices to bound the risks upfront by applying limits on agent’s access to tools and systems and defining a robust identity and permissions framework."
+            }
+          ],
+          "reason": "All clauses are supported by Children 1 and 4, including the risk factors, sensitive-data/action-taking risks, adaptive/autonomous/multi-step nature, use-case determination, and upfront bounding through access limits and identity/permissions framework."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 8,
+              "quote": "Whether the agent can access sensitive data, such as personal information or confidential data."
+            },
+            {
+              "number": 8,
+              "quote": "If agent has such access, the risk increases if the agent has persistent memory and can store sensitive data across sessions."
+            },
+            {
+              "number": 8,
+              "quote": "Agent that requires access to personal customer data gives rise to the risk of leaking such data, vs agent who only has access to publicly available information"
+            }
+          ],
+          "reason": "Child 8 directly supports the sensitive-data factor, increased risk with persistent memory, and the contrast between personal customer data access and publicly available information."
+        },
+        {
+          "id": "u5",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading only, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u6",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 7,
+              "quote": "Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task."
+            },
+            {
+              "number": 7,
+              "quote": "Structuring agents around functional boundaries (e.g. separating IT helpdesk from HR self-service) can act as a natural constraint."
+            },
+            {
+              "number": 7,
+              "quote": "Define similar SOPs for agentic workflows that an agent is constrained to follow"
+            },
+            {
+              "number": 7,
+              "quote": "Design mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction."
+            },
+            {
+              "number": 7,
+              "quote": "running agents in self-contained environments with limited network and data access, particularly when they are carrying out high - risk tasks such as code execution."
+            }
+          ],
+          "reason": "Child 7 supports all three bounding measures: least-privilege access, SOP-constrained autonomy, and area-of-impact limits including self-contained environments for high-risk tasks."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems."
+            },
+            {
+              "number": 1,
+              "quote": "They could also ensure that the agent’s actions are traceable and controllable through measures such as identity management and access controls for agents."
+            }
+          ],
+          "reason": "Child 1 supports both clauses: limiting scope of impact through planning-stage boundaries and ensuring traceability/control through identity management and access controls."
+        },
+        {
+          "id": "u8",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading only, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u9",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "When using third-party solutions, organisations should consider to what extent their visibility and control over the agent is limited."
+            },
+            {
+              "number": 2,
+              "quote": "Agent developed and maintained internally with full visibility vs agent provided by third-party vendor with limited transparency into its operations and data processing"
+            }
+          ],
+          "reason": "Child 2 directly supports the third-party visibility/control consideration and the internal-versus-third-party contrast."
+        },
+        {
+          "id": "u10",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "organisations should similarly ensure that there are measures in place to fulfil its own accountability."
+            },
+            {
+              "number": 3,
+              "quote": "Clarify distribution of obligations in any terms and conditions or contracts between the organisation and the external party."
+            },
+            {
+              "number": 3,
+              "quote": "provisions on security arrangements, performance guarantees, or data protection."
+            },
+            {
+              "number": 3,
+              "quote": "Where there are gaps, the organisation should reassess if the agentic deployment meets its risk tolerance."
+            },
+            {
+              "number": 3,
+              "quote": "Address third-party opacity: Agents provided by external parties can be difficult to observe and control"
+            },
+            {
+              "number": 3,
+              "quote": "Require transparency and accountability from external parties e.g. through disclosures on agent capabilities and data handling practices"
+            },
+            {
+              "number": 3,
+              "quote": "Request and evaluate technical security and control features e.g. strong authentication measures such as scoped API keys, per -agent identity tokens, and observability such as the logging of tool calls and access history."
+            },
+            {
+              "number": 3,
+              "quote": "Where such features are lacking, organisations should consider alternative or in -house solutions, or scoping down the agentic use case, such as restricting access to sensitive data."
+            }
+          ],
+          "reason": "Child 3 supports the accountability measures, contractual obligation clarification, gap reassessment, third-party opacity, transparency/accountability requirements, technical security/control features, and alternatives or scoping down where features are lacking."
+        },
+        {
+          "id": "u11",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish a specific assessment methodology, scoring rubric, approval gate, documentation requirement, required contractual clause set, audit frequency, or deadline for this scenario; they also do not establish that any particular measure is mandatory."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "dab1c9d4-218b-48aa-b3d8-ae1094bffcee",
+      "section_id": "267ecfc9-24a3-54f6-a906-67d5b205a94e",
+      "section_title": "1. Assess and bound the risks upfront",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 3,
+      "page_end": 3,
+      "quote": "1. Assess and bound the risks upfront\n\nOrganisations should adapt their internal structures and processes to account for new risks from agents. Key to this is first understanding the risks posed by the agent’s actions, which depend on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent’s level of autonomy.\n\nTo manage these risks early, organisations could limit their agents' scope of impact by designing appropriate boundaries at the planning stage, such as limiting access to tools and external systems. They could also ensure that the agent’s actions are traceable and controllable through measures such as identity management and access controls for agents."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "94a2349c-1e34-486a-adc3-2c6cab77f94f",
+      "section_id": "5eeab226-52f2-551f-93a8-b4dc3d0cbc05",
+      "section_title": "Agent being provided or operated by an external party",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 17,
+      "page_end": 17,
+      "quote": "Agent being provided or operated by an external party Whether the organisation is using agents provided or operated by external parties.\n\nWhen using third-party solutions, organisations should consider to what extent their visibility and control over the agent is limited. Agent developed and maintained internally with full visibility vs agent provided by third-party vendor with limited transparency into its operations and data processing"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "6162aecf-16f2-4281-861e-4660bb84c183",
+      "section_id": "21d20f22-f0f9-52c8-8193-7e13dc87cbb4",
+      "section_title": "2.2.1 Clear allocation of responsibilities within and outside the organisation",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 28,
+      "page_end": 28,
+      "quote": "28\n\nOutside the organisation\n\nOrganisations may also need to work with external parties when deploying agents e.g. model developers, agentic AI providers, or hosts of external MCP servers or tools.\n\nIn these cases, organisations should similarly ensure that there are measures in place to fulfil its own accountability. Some agent-specific considerations are:\n\n• Clarify distribution of obligations in any terms and conditions or contracts between the organisation and the external party. In particular, organisations should consider provisions on security arrangements, performance guarantees, or data protection. Where there are gaps, the organisation should reassess if the agentic deployment meets its risk tolerance.\n\n• Address third-party opacity: Agents provided by external parties can be difficult to observe and control, making it challenging to understand what information they are grounded on, what they infer from conversations, or how data is stored and used . Organisations should take steps to maintain sufficient security and control, such as: o Require transparency and accountability from external parties e.g. through disclosures on agent capabilities and data handling practices o Request and evaluate technical security and control features e.g. strong authentication measures such as scoped API keys, per -agent identity tokens, and observability such as the logging of tool calls and access history. Where such features are lacking, organisations should consider alternative or in -house solutions, or scoping down the agentic use case, such as restricting access to sensitive data.\n\nEnd users"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "e332617c-0cc2-4477-a008-017af0543b50",
+      "section_id": "57f866fa-5b90-5503-9b90-850d93f1b535",
+      "section_title": "2.1 Assess and bound the risks upfront — passage 1",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 15,
+      "page_end": 15,
+      "quote": "2.1 Assess and bound the risks upfront\n\nAgents bring new risks, especially in their access to sensitive data and ability to change their environment through action-taking. Their adaptive, autonomous and multi -step nature also increases the potential for unexpected actions, emergent risks and cas cading impacts. Organisations should consider these new dimensions through:\n\n• Determining suitable use cases for agent deployment by considering agent-specific factors that can affect the likelihood and impact of the risk. • Design choices to bound the risks upfront by applying limits on agent’s access to tools and systems and defining a robust identity and permissions framework."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "68a885d7-6a4e-4845-af52-f81e70f1429e",
+      "section_id": "bb443b95-37ad-59de-bfbb-2eb33dc0db4a",
+      "section_title": "2. Make humans meaningfully accountable",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 3,
+      "page_end": 4,
+      "quote": "2. Make humans meaningfully accountable\n\nOnce the “green light” is given for agentic AI deployment, an organisation should take steps to ensure human accountability.\n\nHowever, the autonomy of agents may complicate traditional responsibility assignments which are tied to static workflows. Multiple actors may also be involved in different parts of the agent lifecycle, diffusing accountability. It is therefore important to clearly define the responsibilities of different stakeholders, both within the organisation and with external vendors, while emphasising adaptive governance, so that the organisation is set up to quickly understand new developments and update its approach as the technology evolves.\n\nSpecifically, “human-in-the-loop” has to be adapted to address automation bias, which has become a bigger concern with increasingly capable agents. This includes\n\ndefining significant checkpoints in the agentic workflow that require human approval, such as high-stakes or irreversible actions, and regularly auditing human oversight to check that it remains effective over time."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "ac5c802f-93f1-4e89-b8bf-aeeaf7df5719",
+      "section_id": "3b82c2b5-8955-599f-af83-6f1c8df1e366",
+      "section_title": "Executive Summary",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 3,
+      "page_end": 3,
+      "quote": "Executive Summary\n\nAgentic AI is the next evolution of AI, holding transformative potential for users and businesses. Compared to generative AI, AI agents can take actions, adapt to new information, and interact with other agents and systems to complete tasks on behalf of humans. While use cases are rapidly evolving, agents are already transforming the workplace through coding assistants, customer service agents, and automating enterprise productivity workflows.\n\nThese greater capabilities also bring forth new risks. Agents’ access to sensitive data and ability to make changes to their environment, such as updating a customer database or making a payment, are double-edged swords. As we move towards deploying multiple agents with complex interactions, outcomes also become more unpredictable.\n\nHumans must remain accountable and properly manage these risks. While existing governance principles for trusted AI such as transparency, accountability and fairness continue to apply, they need to be translated in practice for agents. Additionally, meaningful human control and oversight need to be integrated into the agentic AI lifecycle. Nevertheless, a balance needs to be struck as continuous human oversight over all agent workflows becomes impractical at scale.\n\nThe Model AI Governance Framework (MGF) for Agentic AI gives organisations a structured overview of the risks of agentic AI and emerging best practices in managing these risks. If risks are properly managed, organisations can adopt agentic AI with greater confidence. The MGF is targeted at organisations looking to deploy agentic AI, whether by developing AI agents in-house or using third-party agentic solutions."
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "f8241a5c-37d2-4f44-9dde-ab2be9e52889",
+      "section_id": "902cf6a9-9824-5759-8fe1-a14f2347eeac",
+      "section_title": "Agent limits",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 19,
+      "page_end": 19,
+      "quote": "Agent limits\n\nOrganisations should consider defining limits on:\n\n• Agent’s access to tools and systems: Define least-privilege policies that give agents only the minimum tools and data access needed for it to complete its task.18 For example, a coding assistant may not require access to a broad web search tool, especially if it already has curated access to the latest software documentation. Structuring agents around functional boundaries (e.g. separating IT helpdesk from HR self-service) can act as a natural constraint.\n\n• Agent’s autonomy: For process-driven tasks, SOPs and protocols are frequently used to improve consistency and reduce unpredictability.19 Define similar SOPs for agentic workflows that an agent is constrained to follow, rather than giving the agent the freedom to define every step of the workflow.\n\n• Agent’s area of impact: Design mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction. This can include running agents in self-contained environments with limited network and data access, particularly when they are carrying out high - risk tasks such as code execution.20"
+    },
+    {
+      "document_id": "a25ffc6c-dad0-4866-8824-64fb5c1cae78",
+      "chunk_id": "41ec36bb-d5a4-4c9c-a368-939331aea6ff",
+      "section_id": "d3777b2d-6255-5267-a0bc-d51da4d1a8ea",
+      "section_title": "to sensitive data",
+      "title": "Model AI Governance Framework for Agentic AI",
+      "page": 15,
+      "page_end": 15,
+      "quote": "to sensitive data Whether the agent can access sensitive data, such as personal information or confidential data.\n\nIf agent has such access, the risk increases if the agent has persistent memory and can store sensitive data across sessions. Agent that requires access to personal customer data gives rise to the risk of leaking such data, vs agent who only has access to publicly available information"
+    }
+  ],
+  "audit": {
+    "status": "needs_adjudication",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整覆盖三个必需要点：敏感数据与持久记忆风险、自主性带来的不可预测性、外部供应商可见性与控制限制，并补充了风险边界措施与供应商合同/透明度措施。所有实质主张均有对应Child证据支持，引用编号正确，且明确标注了证据缺口（无具体评分/审批/时限要求），未虚构强制要求。",
+      "claims": [
+        {
+          "answer_span": "Risk from an agent's actions depends on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent's level of autonomy [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "与Child[1]原文一致，风险取决于行动范围、可逆性与自主程度。"
+        },
+        {
+          "answer_span": "Agents bring new risks especially in their access to sensitive data and ability to change their environment through action-taking, and their adaptive, autonomous and multi-step nature increases the potential for unexpected actions, emergent risks and cascading impacts [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Child[4]原文直接支持敏感数据访问、环境改变及自适应/自主/多步带来的意外与级联风险。"
+        },
+        {
+          "answer_span": "Organisations should consider these new dimensions through determining suitable use cases by considering agent-specific factors that affect the likelihood and impact of risk, and through design choices that bound risks upfront by applying limits on the agent's access to tools and systems and defining a robust identity and permissions framework [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "Child[4]明确列出确定适用用例与通过限制工具/系统访问及身份权限框架来前置约束风险。"
+        },
+        {
+          "answer_span": "whether the agent can access sensitive data such as personal information or confidential data is a relevant factor, and if the agent has such access, the risk increases if the agent has persistent memory and can store sensitive data across sessions; an agent requiring access to personal customer data gives rise to the risk of leaking such data, versus an agent with access only to publicly available information [8].",
+          "label": "supported",
+          "citation_numbers": [
+            8
+          ],
+          "reason_zh": "Child[8]逐句支持敏感数据访问、持久记忆增加风险及客户数据泄露风险对比。"
+        },
+        {
+          "answer_span": "least-privilege policies giving agents only the minimum tools and data access needed to complete the task, with structuring around functional boundaries acting as a natural constraint [7].",
+          "label": "supported",
+          "citation_numbers": [
+            7
+          ],
+          "reason_zh": "Child[7]原文包含最小权限策略与功能边界约束。"
+        },
+        {
+          "answer_span": "defining SOPs for agentic workflows that the agent is constrained to follow, rather than giving the agent freedom to define every step [7].",
+          "label": "supported",
+          "citation_numbers": [
+            7
+          ],
+          "reason_zh": "Child[7]关于自主性限制的SOP表述一致。"
+        },
+        {
+          "answer_span": "designing mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction, which can include running agents in self-contained environments with limited network and data access, particularly for high-risk tasks such as code execution [7].",
+          "label": "supported",
+          "citation_numbers": [
+            7
+          ],
+          "reason_zh": "Child[7]关于影响范围限制与自包含环境的表述一致。"
+        },
+        {
+          "answer_span": "limiting access to tools and external systems, and could ensure the agent's actions are traceable and controllable through measures such as identity management and access controls for agents [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "Child[1]支持规划阶段限制工具/外部系统访问及身份管理与访问控制。"
+        },
+        {
+          "answer_span": "contrasting an agent developed and maintained internally with full visibility against an agent provided by a third-party vendor with limited transparency into its operations and data processing [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "Child[2]原文对比内部开发与第三方供应商的可见性差异。"
+        },
+        {
+          "answer_span": "clarifying the distribution of obligations in terms and conditions or contracts with the external party, in particular provisions on security arrangements, performance guarantees, or data protection, and where there are gaps, reassessing whether the agentic deployment meets the organisation's risk tolerance [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "Child[3]逐项支持合同义务分配、安全/性能/数据保护条款及缺口时重估风险容忍度。"
+        },
+        {
+          "answer_span": "agents provided by external parties can be difficult to observe and control, making it challenging to understand what information they are grounded on, what they infer from conversations, or how data is stored and used [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "Child[3]第三方不透明性表述一致。"
+        },
+        {
+          "answer_span": "requiring transparency and accountability from external parties (e.g. disclosures on agent capabilities and data handling practices) and requesting and evaluating technical security and control features (e.g. strong authentication measures such as scoped API keys, per-agent identity tokens, and observability such as logging of tool calls and access history); where such features are lacking, organisations should consider alternative or in-house solutions, or scoping down the agentic use case, such as restricting access to sensitive data [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "Child[3]完整支持透明度要求、技术安全控制评估及缺失时的替代/缩减方案。"
+        },
+        {
+          "answer_span": "The excerpts do not establish a specific assessment methodology, scoring rubric, approval gate, or documentation requirement for this combination of attributes; nor do they specify a required contractual clause set, audit frequency, or deadline.",
+          "label": "supported",
+          "citation_numbers": [],
+          "reason_zh": "属对证据范围的诚实限定，Child证据中确无此类具体方法/时限要求，非虚假政策主张。"
+        },
+        {
+          "answer_span": "The framework language above is largely \"should consider\" / \"could,\" and the excerpts do not establish that any particular measure is mandatory for this scenario.",
+          "label": "supported",
+          "citation_numbers": [],
+          "reason_zh": "Child[1][3][4][7]均使用should consider/could等建议性措辞，未表述为强制要求，限定准确。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [
+      "claim_span_not_exact"
+    ],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖三个必需要点：敏感数据与持久记忆风险、自主性带来的不可预测性、外部供应商可见性与控制限制，并补充了风险边界措施与供应商合同/透明度措施。所有实质主张均有对应Child证据支持，引用编号正确，且明确标注了证据缺口（无具体评分/审批/时限要求），未虚构强制要求。\",\"claims\":[{\"answer_span\":\"Risk from an agent's actions depends on factors such as the scope of actions the agent can take, the reversibility of those actions, and the agent's level of autonomy [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"与Child[1]原文一致，风险取决于行动范围、可逆性与自主程度。\"},{\"answer_span\":\"Agents bring new risks especially in their access to sensitive data and ability to change their environment through action-taking, and their adaptive, autonomous and multi-step nature increases the potential for unexpected actions, emergent risks and cascading impacts [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Child[4]原文直接支持敏感数据访问、环境改变及自适应/自主/多步带来的意外与级联风险。\"},{\"answer_span\":\"Organisations should consider these new dimensions through determining suitable use cases by considering agent-specific factors that affect the likelihood and impact of risk, and through design choices that bound risks upfront by applying limits on the agent's access to tools and systems and defining a robust identity and permissions framework [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"Child[4]明确列出确定适用用例与通过限制工具/系统访问及身份权限框架来前置约束风险。\"},{\"answer_span\":\"whether the agent can access sensitive data such as personal information or confidential data is a relevant factor, and if the agent has such access, the risk increases if the agent has persistent memory and can store sensitive data across sessions; an agent requiring access to personal customer data gives rise to the risk of leaking such data, versus an agent with access only to publicly available information [8].\",\"label\":\"supported\",\"citation_numbers\":[8],\"reason_zh\":\"Child[8]逐句支持敏感数据访问、持久记忆增加风险及客户数据泄露风险对比。\"},{\"answer_span\":\"least-privilege policies giving agents only the minimum tools and data access needed to complete the task, with structuring around functional boundaries acting as a natural constraint [7].\",\"label\":\"supported\",\"citation_numbers\":[7],\"reason_zh\":\"Child[7]原文包含最小权限策略与功能边界约束。\"},{\"answer_span\":\"defining SOPs for agentic workflows that the agent is constrained to follow, rather than giving the agent freedom to define every step [7].\",\"label\":\"supported\",\"citation_numbers\":[7],\"reason_zh\":\"Child[7]关于自主性限制的SOP表述一致。\"},{\"answer_span\":\"designing mechanisms and procedures to take agents offline and limit their potential scope of impact when they malfunction, which can include running agents in self-contained environments with limited network and data access, particularly for high-risk tasks such as code execution [7].\",\"label\":\"supported\",\"citation_numbers\":[7],\"reason_zh\":\"Child[7]关于影响范围限制与自包含环境的表述一致。\"},{\"answer_span\":\"limiting access to tools and external systems, and could ensure the agent's actions are traceable and controllable through measures such as identity management and access controls for agents [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"Child[1]支持规划阶段限制工具/外部系统访问及身份管理与访问控制。\"},{\"answer_span\":\"contrasting an agent developed and maintained internally with full visibility against an agent provided by a third-party vendor with limited transparency into its operations and data processing [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"Child[2]原文对比内部开发与第三方供应商的可见性差异。\"},{\"answer_span\":\"clarifying the distribution of obligations in terms and conditions or contracts with the external party, in particular provisions on security arrangements, performance guarantees, or data protection, and where there are gaps, reassessing whether the agentic deployment meets the organisation's risk tolerance [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"Child[3]逐项支持合同义务分配、安全/性能/数据保护条款及缺口时重估风险容忍度。\"},{\"answer_span\":\"agents provided by external parties can be difficult to observe and control, making it challenging to understand what information they are grounded on, what they infer from conversations, or how data is stored and used [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"Child[3]第三方不透明性表述一致。\"},{\"answer_span\":\"requiring transparency and accountability from external parties (e.g. disclosures on agent capabilities and data handling practices) and requesting and evaluating technical security and control features (e.g. strong authentication measures such as scoped API keys, per-agent identity tokens, and observability such as logging of tool calls and access history); where such features are lacking, organisations should consider alternative or in-house solutions, or scoping down the agentic use case, such as restricting access to sensitive data [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"Child[3]完整支持透明度要求、技术安全控制评估及缺失时的替代/缩减方案。\"},{\"answer_span\":\"The excerpts do not establish a specific assessment methodology, scoring rubric, approval gate, or documentation requirement for this combination of attributes; nor do they specify a required contractual clause set, audit frequency, or deadline.\",\"label\":\"supported\",\"citation_numbers\":[],\"reason_zh\":\"属对证据范围的诚实限定，Child证据中确无此类具体方法/时限要求，非虚假政策主张。\"},{\"answer_span\":\"The framework language above is largely \\\"should consider\\\" / \\\"could,\\\" and the excerpts do not establish that any particular measure is mandatory for this scenario.\",\"label\":\"supported\",\"citation_numbers\":[],\"reason_zh\":\"Child[1][3][4][7]均使用should consider/could等建议性措辞，未表述为强制要求，限定准确。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

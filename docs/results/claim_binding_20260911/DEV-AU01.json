@@ -1,0 +1,157 @@
+{
+  "question_id": "DEV-AU01",
+  "question": "How often must agencies review their AI transparency statements?",
+  "inputs_sha256": "d02ceec67dc37ca48b60ee4c7f9bff99efde16f9f9f52ec4bf1ce2fbebc51d7c",
+  "messages_sha256": "7475a3f53f79f4367d96e9353c37d24f19b99a6e85e95e79b5efecefff52d1c0",
+  "raw_artifact_sha256": "66d24cd7f69951d7749fb78853d9716a0fefefc855bbfc201b1d023a7316cc73",
+  "final_artifact_sha256": "6ffc3b1fbc5a96d82212b13816f375a1ef42f3d9c1cb6846d7f69d29e1b1d4ee",
+  "draft": "Agencies must review and update their AI transparency statements at least once a year, when making a significant change to the agency's approach to AI, and when any new factor materially impacts the existing statement's accuracy [3]. The policy likewise requires the statement to be reviewed and updated annually or sooner should the agency make significant changes to its approach to AI [1].",
+  "generation": {
+    "status": "reviewed",
+    "answer": "Agencies must review and update their AI transparency statements at least once a year, when making a significant change to the agency's approach to AI, and when any new factor materially impacts the existing statement's accuracy [3]. The policy likewise requires the statement to be reviewed and updated annually or sooner should the agency make significant changes to its approach to AI [1].",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 3,\n          \"quote\": \"Transparency statements must be reviewed and updated at these junctures: • at least once a year • when making a significant change to the agency’s approach to AI • when any new factor materially impacts the existing statement’s accuracy.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI.\"\n        }\n      ],\n      \"reason\": \"Child 3 supports the first sentence's three review triggers (at least once a year, significant change to approach to AI, new factor materially impacting accuracy). Child 1 supports the second sentence's annual review and sooner-update requirement for significant changes to the agency's approach to AI.\"\n    }\n  ]\n}",
+    "answer": "Agencies must review and update their AI transparency statements at least once a year, when making a significant change to the agency's approach to AI, and when any new factor materially impacts the existing statement's accuracy [3]. The policy likewise requires the statement to be reviewed and updated annually or sooner should the agency make significant changes to its approach to AI [1].",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Transparency statements must be reviewed and updated at these junctures: • at least once a year • when making a significant change to the agency’s approach to AI • when any new factor materially impacts the existing statement’s accuracy."
+            },
+            {
+              "number": 1,
+              "quote": "The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI."
+            }
+          ],
+          "reason": "Child 3 supports the first sentence's three review triggers (at least once a year, significant change to approach to AI, new factor materially impacting accuracy). Child 1 supports the second sentence's annual review and sooner-update requirement for significant changes to the agency's approach to AI."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 0
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "cb93394d-8d3c-4638-a890-477f3b04c629",
+      "section_id": "e169cfea-b1bd-5da7-ae46-101dafdfbf23",
+      "section_title": "Strategy and oversight",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 10,
+      "page_end": 10,
+      "quote": "Strategy and oversight The principles and requirements included in this section are designed to enable a forward- leaning approach to agency AI adoption. These requirements set out AI accountability at the agency level and use case level and seek to build trust through transparency.\n\nPrinciples • Adopt AI to enhance efficiency, decision-making, policy outcomes and government service delivery for the benefit of Australians. • Have clear accountabilities for the adoption of AI and understand its use. • Build public trust through transparency about government AI use.\n\nMandatory requirements\n\nAI transparency statement Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements. The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI. Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au.\n\nStrategic position on AI adoption Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect. This position is to emphasise how AI opportunities can be identified and embraced by the agency. Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption. In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "c06d1e3b-008e-4c3b-b7e8-8e3f40f47cb3",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 15,
+      "page_end": 16,
+      "quote": "Agencies should also monitor changes that are not initiated by the agency. For example, vendor changes and changes in the regulatory environment. Agencies could also ask vendors to provide information on updates through contractual mechanisms.\n\nMedium-risk AI use cases If an agency determines their in-scope AI use case has an inherent medium-risk rating when completing an AI use case impact assessment, they should consider if the use case would benefit from being governed through a designated board or a senior executive. Agencies should choose an approach appropriate for the size and scope of the agency if they apply additional governance.\n\nHigh-risk AI use cases If an agency determines their in-scope AI use case has an inherent high-risk rating when completing an AI use case impact assessment, they must: • report the use case to the agency accountable official with the reasons for the inherent high-risk rating, proposed mitigations and residual risks • govern the use case through a designated board or a senior executive, whichever is appropriate for the size and scope of the agency. Once an agency has decided to deploy the use case, they must: • report the use case to the DTA through the accountable official, see the Standard for accountability • establish a system to regularly review the use case every 12 months at a minimum. The review must report to the relevant governing board or senior executive on whether the use case is operating as intended and that risks are being effectively managed. The review must also consider the AI use case impact assessment and revisions to it, if required."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "4b38ee3d-2e5a-42d2-922a-71f83328677f",
+      "section_id": "1d92aa7d-5426-5336-b2ef-e6477c9e238b",
+      "section_title": "Standard for AI transparency statements",
+      "title": "Standard for AI Transparency Statements",
+      "page": 4,
+      "page_end": 4,
+      "quote": "a minimum, agencies must provide the following information regarding their use of AI in their transparency statement: • the intentions behind why the agency uses AI or is considering its adoption • classification of AI use according to usage patterns and domains, as listed at\n\nAttachment A • classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review • measures to monitor the effectiveness of deployed AI systems and protect the public against negative impacts • overview of compliance with the requirements under the Policy for responsible use of AI in government • compliance with applicable legislation and regulation • when the statement was most recently updated. Statements must use clear, plain language1 that avoids technical jargon and is consistent with the Australian Government Style Manual. They must also provide or direct to a contact email for further public enquiries. Agencies must publish transparency statements on their public facing website. It’s recommended that a link to the statement is placed in a global menu, aligned to the approach often taken for privacy policies. Transparency statements must be reviewed and updated at these junctures: • at least once a year • when making a significant change to the agency’s approach to AI • when any new factor materially impacts the existing statement’s accuracy."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "4efcbf78-884f-4877-842b-b96edf5d10bc",
+      "section_id": "1d92aa7d-5426-5336-b2ef-e6477c9e238b",
+      "section_title": "Standard for AI transparency statements",
+      "title": "Standard for AI Transparency Statements",
+      "page": 2,
+      "page_end": 4,
+      "quote": "Digital Transformation Agency is committed to providing web accessible content wherever possible. If you are having difficulties with accessing this document, please email: ai@dta.gov.au. Version: 2.0 Page ii\n\nY our responsibilities Under the policy, agencies must make a publicly available statement that outlines their approach to AI adoption, as directed by the Digital Transformation Agency (DTA). Agencies must follow this standard, which sets the direction for AI transparency statements including expectations and formatting. It establishes a consistent format and expectation for AI transparency statements in the Australian Government. Clear and consistent transparency statements build public trust and make it easier to understand and compare how government agencies adopt AI. At a minimum, agencies must provide the following information regarding their use of AI in their transparency statement: • the intentions behind why the agency uses AI or is considering its adoption • classification of AI use according to usage patterns and domains, as listed at"
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "90568ed7-e964-4da3-bda5-eddd325e17f1",
+      "section_id": "c84a594d-0737-55f3-bc94-77dacd5fca17",
+      "section_title": "1  A ustralian Government Style Manual, Plain language and word choice",
+      "title": "Standard for AI Transparency Statements",
+      "page": 4,
+      "page_end": 5,
+      "quote": "1 A ustralian Government Style Manual, Plain language and word choice\n\nHow to apply\n\nImplementing the AI transparency statements The policy provides a coordinated approach for the use of AI across the Australian Government. It builds public trust by supporting the Australian Public Service (APS) to engage with AI in a responsible way. Transparency is critical to public trust and is an important aim of the policy and broader APS Reform agenda2. The public should have confidence that agencies monitor the effectiveness of deployed AI systems and have measures to protect against negative impacts. AI transparency statements help agencies meet these aims by providing a foundational level of transparency on their use of AI. They publicly disclose: • how AI is used and managed by the agency • a commitment to safe and responsible use • compliance with the policy. Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent. Agencies are not required to list individual use cases or provide use case level detail. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI. Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "667c931f-91fc-4be3-a202-cdb776a53142",
+      "section_id": "c84a594d-0737-55f3-bc94-77dacd5fca17",
+      "section_title": "1  A ustralian Government Style Manual, Plain language and word choice",
+      "title": "Standard for AI Transparency Statements",
+      "page": 5,
+      "page_end": 7,
+      "quote": "Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au.\n\n2 APS R eform, Priority one: An APS that embodies integrity in everything it does. “The APS acts with integrity and fairness and is accountable and transparent in everything it does. This will build public trust and strengthen standards of integrity in our federal government.” https:/ /www.apsreform.gov.au/about-aps-reform/our-focus- areas\n\nQuestions about implementation Accountable officials can contact the DTA with questions about implementing the transparency statements by emailing ai@dta.gov.au.\n\nAttachment A – Classification system for AI use The following classification system represents how AI is commonly used in government and the domains where they are applied. Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements. Agencies should link to digital.gov.au/ai/resources/use-classification when listing their usage patterns and domains and may expand on their use of AI to provide more details to the public."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "8111121c-9ece-40d1-839c-2803fe4ab492",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 12,
+      "quote": "Mandatory requirements\n\nOperationalise the responsible use of AI Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect. This may vary according to the scale and scope of agency AI use. At a minimum, the approach will provide an agency with: • a process for adopting AI use cases in line with the implemented actions of this policy, as well as the agency’s enterprise risk management and governance approach. • a way to inform staff who are designing and implementing AI use cases about Australia’s AI Ethics Principles. • a pathway for staff to report AI safety concerns, including AI incidents. • pathways for the public to report AI safety concerns, appropriate to the agency’s AI use. • clear processes to address AI incidents aligned to their ICT incident management approach - incident remediation must be overseen by an appropriate governance body or senior executive and should be undertaken in line with any other legal obligations. Agencies may modify existing policies, procedures and frameworks, or create new ones. Smaller agencies with minimal AI adoption could amend existing documentation and/or assign key personnel to guide staff on responsible AI adoption on an ad hoc basis. Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整覆盖三个必需要点：至少每年审查更新、重大变更触发、新因素实质影响准确性触发，且引用[3]和[1]均直接支持相应表述，无事实错误或遗漏。",
+      "claims": [
+        {
+          "answer_span": "Agencies must review and update their AI transparency statements at least once a year, when making a significant change to the agency's approach to AI, and when any new factor materially impacts the existing statement's accuracy [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "引用[3]原文明确列出三个审查更新节点：至少每年一次、重大变更、新因素实质影响准确性，与答案完全一致。"
+        },
+        {
+          "answer_span": "The policy likewise requires the statement to be reviewed and updated annually or sooner should the agency make significant changes to its approach to AI [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "引用[1]原文为“must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI”，与答案表述一致。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖三个必需要点：至少每年审查更新、重大变更触发、新因素实质影响准确性触发，且引用[3]和[1]均直接支持相应表述，无事实错误或遗漏。\",\"claims\":[{\"answer_span\":\"Agencies must review and update their AI transparency statements at least once a year, when making a significant change to the agency's approach to AI, and when any new factor materially impacts the existing statement's accuracy [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"引用[3]原文明确列出三个审查更新节点：至少每年一次、重大变更、新因素实质影响准确性，与答案完全一致。\"},{\"answer_span\":\"The policy likewise requires the statement to be reviewed and updated annually or sooner should the agency make significant changes to its approach to AI [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"引用[1]原文为“must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI”，与答案表述一致。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

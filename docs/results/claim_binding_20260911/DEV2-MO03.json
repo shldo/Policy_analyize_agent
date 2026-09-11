@@ -1,0 +1,259 @@
+{
+  "question_id": "DEV2-MO03",
+  "question": "Do the policy's implementation deadlines mean agencies must wait until those deadlines to act?",
+  "inputs_sha256": "9a44ddcb85d2d22f406d9df2bcc956728fa8a2c7d8f127c3d099b4b9b99d1ca4",
+  "messages_sha256": "98f8107e29e33c5c1df4800aa5594c11b52cdf2cce773d1b34ef43ee589c456a",
+  "raw_artifact_sha256": "a8bd598c3c13a15e9bedcba773342e234e09abc8c86409974431b2d415e656f2",
+  "final_artifact_sha256": "d0b3a68afdbeb032c5945c8cf469090cc53989dcdf82aa156ee5a04f5c16a86c",
+  "draft": "No. The policy explicitly frames its implementation timeframes as outer limits, not as a waiting period.\n\n**Deadlines are ceilings, not floors**\n\nThe policy states that while agencies may need the specified time to action requirements, agencies **should implement them sooner if practicable** [1]. It further notes that agencies **could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline** [1]. The same \"sooner if practicable\" framing is repeated in the impact assessment section: where practicable, agencies **should implement the requirements ahead of the deadlines listed above** [3].\n\n**Practical implication**\n\nThe timeframes function as compliance backstops (e.g., begin AI use case assessments within 12 months of the policy taking effect; apply all relevant policy actions for unassessed existing use cases by 30 April 2027) [3], with an expectation of earlier action where feasible and interim measures in the meantime [1].\n\n**Evidence gap**\n\nThe available excerpts do not establish any requirement that agencies refrain from acting before a deadline, nor do they specify criteria for determining when earlier implementation is \"practicable.\"",
+  "generation": {
+    "status": "reviewed",
+    "answer": "No. The policy explicitly frames its implementation timeframes as outer limits, not as a waiting period. [1]\n\n**Deadlines are ceilings, not floors**\n\nThe policy states that while agencies may need the specified time to action requirements, agencies **should implement them sooner if practicable** [1]. It further notes that agencies **could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline** [1]. The same \"sooner if practicable\" framing is repeated in the impact assessment section: where practicable, agencies **should implement the requirements ahead of the deadlines listed above** [3].\n\n**Practical implication**\n\nThe timeframes function as compliance backstops (e.g., begin AI use case assessments within 12 months of the policy taking effect; apply all relevant policy actions for unassessed existing use cases by 30 April 2027) [3], with an expectation of earlier action where feasible and interim measures in the meantime [1].\n\nThe available excerpts do not establish any requirement that agencies refrain from acting before a deadline, nor do they specify criteria for determining when earlier implementation is \"practicable.\"",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"While agencies may need this time to action requirements, agencies should implement them sooner if practicable.\"\n        }\n      ],\n      \"reason\": \"Child 1 supports that timeframes are not a waiting period: agencies may need the time but should implement sooner if practicable.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/formatting phrase, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 1,\n          \"quote\": \"While agencies may need this time to action requirements, agencies should implement them sooner if practicable.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"Agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"Where practicable, agencies should implement the requirements ahead of the deadlines listed above.\"\n        }\n      ],\n      \"reason\": \"Child 1 supports the sooner-if-practicable statement and interim processes; Child 3 supports the repeated ahead-of-deadlines framing.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/formatting phrase, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\n          \"number\": 3,\n          \"quote\": \"Agencies must begin AI use case assessments within 12 months of this policy taking effect.\"\n        },\n        {\n          \"number\": 3,\n          \"quote\": \"For existing use cases not yet assessed, agencies must determine whether they are in scope of this policy and apply all relevant policy actions by 30 April 2027.\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"agencies should implement them sooner if practicable\"\n        },\n        {\n          \"number\": 1,\n          \"quote\": \"Agencies could consider putting in place interim processes\"\n        }\n      ],\n      \"reason\": \"Child 3 supports the 12-month assessment start and 30 April 2027 existing-use-case deadline; Child 1 supports earlier action where feasible and interim measures.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading/formatting phrase, not a policy assertion.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish a requirement to refrain from acting before a deadline, nor criteria for determining when earlier implementation is practicable.\"\n    }\n  ]\n}",
+    "answer": "No. The policy explicitly frames its implementation timeframes as outer limits, not as a waiting period. [1]\n\n**Deadlines are ceilings, not floors**\n\nThe policy states that while agencies may need the specified time to action requirements, agencies **should implement them sooner if practicable** [1]. It further notes that agencies **could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline** [1]. The same \"sooner if practicable\" framing is repeated in the impact assessment section: where practicable, agencies **should implement the requirements ahead of the deadlines listed above** [3].\n\n**Practical implication**\n\nThe timeframes function as compliance backstops (e.g., begin AI use case assessments within 12 months of the policy taking effect; apply all relevant policy actions for unassessed existing use cases by 30 April 2027) [3], with an expectation of earlier action where feasible and interim measures in the meantime [1].\n\nThe available excerpts do not establish any requirement that agencies refrain from acting before a deadline, nor do they specify criteria for determining when earlier implementation is \"practicable.\"",
+    "removed_unit_ids": [],
+    "rebound_unit_ids": [
+      "u1"
+    ],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "While agencies may need this time to action requirements, agencies should implement them sooner if practicable."
+            }
+          ],
+          "reason": "Child 1 supports that timeframes are not a waiting period: agencies may need the time but should implement sooner if practicable."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/formatting phrase, not a policy assertion."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "While agencies may need this time to action requirements, agencies should implement them sooner if practicable."
+            },
+            {
+              "number": 1,
+              "quote": "Agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline."
+            },
+            {
+              "number": 3,
+              "quote": "Where practicable, agencies should implement the requirements ahead of the deadlines listed above."
+            }
+          ],
+          "reason": "Child 1 supports the sooner-if-practicable statement and interim processes; Child 3 supports the repeated ahead-of-deadlines framing."
+        },
+        {
+          "id": "u4",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/formatting phrase, not a policy assertion."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Agencies must begin AI use case assessments within 12 months of this policy taking effect."
+            },
+            {
+              "number": 3,
+              "quote": "For existing use cases not yet assessed, agencies must determine whether they are in scope of this policy and apply all relevant policy actions by 30 April 2027."
+            },
+            {
+              "number": 1,
+              "quote": "agencies should implement them sooner if practicable"
+            },
+            {
+              "number": 1,
+              "quote": "Agencies could consider putting in place interim processes"
+            }
+          ],
+          "reason": "Child 3 supports the 12-month assessment start and 30 April 2027 existing-use-case deadline; Child 1 supports earlier action where feasible and interim measures."
+        },
+        {
+          "id": "u6",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading/formatting phrase, not a policy assertion."
+        },
+        {
+          "id": "u7",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish a requirement to refrain from acting before a deadline, nor criteria for determining when earlier implementation is practicable."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "90908194-4b0c-4feb-b560-ffb76df7cc7e",
+      "section_id": "c93301c3-fb95-5e16-9fd1-49bbbd321ced",
+      "section_title": "Implementation",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 7,
+      "page_end": 8,
+      "quote": "While agencies may need this time to action requirements, agencies should implement them sooner if practicable. Agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline.\n\nIn-scope AI use cases This policy specifies actions that apply at the use case level. AI use cases in scope of this policy (referred to as in-scope AI use cases) are use cases that meet any criteria in Appendix C. In addition to the criteria, the appendix lists areas of AI use to consider that are not automatically high risk, but are more likely to involve risks that require careful attention through an impact assessment. It also provides information on how to apply the policy for agencies experimenting with AI."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "1cfeebd1-3ed8-43a4-9ced-0fd7dfbc1432",
+      "section_id": "c93301c3-fb95-5e16-9fd1-49bbbd321ced",
+      "section_title": "Implementation",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 6,
+      "page_end": 7,
+      "quote": "Defence and members of the NIC may voluntarily adopt elements of this policy where they are able to do so without compromising national security capabilities or interests.\n\nExisting frameworks The challenges raised by government use of AI are complex and inherently linked with other considerations, such as the APS Code of Conduct, data governance, cyber security, privacy and ethics practices. This policy has been designed to complement and strengthen – not duplicate – existing frameworks, legislation and practices that touch on government’s use of AI. This policy must be read and applied alongside existing frameworks and laws to ensure agencies meet all their obligations.\n\nDefinitions For the purposes of this policy, agencies should apply the definition of AI provided by the Organisation for Economic Co-operation and Development (OECD) and the following definition of AI use case: An AI use case is a specific application of an AI system or systems to achieve certain objectives or perform certain tasks. Definitions and how to apply them – including an optional approach to group AI use cases for some general-purpose AI solutions – is available in Appendix B. The appendix also defines an AI incident.\n\nTimeframes This policy provides implementation timeframes for agencies to meet some of its requirements. While agencies may need this time to action requirements, agencies should implement them sooner if practicable. Agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "63317ebb-686d-4081-8a18-bea93b91c9a7",
+      "section_id": "c7b6979f-cfba-5931-9e6f-ecd861c63e39",
+      "section_title": "AI use case impact assessment",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 14,
+      "page_end": 14,
+      "quote": "AI use case impact assessment The principles and requirements in this section intend to assess potential impacts of AI use cases and ensure additional oversight of higher risk AI.\n\nPrinciples • Ongoing monitoring and evaluation of AI uses. • AI risk mitigation is proportionate and targeted. • AI use is lawful, ethical, responsible, transparent and explainable to the public.\n\nMandatory requirements\n\nAll new AI use cases Agencies must assess all new AI use cases against the in-scope criteria (Appendix C) to determine if they are in scope of the policy. The assessment must be documented and take place during the design phase while developing requirements. Agencies must begin AI use case assessments within 12 months of this policy taking effect. For existing use cases not yet assessed, agencies must determine whether they are in scope of this policy and apply all relevant policy actions by 30 April 2027. Where practicable, agencies should implement the requirements ahead of the deadlines listed above.\n\nIn-scope AI use cases For AI use cases that are in-scope, agencies must conduct an AI use case impact assessment. Agencies are to commence an assessment at the design stage. Before the solution is deployed, agencies must finalise the assessment and apply any agreed risk treatments. Agencies may conduct an AI use case impact assessment by using either: • the Australian Government AI impact assessment tool (the impact assessment tool) • an internal process that integrates all provisions of the impact assessment tool."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "be9c4bec-5bcc-4235-ad5b-21814b9768a2",
+      "section_id": "e169cfea-b1bd-5da7-ae46-101dafdfbf23",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 10,
+      "page_end": 11,
+      "quote": "In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff.\n\nAccountable officials Agencies must designate accountable official(s) to take accountability for implementing this policy. Agencies must follow the Standard for accountability when designating accountable official(s) and implementing this requirement. The responsibilities of accountable officials are set in the standard. Agencies must notify the DTA when they designate and make any changes to their accountable official(s) by emailing ai@dta.gov.au.\n\nAccountable use case owners Agencies must designate an accountable use case owner for each in-scope AI use case within 12 months of this policy taking effect. Accountable official(s) are to maintain a register of accountable use case owners. Agencies must follow the Standard for accountability when implementing this requirement. The responsibilities of accountable use case owners are set in the standard.\n\nInternal AI use case register Agencies must create a register of in-scope AI use cases to enable accountable official(s) to record accountable use case owners within 12 months of this policy taking effect. Agencies must share the register with the DTA every 6 months, commencing from when they create the register to meet the above requirement. The Standard for accountability lists the minimum fields agencies must capture in the use case register. Agencies can add additional fields to meet their organisational needs. An existing register may be reused for the purposes of meeting this requirement. The standard also provides the instructions for how to share agency registers with the DTA."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "d9bb0011-e7ae-469e-a7a4-01a821157cc3",
+      "section_id": "7c394c91-4930-5632-b953-ff3e19bc4310",
+      "section_title": "2  As defined by the Australian Government Protective Security Policy Framework",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 22,
+      "page_end": 22,
+      "quote": "While use cases in these areas are not automatically high-risk, they are more likely to involve risks that require careful attention through an impact assessment.\n\nExperimentation For the avoidance of doubt, agencies are not required to apply this policy if they are doing early-stage experimentation which does not: • commit to proceeding with a use case or to any design decisions that would affect implementation later • risk harming anyone • introduce or exacerbate any privacy or security risks. If there is a likelihood of proceeding with the AI use case while experimenting in this phase, agencies should apply the policy. Agencies should also apply the Australian Government AI technical standard, which provides relevant information for developing use cases at each stage of the AI lifecycle."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "8111121c-9ece-40d1-839c-2803fe4ab492",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 12,
+      "quote": "Mandatory requirements\n\nOperationalise the responsible use of AI Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect. This may vary according to the scale and scope of agency AI use. At a minimum, the approach will provide an agency with: • a process for adopting AI use cases in line with the implemented actions of this policy, as well as the agency’s enterprise risk management and governance approach. • a way to inform staff who are designing and implementing AI use cases about Australia’s AI Ethics Principles. • a pathway for staff to report AI safety concerns, including AI incidents. • pathways for the public to report AI safety concerns, appropriate to the agency’s AI use. • clear processes to address AI incidents aligned to their ICT incident management approach - incident remediation must be overseen by an appropriate governance body or senior executive and should be undertaken in line with any other legal obligations. Agencies may modify existing policies, procedures and frameworks, or create new ones. Smaller agencies with minimal AI adoption could amend existing documentation and/or assign key personnel to guide staff on responsible AI adoption on an ad hoc basis. Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "46eb624c-d42a-4af8-8a14-f07b95bf1e4b",
+      "section_id": "a91df602-7a5b-57f3-afc7-fb908ad6bd41",
+      "section_title": "Whole of AI lifecycle",
+      "title": "Australian Government AI Technical Standard",
+      "page": 28,
+      "page_end": 29,
+      "quote": "NOTE: Agencies must consider data and lineage | naa.gov.au compliance with Australian Government regulations.\n\nNOTE: Agencies should refer to the Policy of responsible use of AI in government to implement AI fundamentals training | digital.gov.au for all staff, regardless of their role. To support agencies with their implementation of the Policy, the DTA provides Guidance for staff training on AI | digital.gov.au. NOTE: Australian Government API guidelines | api.gov.au mandate the use of semantic versioning. NOTE: Agencies should refer to the Australian parliamentary recommendations | aph.gov.au on AI including risk management, people capabilities, and implement measures for algorithmic bias | humanrights.gov.au. NOTE: Any infrastructure, both software and hardware, for AI services and solutions must adhere to Australian Government regulations and should consider security as priority as recommended by the Australian Government guidance on AI system Development | cyber.gov.au, Deploying AI systems Securely | cyber.gov.au and Engaging with AI | cyber.gov.au. The recommendations include secure well-architected environments, whether on-premises, cloud-based, or hybrid, to maintain the confidentiality, integrity, and availability of AI services."
+    }
+  ],
+  "audit": {
+    "status": "needs_adjudication",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "回答正确否定“必须等到截止日期才行动”，并准确引用政策中“如可行应更早实施”和“可考虑设置过渡流程”的表述，覆盖了参考要点的两项要求，未发现事实或引用错误。",
+      "claims": [
+        {
+          "answer_span": "No. The policy explicitly frames its implementation timeframes as outer limits, not as a waiting period. [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]明确说明时间框架是要求完成的期限，并鼓励更早实施，支持“不是等待期”的结论。"
+        },
+        {
+          "answer_span": "agencies should implement them sooner if practicable [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文为“agencies should implement them sooner if practicable”，直接支持。"
+        },
+        {
+          "answer_span": "agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline [1]",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文完全一致，支持过渡流程选项。"
+        },
+        {
+          "answer_span": "where practicable, agencies should implement the requirements ahead of the deadlines listed above [3]",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]原文包含该句，支持影响评估部分重复的“更早实施”表述。"
+        },
+        {
+          "answer_span": "begin AI use case assessments within 12 months of the policy taking effect; apply all relevant policy actions for unassessed existing use cases by 30 April 2027 [3]",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]明确列出这两个时间点，作为合规底线示例。"
+        },
+        {
+          "answer_span": "The available excerpts do not establish any requirement that agencies refrain from acting before a deadline, nor do they specify criteria for determining when earlier implementation is \"practicable.\"",
+          "label": "supported",
+          "citation_numbers": [
+            1,
+            3
+          ],
+          "reason_zh": "证据中无禁止提前行动的表述，也未定义“practicable”的具体标准；该限定性陈述与证据一致。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [
+      "claim_span_not_exact",
+      "claim_span_not_exact",
+      "claim_span_not_exact",
+      "claim_span_not_exact"
+    ],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"回答正确否定“必须等到截止日期才行动”，并准确引用政策中“如可行应更早实施”和“可考虑设置过渡流程”的表述，覆盖了参考要点的两项要求，未发现事实或引用错误。\",\"claims\":[{\"answer_span\":\"No. The policy explicitly frames its implementation timeframes as outer limits, not as a waiting period. [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]明确说明时间框架是要求完成的期限，并鼓励更早实施，支持“不是等待期”的结论。\"},{\"answer_span\":\"agencies should implement them sooner if practicable [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文为“agencies should implement them sooner if practicable”，直接支持。\"},{\"answer_span\":\"agencies could consider putting in place interim processes and building out their approach as they reach the specified implementation deadline [1]\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文完全一致，支持过渡流程选项。\"},{\"answer_span\":\"where practicable, agencies should implement the requirements ahead of the deadlines listed above [3]\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]原文包含该句，支持影响评估部分重复的“更早实施”表述。\"},{\"answer_span\":\"begin AI use case assessments within 12 months of the policy taking effect; apply all relevant policy actions for unassessed existing use cases by 30 April 2027 [3]\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]明确列出这两个时间点，作为合规底线示例。\"},{\"answer_span\":\"The available excerpts do not establish any requirement that agencies refrain from acting before a deadline, nor do they specify criteria for determining when earlier implementation is \\\"practicable.\\\"\",\"label\":\"supported\",\"citation_numbers\":[1,3],\"reason_zh\":\"证据中无禁止提前行动的表述，也未定义“practicable”的具体标准；该限定性陈述与证据一致。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

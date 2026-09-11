@@ -1,0 +1,526 @@
+{
+  "question_id": "DEV2-CS01",
+  "question": "How should an agency distinguish public AI transparency obligations from staff-facing strategy and training deliverables?",
+  "inputs_sha256": "7de90ba3c082764cb8ec394ab988c4a0072d266ed5b08145d09cb8340503070d",
+  "messages_sha256": "e45ddb048b79e664013d245896bba3701f21ebc5690f01eed41e037768a696d7",
+  "raw_artifact_sha256": "e567b019cbe06181093f5b53c4109c9c7d637f25de204c1125ba50659af5db6f",
+  "final_artifact_sha256": "0e6a63b263828f8e6d1c7dbb1c9077739bdd5323b19a5cf0165a0d0a7efeeed5",
+  "draft": "**Direct answer:** The excerpts support a distinction along two axes — audience (public vs. internal) and instrument type (published statement vs. internal strategy/training). Public transparency obligations attach to a published statement on the agency's public-facing website with prescribed minimum content and review triggers [4]; staff-facing deliverables attach to internal communication of a strategic position [1] and mandatory staff training [6]. The excerpts do not establish a single consolidated rule that formally separates the two categories; the distinction below is drawn from the separate requirement sets.\n\n**Public-facing transparency obligations**\n\n- Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements [1].\n- The statement must be reviewed and updated annually, or sooner should the agency make significant changes to its approach to AI [1].\n- Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au [1].\n- Agencies must send the DTA a link to the statement when it is published or updated [2].\n- At a minimum, the statement must contain: the intentions behind why the agency uses or is considering AI; classification of AI use according to usage patterns and domains (Attachment A); classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review; measures to monitor effectiveness of deployed AI systems and protect the public against negative impacts; an overview of compliance with the policy requirements; compliance with applicable legislation and regulation; and when the statement was most recently updated [4].\n- Statements must use clear, plain language consistent with the Australian Government Style Manual, and must provide or direct to a contact email for public enquiries [4].\n- Agencies must publish transparency statements on their public-facing website; placing a link in a global menu is recommended [4].\n- Statements must be reviewed and updated at least once a year, when making a significant change to the agency's approach to AI, and when any new factor materially impacts the existing statement's accuracy [4].\n- Agencies must list both the usage patterns and domains applying to their AI use in their transparency statements [3].\n- Agencies are not required to list individual use cases or provide use case-level detail, though they may choose to provide detail beyond the requirements [2].\n\n**Staff-facing strategy and training deliverables**\n\n- Agencies must develop a strategic position on AI adoption within 6 months of the policy taking effect, emphasising how AI opportunities can be identified and embraced by the agency [1].\n- Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption; they can develop a standalone AI strategy, augment an existing strategy, or create other materials to communicate the approach to staff [1].\n- Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect [6].\n- Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement — as provided, modified, or incorporated into an existing training program — or allow staff to access the module directly through APSLearn [6].\n- Agencies should implement additional training as required in consideration of roles and responsibilities, for example for those responsible for procurement, development, training and deployment of AI systems [6].\n\n**Synthesis (not a source-stated rule):** On the excerpts, the public track is defined by a published artefact with prescribed minimum content, publication venue, DTA notification, and recurring review triggers [1][2][4]; the staff-facing track is defined by internal communication of a strategic position [1] and mandatory training delivery [6]. The two tracks share the DTA as notification/contact point for transparency matters [1][2], but the excerpts do not state that strategy or training deliverables must be published, nor that transparency statements must incorporate strategy or training content.\n\n**Evidence gaps**\n\n- The excerpts do not establish a formal boundary rule, taxonomy, or crosswalk that an agency should apply to allocate a given deliverable to the public or staff-facing category.\n- The excerpts do not establish whether the strategic position on AI adoption must be published, nor any DTA notification requirement for it.\n- The excerpts do not establish any public-disclosure requirement for staff training content, completion rates, or the training module used.\n- The excerpts do not establish whether the AI transparency statement must reference the agency's strategic position or training arrangements.",
+  "generation": {
+    "status": "reviewed",
+    "answer": "**Public-facing transparency obligations**\n\n- Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements [1].\n\n- The statement must be reviewed and updated annually, or sooner should the agency make significant changes to its approach to AI [1].\n\n- Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au [1].\n\n- Agencies must send the DTA a link to the statement when it is published or updated [2].\n\n- At a minimum, the statement must contain: the intentions behind why the agency uses or is considering AI; classification of AI use according to usage patterns and domains (Attachment A); classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review; measures to monitor effectiveness of deployed AI systems and protect the public against negative impacts; an overview of compliance with the policy requirements; compliance with applicable legislation and regulation; and when the statement was most recently updated [4].\n\n- Statements must use clear, plain language consistent with the Australian Government Style Manual, and must provide or direct to a contact email for public enquiries [4].\n\n- Agencies must publish transparency statements on their public-facing website; placing a link in a global menu is recommended [4].\n\n- Statements must be reviewed and updated at least once a year, when making a significant change to the agency's approach to AI, and when any new factor materially impacts the existing statement's accuracy [4].\n\n- Agencies must list both the usage patterns and domains applying to their AI use in their transparency statements [3].\n\n- Agencies are not required to list individual use cases or provide use case-level detail, though they may choose to provide detail beyond the requirements [2].\n\n**Staff-facing strategy and training deliverables**\n\n- Agencies must develop a strategic position on AI adoption within 6 months of the policy taking effect, emphasising how AI opportunities can be identified and embraced by the agency [1].\n\n- Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption; they can develop a standalone AI strategy, augment an existing strategy, or create other materials to communicate the approach to staff [1].\n\n- Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect [6].\n\n- Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement — as provided, modified, or incorporated into an existing training program — or allow staff to access the module directly through APSLearn [6].\n\n- Agencies should implement additional training as required in consideration of roles and responsibilities, for example for those responsible for procurement, development, training and deployment of AI systems [6].\n\n- The excerpts do not establish a formal boundary rule, taxonomy, or crosswalk that an agency should apply to allocate a given deliverable to the public or staff-facing category.\n\n- The excerpts do not establish whether the strategic position on AI adoption must be published, nor any DTA notification requirement for it.\n\n- The excerpts do not establish any public-disclosure requirement for staff training content, completion rates, or the training module used.\n\n- The excerpts do not establish whether the AI transparency statement must reference the agency's strategic position or training arrangements.",
+    "model": "deepseek/deepseek-v4-flash"
+  },
+  "binding": {
+    "status": "reviewed",
+    "raw_review": "```json\n{\n  \"units\": [\n    {\n      \"id\": \"u1\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"Agencies must publish transparency statements on their public facing website.\"},\n        {\"number\": 1, \"quote\": \"Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption.\"},\n        {\"number\": 6, \"quote\": \"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect.\"}\n      ],\n      \"reason\": \"The audience/instrument distinction and the two-track characterization are supported by the cited excerpts, but the unit's claim that public obligations attach to a statement 'with prescribed minimum content and review triggers' is only partially evidenced: Child 4 supports minimum content and review triggers, yet the unit cites [4] for the whole clause and also cites [1] for the public statement, which Child 1 supports only at a high level. The final sentence that no single consolidated rule exists is a bounded gap statement and is supported by the absence of such a rule in the excerpts.\"\n    },\n    {\n      \"id\": \"u2\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u3\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements.\"}\n      ],\n      \"reason\": \"Child 1 directly supports the requirement that agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements.\"\n    },\n    {\n      \"id\": \"u4\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI.\"}\n      ],\n      \"reason\": \"Child 1 directly supports annual review/update and sooner review upon significant changes to the agency's approach to AI.\"\n    },\n    {\n      \"id\": \"u5\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au.\"}\n      ],\n      \"reason\": \"Child 1 directly supports the DTA notification requirement and the specified email address.\"\n    },\n    {\n      \"id\": \"u6\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au.\"}\n      ],\n      \"reason\": \"Child 2 directly supports the requirement to send the DTA a link when the statement is published or updated.\"\n    },\n    {\n      \"id\": \"u7\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"a minimum, agencies must provide the following information regarding their use of AI in their transparency statement: \\u2022 the intentions behind why the agency uses AI or is considering its adoption \\u2022 classification of AI use according to usage patterns and domains, as listed at\\n\\nAttachment A \\u2022 classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review \\u2022 measures to monitor the effectiveness of deployed AI systems and protect the public against negative impacts \\u2022 overview of compliance with the requirements under the Policy for responsible use of AI in government \\u2022 compliance with applicable legislation and regulation \\u2022 when the statement was most recently updated.\"}\n      ],\n      \"reason\": \"Child 4 lists all the minimum content items asserted in the unit, including intentions, classification, public interaction/impact, monitoring/protection measures, compliance overview, legislation/regulation compliance, and last update date.\"\n    },\n    {\n      \"id\": \"u8\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"Statements must use clear, plain language1 that avoids technical jargon and is consistent with the Australian Government Style Manual. They must also provide or direct to a contact email for further public enquiries.\"}\n      ],\n      \"reason\": \"Child 4 directly supports plain language consistent with the Australian Government Style Manual and providing or directing to a contact email for public enquiries.\"\n    },\n    {\n      \"id\": \"u9\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"Agencies must publish transparency statements on their public facing website. It\\u2019s recommended that a link to the statement is placed in a global menu, aligned to the approach often taken for privacy policies.\"}\n      ],\n      \"reason\": \"Child 4 directly supports publication on the public-facing website and the recommendation to place a link in a global menu.\"\n    },\n    {\n      \"id\": \"u10\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 4, \"quote\": \"Transparency statements must be reviewed and updated at these junctures: \\u2022 at least once a year \\u2022 when making a significant change to the agency\\u2019s approach to AI \\u2022 when any new factor materially impacts the existing statement\\u2019s accuracy.\"}\n      ],\n      \"reason\": \"Child 4 directly supports all three review/update triggers: at least once a year, significant change, and new factor materially impacting accuracy.\"\n    },\n    {\n      \"id\": \"u11\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 3, \"quote\": \"Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements.\"}\n      ],\n      \"reason\": \"Child 3 directly supports the requirement to list both usage patterns and domains in transparency statements.\"\n    },\n    {\n      \"id\": \"u12\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 2, \"quote\": \"Agencies are not required to list individual use cases or provide use case level detail. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI.\"}\n      ],\n      \"reason\": \"Child 2 directly supports that agencies are not required to list individual use cases or provide use case-level detail, while permitting additional detail.\"\n    },\n    {\n      \"id\": \"u13\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u14\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect. This position is to emphasise how AI opportunities can be identified and embraced by the agency.\"}\n      ],\n      \"reason\": \"Child 1 directly supports the 6-month deadline and the emphasis on identifying and embracing AI opportunities.\"\n    },\n    {\n      \"id\": \"u15\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption. In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff.\"}\n      ],\n      \"reason\": \"Child 1 directly supports the communication requirement, the purpose of giving staff clear direction, and the three permissible approaches.\"\n    },\n    {\n      \"id\": \"u16\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 6, \"quote\": \"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect.\"}\n      ],\n      \"reason\": \"Child 6 directly supports mandatory training for all staff on responsible AI use within 12 months.\"\n    },\n    {\n      \"id\": \"u17\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 6, \"quote\": \"Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn.\"}\n      ],\n      \"reason\": \"Child 6 directly supports considering the Guidance, using the AI fundamentals module as provided/modified/incorporated, or allowing direct access through APSLearn.\"\n    },\n    {\n      \"id\": \"u18\",\n      \"status\": \"supported\",\n      \"bindings\": [\n        {\"number\": 6, \"quote\": \"Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\"}\n      ],\n      \"reason\": \"Child 6 directly supports additional training as required based on roles and responsibilities, with the procurement/development/training/deployment example.\"\n    },\n    {\n      \"id\": \"u19\",\n      \"status\": \"partial\",\n      \"bindings\": [\n        {\"number\": 1, \"quote\": \"Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements.\"},\n        {\"number\": 2, \"quote\": \"Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au.\"},\n        {\"number\": 4, \"quote\": \"Agencies must publish transparency statements on their public facing website.\"},\n        {\"number\": 1, \"quote\": \"Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption.\"},\n        {\"number\": 6, \"quote\": \"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect.\"}\n      ],\n      \"reason\": \"The synthesis is mostly supported: public track elements are supported by Children 1, 2, and 4; staff-facing track elements are supported by Children 1 and 6; and the excerpts do not state that strategy or training must be published or that transparency statements must incorporate strategy/training content. However, the unit's claim that the public track is defined by 'prescribed minimum content' is supported by Child 4, but the unit cites [1][2][4] collectively and Child 1 does not contain the minimum content list; this is a citation overbreadth issue rather than a substantive contradiction.\"\n    },\n    {\n      \"id\": \"u20\",\n      \"status\": \"non_factual\",\n      \"bindings\": [],\n      \"reason\": \"This is a heading, not a policy assertion or recommendation.\"\n    },\n    {\n      \"id\": \"u21\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish a formal boundary rule, taxonomy, or crosswalk for allocating a deliverable to the public or staff-facing category.\"\n    },\n    {\n      \"id\": \"u22\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish whether the strategic position on AI adoption must be published, nor any DTA notification requirement for it.\"\n    },\n    {\n      \"id\": \"u23\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish any public-disclosure requirement for staff training content, completion rates, or the training module used.\"\n    },\n    {\n      \"id\": \"u24\",\n      \"status\": \"gap\",\n      \"bindings\": [],\n      \"reason\": \"The available excerpts do not establish whether the AI transparency statement must reference the agency's strategic position or training arrangements.\"\n    }\n  ]\n}\n```",
+    "answer": "**Public-facing transparency obligations**\n\n- Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements [1].\n\n- The statement must be reviewed and updated annually, or sooner should the agency make significant changes to its approach to AI [1].\n\n- Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au [1].\n\n- Agencies must send the DTA a link to the statement when it is published or updated [2].\n\n- At a minimum, the statement must contain: the intentions behind why the agency uses or is considering AI; classification of AI use according to usage patterns and domains (Attachment A); classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review; measures to monitor effectiveness of deployed AI systems and protect the public against negative impacts; an overview of compliance with the policy requirements; compliance with applicable legislation and regulation; and when the statement was most recently updated [4].\n\n- Statements must use clear, plain language consistent with the Australian Government Style Manual, and must provide or direct to a contact email for public enquiries [4].\n\n- Agencies must publish transparency statements on their public-facing website; placing a link in a global menu is recommended [4].\n\n- Statements must be reviewed and updated at least once a year, when making a significant change to the agency's approach to AI, and when any new factor materially impacts the existing statement's accuracy [4].\n\n- Agencies must list both the usage patterns and domains applying to their AI use in their transparency statements [3].\n\n- Agencies are not required to list individual use cases or provide use case-level detail, though they may choose to provide detail beyond the requirements [2].\n\n**Staff-facing strategy and training deliverables**\n\n- Agencies must develop a strategic position on AI adoption within 6 months of the policy taking effect, emphasising how AI opportunities can be identified and embraced by the agency [1].\n\n- Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption; they can develop a standalone AI strategy, augment an existing strategy, or create other materials to communicate the approach to staff [1].\n\n- Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect [6].\n\n- Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement — as provided, modified, or incorporated into an existing training program — or allow staff to access the module directly through APSLearn [6].\n\n- Agencies should implement additional training as required in consideration of roles and responsibilities, for example for those responsible for procurement, development, training and deployment of AI systems [6].\n\n- The excerpts do not establish a formal boundary rule, taxonomy, or crosswalk that an agency should apply to allocate a given deliverable to the public or staff-facing category.\n\n- The excerpts do not establish whether the strategic position on AI adoption must be published, nor any DTA notification requirement for it.\n\n- The excerpts do not establish any public-disclosure requirement for staff training content, completion rates, or the training module used.\n\n- The excerpts do not establish whether the AI transparency statement must reference the agency's strategic position or training arrangements.",
+    "removed_unit_ids": [
+      "u1",
+      "u19"
+    ],
+    "rebound_unit_ids": [],
+    "binding_errors": {},
+    "review": {
+      "units": [
+        {
+          "id": "u1",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Agencies must publish transparency statements on their public facing website."
+            },
+            {
+              "number": 1,
+              "quote": "Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption."
+            },
+            {
+              "number": 6,
+              "quote": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect."
+            }
+          ],
+          "reason": "The audience/instrument distinction and the two-track characterization are supported by the cited excerpts, but the unit's claim that public obligations attach to a statement 'with prescribed minimum content and review triggers' is only partially evidenced: Child 4 supports minimum content and review triggers, yet the unit cites [4] for the whole clause and also cites [1] for the public statement, which Child 1 supports only at a high level. The final sentence that no single consolidated rule exists is a bounded gap statement and is supported by the absence of such a rule in the excerpts."
+        },
+        {
+          "id": "u2",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u3",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements."
+            }
+          ],
+          "reason": "Child 1 directly supports the requirement that agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements."
+        },
+        {
+          "id": "u4",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI."
+            }
+          ],
+          "reason": "Child 1 directly supports annual review/update and sooner review upon significant changes to the agency's approach to AI."
+        },
+        {
+          "id": "u5",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au."
+            }
+          ],
+          "reason": "Child 1 directly supports the DTA notification requirement and the specified email address."
+        },
+        {
+          "id": "u6",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au."
+            }
+          ],
+          "reason": "Child 2 directly supports the requirement to send the DTA a link when the statement is published or updated."
+        },
+        {
+          "id": "u7",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "a minimum, agencies must provide the following information regarding their use of AI in their transparency statement: • the intentions behind why the agency uses AI or is considering its adoption • classification of AI use according to usage patterns and domains, as listed at\n\nAttachment A • classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review • measures to monitor the effectiveness of deployed AI systems and protect the public against negative impacts • overview of compliance with the requirements under the Policy for responsible use of AI in government • compliance with applicable legislation and regulation • when the statement was most recently updated."
+            }
+          ],
+          "reason": "Child 4 lists all the minimum content items asserted in the unit, including intentions, classification, public interaction/impact, monitoring/protection measures, compliance overview, legislation/regulation compliance, and last update date."
+        },
+        {
+          "id": "u8",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Statements must use clear, plain language1 that avoids technical jargon and is consistent with the Australian Government Style Manual. They must also provide or direct to a contact email for further public enquiries."
+            }
+          ],
+          "reason": "Child 4 directly supports plain language consistent with the Australian Government Style Manual and providing or directing to a contact email for public enquiries."
+        },
+        {
+          "id": "u9",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Agencies must publish transparency statements on their public facing website. It’s recommended that a link to the statement is placed in a global menu, aligned to the approach often taken for privacy policies."
+            }
+          ],
+          "reason": "Child 4 directly supports publication on the public-facing website and the recommendation to place a link in a global menu."
+        },
+        {
+          "id": "u10",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 4,
+              "quote": "Transparency statements must be reviewed and updated at these junctures: • at least once a year • when making a significant change to the agency’s approach to AI • when any new factor materially impacts the existing statement’s accuracy."
+            }
+          ],
+          "reason": "Child 4 directly supports all three review/update triggers: at least once a year, significant change, and new factor materially impacting accuracy."
+        },
+        {
+          "id": "u11",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 3,
+              "quote": "Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements."
+            }
+          ],
+          "reason": "Child 3 directly supports the requirement to list both usage patterns and domains in transparency statements."
+        },
+        {
+          "id": "u12",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 2,
+              "quote": "Agencies are not required to list individual use cases or provide use case level detail. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI."
+            }
+          ],
+          "reason": "Child 2 directly supports that agencies are not required to list individual use cases or provide use case-level detail, while permitting additional detail."
+        },
+        {
+          "id": "u13",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u14",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect. This position is to emphasise how AI opportunities can be identified and embraced by the agency."
+            }
+          ],
+          "reason": "Child 1 directly supports the 6-month deadline and the emphasis on identifying and embracing AI opportunities."
+        },
+        {
+          "id": "u15",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption. In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff."
+            }
+          ],
+          "reason": "Child 1 directly supports the communication requirement, the purpose of giving staff clear direction, and the three permissible approaches."
+        },
+        {
+          "id": "u16",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 6,
+              "quote": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect."
+            }
+          ],
+          "reason": "Child 6 directly supports mandatory training for all staff on responsible AI use within 12 months."
+        },
+        {
+          "id": "u17",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 6,
+              "quote": "Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn."
+            }
+          ],
+          "reason": "Child 6 directly supports considering the Guidance, using the AI fundamentals module as provided/modified/incorporated, or allowing direct access through APSLearn."
+        },
+        {
+          "id": "u18",
+          "status": "supported",
+          "bindings": [
+            {
+              "number": 6,
+              "quote": "Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems."
+            }
+          ],
+          "reason": "Child 6 directly supports additional training as required based on roles and responsibilities, with the procurement/development/training/deployment example."
+        },
+        {
+          "id": "u19",
+          "status": "partial",
+          "bindings": [
+            {
+              "number": 1,
+              "quote": "Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements."
+            },
+            {
+              "number": 2,
+              "quote": "Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au."
+            },
+            {
+              "number": 4,
+              "quote": "Agencies must publish transparency statements on their public facing website."
+            },
+            {
+              "number": 1,
+              "quote": "Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption."
+            },
+            {
+              "number": 6,
+              "quote": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect."
+            }
+          ],
+          "reason": "The synthesis is mostly supported: public track elements are supported by Children 1, 2, and 4; staff-facing track elements are supported by Children 1 and 6; and the excerpts do not state that strategy or training must be published or that transparency statements must incorporate strategy/training content. However, the unit's claim that the public track is defined by 'prescribed minimum content' is supported by Child 4, but the unit cites [1][2][4] collectively and Child 1 does not contain the minimum content list; this is a citation overbreadth issue rather than a substantive contradiction."
+        },
+        {
+          "id": "u20",
+          "status": "non_factual",
+          "bindings": [],
+          "reason": "This is a heading, not a policy assertion or recommendation."
+        },
+        {
+          "id": "u21",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish a formal boundary rule, taxonomy, or crosswalk for allocating a deliverable to the public or staff-facing category."
+        },
+        {
+          "id": "u22",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish whether the strategic position on AI adoption must be published, nor any DTA notification requirement for it."
+        },
+        {
+          "id": "u23",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish any public-disclosure requirement for staff training content, completion rates, or the training module used."
+        },
+        {
+          "id": "u24",
+          "status": "gap",
+          "bindings": [],
+          "reason": "The available excerpts do not establish whether the AI transparency statement must reference the agency's strategic position or training arrangements."
+        }
+      ]
+    },
+    "semantic_method": "model_assisted_not_human",
+    "coverage_sufficient": null,
+    "revision_rounds": 1
+  },
+  "child_citations": [
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "cb93394d-8d3c-4638-a890-477f3b04c629",
+      "section_id": "e169cfea-b1bd-5da7-ae46-101dafdfbf23",
+      "section_title": "Strategy and oversight",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 10,
+      "page_end": 10,
+      "quote": "Strategy and oversight The principles and requirements included in this section are designed to enable a forward- leaning approach to agency AI adoption. These requirements set out AI accountability at the agency level and use case level and seek to build trust through transparency.\n\nPrinciples • Adopt AI to enhance efficiency, decision-making, policy outcomes and government service delivery for the benefit of Australians. • Have clear accountabilities for the adoption of AI and understand its use. • Build public trust through transparency about government AI use.\n\nMandatory requirements\n\nAI transparency statement Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements. The statement must be reviewed and updated annually or sooner, should the agency make significant changes to its approach to AI. Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au.\n\nStrategic position on AI adoption Agencies must develop a strategic position on AI adoption within 6 months of this policy taking effect. This position is to emphasise how AI opportunities can be identified and embraced by the agency. Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption. In line with their current and anticipated use of AI, agencies can develop a standalone AI strategy, augment an existing strategy or create other materials to communicate the approach to staff."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "90568ed7-e964-4da3-bda5-eddd325e17f1",
+      "section_id": "c84a594d-0737-55f3-bc94-77dacd5fca17",
+      "section_title": "1  A ustralian Government Style Manual, Plain language and word choice",
+      "title": "Standard for AI Transparency Statements",
+      "page": 4,
+      "page_end": 5,
+      "quote": "1 A ustralian Government Style Manual, Plain language and word choice\n\nHow to apply\n\nImplementing the AI transparency statements The policy provides a coordinated approach for the use of AI across the Australian Government. It builds public trust by supporting the Australian Public Service (APS) to engage with AI in a responsible way. Transparency is critical to public trust and is an important aim of the policy and broader APS Reform agenda2. The public should have confidence that agencies monitor the effectiveness of deployed AI systems and have measures to protect against negative impacts. AI transparency statements help agencies meet these aims by providing a foundational level of transparency on their use of AI. They publicly disclose: • how AI is used and managed by the agency • a commitment to safe and responsible use • compliance with the policy. Agency transparency statements are intended to provide a high-level overview of agency AI use and management in line with the policy intent. Agencies are not required to list individual use cases or provide use case level detail. However, agencies may choose to provide detail beyond the requirements to publicly explain their approach to AI. Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "667c931f-91fc-4be3-a202-cdb776a53142",
+      "section_id": "c84a594d-0737-55f3-bc94-77dacd5fca17",
+      "section_title": "1  A ustralian Government Style Manual, Plain language and word choice",
+      "title": "Standard for AI Transparency Statements",
+      "page": 5,
+      "page_end": 7,
+      "quote": "Agencies must send the DTA a link to the statement when it is published or updated by emailing ai@dta.gov.au.\n\n2 APS R eform, Priority one: An APS that embodies integrity in everything it does. “The APS acts with integrity and fairness and is accountable and transparent in everything it does. This will build public trust and strengthen standards of integrity in our federal government.” https:/ /www.apsreform.gov.au/about-aps-reform/our-focus- areas\n\nQuestions about implementation Accountable officials can contact the DTA with questions about implementing the transparency statements by emailing ai@dta.gov.au.\n\nAttachment A – Classification system for AI use The following classification system represents how AI is commonly used in government and the domains where they are applied. Agencies must list both the usage patterns and domains which apply to their use of AI in their transparency statements. Agencies should link to digital.gov.au/ai/resources/use-classification when listing their usage patterns and domains and may expand on their use of AI to provide more details to the public."
+    },
+    {
+      "document_id": "504d4cfb-5f95-4f4a-a41d-4bd1c7982502",
+      "chunk_id": "4b38ee3d-2e5a-42d2-922a-71f83328677f",
+      "section_id": "1d92aa7d-5426-5336-b2ef-e6477c9e238b",
+      "section_title": "Standard for AI transparency statements",
+      "title": "Standard for AI Transparency Statements",
+      "page": 4,
+      "page_end": 4,
+      "quote": "a minimum, agencies must provide the following information regarding their use of AI in their transparency statement: • the intentions behind why the agency uses AI or is considering its adoption • classification of AI use according to usage patterns and domains, as listed at\n\nAttachment A • classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review • measures to monitor the effectiveness of deployed AI systems and protect the public against negative impacts • overview of compliance with the requirements under the Policy for responsible use of AI in government • compliance with applicable legislation and regulation • when the statement was most recently updated. Statements must use clear, plain language1 that avoids technical jargon and is consistent with the Australian Government Style Manual. They must also provide or direct to a contact email for further public enquiries. Agencies must publish transparency statements on their public facing website. It’s recommended that a link to the statement is placed in a global menu, aligned to the approach often taken for privacy policies. Transparency statements must be reviewed and updated at these junctures: • at least once a year • when making a significant change to the agency’s approach to AI • when any new factor materially impacts the existing statement’s accuracy."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "8111121c-9ece-40d1-839c-2803fe4ab492",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Mandatory requirements",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 12,
+      "quote": "Mandatory requirements\n\nOperationalise the responsible use of AI Agencies must establish an approach to embed responsible AI practices within 12 months of this policy taking effect. This may vary according to the scale and scope of agency AI use. At a minimum, the approach will provide an agency with: • a process for adopting AI use cases in line with the implemented actions of this policy, as well as the agency’s enterprise risk management and governance approach. • a way to inform staff who are designing and implementing AI use cases about Australia’s AI Ethics Principles. • a pathway for staff to report AI safety concerns, including AI incidents. • pathways for the public to report AI safety concerns, appropriate to the agency’s AI use. • clear processes to address AI incidents aligned to their ICT incident management approach - incident remediation must be overseen by an appropriate governance body or senior executive and should be undertaken in line with any other legal obligations. Agencies may modify existing policies, procedures and frameworks, or create new ones. Smaller agencies with minimal AI adoption could amend existing documentation and/or assign key personnel to guide staff on responsible AI adoption on an ad hoc basis. Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency."
+    },
+    {
+      "document_id": "2a37798a-ba31-474c-867a-daf75e90e8bd",
+      "chunk_id": "3c867de1-2f08-4c34-9f39-de6d1591fa0f",
+      "section_id": "d4848fbb-0686-5bbc-ad76-643f7036848f",
+      "section_title": "Preparedness and operations",
+      "title": "Policy for the Responsible Use of AI in Government",
+      "page": 12,
+      "page_end": 13,
+      "quote": "Agencies with greater AI adoption could create dedicated AI policies, procedures and/or frameworks to support responsible adoption. Accountable officials are responsible for deciding the appropriate approach for their agency.\n\nStaff training on AI Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect. Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement. They can use the module as provided, modify it, or incorporate it into an existing training program based on their specific context and requirements. Alternatively, agencies can allow their staff to access the module directly through APSLearn. Agencies should implement additional training for staff as required, in consideration of their roles and responsibilities. For example, additional training for those responsible for the procurement, development, training and deployment of AI systems.\n\nRecommended Actions\n\nAI technical standard It is strongly recommended that agencies apply the AI technical standard for Australian Government. The standard is designed for Australian Government agencies adopting AI. It embeds the principles of fairness, transparency, and accountability into a set of technical requirements and guidelines.\n\nAI procurement guidance It is strongly recommended that agencies refer to the Guidance on AI procurement in government when procuring AI products and services. The guidance offers practical, step-by-step advice to help agencies identify and manage AI-specific risks while maintaining procurement best practices. Agencies should consider"
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "a55fca50-f901-4aa8-9d8a-a3539707a160",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 8,
+      "page_end": 8,
+      "quote": "Rather than introducing new processes or duplication, it emphasises the reuse of agency policies, frameworks and practices.\n\nAgencies may choose to combine the standard with existing frameworks, such as project governance or data, to include AI-related activities. The standard complements existing frameworks and legislation to help ensure agencies meet their obligations in the use of AI. The challenges for government use of AI are complex and linked with other governance considerations, such as: • The Australian Public Service (APS) Code of Conduct • data governance • cyber security • ICT infrastructure • privacy • sourcing and procurement • copyright • ethics practices. While not exhaustive, a list of related existing frameworks and related resources | digital.gov.au is provided by the Policy for the responsible use of AI in government."
+    },
+    {
+      "document_id": "448cc0ea-b68a-46ef-81f7-3f7c5b2e886d",
+      "chunk_id": "ccbbf2d3-2f3c-493c-8c8c-d8faa15a9a03",
+      "section_id": "02231706-8b04-526a-ab20-32f2eb0b7ad5",
+      "section_title": "Introduction",
+      "title": "Australian Government AI Technical Standard",
+      "page": 9,
+      "page_end": 9,
+      "quote": "The level of detail and implementation of each statement will vary across use cases. Practical use case guidance has been provided in the Use case assessment section of the standard.\n\nThe standard is applicable regardless of whether an agency develops an AI system in-house or contracts an external provider to build or supply it. Engaging external providers does not prevent agencies from implementing each of the criteria in the statements. Agencies that adopt the standard are accountable for ensuring it is met in line with the required and recommended criterion. Transparency documents can be utilised to support assessments, including open-source software. For early experimentation, proofs of concept, and pilots of AI products and services, the standard should be used to provide guidance for building responsible and safe AI systems, ensuring a clear pathway to production. The standard helps government: • contribute to the ethical use of AI to ensure public trust • stay compliant with regulatory requirements and alignment with AI strategic frameworks • align with cybersecurity guidelines and the AI assurance framework • support innovation and whole of economy growth • support AI sourcing and adoption processes • provide alignment with international AI best practices across government."
+    }
+  ],
+  "audit": {
+    "status": "reviewed",
+    "review": {
+      "verdict": "pass_complete",
+      "summary_zh": "答案完整覆盖了公开透明度义务（公开声明、年度审查、DTA通知、最低内容、发布渠道）与员工面向的战略/培训交付物（6个月战略立场、12个月强制培训），并明确标注了证据未涵盖的边界规则，与参考要点一致，引用与证据匹配。",
+      "claims": [
+        {
+          "answer_span": "Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]明确要求机构发布公开声明，符合标准。"
+        },
+        {
+          "answer_span": "The statement must be reviewed and updated annually, or sooner should the agency make significant changes to its approach to AI [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文一致。"
+        },
+        {
+          "answer_span": "Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文一致。"
+        },
+        {
+          "answer_span": "Agencies must send the DTA a link to the statement when it is published or updated [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "证据[2]原文一致。"
+        },
+        {
+          "answer_span": "At a minimum, the statement must contain: the intentions behind why the agency uses or is considering AI; classification of AI use according to usage patterns and domains (Attachment A); classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review; measures to monitor effectiveness of deployed AI systems and protect the public against negative impacts; an overview of compliance with the policy requirements; compliance with applicable legislation and regulation; and when the statement was most recently updated [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "证据[4]逐项列出最低内容要求，完全对应。"
+        },
+        {
+          "answer_span": "Statements must use clear, plain language consistent with the Australian Government Style Manual, and must provide or direct to a contact email for public enquiries [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "证据[4]原文一致。"
+        },
+        {
+          "answer_span": "Agencies must publish transparency statements on their public-facing website; placing a link in a global menu is recommended [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "证据[4]区分了强制发布与推荐做法，准确。"
+        },
+        {
+          "answer_span": "Statements must be reviewed and updated at least once a year, when making a significant change to the agency's approach to AI, and when any new factor materially impacts the existing statement's accuracy [4].",
+          "label": "supported",
+          "citation_numbers": [
+            4
+          ],
+          "reason_zh": "证据[4]列出三个更新节点，一致。"
+        },
+        {
+          "answer_span": "Agencies must list both the usage patterns and domains applying to their AI use in their transparency statements [3].",
+          "label": "supported",
+          "citation_numbers": [
+            3
+          ],
+          "reason_zh": "证据[3]原文一致。"
+        },
+        {
+          "answer_span": "Agencies are not required to list individual use cases or provide use case-level detail, though they may choose to provide detail beyond the requirements [2].",
+          "label": "supported",
+          "citation_numbers": [
+            2
+          ],
+          "reason_zh": "证据[2]原文一致。"
+        },
+        {
+          "answer_span": "Agencies must develop a strategic position on AI adoption within 6 months of the policy taking effect, emphasising how AI opportunities can be identified and embraced by the agency [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文一致。"
+        },
+        {
+          "answer_span": "Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption; they can develop a standalone AI strategy, augment an existing strategy, or create other materials to communicate the approach to staff [1].",
+          "label": "supported",
+          "citation_numbers": [
+            1
+          ],
+          "reason_zh": "证据[1]原文一致。"
+        },
+        {
+          "answer_span": "Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect [6].",
+          "label": "supported",
+          "citation_numbers": [
+            6
+          ],
+          "reason_zh": "证据[6]原文一致。"
+        },
+        {
+          "answer_span": "Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement — as provided, modified, or incorporated into an existing training program — or allow staff to access the module directly through APSLearn [6].",
+          "label": "supported",
+          "citation_numbers": [
+            6
+          ],
+          "reason_zh": "证据[6]原文一致，且正确使用should（推荐）。"
+        },
+        {
+          "answer_span": "Agencies should implement additional training as required in consideration of roles and responsibilities, for example for those responsible for procurement, development, training and deployment of AI systems [6].",
+          "label": "supported",
+          "citation_numbers": [
+            6
+          ],
+          "reason_zh": "证据[6]原文一致。"
+        },
+        {
+          "answer_span": "The excerpts do not establish a formal boundary rule, taxonomy, or crosswalk that an agency should apply to allocate a given deliverable to the public or staff-facing category.",
+          "label": "not_verifiable",
+          "citation_numbers": [],
+          "reason_zh": "属于对证据范围的诚实限定，未作虚假政策主张，无法从证据中验证其存在与否。"
+        },
+        {
+          "answer_span": "The excerpts do not establish whether the strategic position on AI adoption must be published, nor any DTA notification requirement for it.",
+          "label": "not_verifiable",
+          "citation_numbers": [],
+          "reason_zh": "诚实限定，证据中确无该内容，非虚假主张。"
+        },
+        {
+          "answer_span": "The excerpts do not establish any public-disclosure requirement for staff training content, completion rates, or the training module used.",
+          "label": "not_verifiable",
+          "citation_numbers": [],
+          "reason_zh": "诚实限定，证据中无相关披露要求。"
+        },
+        {
+          "answer_span": "The excerpts do not establish whether the AI transparency statement must reference the agency's strategic position or training arrangements.",
+          "label": "not_verifiable",
+          "citation_numbers": [],
+          "reason_zh": "诚实限定，证据未涉及该交叉引用要求。"
+        }
+      ],
+      "issues": [],
+      "missing_required_points": []
+    },
+    "validation_errors": [],
+    "raw_judge_response": "{\"verdict\":\"pass_complete\",\"summary_zh\":\"答案完整覆盖了公开透明度义务（公开声明、年度审查、DTA通知、最低内容、发布渠道）与员工面向的战略/培训交付物（6个月战略立场、12个月强制培训），并明确标注了证据未涵盖的边界规则，与参考要点一致，引用与证据匹配。\",\"claims\":[{\"answer_span\":\"Agencies must make a publicly available statement outlining their approach to AI adoption and use, as prescribed under the Standard for transparency statements [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]明确要求机构发布公开声明，符合标准。\"},{\"answer_span\":\"The statement must be reviewed and updated annually, or sooner should the agency make significant changes to its approach to AI [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文一致。\"},{\"answer_span\":\"Agencies must notify the DTA when they publish and make any changes to their AI transparency statement by emailing ai@dta.gov.au [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文一致。\"},{\"answer_span\":\"Agencies must send the DTA a link to the statement when it is published or updated [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"证据[2]原文一致。\"},{\"answer_span\":\"At a minimum, the statement must contain: the intentions behind why the agency uses or is considering AI; classification of AI use according to usage patterns and domains (Attachment A); classification of use where the public may directly interact with, or be significantly impacted by, AI or its outputs without human review; measures to monitor effectiveness of deployed AI systems and protect the public against negative impacts; an overview of compliance with the policy requirements; compliance with applicable legislation and regulation; and when the statement was most recently updated [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"证据[4]逐项列出最低内容要求，完全对应。\"},{\"answer_span\":\"Statements must use clear, plain language consistent with the Australian Government Style Manual, and must provide or direct to a contact email for public enquiries [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"证据[4]原文一致。\"},{\"answer_span\":\"Agencies must publish transparency statements on their public-facing website; placing a link in a global menu is recommended [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"证据[4]区分了强制发布与推荐做法，准确。\"},{\"answer_span\":\"Statements must be reviewed and updated at least once a year, when making a significant change to the agency's approach to AI, and when any new factor materially impacts the existing statement's accuracy [4].\",\"label\":\"supported\",\"citation_numbers\":[4],\"reason_zh\":\"证据[4]列出三个更新节点，一致。\"},{\"answer_span\":\"Agencies must list both the usage patterns and domains applying to their AI use in their transparency statements [3].\",\"label\":\"supported\",\"citation_numbers\":[3],\"reason_zh\":\"证据[3]原文一致。\"},{\"answer_span\":\"Agencies are not required to list individual use cases or provide use case-level detail, though they may choose to provide detail beyond the requirements [2].\",\"label\":\"supported\",\"citation_numbers\":[2],\"reason_zh\":\"证据[2]原文一致。\"},{\"answer_span\":\"Agencies must develop a strategic position on AI adoption within 6 months of the policy taking effect, emphasising how AI opportunities can be identified and embraced by the agency [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文一致。\"},{\"answer_span\":\"Agencies must communicate their strategic position on AI to give staff clear direction on AI adoption; they can develop a standalone AI strategy, augment an existing strategy, or create other materials to communicate the approach to staff [1].\",\"label\":\"supported\",\"citation_numbers\":[1],\"reason_zh\":\"证据[1]原文一致。\"},{\"answer_span\":\"Agencies must implement mandatory training for all staff on responsible AI use within 12 months of this policy taking effect [6].\",\"label\":\"supported\",\"citation_numbers\":[6],\"reason_zh\":\"证据[6]原文一致。\"},{\"answer_span\":\"Agencies should consider the Guidance for staff training on AI and can use the AI fundamentals training module to meet the requirement — as provided, modified, or incorporated into an existing training program — or allow staff to access the module directly through APSLearn [6].\",\"label\":\"supported\",\"citation_numbers\":[6],\"reason_zh\":\"证据[6]原文一致，且正确使用should（推荐）。\"},{\"answer_span\":\"Agencies should implement additional training as required in consideration of roles and responsibilities, for example for those responsible for procurement, development, training and deployment of AI systems [6].\",\"label\":\"supported\",\"citation_numbers\":[6],\"reason_zh\":\"证据[6]原文一致。\"},{\"answer_span\":\"The excerpts do not establish a formal boundary rule, taxonomy, or crosswalk that an agency should apply to allocate a given deliverable to the public or staff-facing category.\",\"label\":\"not_verifiable\",\"citation_numbers\":[],\"reason_zh\":\"属于对证据范围的诚实限定，未作虚假政策主张，无法从证据中验证其存在与否。\"},{\"answer_span\":\"The excerpts do not establish whether the strategic position on AI adoption must be published, nor any DTA notification requirement for it.\",\"label\":\"not_verifiable\",\"citation_numbers\":[],\"reason_zh\":\"诚实限定，证据中确无该内容，非虚假主张。\"},{\"answer_span\":\"The excerpts do not establish any public-disclosure requirement for staff training content, completion rates, or the training module used.\",\"label\":\"not_verifiable\",\"citation_numbers\":[],\"reason_zh\":\"诚实限定，证据中无相关披露要求。\"},{\"answer_span\":\"The excerpts do not establish whether the AI transparency statement must reference the agency's strategic position or training arrangements.\",\"label\":\"not_verifiable\",\"citation_numbers\":[],\"reason_zh\":\"诚实限定，证据未涉及该交叉引用要求。\"}],\"issues\":[],\"missing_required_points\":[]}"
+  },
+  "model": "deepseek/deepseek-v4-flash",
+  "human_signoff": false
+}

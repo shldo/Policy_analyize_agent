@@ -68,11 +68,14 @@ def create_user(
     clean_role = role or "user"
     if clean_role not in {"admin", "user"}:
         raise ValueError("Role must be admin or user.")
-    # TEMP: admin secret check disabled for development
-    # if clean_role == "admin":
-    #     configured_secret = get_settings().admin_register_secret
-    #     if not configured_secret or secret != configured_secret:
-    #         raise ValueError("Invalid admin registration secret.")
+    if clean_role == "admin":
+        configured_secret = get_settings().admin_register_secret
+        if (
+            not configured_secret
+            or not secret
+            or not hmac.compare_digest(secret.encode("utf-8"), configured_secret.encode("utf-8"))
+        ):
+            raise ValueError("Invalid admin registration secret.")
     row = user_repository.create(clean_username, hash_password(password), clean_role)
     return public_user(row)
 
